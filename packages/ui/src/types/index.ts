@@ -10,5 +10,5 @@ export type Option<T extends any = any> = {
 export type AutoCompleteOption<T extends any = any> = {
   label: ReactNode;
   value: T;
-  searchValue?: string;
+  searchValue: string;
 };

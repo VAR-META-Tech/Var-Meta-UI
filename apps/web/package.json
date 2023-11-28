@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "storybook dev -p 6006",
     "dev:ui": "next dev",
     "build": "next build",
     "start": "next start",

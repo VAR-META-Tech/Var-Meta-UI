@@ -4,15 +4,15 @@ import { type KeyboardEvent, type ReactNode, useCallback, useRef, useState } fro
 import { setTimeout } from 'timers';
 
 import { usePopover } from '../../hooks';
-import { type Option } from '../../types';
+import { type AutoCompleteOption } from '../../types';
 import { CommandGroup, CommandInput, CommandItem, CommandList } from '../command';
 import { CheckIcon } from '../icons';
 import { type InputProps, inputVariants } from '../input/input';
 import { Skeleton } from '../skeleton';
 import { VStack } from '../utility';
 
-export interface AutoCompleteProps extends InputProps {
-  options: Option[];
+export interface AutocompleteProps extends InputProps {
+  options: AutoCompleteOption[];
   value?: string;
   onValueChange?: (value: string) => void;
   onInputChange?: (value: string) => void;
@@ -24,8 +24,8 @@ export interface AutoCompleteProps extends InputProps {
   name?: string;
 }
 
-export const AutoComplete = ({
-  options,
+export const Autocomplete = ({
+  options = [],
   value,
   onValueChange,
   loading = false,
@@ -36,7 +36,7 @@ export const AutoComplete = ({
   className,
   icon,
   ...props
-}: AutoCompleteProps) => {
+}: AutocompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isOpen, floatingStyles, refs, { open, close }] = usePopover();
 
@@ -149,16 +149,16 @@ export const AutoComplete = ({
                 return (
                   <CommandItem
                     key={option.value}
-                    value={option.value}
+                    value={option.searchValue}
                     onMouseDown={(event) => {
                       event.preventDefault();
                       event.stopPropagation();
                     }}
                     onSelect={() => handleSelectOption(option.value)}
-                    className={cn('flex w-full items-center gap-2', !isSelected ? 'pl-8' : null)}
+                    className={cn('flex w-full items-center justify-between gap-2')}
                   >
-                    {isSelected ? <CheckIcon className="w-4" /> : null}
                     {option.label}
+                    {isSelected ? <CheckIcon className="w-4" /> : null}
                   </CommandItem>
                 );
               })}

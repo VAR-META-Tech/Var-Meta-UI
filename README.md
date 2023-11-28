@@ -33,7 +33,7 @@ Using Turborepo simplifies managing your design system monorepo, as you can have
 
 This Turborepo includes the following packages and applications:
 
-- `apps/docs`: Component documentation site with Storybook
+- `apps/web`: Component documentation site with Storybook
 - `packages/ui`: Core React components
 - `packages/config`: Tailwindcss presets config
 - `packages/icons`: Core React Icons components

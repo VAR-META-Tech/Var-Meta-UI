@@ -29,7 +29,7 @@ const config = {
 
 const iconBasePath = new URL(`./${config.input.icons}`, import.meta.url).pathname;
 const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathname;
-
+console.log(iconBasePath, utilBasePath);
 const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8');
 
 const iconNames = [];

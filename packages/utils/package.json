@@ -1,0 +1,15 @@
+{
+  "name": "@hashgraph/utils",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf .turbo && rimraf dist && rimraf node_modules "
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "tailwind-merge": "^2.0.0",
+    "clsx": "^2.0.0"
+  }
+}

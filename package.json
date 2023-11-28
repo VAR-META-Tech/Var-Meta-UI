@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "build:ui": "turbo --filter=ui build",
+    "dev": "turbo run dev --no-cache --continue",
+    "dev:web": "turbo --filter=web dev:ui",
+    "start:web": "pnpm --filter=web start:dev",
+    "dev:storybook": "turbo --filter=web storybook",
+    "build:storybook": "pnpm --filter=web build-storybook",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "preview": "turbo run preview",
+    "check-types": "turbo run check-types",
+    "format:write": "turbo run format:write",
+    "format:check": "turbo run format:check",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "test": "turbo run test --force",
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.25.2",
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-conventional": "^18.4.2",
+    "eslint": "8.42.0",
+    "husky": "^8.0.0",
+    "lint-staged": "13.2.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "0.1.13",
+    "tsconfig": "workspace:*",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^5.0.5",
+    "turbo": "1.10.16"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "dependencies": {
+    "next": "^14.0.3"
+  }
+}

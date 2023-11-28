@@ -16,16 +16,17 @@ export interface SelectProps extends RadixSelectProps, VariantProps<typeof selec
   options: Option[];
   placeholder?: string;
   fullWidth?: boolean;
+  align?: 'center' | 'start' | 'end' | undefined;
 }
 
 const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
-  ({ options, placeholder, fullWidth, variant, size, ...props }, ref) => {
+  ({ options, placeholder, align, fullWidth, variant, size, ...props }, ref) => {
     return (
       <SelectProvider {...props}>
         <SelectTrigger ref={ref} variant={variant} size={size} fullWidth={fullWidth}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent className="max-h-[320px] overflow-auto">
+        <SelectContent align={align} className="max-h-[320px] overflow-auto">
           {options.map((x) => (
             <SelectItem key={x.value} value={x.value}>
               {x.label}

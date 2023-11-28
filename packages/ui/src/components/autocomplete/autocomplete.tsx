@@ -1,7 +1,3 @@
-/* eslint-disable no-extra-boolean-cast */
-
-'use client';
-
 import { cn } from '@hashgraph/utils';
 import { Command as CommandPrimitive } from 'cmdk';
 import { type KeyboardEvent, type ReactNode, useCallback, useRef, useState } from 'react';

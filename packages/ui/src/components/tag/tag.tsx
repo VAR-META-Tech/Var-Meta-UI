@@ -1,51 +1,126 @@
 import { cn } from '@hashgraph/utils';
+import { type CheckedState } from '@radix-ui/react-checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { Checkbox } from '../checkbox';
+import { CloseIcon } from '../icons';
+import { Show } from '../utility';
+
 const tagVariants = cva(
-  'inline-flex items-center rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  'inline-flex text-center whitespace-nowrap font-medium items-center justify-center border transition-colors focus:outline-none',
   {
     variants: {
       variant: {
-        default: 'bg-main-10 text-main-100 hover:bg-main-100/20',
-        success: 'border-transparent bg-success-light text-success hover:bg-success',
-        'success-filled': 'border-transparent bg-success text-white hover:bg-success',
-        error: 'border-transparent bg-error-light text-error',
-        'error-filled': 'border-transparent bg-error text-white',
-        warning: 'border-transparent bg-warning-light text-warning',
-        'warning-filled': 'border-transparent bg-warning text-white',
-        info: 'border-transparent bg-info-light text-info',
-        'info-filled': 'border-transparent bg-info text-white',
-        outline: 'border-main-100 font-medium text-info',
-        secondary: 'font-medium text-main-100 bg-main-10 hover:bg-main-10',
-        'secondary-outlined': 'font-medium border border-main-100 text-main-100 bg-main-10 hover:bg-main-10',
-        disabled: 'bg-neutral-40 text-white',
-        text: 'text-main-100 border-none',
+        default: 'text-gray-700',
       },
       rounded: {
-        default: 'rounded-full',
+        default: 'rounded-xs',
         sm: 'rounded-sm',
-        none: '',
+        none: 'rounded-none',
       },
       size: {
-        default: 'font-medium text-xs px-4 py-2',
-        sm: 'text-xs py-1 px-5',
-        xs: 'text-xxs py-0.5 px-2.5',
-        mixin: 'text-xs font-medium',
+        sm: 'text-xs px-2 py-0.75 h-6',
+        md: 'text-xs px-2.75 py-0.5 gap-0.75 h-6',
+        lg: 'text-sm px-2.5 py-1 gap-0.75 h-7',
       },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
+      size: 'md',
       rounded: 'default',
     },
   }
 );
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof tagVariants> {}
+const tagContentVariants = cva('flex items-center', {
+  variants: {
+    size: {
+      sm: 'gap-1',
+      md: 'gap-1.25',
+      lg: 'gap-1.5',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
 
-function Tag({ className, variant, size, rounded, ...props }: TagProps) {
-  return <div className={cn(tagVariants({ variant, rounded, size }), className)} {...props} />;
+const countVariants = cva('flex text-center font-medium bg-gray-100 items-center rounded-3', {
+  variants: {
+    size: {
+      sm: 'px-1 text-xs ',
+      md: 'px-1.25 text-xs',
+      lg: 'px-1.5 text-sm',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
+export interface TagProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>,
+    VariantProps<typeof tagVariants> {
+  icon?: React.ReactNode;
+  count?: number;
+  withCount?: boolean;
+  closeIcon?: React.ReactNode;
+  checkable?: boolean;
+  checked?: boolean;
+  onClose?: () => void;
+  onChange?: (checked: CheckedState) => void;
+  contentClassName?: string;
+}
+
+function Tag({
+  className,
+  variant = 'default',
+  size = 'md',
+  rounded,
+  icon,
+  count,
+  onClose,
+  checked,
+  closeIcon,
+  onChange,
+  checkable,
+  withCount,
+  contentClassName,
+  children,
+  ...props
+}: TagProps) {
+  const withCheckBox = Boolean(checkable);
+  const withCloseIcon = Boolean(closeIcon);
+  return (
+    <div
+      className={cn(
+        tagVariants({ variant, rounded, size }),
+        {
+          'pl-1.25': withCheckBox,
+          'pr-1': withCloseIcon || count !== undefined,
+        },
+        className
+      )}
+      {...props}
+    >
+      <div className={cn(tagContentVariants({ size }), contentClassName)}>
+        <Show when={withCheckBox}>
+          <Checkbox checked={checked} onCheckedChange={onChange} size={('tag-' + size) as any} />
+        </Show>
+        <Show when={!!icon}>{icon}</Show>
+        {children}
+        <Show when={withCount}>
+          <div className={cn(countVariants({ size }))}>{count ?? 0}</div>
+        </Show>
+      </div>
+      <Show when={withCloseIcon}>
+        <button onClick={onClose}>
+          {typeof closeIcon === 'boolean' ? <CloseIcon className="w-5 h-5" /> : closeIcon}
+        </button>
+      </Show>
+    </div>
+  );
 }
 
 export { Tag, tagVariants };

@@ -22,6 +22,16 @@ const meta: Meta = {
     fullWidth: {
       control: { type: 'boolean' },
     },
+    label: {
+      control: { type: 'text' },
+    },
+    helperText: {
+      control: { type: 'text' },
+    },
+  },
+  args: {
+    helperText: 'This is a hint text to help user.',
+    label: 'Label',
   },
   parameters: {
     docs: {
@@ -38,9 +48,9 @@ const options = [
     value: '1',
     label: (
       <div className="flex gap-2">
-        <img className="rounded-full" src="https://i.pravatar.cc/24?img=1" />
-        <div className="text-md font-medium text-gray-900">Phoenix Baker</div>
-        <div className="text-md text-gray-600">@phoenix</div>
+        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="font-medium text-gray-900 text-md">Phoenix Baker</div>
+        <div className="text-gray-600 text-md">@phoenix</div>
       </div>
     ),
   },
@@ -48,9 +58,9 @@ const options = [
     value: '2',
     label: (
       <div className="flex gap-2">
-        <img className="rounded-full" src="https://i.pravatar.cc/24?img=2" />
-        <div className="text-md font-medium text-gray-900">Phoenix Baker</div>
-        <div className="text-md text-gray-600">@phoenix</div>
+        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="font-medium text-gray-900 text-md">Phoenix Baker</div>
+        <div className="text-gray-600 text-md">@phoenix</div>
       </div>
     ),
   },
@@ -58,9 +68,9 @@ const options = [
     value: '3',
     label: (
       <div className="flex gap-2">
-        <img className="rounded-full" src="https://i.pravatar.cc/24?img=3" />
-        <div className="text-md font-medium text-gray-900">Phoenix Baker</div>
-        <div className="text-md text-gray-600">@phoenix</div>
+        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="font-medium text-gray-900 text-md">Phoenix Baker</div>
+        <div className="text-gray-600 text-md">@phoenix</div>
       </div>
     ),
   },
@@ -69,13 +79,7 @@ const options = [
 const DefaultTemplate: StoryFn<SelectFieldProps> = (args) => {
   return (
     <EnhancedView prop="Default" value={''}>
-      <SelectField
-        {...args}
-        label="Team member"
-        placeholder="Select team member"
-        helperText="This is a hint text to help user."
-        options={options}
-      />
+      <SelectField {...args} placeholder="Select team member" options={options} />
     </EnhancedView>
   );
 };

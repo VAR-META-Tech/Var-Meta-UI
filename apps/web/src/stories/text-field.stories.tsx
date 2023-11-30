@@ -15,6 +15,12 @@ const meta: Meta = {
       options: variants,
       control: { type: 'select' },
     },
+    label: {
+      control: { type: 'text' },
+    },
+    helperText: {
+      control: { type: 'text' },
+    },
     size: {
       options: sizes,
       control: { type: 'select' },
@@ -22,6 +28,10 @@ const meta: Meta = {
     disabled: {
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    helperText: 'This is a hint text to help user.',
+    label: 'Label',
   },
   parameters: {
     docs: {
@@ -36,7 +46,7 @@ export default meta;
 const DefaultTemplate: StoryFn<TextFieldProps> = (args) => {
   return (
     <EnhancedView prop="Default">
-      <TextField {...args} label="Label" helperText="This is a hint text to help user." placeholder="Placeholder" />
+      <TextField {...args} placeholder="Placeholder" />
     </EnhancedView>
   );
 };

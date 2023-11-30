@@ -16,6 +16,10 @@ export const width = {
 };
 
 export const spacing = {
+  0.75: '0.1875rem',
+  1.25: '0.3125rem',
+  2.75: '0.5625rem',
+  3.5: '0.875rem',
   4.5: '1.125rem',
   5.5: '1.375rem',
   15: '3.75rem',

@@ -13,7 +13,7 @@ const SkeletonWrapper = forwardRef<HTMLDivElement, SkeletonWrapperProps>(
       <div
         ref={ref}
         className={cn(
-          { 'bg-neutral-10 h-fit w-fit animate-pulse rounded-md [&>*]:!invisible': loading, 'w-auto': fullWidth },
+          { 'bg-gray-200 h-fit w-fit animate-pulse rounded-md [&>*]:!invisible': loading, 'w-auto': fullWidth },
           className
         )}
         {...props}

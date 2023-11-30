@@ -40,6 +40,7 @@ const config: Config = {
       borderRadius: {
         none: '0rem',
         xxs: '0.125rem',
+        3: '.1875rem',
         xs: '0.25rem',
         sm: '0.375rem',
         md: '0.5rem',

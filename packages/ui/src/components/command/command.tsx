@@ -1,10 +1,10 @@
 import { cn } from '@hashgraph/utils';
 import type { DialogProps } from '@radix-ui/react-dialog';
-import { Command as CommandPrimitive } from 'cmdk';
 import * as React from 'react';
 
 import { Dialog, DialogContent } from '../dialog';
 import { SearchIcon } from '../icons';
+import { Command as CommandPrimitive } from './cmdk';
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -44,7 +44,8 @@ const CommandInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.I
       <CommandPrimitive.Input
         ref={ref}
         className={cn(
-          'flex h-full w-full bg-transparent outline-none placeholder:text-gray-500 disabled:cursor-not-allowed',
+          'flex h-full w-full bg-transparent outline-none ',
+          'placeholder:text-gray-500 disabled:cursor-not-allowed disabled:text-gray-500',
           className
         )}
         {...props}
@@ -82,7 +83,7 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      'text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-gray-500 overflow-hidden p-1',
+      'text-gray-500 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-gray-500 overflow-hidden p-1',
       className
     )}
     {...props}

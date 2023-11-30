@@ -28,5 +28,5 @@ export function useDisclosure(initialState = false, callbacks?: { onOpen?: () =>
     opened ? close() : open();
   }, [close, open, opened]);
 
-  return [opened, { open, close, toggle }] as const;
+  return [opened, { open, close, toggle, setOpened }] as const;
 }

@@ -24,4 +24,5 @@ export * from './components/skeleton';
 export * from './components/spinner';
 export * from './components/tag';
 export * from './components/text-field';
+export * from './components/tooltip';
 export * from './components/utility';

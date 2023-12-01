@@ -5,7 +5,7 @@ import React from 'react';
 import { EnhancedView } from '@/components/View';
 
 const sizes: CheckboxProps['size'][] = ['sm', 'md'];
-
+const checkboxOptions: CheckboxProps['checked'][] = ['indeterminate', true, false, undefined];
 const meta: Meta = {
   title: 'Components/Checkbox',
   component: Checkbox,
@@ -15,10 +15,8 @@ const meta: Meta = {
       control: { type: 'select' },
     },
     checked: {
-      control: { type: 'boolean' },
-    },
-    indeterminate: {
-      control: { type: 'boolean' },
+      options: checkboxOptions,
+      control: { type: 'select' },
     },
     disabled: {
       control: { type: 'boolean' },

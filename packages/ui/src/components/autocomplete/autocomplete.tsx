@@ -1,7 +1,7 @@
 import { cn } from '@hashgraph/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { type KeyboardEvent, type ReactNode, useCallback, useRef, useState } from 'react';
+import { type KeyboardEvent, useCallback, useRef, useState } from 'react';
 
 import { type Option } from '../../types';
 import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../command';
@@ -27,8 +27,6 @@ export interface AutocompleteProps<T extends boolean = false> extends InputProps
   loading?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  icon?: ReactNode;
-  suffix?: ReactNode;
   name?: string;
   open?: boolean;
   multiple?: T;
@@ -48,7 +46,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
     variant,
     size = 'md',
     className,
-    icon,
+    prefix,
     open: openProp,
     defaultOpen,
     value: valueProp,
@@ -194,7 +192,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
                 'min-h-[44px] px-3.5 py-2.5': size === 'md',
               })}
             >
-              {icon ?? <SearchIcon className="shrink-0" />}
+              {prefix ?? <SearchIcon className="shrink-0" />}
 
               {multiple &&
                 Array.isArray(selected) &&
@@ -211,7 +209,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
                 onValueChange={handleChange}
                 onBlur={handleBlur}
                 onFocus={() => setOpen(true)}
-                icon={<></>}
+                prefix={<></>}
                 className="w-0 min-w-[30px] h-full flex-1"
                 wrapperClassName={cn('border-none p-0 flex-1', {
                   // 'h-10': size === 'sm',

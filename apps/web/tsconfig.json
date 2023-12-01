@@ -8,7 +8,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@hashgraph/ui": ["../../packages/ui/src/index.tsx"]
     },
     "noEmit": true
   },

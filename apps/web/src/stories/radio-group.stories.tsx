@@ -32,17 +32,23 @@ const DefaultTemplate: StoryFn<RadioGroupItemProps> = (args) => {
   return (
     <EnhancedView prop="Default">
       <RadioGroup className="text-sm" defaultValue="comfortable">
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <RadioGroupItem {...args} value="default" id="r1" />
-          <label htmlFor="r1">Default</label>
+          <label className="ml-2" htmlFor="r1">
+            Default
+          </label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <RadioGroupItem {...args} value="comfortable" id="r2" />
-          <label htmlFor="r2">Comfortable</label>
+          <label className="ml-2" htmlFor="r2">
+            Comfortable
+          </label>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center">
           <RadioGroupItem {...args} value="compact" id="r3" />
-          <label htmlFor="r3">Compact</label>
+          <label className="ml-2" htmlFor="r3">
+            Compact
+          </label>
         </div>
       </RadioGroup>
     </EnhancedView>

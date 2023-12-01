@@ -32,15 +32,16 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   );
 };
 
-export interface CommandInputProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> {
-  icon?: any;
+export interface CommandInputProps
+  extends Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, 'prefix'> {
+  prefix?: React.ReactNode;
   wrapperClassName?: string;
 }
 
 const CommandInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.Input>, CommandInputProps>(
-  ({ className, wrapperClassName, icon, ...props }, ref) => (
+  ({ className, wrapperClassName, prefix, ...props }, ref) => (
     <div className={cn('flex items-center px-3', wrapperClassName)} cmdk-input-wrapper="">
-      {icon ?? <SearchIcon className="mr-2 shrink-0" />}
+      {prefix ?? <SearchIcon className="mr-2 shrink-0" />}
       <CommandPrimitive.Input
         ref={ref}
         className={cn(

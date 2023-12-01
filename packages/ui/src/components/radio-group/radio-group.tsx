@@ -3,7 +3,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
-import { Dot } from '../dot';
+import { CircleIcon } from '../icons';
 
 export interface RadioGroupProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {}
 
@@ -44,7 +44,11 @@ const RadioGroupItem = React.forwardRef<React.ElementRef<typeof RadioGroupPrimit
     return (
       <RadioGroupPrimitive.Item ref={ref} className={cn(radioGroupVariant({ size }), className)} {...props}>
         <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-          <Dot variant="solid" type={props.disabled ? 'disabled' : 'white'} />
+          <CircleIcon
+            className={cn('h-2 w-2 fill-current text-current', {
+              'w-1.5 h-1.5': size === 'sm',
+            })}
+          />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
     );

@@ -44,7 +44,7 @@ export const EnhancedView = ({ prop, value = '', ...props }: ViewProps) => {
         <div className="m-2.5 flex min-w-[250px] flex-col divide-y divide-gray-200 rounded border text-sm ">
           <span className="p-1.5 font-medium">Props</span>
           {Object.keys(rest).map((prop) => (
-            <div key={prop} className="flex items-center space-x-0 p-1.5">
+            <div key={prop} className="flex items-center space-x-0 p-1.5 max-w-xs">
               <div className="text-gray-500">{prop}</div>
               {typeof rest[prop] === 'string' && (
                 <div className="text-gray-800">

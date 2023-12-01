@@ -2,7 +2,7 @@ import { cn } from '@hashgraph/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 
-const dotVariants = cva('aspect-square rounded-half p-1', {
+const dotVariants = cva('aspect-square block rounded-half p-1', {
   variants: {
     variant: {
       solid: '',
@@ -60,7 +60,7 @@ const dotVariants = cva('aspect-square rounded-half p-1', {
 export interface DotProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof dotVariants> {}
 
 const Dot = React.forwardRef<HTMLDivElement, DotProps>(({ className, type, variant, ...props }, ref) => {
-  return <div ref={ref} className={cn(dotVariants({ variant, type }), className)} {...props} />;
+  return <span ref={ref} className={cn(dotVariants({ variant, type }), className)} {...props} />;
 });
 Dot.displayName = 'Dot';
 

@@ -1,3 +1,4 @@
+import { HelpCircleIcon, Mail01Icon } from '@hashgraph/icons';
 import { Input, type InputProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
@@ -11,6 +12,12 @@ const meta: Meta = {
   title: 'Components/Input',
   component: Input,
   argTypes: {
+    prefix: {
+      control: { type: 'boolean' },
+    },
+    suffix: {
+      control: { type: 'boolean' },
+    },
     variant: {
       options: variants,
       control: { type: 'select' },
@@ -33,10 +40,15 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<InputProps> = (args) => {
+const DefaultTemplate: StoryFn<InputProps> = ({ prefix, suffix, ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <Input {...args} placeholder="Placeholder" />
+      <Input
+        {...args}
+        prefix={prefix ? <Mail01Icon /> : undefined}
+        suffix={suffix ? <HelpCircleIcon /> : undefined}
+        placeholder="Placeholder"
+      />
     </EnhancedView>
   );
 };

@@ -30,7 +30,7 @@
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "html.format.wrapAttributes": "auto",
-  "cSpell.words": ["hashgraph", "tailwindcss", "tsup"],
+  "cSpell.words": ["hashgraph", "Hoverable", "tailwindcss", "tsup"],
   "[postcss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

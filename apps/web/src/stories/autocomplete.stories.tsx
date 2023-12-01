@@ -112,7 +112,7 @@ const options: AutocompleteProps['options'] = [
   },
 ];
 
-const DefaultTemplate: StoryFn<AutocompleteProps> = ({ showIcon, ...args }) => {
+const DefaultTemplate: StoryFn<any> = ({ showIcon, ...args }) => {
   return (
     <EnhancedView prop="Default">
       <Autocomplete {...args} icon={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />

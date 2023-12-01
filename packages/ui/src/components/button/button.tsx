@@ -14,7 +14,7 @@ const base = {
 };
 
 const buttonVariants = cva(
-  'inline-flex items-center min-h-0 rounded-xs justify-center text-base font-medium transition disabled:cursor-not-allowed focus:outline-none',
+  'inline-flex cursor-pointer items-center min-h-0 rounded-xs justify-center text-base font-medium transition disabled:cursor-not-allowed focus:outline-none',
   {
     variants: {
       variant: {

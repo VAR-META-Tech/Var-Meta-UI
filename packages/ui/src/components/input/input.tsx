@@ -1,19 +1,14 @@
 import { cn } from '@hashgraph/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
 const inputVariants = cva(
-  cn(
-    'flex w-full border text-gray-900 placeholder:text-gray-500 bg-base-white rounded-md',
-    'focus-visible:outline-none  outline-none',
-    'disabled:cursor-not-allowed disabled:shadow-xs disabled:bg-gray-50 disabled:text-gray-500',
-    'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default'
-  ),
+  ['inline-flex gap-2 justify-between items-center relative', 'border bg-base-white rounded-md'],
   {
     variants: {
       variant: {
-        default: 'border-gray-300 focus-visible:shadow-brand-xs focus-visible:border-brand-300',
-        destructive: 'border-error-300 bg-base-white focus-visible:shadow-error-xs focus-visible:border-error-300',
+        default: 'border-gray-300 focus-within:shadow-brand-xs focus-within:border-brand-300',
+        destructive: 'border-error-300 bg-base-white focus-within:shadow-error-xs focus-within:border-error-300',
       },
       size: {
         none: '',
@@ -28,24 +23,45 @@ const inputVariants = cva(
   }
 );
 
+const baseInputVariant = cva(
+  [
+    'block w-full flex-1 min-w-0 ',
+    'text-gray-900 placeholder:text-gray-500',
+    'focus-visible:outline-none outline-none',
+    'disabled:cursor-not-allowed disabled:shadow-xs disabled:bg-gray-50 disabled:text-gray-500',
+    'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default',
+  ],
+  {
+    variants: {},
+  }
+);
+
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'>,
     VariantProps<typeof inputVariants> {
-  suffix?: any;
+  prefix?: ReactNode;
+  suffix?: ReactNode;
   fullWidth?: boolean;
+  prefixClassName?: string;
+  suffixClassName?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant = 'default', fullWidth, size, suffix, ...props }, ref) => {
+  (
+    { className, variant = 'default', suffixClassName, prefixClassName, prefix, fullWidth, size, suffix, ...props },
+    ref
+  ) => {
     return (
-      <div className={cn('relative', fullWidth && 'w-full')}>
-        <input className={cn(inputVariants({ variant, size, className }))} ref={ref} {...props} />
+      <div
+        className={cn(inputVariants({ variant, size, className }), {
+          'w-full': fullWidth,
+        })}
+      >
+        {prefix && <div className={prefixClassName}>{prefix}</div>}
+        <input className={cn(baseInputVariant())} ref={ref} {...props} />
+
         {suffix && (
-          <div
-            className={cn('bg-base-white absolute right-[10px] top-1/2 -translate-y-1/2', {
-              'text-error-300': variant === 'destructive',
-            })}
-          >
+          <div className={cn('bg-base-white', { 'text-error-300': variant === 'destructive' }, suffixClassName)}>
             {suffix}
           </div>
         )}

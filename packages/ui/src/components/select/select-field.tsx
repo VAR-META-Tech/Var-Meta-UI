@@ -15,7 +15,7 @@ const SelectField = forwardRef<React.ElementRef<typeof Trigger>, SelectFieldProp
       <div>
         {label && <Label>{label}</Label>}
         <Select ref={ref} variant={variant} {...props} />
-        {helperText && <HelperText variant={variant}>{helperText}</HelperText>}
+        {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
       </div>
     );
   }

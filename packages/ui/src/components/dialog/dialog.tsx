@@ -2,11 +2,13 @@ import { cn } from '@hashgraph/utils';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as React from 'react';
 
-import { CloseIcon } from '../icons';
+import { ButtonClose, type ButtonCloseProps } from '../button';
 
 const Dialog = DialogPrimitive.Root;
 
 const DialogTrigger = DialogPrimitive.Trigger;
+
+const CloseDialogTrigger = DialogPrimitive.Close;
 
 const DialogPortal = DialogPrimitive.Portal;
 
@@ -35,7 +37,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
-        'border-linear bg-base-white fixed left-[50%] top-[50%] z-50 grid max-h-screen w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 overflow-auto border px-4 py-3 shadow-xl duration-200 sm:rounded-lg md:w-full',
+        'border-linear bg-base-white fixed left-[50%] top-[50%] z-50 grid max-h-screen w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 overflow-auto border px-4 py-3 shadow-xl duration-200 sm:rounded-lg md:w-full',
         className
       )}
       {...props}
@@ -46,28 +48,31 @@ const DialogContent = React.forwardRef<
 ));
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
-interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  close?: () => void;
+export interface DialogHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  onClose?: () => void;
   className?: string;
+  hideCloseButton?: boolean;
+  buttonCloseProps?: ButtonCloseProps;
 }
 
-const DialogHeader = ({ className, close, ...props }: DialogHeaderProps) => (
-  <div className="flex max-h-10 items-center justify-between gap-1">
-    <div className={cn('flex flex-col space-y-1.5 text-center sm:text-left', className)} {...props} />
-
-    <DialogPrimitive.Close
-      onClick={close}
-      className="data-[state=open]:text-muted-foreground rounded-full p-1 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-gray-50"
-    >
-      <CloseIcon className="h-4 w-4" />
-      <span className="sr-only">Close</span>
-    </DialogPrimitive.Close>
-  </div>
+const DialogHeader = React.forwardRef<React.ElementRef<'div'>, DialogHeaderProps>(
+  ({ className, children, onClose, hideCloseButton, buttonCloseProps, ...props }, ref) => (
+    <div ref={ref} className={cn('px-6 pt-6 relative', className)} {...props}>
+      {children}
+      {hideCloseButton ? null : (
+        <CloseDialogTrigger className="absolute top-4 right-4" asChild onClick={onClose}>
+          <ButtonClose size="lg" {...buttonCloseProps} />
+        </CloseDialogTrigger>
+      )}
+    </div>
+  )
 );
 DialogHeader.displayName = 'DialogHeader';
 
-const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2', className)} {...props} />
+const DialogFooter = React.forwardRef<React.ElementRef<'div'>, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('flex p-6 flex-col-reverse sm:flex-row sm:justify-end gap-3', className)} {...props} />
+  )
 );
 DialogFooter.displayName = 'DialogFooter';
 
@@ -92,6 +97,7 @@ const DialogDescription = React.forwardRef<
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 export {
+  CloseDialogTrigger,
   Dialog,
   DialogContent,
   DialogDescription,

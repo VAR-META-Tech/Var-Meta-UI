@@ -276,7 +276,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
           )}
         </PopperRoot>
       </CommandPrimitive>
-      {helperText && <HelperText variant={variant}>{helperText}</HelperText>}
+      {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
     </div>
   );
 };

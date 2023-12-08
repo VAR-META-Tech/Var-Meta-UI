@@ -116,7 +116,7 @@ function Tag({
       </div>
       <Show when={withCloseIcon}>
         <button onClick={onClose}>
-          {typeof closeIcon === 'boolean' ? <CloseIcon className="w-5 h-5" /> : closeIcon}
+          {typeof closeIcon === 'boolean' ? <CloseIcon className="w-5 h-5 text-gray-400" /> : closeIcon}
         </button>
       </Show>
     </div>

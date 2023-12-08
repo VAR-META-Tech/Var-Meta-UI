@@ -1,16 +1,15 @@
-import { HelpCircleIcon, Mail01Icon } from '@hashgraph/icons';
-import { TextField, type TextFieldProps } from '@hashgraph/ui';
+import { Textarea, type TextareaProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 
-const variants: TextFieldProps['variant'][] = ['default', 'destructive'];
-const sizes: TextFieldProps['size'][] = ['sm', 'md'];
+const variants: TextareaProps['variant'][] = ['default', 'destructive'];
+const sizes: TextareaProps['size'][] = ['sm', 'md'];
 
 const meta: Meta = {
-  title: 'Components/TextField',
-  component: TextField,
+  title: 'Components/Textarea',
+  component: Textarea,
   argTypes: {
     variant: {
       options: variants,
@@ -26,12 +25,6 @@ const meta: Meta = {
       options: sizes,
       control: { type: 'select' },
     },
-    prefix: {
-      control: { type: 'boolean' },
-    },
-    suffix: {
-      control: { type: 'boolean' },
-    },
     disabled: {
       control: { type: 'boolean' },
     },
@@ -39,6 +32,7 @@ const meta: Meta = {
   args: {
     helperText: 'This is a hint text to help user.',
     label: 'Label',
+    fullWidth: true,
   },
   parameters: {
     docs: {
@@ -50,17 +44,12 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<TextFieldProps> = ({ suffix, prefix, ...args }) => {
+const DefaultTemplate: StoryFn<TextareaProps> = ({ ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <TextField
-        {...args}
-        prefix={prefix ? <Mail01Icon /> : undefined}
-        suffix={suffix ? <HelpCircleIcon /> : undefined}
-        placeholder="Placeholder"
-      />
+      <Textarea {...args} placeholder="Placeholder" />
     </EnhancedView>
   );
 };
 
-export const Default: StoryFn<typeof TextField> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof Textarea> = DefaultTemplate.bind({});

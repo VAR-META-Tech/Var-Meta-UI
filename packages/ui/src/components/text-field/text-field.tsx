@@ -15,7 +15,7 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
       <div>
         {label && <Label>{label}</Label>}
         <Input variant={variant} ref={ref} {...props} />
-        {helperText && <HelperText variant={variant}>{helperText}</HelperText>}
+        {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
       </div>
     );
   }

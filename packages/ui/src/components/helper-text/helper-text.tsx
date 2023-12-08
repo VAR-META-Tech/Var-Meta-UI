@@ -7,6 +7,7 @@ const helperTextVariants = cva(cn('block text-sm font-normal mt-1.5'), {
     variant: {
       default: 'text-gray-600',
       destructive: 'text-error-500',
+      disabled: 'text-gray-600',
     },
   },
   defaultVariants: {

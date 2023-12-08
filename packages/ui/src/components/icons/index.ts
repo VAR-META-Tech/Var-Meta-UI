@@ -5,6 +5,7 @@ export { default as ChevronDownIcon } from './chevron-down-icon';
 export { default as ChevronRightIcon } from './chevron-right-icon';
 export { default as CircleIcon } from './circle-icon';
 export { default as CloseIcon } from './close-icon';
+export { default as FeaturedIcon, type FeaturedIconProps } from './featured-icon';
 export { default as HelpIcon } from './help-icon';
 export { default as MinusIcon } from './minus-icon';
 export { default as SearchIcon } from './search-icon';

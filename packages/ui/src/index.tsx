@@ -8,6 +8,7 @@ export { cn } from '@hashgraph/utils';
 
 // components
 export * from './components/autocomplete';
+export * from './components/badge';
 export * from './components/button';
 export * from './components/button-group';
 export * from './components/checkbox';
@@ -24,7 +25,9 @@ export * from './components/modal';
 export * from './components/radio-group';
 export * from './components/select';
 export * from './components/skeleton';
+export * from './components/slider';
 export * from './components/spinner';
+export * from './components/tabs';
 export * from './components/tag';
 export * from './components/text-field';
 export * from './components/textarea';

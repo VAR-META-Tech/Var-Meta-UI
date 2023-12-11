@@ -73,27 +73,29 @@ export interface TagProps
   contentClassName?: string;
 }
 
-function Tag({
-  className,
-  variant = 'default',
-  size = 'md',
-  rounded,
-  icon,
-  count,
-  onClose,
-  checked,
-  closeIcon,
-  onChange,
-  checkable,
-  withCount,
-  contentClassName,
-  children,
-  ...props
-}: TagProps) {
+const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps, ref) => {
+  const {
+    className,
+    variant = 'default',
+    size = 'md',
+    rounded,
+    icon,
+    count,
+    onClose,
+    checked,
+    closeIcon,
+    onChange,
+    checkable,
+    withCount,
+    contentClassName,
+    children,
+    ...etc
+  } = props;
   const withCheckBox = Boolean(checkable);
   const withCloseIcon = Boolean(closeIcon);
   return (
     <div
+      ref={ref}
       className={cn(
         tagVariants({ variant, rounded, size }),
         {
@@ -102,7 +104,7 @@ function Tag({
         },
         className
       )}
-      {...props}
+      {...etc}
     >
       <div className={cn(tagContentVariants({ size }), contentClassName)}>
         <Show when={withCheckBox}>
@@ -121,6 +123,6 @@ function Tag({
       </Show>
     </div>
   );
-}
+});
 
 export { Tag, tagVariants };

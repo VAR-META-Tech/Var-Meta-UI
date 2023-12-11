@@ -21,7 +21,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "lint": "TIMING=1 eslint --cache .",
+    "lint": "eslint --cache .",
     "typecheck": "tsc --noEmit",
     "clean": "run-s clean:build clean:cache",
     "clean:build": "rm -rf dist",

@@ -20,6 +20,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^18.4.2
         version: 18.4.3
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint:
         specifier: 8.42.0
         version: 8.42.0
@@ -355,7 +358,7 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       tsup:
-        specifier: ^6.0.1
+        specifier: ^6.7.0
         version: 6.7.0(postcss@8.4.31)(typescript@5.3.2)
       typescript:
         specifier: ^5.2.2
@@ -8020,6 +8023,15 @@ packages:
       ripemd160: 2.0.2
       safe-buffer: 5.2.1
       sha.js: 2.4.11
+    dev: true
+
+  /cross-env@7.0.3:
+    resolution:
+      { integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw== }
+    engines: { node: '>=10.14', npm: '>=6', yarn: '>=1' }
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn@5.1.0:

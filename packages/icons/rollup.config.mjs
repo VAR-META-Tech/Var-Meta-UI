@@ -27,9 +27,14 @@ const config = {
   },
 };
 
-const iconBasePath = new URL(`./${config.input.icons}`, import.meta.url).pathname;
-const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathname;
-console.log(iconBasePath, utilBasePath);
+let iconBasePath = new URL(`./${config.input.icons}`, import.meta.url).pathname;
+let utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathname;
+
+if (process.platform === 'win32') {
+  iconBasePath = iconBasePath.substring(1);
+  utilBasePath = utilBasePath.substring(1);
+}
+
 const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8');
 
 const iconNames = [];

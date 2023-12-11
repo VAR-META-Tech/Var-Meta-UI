@@ -12,9 +12,9 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup src",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup src",
     "build:fast": "tsup src",
-    "lint": "TIMING=1 eslint src/ --cache .",
+    "lint": "eslint src/ --cache .",
     "lint:fix": "eslint src/ --fix",
     "clean": "rimraf .turbo && rimraf dist && rimraf node_modules ",
     "check-types": "tsc --noEmit --pretty",
@@ -31,7 +31,7 @@
     "eslint-config-custom": "workspace:*",
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
-    "tsup": "^6.0.1",
+    "tsup": "^6.7.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {

@@ -53,6 +53,7 @@ export interface TooltipProps extends TooltipContentProps {
   title?: React.ReactNode;
   content?: React.ReactNode;
   contentClassName?: string;
+  outlined?: string;
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;

@@ -74,7 +74,8 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           </SliderPrimitive.Track>
           {value?.map((v, i) => (
             <Tooltip
-              open={!withTooltip ? false : undefined}
+              className="border border-gray-200"
+              open={!withTooltip ? false : true}
               key={i}
               title={<span className="text-xs font-semibold text-gray-900">{formatLabel(v ?? 0)}</span>}
             >

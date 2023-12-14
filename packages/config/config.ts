@@ -1,4 +1,5 @@
 export const width = {
+  18: '4.5rem',
   none: '0rem',
   xxs: '20rem',
   xs: '24rem',
@@ -24,6 +25,7 @@ export const spacing = {
   4.5: '1.125rem',
   5.5: '1.375rem',
   15: '3.75rem',
+  18: '4.5rem',
   none: '0rem',
   xxs: '0.125rem',
   xs: '0.25rem',
@@ -461,4 +463,5 @@ export const colors = {
     900: '#074d31',
     950: '#053321',
   },
+  'focus-border': '#98A2B3',
 };

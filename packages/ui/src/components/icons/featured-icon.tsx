@@ -17,6 +17,12 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
         '[&>span:last-of-type]:rotate-[15deg]  [&>span:last-of-type]:left-[18%] [&>span:last-of-type]:top-[-20%]',
         '[&>span:first-of-type]:bg-white/60 [&>span:first-of-type]:backdrop-blur-md [&>span:first-of-type]:border [&>span:first-of-type]:border-white/60',
       ],
+      outline: [
+        '[&>span]:absolute [&>span]:inset-0 [&>span]:w-full [&>span]:border-2 [&>span]:h-full [&>span]:rounded-full',
+        '[&>span]:left-1/2 [&>span]:top-1/2 [&>span]:-translate-x-1/2 [&>span]:-translate-y-1/2',
+        '[&>span:first-of-type]:scale-[.65] [&>span:first-of-type]:opacity-30',
+        '[&>span:last-of-type]:scale-[.83] [&>span:last-of-type]:opacity-10',
+      ],
       modern: 'bg-base-white text-gray-700 shadow-xs border border-gray-200',
     },
     color: {
@@ -231,6 +237,32 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
       color: 'success',
       className: '[&>span:last-of-type]:bg-success-700',
     },
+
+    {
+      variant: 'outline',
+      color: 'brand',
+      className: 'text-brand-600 [&>span]:border-brand-600',
+    },
+    {
+      variant: 'outline',
+      color: 'gray',
+      className: 'text-gray-600 [&>span]:border-gray-600',
+    },
+    {
+      variant: 'outline',
+      color: 'error',
+      className: 'text-error-600 [&>span]:border-error-600',
+    },
+    {
+      variant: 'outline',
+      color: 'warning',
+      className: 'text-warning-600 [&>span]:border-warning-600',
+    },
+    {
+      variant: 'outline',
+      color: 'success',
+      className: 'text-success-600 [&>span]:border-success-600',
+    },
   ],
   defaultVariants: {
     size: 'md',
@@ -246,7 +278,7 @@ export interface FeaturedIconProps
 const FeaturedIcon = forwardRef<ElementRef<'div'>, FeaturedIconProps>((props, ref) => {
   const { className, size, variant, color, children, ...etc } = props;
 
-  if (variant === 'glass') {
+  if (variant === 'glass' || variant === 'outline') {
     return (
       <div className={cn(featuredIconVariants({ size, variant, color, className }))} ref={ref} {...etc}>
         <span />

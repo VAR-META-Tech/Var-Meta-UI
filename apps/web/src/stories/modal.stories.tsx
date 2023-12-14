@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from '@hashgraph/icons';
+import { AlertCircleIcon } from '@hashgraph/icons';
 import { Button, FeaturedIcon, Modal, ModalAction, ModalHeader, type ModalProps } from '@hashgraph/ui';
 import { type ModalHeaderProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
@@ -49,8 +49,8 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
         <ModalHeader
           align={align}
           icon={
-            <FeaturedIcon variant="light-outline" color="success" size="xl">
-              <CheckCircleIcon />
+            <FeaturedIcon variant="outline" color="brand" size="md">
+              <AlertCircleIcon />
             </FeaturedIcon>
           }
           title="Blog post published"

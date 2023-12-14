@@ -61,7 +61,12 @@ module.exports = {
         'no-plusplus': 'off',
         '@typescript-eslint/naming-convention': [
           'warn',
-          { selector: 'variable', types: ['boolean'], format: ['camelCase', 'PascalCase', 'UPPER_CASE', 'snake_case'] },
+          {
+            selector: 'variable',
+            types: ['boolean'],
+            format: ['camelCase', 'PascalCase', 'UPPER_CASE', 'snake_case'],
+            leadingUnderscore: 'allowSingleOrDouble',
+          },
         ],
         'no-return-assign': 'off',
         'react/display-name': 'off',

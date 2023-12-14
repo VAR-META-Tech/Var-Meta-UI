@@ -37,6 +37,9 @@ const config: Config = {
       minWidth: width,
       spacing: spacing,
       colors: colors,
+      borderWidth: {
+        1.5: '1.5px',
+      },
       borderRadius: {
         none: '0rem',
         xxs: '0.125rem',
@@ -98,6 +101,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('./plugins/center-absolute')],
 };
 export default config;

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --toaster-width: 440px;
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --toaster-width: 359px;
+  }
+}
+
 ::-webkit-scrollbar-track {
   border-radius: 8px;
   background-color: #ffffff;

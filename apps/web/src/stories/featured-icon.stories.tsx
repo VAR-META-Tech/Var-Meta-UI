@@ -14,6 +14,7 @@ const variants: FeaturedIconProps['variant'][] = [
   'dark-square',
   'glass',
   'modern',
+  'outline',
 ];
 const sizes: FeaturedIconProps['size'][] = ['sm', 'md', 'lg', 'xl'];
 const colors: FeaturedIconProps['color'][] = ['brand', 'gray', 'error', 'warning', 'success'];

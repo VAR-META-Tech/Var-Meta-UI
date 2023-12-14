@@ -80,6 +80,7 @@ const buttonVariants = cva(
         'success-link': ['text-success-700 hover:text-success-800', base.ghost],
       },
       size: {
+        none: 'gap-xs text-sm font-semibold',
         sm: 'h-9 px-lg py-md gap-xs text-sm font-semibold',
         md: 'h-10 px-3.5 py-2.5 gap-xs text-sm font-semibold',
         lg: 'h-11 px-4 py-2.5 gap-sm text-base font-semibold',

@@ -11,7 +11,7 @@ import { HelperText } from '../helper-text';
 import { CheckIcon, SearchIcon } from '../icons';
 import { type InputProps, inputVariants } from '../input/input';
 import { Label } from '../label';
-import { PopperContent, PopperRoot, PopperTrigger } from '../popper/popper';
+import { PopperContent, PopperRoot, PopperTrigger } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';
 import { VStack } from '../utility';

@@ -9,7 +9,7 @@ const paginationControlVariants = cva(
   [
     'flex items-center justify-center',
     'min-w-[var(--pagination-control-size)] h-[var(--pagination-control-size)]',
-    'outline-none focus:shadow-gray hover:bg-gray-50',
+    'outline-none focus:shadow-gray focus:z-[1] hover:bg-gray-50',
     'disabled:text-gray-400 disabled:opacity-50 disabled:cursor-not-allowed',
     'text-gray-600 text-center text-sm font-medium gap-1.5',
   ],

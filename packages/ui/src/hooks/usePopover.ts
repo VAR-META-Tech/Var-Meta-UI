@@ -1,6 +1,16 @@
-import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom';
+import { autoUpdate, flip, offset as floatOffset, shift, useFloating } from '@floating-ui/react-dom';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
-import { useDisclosure } from './useDisclosures';
+type FloatingPlacement = 'end' | 'start';
+type FloatingSide = 'top' | 'right' | 'bottom' | 'left';
+export type FloatingPosition = FloatingSide | `${FloatingSide}-${FloatingPlacement}`;
+interface UsePopover {
+  offset?: number;
+  placement?: FloatingPosition;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
 
 /**
  * Generates a popover hook that manages the state of a popover component.
@@ -11,14 +21,25 @@ import { useDisclosure } from './useDisclosures';
  *   - refs: An array of mutable ref objects for the popover components.
  *   - actions: An object containing functions to open, close, and toggle the popover.
  */
-export const usePopover = () => {
-  const [isOpen, { open, close, toggle }] = useDisclosure(false);
+export const usePopover = ({
+  open: openProp,
+  defaultOpen,
+  onOpenChange,
+  offset = 8,
+  placement = 'bottom',
+}: UsePopover) => {
+  const [open = false, setOpen] = useControllableState({
+    prop: openProp,
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+  });
 
-  const { refs, floatingStyles } = useFloating({
-    open: isOpen,
-    middleware: [offset(10), flip(), shift()],
+  const { refs, floatingStyles, update } = useFloating({
+    open: open,
+    placement: placement,
+    middleware: [floatOffset(offset), flip(), shift()],
     whileElementsMounted: autoUpdate,
   });
 
-  return [isOpen, floatingStyles, refs, { open, close, toggle }] as const;
+  return { open, floatingStyles, refs, setOpen, update };
 };

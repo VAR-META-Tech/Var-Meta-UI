@@ -22,6 +22,10 @@ export const tooltipContentVariants = cva(
   ],
   {
     variants: {
+      border: {
+        default: '',
+        outlined: 'border border-gray-200',
+      },
       theme: {
         light: 'bg-base-white text-gray-700',
         dark: 'bg-gray-900 text-base-white',
@@ -29,6 +33,7 @@ export const tooltipContentVariants = cva(
     },
     defaultVariants: {
       theme: 'light',
+      border: 'default',
     },
   }
 );
@@ -38,11 +43,11 @@ export interface TooltipContentProps
     VariantProps<typeof tooltipContentVariants> {}
 
 const TooltipContent = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Content>, TooltipContentProps>(
-  ({ className, sideOffset = 4, theme = 'light', ...props }, ref) => (
+  ({ className, sideOffset = 4, border = 'default', theme = 'light', ...props }, ref) => (
     <TooltipPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
-      className={cn(tooltipContentVariants({ theme, className }))}
+      className={cn(tooltipContentVariants({ theme, border, className }))}
       {...props}
     />
   )

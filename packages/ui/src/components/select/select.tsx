@@ -39,4 +39,4 @@ const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
 );
 
 Select.displayName = 'Select';
-export { Select };
+export { Select, SelectContent, SelectItem, SelectProvider, SelectTrigger, SelectValue };

@@ -14,7 +14,7 @@ const base = {
 };
 
 const buttonVariants = cva(
-  'inline-flex cursor-pointer items-center min-h-0 rounded-xs justify-center text-base font-medium transition disabled:cursor-not-allowed focus:outline-none',
+  'inline-flex cursor-pointer items-center min-h-0 justify-center text-base font-medium transition disabled:cursor-not-allowed focus:outline-none',
   {
     variants: {
       variant: {
@@ -88,7 +88,7 @@ const buttonVariants = cva(
         '2xl': 'h-15 px-5.5 py-4 gap-2.5 text-lg font-semibold',
       },
       radius: {
-        none: 'rounded-none',
+        none: '',
         default: 'rounded-xs',
         sm: 'rounded-sm',
         md: 'rounded-md',
@@ -102,6 +102,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: 'primary',
       size: 'md',
+      radius: 'default',
     },
   }
 );
@@ -131,7 +132,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       size,
       iconOnly = false,
-      radius,
+      radius = 'default',
       asChild = false,
       dotLeading = false,
       ...props

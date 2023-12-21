@@ -37,9 +37,10 @@ export const usePopover = ({
   const { refs, floatingStyles, update } = useFloating({
     open: open,
     placement: placement,
+    strategy: 'fixed',
     middleware: [floatOffset(offset), flip(), shift()],
     whileElementsMounted: autoUpdate,
   });
 
-  return { open, floatingStyles, refs, setOpen, update };
+  return { opened: open, floatingStyles, refs, setOpen, update };
 };

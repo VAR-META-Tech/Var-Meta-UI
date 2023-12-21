@@ -1,3 +1,11 @@
 export * from './core-select';
-export { Select, type SelectProps } from './select';
+export {
+  Select,
+  SelectContent,
+  SelectItem,
+  type SelectProps,
+  SelectProvider,
+  SelectTrigger,
+  SelectValue,
+} from './select';
 export { SelectField, type SelectFieldProps } from './select-field';

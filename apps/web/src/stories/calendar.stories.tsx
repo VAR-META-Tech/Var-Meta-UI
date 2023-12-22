@@ -21,12 +21,12 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<CalendarProps> = ({ ...args }) => {
-  const [selected, setSelect] = useState<any>([]);
+const DefaultTemplate: StoryFn<CalendarProps> = ({ mode = 'single', ...args }) => {
+  const [selected, setSelect] = useState<any>();
 
   return (
     <EnhancedView prop="Default">
-      <Calendar selected={selected} onSelect={setSelect} {...args} />
+      <Calendar selected={selected} onSelect={setSelect} mode={mode} {...args} />
     </EnhancedView>
   );
 };

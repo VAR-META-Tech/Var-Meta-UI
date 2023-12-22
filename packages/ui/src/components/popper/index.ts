@@ -1,2 +1,2 @@
-export type { PopperArrowProps, PopperContentProps, PopperProps, PopperRootProps, PopperTriggerProps } from './popper';
-export { Popper, PopperArrow, PopperContent, PopperRoot, PopperTrigger } from './popper';
+export type { PopperAnchorProps, PopperArrowProps, PopperContentProps, PopperProps, PopperRootProps } from './popper';
+export { Popper, PopperAnchor, PopperArrow, PopperContent, PopperRoot } from './popper';

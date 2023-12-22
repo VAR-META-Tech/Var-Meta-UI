@@ -8,12 +8,12 @@ import { isPastDate } from './date-utils';
 
 export type CalendarProps = ComponentProps<typeof DayPicker> & {
   disablePast?: boolean;
-  transparent?: boolean;
+  unstyled?: boolean;
 };
 
 function Calendar({
   className,
-  transparent = false,
+  unstyled = false,
   classNames,
   showOutsideDays = true,
   disablePast,
@@ -25,12 +25,16 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        { 'bg-base-white border border-gray-200 shadow-xl w-fit text-gray-700 rounded-xl px-6 py-5': !transparent },
+        { 'bg-base-white border border-gray-200 shadow-xl w-fit text-gray-700 rounded-xl px-6 py-5': !unstyled },
         className
       )}
       classNames={{
-        months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
-        month: 'space-y-4',
+        months: cn('flex flex-col sm:flex-row space-y-4 sm:space-y-0', {
+          'divide-x divide-gray-200': mode === 'range',
+        }),
+        month: cn('space-y-4', {
+          'pt-5 px-6': mode === 'range',
+        }),
         caption: 'flex justify-center pt-1 relative items-center',
         caption_label: 'text-md font-semibold',
         nav: 'space-x-1 flex items-center',
@@ -46,8 +50,8 @@ function Calendar({
           '[&:has([aria-selected])]:bg-gray-50 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
         ),
         day: cn(
-          buttonVariants({ variant: 'tertiary-gray', size: 'md', radius: 'none' }),
-          'h-10 w-10 p-0 font-normal aria-selected:opacity-100 hover:bg-gray-50 hover:rounded-full'
+          buttonVariants({ variant: 'tertiary-gray', size: 'md', radius: 'full' }),
+          'h-10 w-10 p-0 font-normal aria-selected:opacity-100 hover:bg-gray-50 '
         ),
         day_selected: 'bg-brand-600 rounded-full hover:bg-brand-600 focus:bg-brand-600 hover:text-white text-white',
         day_today: cn('bg-gray-100 rounded-full ', {

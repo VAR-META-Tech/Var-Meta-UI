@@ -11,7 +11,7 @@ import { HelperText } from '../helper-text';
 import { CheckIcon, SearchIcon } from '../icons';
 import { type InputProps, inputVariants } from '../input/input';
 import { Label } from '../label';
-import { PopperContent, PopperRoot, PopperTrigger } from '../popper';
+import { PopperAnchor, PopperContent, PopperRoot } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';
 import { VStack } from '../utility';
@@ -181,7 +181,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
 
       <CommandPrimitive filter={handleSearch} onKeyDown={handleKeyDown}>
         <PopperRoot>
-          <PopperTrigger>
+          <PopperAnchor>
             <div
               className={cn(inputVariants({ variant, className, size: 'none' }), {
                 'flex justify-start flex-wrap items-center gap-2': true,
@@ -227,7 +227,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
                 </div>
               )}
             </div>
-          </PopperTrigger>
+          </PopperAnchor>
           {isOpen && (
             <Portal asChild>
               <PopperContent

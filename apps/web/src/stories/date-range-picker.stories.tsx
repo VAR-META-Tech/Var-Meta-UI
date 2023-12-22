@@ -2,8 +2,10 @@ import {
   Button,
   type Calendar,
   CalendarIcon,
-  DatePicker,
   type DatePickerProps,
+  type DateRange,
+  DateRangePicker,
+  type DateRangePickerProps,
   Popper,
   useDisclosure,
 } from '@hashgraph/ui';
@@ -13,39 +15,36 @@ import React, { useState } from 'react';
 
 import { View } from '@/components/View';
 
-const mode = ['single', 'multiple', 'range'];
-
 const meta: Meta = {
-  title: 'Components/DatePicker',
-  component: DatePicker,
+  title: 'Components/DateRangePicker',
+  component: DateRangePicker,
   tags: ['autodocs'],
-  argTypes: {
-    mode: {
-      options: mode,
-      control: { type: 'select' },
-    },
+  argTypes: {},
+  args: {
+    withPreset: true,
   },
-  args: {},
 };
 
 export default meta;
 
-const DefaultTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<Date>();
+const DefaultTemplate: StoryFn<DateRangePickerProps> = ({ ...args }) => {
   return (
     <View prop="Default">
-      <DatePicker {...args} onCancel={close} value={value} onChange={(date) => setValue(date)} />
+      <DateRangePicker {...args} />
     </View>
   );
 };
 
-export const Default: StoryFn<typeof Calendar> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof DateRangePicker> = DefaultTemplate.bind({});
 
 const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<Date>();
+  const [value, setValue] = useState<DateRange>({
+    from: new Date(new Date().setHours(0, 0, 0, 0)),
+    to: undefined,
+  });
   const [isOpen, { close, setOpened }] = useDisclosure(false);
 
-  const handleChange = (date?: Date) => {
+  const handleChange = (date?: DateRange) => {
     setValue(date);
     close();
   };
@@ -57,11 +56,20 @@ const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
         trigger={
           <Button variant="secondary-gray">
             <CalendarIcon />
-            {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
+            {value?.to
+              ? `${dayjs(value.from).format('MMM DD, YYYY')} - ${dayjs(value.to).format('MMM DD, YYYY')}`
+              : 'Select date'}
           </Button>
         }
       >
-        <DatePicker {...args} onCancel={close} value={value} onChange={handleChange} />
+        <DateRangePicker
+          {...args}
+          withPreset
+          onCancel={close}
+          from={value.from}
+          to={value.to}
+          onChange={handleChange}
+        />
       </Popper>
     </View>
   );

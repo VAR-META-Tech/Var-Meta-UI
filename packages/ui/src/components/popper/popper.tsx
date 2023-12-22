@@ -2,16 +2,19 @@ import { cn } from '@hashgraph/utils';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { forwardRef, type ReactNode } from 'react';
+import { type ElementRef, forwardRef, type ReactNode, useState } from 'react';
+
+import { useClickOutside } from '../../hooks/useClickOutSide';
+import { type ElementProps } from '../../types';
 
 const PopperRoot = PopperPrimitive.Root;
-const PopperTrigger = PopperPrimitive.Anchor;
+const PopperAnchor = PopperPrimitive.Anchor;
 const PopperArrow = PopperPrimitive.Arrow;
 
-export interface PopperRootProps extends React.ComponentPropsWithoutRef<typeof PopperRoot> {}
-export interface PopperArrowProps extends React.ComponentPropsWithoutRef<typeof PopperArrow> {}
-export interface PopperTriggerProps extends React.ComponentPropsWithoutRef<typeof PopperTrigger> {}
-export interface PopperContentProps extends React.ComponentPropsWithoutRef<typeof PopperPrimitive.Content> {}
+export interface PopperRootProps extends ElementProps<typeof PopperRoot> {}
+export interface PopperArrowProps extends ElementProps<typeof PopperArrow> {}
+export interface PopperAnchorProps extends ElementProps<typeof PopperAnchor> {}
+export interface PopperContentProps extends ElementProps<typeof PopperPrimitive.Content> {}
 
 const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content>, PopperContentProps>(
   ({ className, ...props }, ref) => {
@@ -33,32 +36,55 @@ export interface PopperProps extends PopperContentProps {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?(open: boolean): void;
-  anchor?: ReactNode;
+  trigger?: ReactNode;
   arrow?: boolean;
   theme?: 'dark' | 'light';
 }
 
-const Popper = forwardRef<React.ElementRef<typeof PopperContent>, PopperProps>((props, ref) => {
-  const { open: openProp, arrow, theme = 'light', defaultOpen, className, onOpenChange, anchor, ...etc } = props;
+const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props, ref) => {
+  const {
+    open: openProp,
+    arrow,
+    theme = 'light',
+    defaultOpen,
+    className,
+    onOpenChange,
+    trigger,
+    children,
+    sideOffset = 8,
+    align = 'start',
+    side = 'bottom',
+    ...etc
+  } = props;
 
-  const [open = false, setOpen] = useControllableState({
+  const [open, setOpen] = useControllableState({
     prop: openProp,
     defaultProp: defaultOpen,
     onChange: onOpenChange,
   });
 
+  const [anchorRef, setAnchorRef] = useState<HTMLDivElement | null>(null);
+  const [contentRef, setContentRef] = useState<HTMLDivElement | null>(null);
+  const close = () => {
+    setOpen(false);
+  };
+  useClickOutside(close, null, [contentRef, anchorRef] as any);
   return (
     <PopperRoot>
-      <PopperTrigger asChild onClick={() => setOpen(true)}>
-        {anchor}
-      </PopperTrigger>
+      <PopperAnchor ref={setAnchorRef} asChild onClick={() => setOpen(true)}>
+        {trigger}
+      </PopperAnchor>
       {open && (
         <Portal asChild>
           <PopperContent
+            sideOffset={sideOffset}
+            align={align}
+            side={side}
             className={cn(theme === 'light' ? 'bg-base-white text-gray-700' : 'bg-gray-900 text-base-white', className)}
             ref={ref}
             {...etc}
           >
+            <div ref={setContentRef}>{children}</div>
             {arrow ? (
               <PopperArrow
                 className={cn('drop-shadow-lg -mt-px w-3', {
@@ -74,4 +100,4 @@ const Popper = forwardRef<React.ElementRef<typeof PopperContent>, PopperProps>((
   );
 });
 
-export { Popper, PopperArrow, PopperContent, PopperRoot, PopperTrigger };
+export { Popper, PopperAnchor, PopperArrow, PopperContent, PopperRoot };

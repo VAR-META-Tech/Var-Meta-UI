@@ -73,7 +73,7 @@ const getPresetRange = (presetName: string): DateRange => {
   return { from, to };
 };
 
-interface DateRange {
+export interface DateRange {
   from: Date;
   to: Date | undefined;
 }
@@ -103,23 +103,27 @@ const MOBILE_PRESETS: Preset[] = [
 
 export interface DateRangePickerProps {
   /** Click handler for applying the updates from DateRangePicker. */
-  onUpdate?: (values: { range: DateRange; rangeCompare?: DateRange }) => void;
+  onChange?: (range: DateRange) => void;
+  /** Click handler for applying the updates from DateRangePicker. */
+  onCancel?: () => void;
   /** Initial value for start date */
-  initialDateFrom?: Date | string;
+  from?: Date | string;
   /** Initial value for end date */
-  initialDateTo?: Date | string;
+  to?: Date | string;
+
+  withPreset?: boolean;
 }
 
 export const DateRangePicker: FC<DateRangePickerProps> = ({
-  initialDateFrom = new Date(new Date().setHours(0, 0, 0, 0)),
-  initialDateTo,
-  onUpdate,
+  from = new Date(new Date().setHours(0, 0, 0, 0)),
+  to,
+  onChange,
+  onCancel,
+  withPreset,
 }) => {
   const [range, setRange] = useState<DateRange>({
-    from: new Date(new Date(initialDateFrom).setHours(0, 0, 0, 0)),
-    to: initialDateTo
-      ? new Date(new Date(initialDateTo).setHours(0, 0, 0, 0))
-      : new Date(new Date(initialDateFrom).setHours(0, 0, 0, 0)),
+    from: new Date(new Date(from).setHours(0, 0, 0, 0)),
+    to: to ? new Date(new Date(to).setHours(0, 0, 0, 0)) : new Date(new Date(from).setHours(0, 0, 0, 0)),
   });
   const isSmallScreen = useMediaQuery('(max-width: 48rem)');
 
@@ -133,19 +137,18 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
 
   const resetValues = (): void => {
     setRange({
-      from: typeof initialDateFrom === 'string' ? new Date(initialDateFrom) : initialDateFrom,
-      to: initialDateTo
-        ? typeof initialDateTo === 'string'
-          ? new Date(initialDateTo)
-          : initialDateTo
-        : typeof initialDateFrom === 'string'
-        ? new Date(initialDateFrom)
-        : initialDateFrom,
+      from: typeof from === 'string' ? new Date(from) : from,
+      to: to ? (typeof to === 'string' ? new Date(to) : to) : typeof from === 'string' ? new Date(from) : from,
     });
   };
 
   const handleApply = () => {
-    onUpdate?.({ range });
+    onChange?.(range);
+  };
+
+  const handleCancel = () => {
+    resetValues();
+    onCancel?.();
   };
 
   const renderInputGroup = useMemo(
@@ -181,7 +184,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
 
   return (
     <div className="w-fit flex text-gray-700  rounded-xl bg-base-white shadow-xl">
-      {!isSmallScreen && (
+      {!isSmallScreen && withPreset && (
         <div className="w-[192px] hidden md:flex border-r border-gray-200 py-3 px-4 flex-col justify-start gap-1">
           {PRESETS.map((preset) => (
             <PresetButton
@@ -197,27 +200,29 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
 
       <div className="flex flex-col ">
         <Calendar
-          className="px-6 pt-5 border-gray-200 border-b"
+          className="px-6border-gray-200 border-b"
           components={{
             Caption: (props) => (
               <>
                 <Caption {...props} />
                 <div className="block md:hidden">{renderInputGroup}</div>
-                <div className="flex justify-between md:hidden gap-2 w-[280px] overflow-auto">
-                  {MOBILE_PRESETS.map((preset) => (
-                    <PresetButton
-                      onClick={setPreset}
-                      key={preset.name}
-                      preset={preset.name}
-                      label={preset.label}
-                      isSelected={selectedPreset === preset.name}
-                    />
-                  ))}
-                </div>
+                {withPreset ? (
+                  <div className="flex justify-between md:hidden gap-2 w-[280px] overflow-auto">
+                    {MOBILE_PRESETS.map((preset) => (
+                      <PresetButton
+                        onClick={setPreset}
+                        key={preset.name}
+                        preset={preset.name}
+                        label={preset.label}
+                        isSelected={selectedPreset === preset.name}
+                      />
+                    ))}
+                  </div>
+                ) : null}
               </>
             ),
           }}
-          transparent
+          unstyled
           mode="range"
           onSelect={(value: { from?: Date; to?: Date } | undefined) => {
             if (value?.from != null) {
@@ -232,7 +237,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
         <div className="flex p-4 justify-between">
           <div className="md:block hidden">{renderInputGroup}</div>
           <div className="flex md:w-[155px] w-full gap-3">
-            <Button fullWidth variant="secondary-gray" onClick={resetValues}>
+            <Button fullWidth variant="secondary-gray" onClick={handleCancel}>
               Cancel
             </Button>
             <Button fullWidth onClick={handleApply}>

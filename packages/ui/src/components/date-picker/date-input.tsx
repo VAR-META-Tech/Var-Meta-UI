@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-shadow */
+import { cn } from '@hashgraph/utils';
 import React, { useEffect, useRef } from 'react';
 
 interface DateInputProps {
   value?: Date;
   onChange: (date: Date) => void;
+  single?: boolean;
 }
 
 interface DateParts {
@@ -12,7 +14,7 @@ interface DateParts {
   year: number;
 }
 
-const DateInput: React.FC<DateInputProps> = ({ value, onChange }) => {
+const DateInput: React.FC<DateInputProps> = ({ value, single, onChange }) => {
   const [date, setDate] = React.useState<DateParts>(() => {
     const d = value ? new Date(value) : new Date();
     return {
@@ -182,7 +184,14 @@ const DateInput: React.FC<DateInputProps> = ({ value, onChange }) => {
   };
 
   return (
-    <div className="border-gray-300 text-gray-900 flex items-center rounded-sm border px-2 md:px-3.5 py-2.5 text-md h-11">
+    <div
+      className={cn(
+        'border-gray-300 text-gray-900 flex items-center rounded-sm border px-2 md:px-3.5 py-2.5 text-md h-11',
+        {
+          'w-full h-10': single,
+        }
+      )}
+    >
       <input
         type="text"
         ref={monthRef}

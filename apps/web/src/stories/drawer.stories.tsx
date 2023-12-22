@@ -22,7 +22,26 @@ const sides: DrawerContentProps['side'][] = ['left', 'bottom', 'right', 'top'];
 const meta: Meta = {
   title: 'Components/Drawer',
   component: Drawer,
-  argTypes: {},
+  argTypes: {
+    defaultOpen: {
+      options: [true, false],
+      control: {
+        type: 'select',
+      },
+    },
+    open: {
+      options: [true, false, undefined],
+      control: {
+        type: 'select',
+      },
+    },
+    side: {
+      options: sides,
+      control: {
+        type: 'select',
+      },
+    },
+  },
   args: {},
   parameters: {
     docs: {
@@ -51,8 +70,12 @@ const DefaultTemplate: StoryFn<DrawerProps> = ({ ...args }: any) => {
             </DrawerTrigger>
             <DrawerContent side={side}>
               <DrawerHeader>
-                <DrawerTitle>Edit profile</DrawerTitle>
-                <DrawerDescription>Make changes to your profile here. Click save when you're done.</DrawerDescription>
+                <DrawerTitle>Drawer title</DrawerTitle>
+                <DrawerDescription>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex corrupti ducimus amet nihil error eum?
+                  Eum alias unde voluptate nisi, dolorem suscipit ullam molestiae nobis? Deserunt voluptatibus facere in
+                  praesentium!
+                </DrawerDescription>
               </DrawerHeader>
 
               <DrawerFooter>

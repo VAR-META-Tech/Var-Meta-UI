@@ -13,8 +13,8 @@ const dividerVariants = cva(
   {
     variants: {
       orientation: {
-        horizontal: 'before:border-t after:border-t  before:w-full after:w-full w-full',
-        vertical: 'before:border-l after:border-l  before:h-full after:h-full self-stretch flex-col h-full',
+        horizontal: 'before:border-t after:border-t w-full',
+        vertical: 'before:border-l after:border-l before:h-full after:h-full self-stretch flex-col h-full',
       },
       align: {
         left: '',
@@ -36,6 +36,11 @@ const dividerVariants = cva(
         orientation: 'horizontal',
         align: 'right',
         className: 'after:w-[10%] before:w-[90%]',
+      },
+      {
+        orientation: 'horizontal',
+        align: 'center',
+        className: 'before:w-full after:w-full',
       },
     ],
   }

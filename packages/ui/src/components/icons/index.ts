@@ -20,4 +20,5 @@ export { default as MinusCircleIcon } from './minus-circle-icon';
 export { default as MinusIcon } from './minus-icon';
 export { default as PlusCircleIcon } from './plus-circle-icon';
 export { default as SearchIcon } from './search-icon';
+export { default as SlashIcon } from './slash-icon';
 export { default as VerifiedIcon } from './verified-icon';

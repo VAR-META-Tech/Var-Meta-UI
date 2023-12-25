@@ -7,7 +7,7 @@ import { EnhancedView } from '@/components/View';
 const mode = ['single', 'multiple', 'range'];
 
 const meta: Meta = {
-  title: 'Components/Calendar',
+  title: 'Components/DatePicker/Calendar',
   component: Calendar,
   tags: ['autodocs'],
   argTypes: {
@@ -26,7 +26,7 @@ const DefaultTemplate: StoryFn<CalendarProps> = ({ mode = 'single', ...args }) =
 
   return (
     <EnhancedView prop="Default">
-      <Calendar selected={selected} onSelect={setSelect} mode={mode} {...args} />
+      <Calendar selected={selected} onSelect={setSelect as any} mode={mode} {...args} />
     </EnhancedView>
   );
 };

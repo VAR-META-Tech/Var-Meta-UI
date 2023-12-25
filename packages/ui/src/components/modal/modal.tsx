@@ -49,15 +49,27 @@ export const ModalAction = forwardRef<ElementRef<'div'>, ModalActionProps>(({ cl
 export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   trigger?: React.ReactNode;
   className?: string;
+  fitContent?: boolean;
+  fullScreen?: boolean;
 }
 
 export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
-  const { children, className, trigger, ...etc } = props;
+  const { children, className, fitContent, fullScreen, trigger, ...etc } = props;
 
   return (
     <Dialog {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent ref={ref} className={cn('min-h-[200px] p-0 shadow-lg', className)}>
+      <DialogContent
+        ref={ref}
+        className={cn(
+          'min-h-[200px] p-0 shadow-lg',
+          {
+            'max-w-fit w-fit': fitContent,
+            'max-w-full min-h-screen': fullScreen,
+          },
+          className
+        )}
+      >
         {children}
       </DialogContent>
     </Dialog>

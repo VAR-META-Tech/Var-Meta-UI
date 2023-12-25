@@ -5,7 +5,7 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { type ElementRef, forwardRef, type ReactNode, useState } from 'react';
 
 import { useClickOutside } from '../../hooks/useClickOutSide';
-import { type ElementProps } from '../../types';
+import { type ElementProps, type VisibleState } from '../../types';
 
 const PopperRoot = PopperPrimitive.Root;
 const PopperAnchor = PopperPrimitive.Anchor;
@@ -32,10 +32,7 @@ const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content
   }
 );
 
-export interface PopperProps extends PopperContentProps {
-  defaultOpen?: boolean;
-  open?: boolean;
-  onOpenChange?(open: boolean): void;
+export interface PopperProps extends PopperContentProps, VisibleState {
   trigger?: ReactNode;
   arrow?: boolean;
   theme?: 'dark' | 'light';

@@ -3,7 +3,7 @@ import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { type KeyboardEvent, useCallback, useRef, useState } from 'react';
 
-import { type Option } from '../../types';
+import { type Option, type VisibleState } from '../../types';
 import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../command';
 import { Command as CommandPrimitive } from '../command/cmdk';
 import { commandScore } from '../command/cmdk/command-score';
@@ -18,7 +18,7 @@ import { VStack } from '../utility';
 
 type TValue<T extends boolean> = T extends true ? string[] : string;
 
-export interface AutocompleteProps<T extends boolean = false> extends InputProps {
+export interface AutocompleteProps<T extends boolean = false> extends InputProps, VisibleState {
   options: Option[];
   value?: TValue<T>;
   defaultValue?: TValue<T>;
@@ -28,10 +28,7 @@ export interface AutocompleteProps<T extends boolean = false> extends InputProps
   disabled?: boolean;
   placeholder?: string;
   name?: string;
-  open?: boolean;
   multiple?: T;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
   label?: string;
   helperText?: string;
 }

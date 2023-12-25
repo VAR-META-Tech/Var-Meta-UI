@@ -59,7 +59,8 @@ export interface DividerProps extends React.HTMLAttributes<HTMLDivElement>, Vari
 
 const Divider = React.forwardRef<React.ElementRef<'div'>, DividerProps>(
   ({ className, align = 'center', orientation = 'horizontal', children, ...props }, ref) => {
-    if (!children) return <hr className={dividerWithoutChildVariants({ orientation, className })} ref={ref as any} />;
+    if (!children)
+      return <hr className={cn(dividerWithoutChildVariants({ orientation }), className)} ref={ref as any} {...props} />;
     return (
       <div className={dividerVariants({ align, orientation, className })} ref={ref} {...props}>
         <span className={cn('inline-block', orientation === 'horizontal' ? 'px-2' : 'py-2')}>{children}</span>

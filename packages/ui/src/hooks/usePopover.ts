@@ -1,15 +1,14 @@
 import { autoUpdate, flip, offset as floatOffset, shift, useFloating } from '@floating-ui/react-dom';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
+import { type VisibleState } from '../types';
+
 type FloatingPlacement = 'end' | 'start';
 type FloatingSide = 'top' | 'right' | 'bottom' | 'left';
 export type FloatingPosition = FloatingSide | `${FloatingSide}-${FloatingPlacement}`;
-interface UsePopover {
+interface UsePopover extends VisibleState {
   offset?: number;
   placement?: FloatingPosition;
-  open?: boolean;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
 }
 
 /**

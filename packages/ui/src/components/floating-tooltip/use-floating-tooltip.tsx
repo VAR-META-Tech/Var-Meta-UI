@@ -4,15 +4,14 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import type React from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 
+import { type VisibleState } from '../../types';
+
 type FloatingPlacement = 'end' | 'start';
 type FloatingSide = 'top' | 'right' | 'bottom' | 'left';
 export type FloatingPosition = FloatingSide | `${FloatingSide}-${FloatingPlacement}`;
-interface UseFloatingTooltip {
+interface UseFloatingTooltip extends VisibleState {
   offset: number;
   position: FloatingPosition;
-  open?: boolean;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
 }
 
 export function useFloatingTooltip<T extends HTMLElement = any>({

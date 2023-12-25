@@ -101,7 +101,7 @@ const BreadcrumbItem = React.forwardRef<ElementRef<'li'>, BreadcrumbItemProps>(
           )}
           {...props}
         />
-        {!isLast || hideSeparator ? <li className="text-gray-300">{separator}</li> : null}
+        {!isLast && !hideSeparator ? <li className="text-gray-300">{separator}</li> : null}
       </>
     );
   }

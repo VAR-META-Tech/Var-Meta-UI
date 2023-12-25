@@ -5,6 +5,8 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { type VisibleState } from '../../types';
+
 const TooltipProvider = TooltipPrimitive.Provider;
 
 const TooltipRoot = TooltipPrimitive.Root;
@@ -54,14 +56,11 @@ const TooltipContent = React.forwardRef<React.ElementRef<typeof TooltipPrimitive
 );
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-export interface TooltipProps extends TooltipContentProps {
+export interface TooltipProps extends TooltipContentProps, VisibleState {
   title?: React.ReactNode;
   content?: React.ReactNode;
   contentClassName?: string;
   outlined?: string;
-  open?: boolean;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
   /**
    * The duration from when the pointer enters the trigger until the tooltip gets opened. This will
    * override the prop with the same name passed to Provider.

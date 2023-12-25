@@ -5,7 +5,7 @@ import type { ElementRef } from 'react';
 import React, { cloneElement, forwardRef } from 'react';
 
 import { useMergedRef } from '../../hooks';
-import { type ElementProps } from '../../types';
+import { type ElementProps, type VisibleState } from '../../types';
 import { isElement } from '../../utils/is-element';
 import { type FloatingPosition, useFloatingTooltip } from './use-floating-tooltip';
 
@@ -31,7 +31,8 @@ export const floatingTooltipContentVariants = cva(
 
 export interface FloatingTooltipProps
   extends ElementProps<'div', 'content' | 'title'>,
-    VariantProps<typeof floatingTooltipContentVariants> {
+    VariantProps<typeof floatingTooltipContentVariants>,
+    VisibleState {
   offset?: number;
   position?: FloatingPosition;
   title?: React.ReactNode;
@@ -39,9 +40,6 @@ export interface FloatingTooltipProps
   contentClassName?: string;
   outlined?: boolean;
   arrow?: boolean;
-  open?: boolean;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
 }
 
 const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(

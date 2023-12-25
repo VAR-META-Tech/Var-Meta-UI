@@ -4,6 +4,7 @@ import {
   CalendarIcon,
   DatePicker,
   type DatePickerProps,
+  Modal,
   Popper,
   useDisclosure,
 } from '@hashgraph/ui';
@@ -16,7 +17,7 @@ import { View } from '@/components/View';
 const mode = ['single', 'multiple', 'range'];
 
 const meta: Meta = {
-  title: 'Components/DatePicker',
+  title: 'Components/DatePicker/DatePicker',
   component: DatePicker,
   tags: ['autodocs'],
   argTypes: {
@@ -68,3 +69,33 @@ const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
 };
 
 export const WithPopper: StoryFn<typeof Calendar> = WithPopperTemplate.bind({});
+
+const WithModalTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
+  const [value, setValue] = useState<Date>();
+  const [isOpen, { close, setOpened }] = useDisclosure(false);
+
+  const handleChange = (date?: Date) => {
+    setValue(date);
+    close();
+  };
+  return (
+    <View prop="Default">
+      <Modal
+        className="max-w-fit"
+        onOpenChange={setOpened}
+        open={isOpen}
+        fitContent
+        trigger={
+          <Button variant="secondary-gray">
+            <CalendarIcon />
+            {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
+          </Button>
+        }
+      >
+        <DatePicker {...args} onCancel={close} value={value} onChange={handleChange} />
+      </Modal>
+    </View>
+  );
+};
+
+export const WithModal: StoryFn<typeof Calendar> = WithModalTemplate.bind({});

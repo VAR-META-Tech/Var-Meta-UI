@@ -28,22 +28,11 @@ export interface TableProps extends ElementProps<'table'>, TableContext {
   headerClassName?: string;
   layout?: 'auto' | 'fixed';
   header?: ReactNode;
-  footer?: ReactNode;
 }
 
 const Table = forwardRef<HTMLTableElement, TableProps>(
   (
-    {
-      variant = 'default',
-      footer,
-      header,
-      layout = 'auto',
-      size = 'md',
-      className,
-      headerClassName,
-      tableClassName,
-      ...props
-    },
+    { variant = 'default', header, layout = 'auto', size = 'md', className, headerClassName, tableClassName, ...props },
     ref
   ) => (
     <TableProvider value={{ variant, size, withHeader: !!header }}>

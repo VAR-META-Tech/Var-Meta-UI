@@ -21,23 +21,29 @@ const meta: Meta = {
     open: {
       options: [true, false, undefined],
       control: {
-        type: 'select',
+        type: 'radio',
       },
     },
     align: {
       options: aligns,
       control: {
-        type: 'select',
+        type: 'radio',
+      },
+    },
+    fullScreen: {
+      options: [true, false, undefined],
+      control: {
+        type: 'radio',
+      },
+    },
+    fitContent: {
+      options: [true, false, undefined],
+      control: {
+        type: 'radio',
       },
     },
   },
   args: {},
-  parameters: {
-    docs: {
-      page: null,
-    },
-    controls: { expanded: true },
-  },
 };
 
 export default meta;
@@ -68,4 +74,4 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
   );
 };
 
-export const Default: StoryFn<typeof Modal> = DefaultTemplate.bind({});
+export const Default: StoryFn<ModalProps> = DefaultTemplate.bind({});

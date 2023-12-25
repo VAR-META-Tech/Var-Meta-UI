@@ -20,3 +20,9 @@ export type ElementProps<ElementType extends React.ElementType, PropsToOmit exte
   React.ComponentPropsWithoutRef<ElementType>,
   PropsToOmit
 >;
+
+export interface VisibleState {
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}

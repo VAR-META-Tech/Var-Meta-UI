@@ -1,63 +1,7 @@
-import { Autocomplete, type AutocompleteProps } from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
-import React from 'react';
+import { render } from '@testing-library/react';
+import * as React from 'react';
 
-import { EnhancedView } from '@/components/View';
-
-const variants: AutocompleteProps['variant'][] = ['default', 'destructive'];
-const sizes: AutocompleteProps['size'][] = ['sm', 'md'];
-
-const meta: Meta = {
-  title: 'Components/Autocomplete',
-  component: Autocomplete,
-  argTypes: {
-    variant: {
-      options: variants,
-      control: { type: 'select' },
-    },
-    label: {
-      control: { type: 'text' },
-    },
-    helperText: {
-      control: { type: 'text' },
-    },
-    size: {
-      options: sizes,
-      control: { type: 'select' },
-    },
-    showIcon: {
-      control: { type: 'boolean' },
-    },
-    multiple: {
-      control: { type: 'boolean' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    loading: {
-      control: { type: 'boolean' },
-    },
-    open: {
-      options: [true, false, undefined],
-      control: {
-        type: 'select',
-      },
-    },
-  },
-  args: {
-    helperText: 'This is a hint text to help user.',
-    label: 'Label',
-    showIcon: true,
-  },
-  parameters: {
-    docs: {
-      page: null,
-    },
-    controls: { expanded: true },
-  },
-};
-
-export default meta;
+import { Autocomplete, type AutocompleteProps } from '../index';
 
 const options: AutocompleteProps['options'] = [
   {
@@ -113,12 +57,18 @@ const options: AutocompleteProps['options'] = [
   },
 ];
 
-const DefaultTemplate: StoryFn<AutocompleteProps & { showIcon: boolean }> = ({ showIcon, ...args }) => {
-  return (
-    <EnhancedView prop="Default">
-      <Autocomplete {...args} prefix={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />
-    </EnhancedView>
-  );
-};
+describe('Autocomplete', () => {
+  it('should render correctly', () => {
+    const wrapper = render(<Autocomplete placeholder="Placeholder" options={options} />);
 
-export const Default: StoryFn<typeof Autocomplete> = DefaultTemplate.bind({});
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('ref should be forwarded', () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    render(<Autocomplete placeholder="Placeholder" options={options} ref={ref} />);
+
+    expect(ref.current).not.toBeNull();
+  });
+});

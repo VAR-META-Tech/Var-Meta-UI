@@ -1,7 +1,17 @@
+import { useMergeRefs } from '@floating-ui/react';
 import { cn } from '@hashgraph/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { type KeyboardEvent, useCallback, useRef, useState } from 'react';
+import {
+  type ElementRef,
+  forwardRef,
+  type KeyboardEvent,
+  type ReactElement,
+  type Ref,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 
 import { type Option, type VisibleState } from '../../types';
 import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../command';
@@ -33,7 +43,10 @@ export interface AutocompleteProps<T extends boolean = false> extends InputProps
   helperText?: string;
 }
 
-export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps<T>) => {
+const AutocompleteComponent = <T extends boolean = false>(
+  props: AutocompleteProps<T>,
+  autoCompleteRef: Ref<ElementRef<'input'>>
+) => {
   const {
     options = [],
     onValueChange,
@@ -56,6 +69,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
   } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const ref = useMergeRefs([autoCompleteRef, inputRef]);
 
   const [isOpen = false, setOpen] = useControllableState({
     prop: openProp,
@@ -201,7 +215,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
                 ))}
 
               <CommandInput
-                ref={inputRef}
+                ref={ref}
                 value={inputValue}
                 onValueChange={handleChange}
                 onBlur={handleBlur}
@@ -277,3 +291,7 @@ export const Autocomplete = <T extends boolean = false>(props: AutocompleteProps
     </div>
   );
 };
+
+export const Autocomplete = forwardRef(AutocompleteComponent) as <T extends boolean = false>(
+  p: AutocompleteProps<T> & { ref?: Ref<ElementRef<'input'>> }
+) => ReactElement;

@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@hashgraph/utils';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cva } from 'class-variance-authority';

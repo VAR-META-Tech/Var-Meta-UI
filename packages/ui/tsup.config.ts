@@ -1,14 +1,21 @@
-import type { Options } from 'tsup';
-import { defineConfig } from 'tsup';
+import { defineConfig, type Options } from 'tsup';
+
+const DIST_PATH = './dist';
 
 export default defineConfig((options: Options) => ({
-  treeshake: true,
-  splitting: true,
+  treeshake: false,
+  splitting: false,
   entry: ['src/**/*.tsx'],
   format: ['esm', 'cjs'],
+  sourcemap: true,
+  target: 'esnext',
+  outDir: DIST_PATH,
   dts: true,
   minify: true,
-  clean: true,
+  clean: !options.watch,
   external: ['react'],
+  banner: {
+    js: "'use client';",
+  },
   ...options,
 }));

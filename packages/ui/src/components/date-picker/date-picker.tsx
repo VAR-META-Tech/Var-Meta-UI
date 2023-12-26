@@ -41,10 +41,19 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
 
   return (
     <div
-      className={cn('w-fit flex flex-col text-gray-700 rounded-xl bg-base-white shadow-xl', className)}
+      className={cn('w-fit relative flex flex-col text-gray-700 rounded-xl bg-base-white shadow-xl', className)}
       ref={ref}
       {...etc}
     >
+      <div className="w-full px-6 absolute top-16 left-0">
+        <div className="flex w-full gap-3">
+          <DateInput single value={date} onChange={setDate} />
+          <Button onClick={handleSetToday} className="min-w-[70px]" size="md" variant="secondary-gray">
+            Today
+          </Button>
+        </div>
+      </div>
+
       <Calendar
         mode="single"
         selected={date as any}
@@ -52,15 +61,9 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
         unstyled
         components={{
           Caption: (props) => (
-            <>
+            <div className="mb-16">
               <Caption {...props} />
-              <div className="flex gap-3">
-                <DateInput single value={date} onChange={setDate} />
-                <Button onClick={handleSetToday} className="min-w-[70px]" size="md" variant="secondary-gray">
-                  Today
-                </Button>
-              </div>
-            </>
+            </div>
           ),
         }}
         {...calendarProps}

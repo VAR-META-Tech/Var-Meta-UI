@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@hashgraph/utils';
 import * as DrawerPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';

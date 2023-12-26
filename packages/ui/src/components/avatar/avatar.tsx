@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@hashgraph/utils';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import { cva, type VariantProps } from 'class-variance-authority';

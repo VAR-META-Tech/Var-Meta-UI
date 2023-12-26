@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "
   },
   "dependencies": {
     "@hashgraph/icons": "workspace:^",
@@ -21,7 +22,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@hashgraph/config": "workspace:*",
+    "@hashgraph/tailwindcss": "workspace:*",
     "@next/eslint-plugin-next": "13.4.19",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
@@ -36,12 +37,12 @@
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.13",
-    "eslint-config-custom": "workspace:*",
+    "@hashgraph/eslint-config": "workspace:*",
     "postcss": "^8.4.20",
     "storybook": "^7.5.3",
     "storybook-addon-pseudo-states": "^2.1.2",
     "tailwindcss": "^3.2.4",
     "tsconfig": "workspace:*",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   }
 }

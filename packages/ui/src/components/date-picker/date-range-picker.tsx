@@ -1,3 +1,4 @@
+import { cn } from '@hashgraph/utils';
 import React, { type FC, useMemo, useState } from 'react';
 import { Caption } from 'react-day-picker';
 
@@ -183,7 +184,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
   );
 
   return (
-    <div className="w-fit flex text-gray-700  rounded-xl bg-base-white shadow-xl">
+    <div className="w-fit flex text-gray-700 relative  rounded-xl bg-base-white shadow-xl">
       {!isSmallScreen && withPreset && (
         <div className="w-[192px] hidden md:flex border-r border-gray-200 py-3 px-4 flex-col justify-start gap-1">
           {PRESETS.map((preset) => (
@@ -198,29 +199,43 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
         </div>
       )}
 
+      <div className="w-[280px] block top-16 inset-x-center md:hidden">
+        <div className="block">{renderInputGroup}</div>
+        {withPreset ? (
+          <div className="flex justify-between mt-3 gap-2 overflow-auto">
+            {MOBILE_PRESETS.map((preset) => (
+              <PresetButton
+                onClick={setPreset}
+                key={preset.name}
+                preset={preset.name}
+                label={preset.label}
+                isSelected={selectedPreset === preset.name}
+              />
+            ))}
+          </div>
+        ) : null}
+      </div>
+
       <div className="flex flex-col ">
         <Calendar
-          className="px-6border-gray-200 border-b"
+          className="md:px-6 border-gray-200 border-b"
+          classNames={{
+            caption_between: 'bg-red-500',
+          }}
           components={{
-            Caption: (props) => (
-              <>
+            Caption: (props) =>
+              isSmallScreen ? (
+                <div
+                  className={cn({
+                    'mb-24': withPreset,
+                    'mb-18': !withPreset,
+                  })}
+                >
+                  <Caption {...props} />
+                </div>
+              ) : (
                 <Caption {...props} />
-                <div className="block md:hidden">{renderInputGroup}</div>
-                {withPreset ? (
-                  <div className="flex justify-between md:hidden gap-2 w-[280px] overflow-auto">
-                    {MOBILE_PRESETS.map((preset) => (
-                      <PresetButton
-                        onClick={setPreset}
-                        key={preset.name}
-                        preset={preset.name}
-                        label={preset.label}
-                        isSelected={selectedPreset === preset.name}
-                      />
-                    ))}
-                  </div>
-                ) : null}
-              </>
-            ),
+              ),
           }}
           unstyled
           mode="range"

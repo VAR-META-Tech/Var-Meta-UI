@@ -5,7 +5,7 @@ import React from 'react';
 import { EnhancedView } from '@/components/View';
 
 const meta: Meta = {
-  title: 'Components/Avatar-Group',
+  title: 'Components/Avatar/Avatar-Group',
   component: AvatarGroup,
   tags: ['autodocs'],
   argTypes: {},

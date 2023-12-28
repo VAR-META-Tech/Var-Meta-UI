@@ -6,7 +6,7 @@ import React from 'react';
 import { EnhancedView } from '@/components/View';
 
 const meta: Meta = {
-  title: 'Components/Avatar',
+  title: 'Components/Avatar/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {

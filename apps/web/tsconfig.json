@@ -9,6 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      /*
+       * This is hack for hot reload. Remove when packages/ui is published
+       */
       "@hashgraph/ui": ["../../packages/ui/src/index.tsx"]
     },
     "noEmit": true

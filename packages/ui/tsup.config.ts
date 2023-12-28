@@ -7,7 +7,6 @@ export default defineConfig((options: Options) => ({
   splitting: false,
   entry: ['src/**/*.tsx'],
   format: ['esm', 'cjs'],
-  sourcemap: true,
   target: 'esnext',
   outDir: DIST_PATH,
   dts: true,

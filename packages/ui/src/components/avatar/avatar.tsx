@@ -3,6 +3,7 @@ import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { useDOMRef } from '../../hooks';
 import { Indicator, type IndicatorProps } from './indicator';
 
 const avatarVariants = cva('relative z-[1] flex shrink-0 overflow-hidden bg-gray-100 rounded-full', {
@@ -30,10 +31,26 @@ export interface AvatarProps
   indicator?: IndicatorProps['type'] | 'none';
   rootClassName?: string;
   outlined?: boolean;
+  imgRef?: React.Ref<HTMLImageElement>;
 }
 
-const Avatar = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Image>, AvatarProps>(
-  ({ className, outlined, style, children, rootClassName, indicator = 'none', size = 'md', ...props }, ref) => {
+const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
+  (
+    {
+      className,
+      outlined,
+      style,
+      children,
+      rootClassName,
+      indicator = 'none',
+      size = 'md',
+      imgRef: imgRefProp,
+      ...props
+    },
+    ref
+  ) => {
+    const imgRef = useDOMRef(imgRefProp);
+
     const mappingSize = React.useMemo(() => {
       if (size === '3xl') return '2xl';
       if (size === '4xl') return '3xl';
@@ -42,9 +59,13 @@ const Avatar = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Image>, 
     }, [size]);
 
     return (
-      <div className={cn('relative group inline-flex align-middle shrink-0 rounded-full', className)} style={style}>
+      <div
+        ref={ref}
+        className={cn('relative group inline-flex align-middle shrink-0 rounded-full', className)}
+        style={style}
+      >
         <AvatarPrimitive.Root className={cn(avatarVariants({ size, className: rootClassName }))}>
-          <AvatarPrimitive.Image className={cn('aspect-square object-cover h-full w-full')} ref={ref} {...props} />
+          <AvatarPrimitive.Image ref={imgRef} className={cn('aspect-square object-cover h-full w-full')} {...props} />
           <AvatarPrimitive.Fallback className={cn('flex h-full w-full items-center justify-center rounded-full ')}>
             {children}
           </AvatarPrimitive.Fallback>

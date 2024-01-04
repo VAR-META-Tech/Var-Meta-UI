@@ -1,3 +1,4 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import {
   BarChart01Icon,
   CheckDone01Icon,
@@ -5,9 +6,14 @@ import {
   LayersThree01Icon,
   PieChart01Icon,
   Users01Icon,
-} from '@hashgraph/icons';
-import { cn, Navigation, NavigationDropdown, NavigationItem, type NavigationItemProps } from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
+} from '@swiss-digital-assets-institute/icons';
+import {
+  cn,
+  Navigation,
+  NavigationDropdown,
+  NavigationItem,
+  type NavigationItemProps,
+} from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -1,6 +1,6 @@
-import { HomeLineIcon } from '@hashgraph/icons';
-import { BreadcrumbItem, type BreadcrumbItemProps, Breadcrumbs } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { HomeLineIcon } from '@swiss-digital-assets-institute/icons';
+import { BreadcrumbItem, type BreadcrumbItemProps, Breadcrumbs } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -1,6 +1,6 @@
-import { FloatingTooltip } from '@hashgraph/ui';
-import { type FloatingTooltipProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { FloatingTooltip } from '@swiss-digital-assets-institute/ui';
+import { type FloatingTooltipProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

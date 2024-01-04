@@ -1,6 +1,6 @@
-import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@hashgraph/icons';
-import { Badge, type BadgeProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@swiss-digital-assets-institute/icons';
+import { Badge, type BadgeProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

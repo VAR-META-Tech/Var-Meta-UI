@@ -1,5 +1,5 @@
-import { Textarea, type TextareaProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Textarea, type TextareaProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

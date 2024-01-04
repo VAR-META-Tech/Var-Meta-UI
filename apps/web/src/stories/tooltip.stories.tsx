@@ -1,7 +1,7 @@
-import { HelpCircleIcon } from '@hashgraph/icons';
-import { Button, Tooltip, TooltipProvider } from '@hashgraph/ui';
-import { type TooltipProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { HelpCircleIcon } from '@swiss-digital-assets-institute/icons';
+import { Button, Tooltip, TooltipProvider } from '@swiss-digital-assets-institute/ui';
+import { type TooltipProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

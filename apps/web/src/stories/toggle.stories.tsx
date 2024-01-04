@@ -1,5 +1,5 @@
-import { Toggle, type ToggleProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Toggle, type ToggleProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

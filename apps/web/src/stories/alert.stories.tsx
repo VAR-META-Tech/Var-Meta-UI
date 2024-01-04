@@ -1,5 +1,5 @@
-import { Alert, AlertAction, type AlertProps, Button } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Alert, AlertAction, type AlertProps, Button } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { View } from '@/components/View';

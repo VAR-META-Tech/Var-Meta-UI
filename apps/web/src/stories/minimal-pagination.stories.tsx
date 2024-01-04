@@ -1,5 +1,5 @@
-import { MinimalPagination, type MinimalPaginationProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { MinimalPagination, type MinimalPaginationProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 const meta: Meta = {

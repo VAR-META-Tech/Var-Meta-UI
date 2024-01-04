@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { forwardRef } from 'react';
 
 export interface SkeletonWrapperProps extends React.ComponentPropsWithoutRef<'div'> {

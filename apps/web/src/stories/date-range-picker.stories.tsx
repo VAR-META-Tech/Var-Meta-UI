@@ -1,3 +1,4 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import {
   Button,
   type Calendar,
@@ -9,8 +10,7 @@ import {
   Modal,
   Popper,
   useDisclosure,
-} from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
+} from '@swiss-digital-assets-institute/ui';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import React from 'react';
 
 const TableFooter = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(

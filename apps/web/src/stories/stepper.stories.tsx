@@ -1,6 +1,6 @@
-import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@hashgraph/icons';
-import { Button, Stepper, StepperItem, type StepperProps, useStepper } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@swiss-digital-assets-institute/icons';
+import { Button, Stepper, StepperItem, type StepperProps, useStepper } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { View } from '@/components/View';

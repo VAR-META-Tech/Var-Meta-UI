@@ -1,6 +1,6 @@
-import { Star06Icon } from '@hashgraph/icons';
-import { Avatar, type AvatarProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Star06Icon } from '@swiss-digital-assets-institute/icons';
+import { Avatar, type AvatarProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

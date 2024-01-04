@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 

@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ComponentProps } from 'react';
 import { DayPicker } from 'react-day-picker';
 

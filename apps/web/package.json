@@ -8,13 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "
   },
   "dependencies": {
-    "@hashgraph/icons": "workspace:^",
-    "@hashgraph/ui": "workspace:*",
+    "@swiss-digital-assets-institute/icons": "workspace:^",
+    "@swiss-digital-assets-institute/ui": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
     "next": "^14.0.3",
@@ -22,7 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@hashgraph/tailwindcss": "workspace:*",
+    "@swiss-digital-assets-institute/tailwindcss": "workspace:*",
     "@next/eslint-plugin-next": "13.4.19",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
@@ -37,7 +38,7 @@
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.13",
-    "@hashgraph/eslint-config": "workspace:*",
+    "@swiss-digital-assets-institute/eslint-config": "workspace:*",
     "postcss": "^8.4.20",
     "storybook": "^7.5.3",
     "storybook-addon-pseudo-states": "^2.1.2",

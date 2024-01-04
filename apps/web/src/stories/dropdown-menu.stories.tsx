@@ -1,4 +1,11 @@
-import { ChevronDownIcon, CreditCard01Icon, Keyboard01Icon, Settings01Icon, User01Icon } from '@hashgraph/icons';
+import type { Meta, StoryFn } from '@storybook/react';
+import {
+  ChevronDownIcon,
+  CreditCard01Icon,
+  Keyboard01Icon,
+  Settings01Icon,
+  User01Icon,
+} from '@swiss-digital-assets-institute/icons';
 import {
   Button,
   DropdownMenu,
@@ -12,8 +19,7 @@ import {
   DropdownMenuTrigger,
   type SelectField,
   type SelectFieldProps,
-} from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
+} from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

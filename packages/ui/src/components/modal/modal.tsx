@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import { DialogTrigger } from '@radix-ui/react-dialog';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
 import { Dialog, DialogContent, DialogFooter, DialogHeader, type DialogHeaderProps } from '../dialog';

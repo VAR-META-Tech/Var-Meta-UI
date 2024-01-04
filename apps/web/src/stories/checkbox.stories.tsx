@@ -1,5 +1,5 @@
-import { Checkbox, type CheckboxProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Checkbox, type CheckboxProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

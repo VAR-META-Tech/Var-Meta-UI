@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
 const Popover = PopoverPrimitive.Root;

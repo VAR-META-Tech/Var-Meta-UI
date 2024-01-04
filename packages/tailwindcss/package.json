@@ -1,5 +1,5 @@
 {
-  "name": "@hashgraph/tailwindcss",
+  "name": "@swiss-digital-assets-institute/tailwindcss",
   "version": "0.0.0",
   "private": true,
   "main": "index.ts",

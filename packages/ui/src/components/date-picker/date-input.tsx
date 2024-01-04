@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { useEffect, useRef } from 'react';
 
 interface DateInputProps {

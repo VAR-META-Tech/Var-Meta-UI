@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
 import { Dot } from '../dot';

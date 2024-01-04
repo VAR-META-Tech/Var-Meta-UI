@@ -1,6 +1,6 @@
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react';
-import { cn } from '@hashgraph/utils';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { useEffect } from 'react';
 
 import { usePopover } from '../../hooks';

@@ -1,7 +1,7 @@
-import { BarChart01Icon } from '@hashgraph/icons';
-import { cn, Navigation, NavigationDropdown, NavigationItem } from '@hashgraph/ui';
-import { type NavigationItemProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { BarChart01Icon } from '@swiss-digital-assets-institute/icons';
+import { cn, Navigation, NavigationDropdown, NavigationItem } from '@swiss-digital-assets-institute/ui';
+import { type NavigationItemProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

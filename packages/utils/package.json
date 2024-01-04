@@ -1,5 +1,5 @@
 {
-  "name": "@hashgraph/utils",
+  "name": "@swiss-digital-assets-institute/utils",
   "main": "./index.ts",
   "types": "./index.ts",
   "version": "0.0.0",

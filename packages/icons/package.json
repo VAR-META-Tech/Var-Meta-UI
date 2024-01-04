@@ -1,5 +1,5 @@
 {
-  "name": "@hashgraph/icons",
+  "name": "@swiss-digital-assets-institute/icons",
   "version": "0.0.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -22,6 +22,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache . --fix",
     "typecheck": "tsc --noEmit",
     "clean": "run-s clean:build clean:cache",
     "clean:build": "rm -rf dist",
@@ -46,7 +47,7 @@
     "@rollup/pluginutils": "^5.0.4",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "@hashgraph/eslint-config": "workspace:*",
+    "@swiss-digital-assets-institute/eslint-config": "workspace:*",
     "rollup": "^3.29.1",
     "rollup-plugin-visualizer": "^5.9.2",
     "svgo": "^3.0.2"

@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 

@@ -2,7 +2,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@hashgraph/icon', '@hashgraph/ui'],
+    optimizePackageImports: ['@swiss-digital-assets-institute/icon', '@swiss-digital-assets-institute/ui'],
   },
 };
 

@@ -1,6 +1,6 @@
-import { AlertCircleIcon } from '@hashgraph/icons';
-import { FeaturedIcon, type FeaturedIconProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { AlertCircleIcon } from '@swiss-digital-assets-institute/icons';
+import { FeaturedIcon, type FeaturedIconProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

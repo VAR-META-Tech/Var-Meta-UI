@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, type ReactNode, useMemo } from 'react';
 

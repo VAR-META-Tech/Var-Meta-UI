@@ -1,5 +1,5 @@
-import { Notification, type NotificationProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Notification, type NotificationProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView, View } from '@/components/View';

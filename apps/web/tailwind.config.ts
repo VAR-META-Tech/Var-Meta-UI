@@ -1,4 +1,4 @@
-import preset from '@hashgraph/tailwindcss';
+import preset from '@swiss-digital-assets-institute/tailwindcss';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@hashgraph/eslint-config/library'],
+  extends: ['@swiss-digital-assets-institute/eslint-config/library'],
 };

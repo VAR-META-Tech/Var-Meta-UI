@@ -1,5 +1,5 @@
-import { SelectField, type SelectFieldProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { SelectField, type SelectFieldProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

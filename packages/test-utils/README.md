@@ -1,4 +1,4 @@
-# @hashgraph/test-utils
+# @swiss-digital-assets-institute/test-utils
 
 A Quick description of the component
 

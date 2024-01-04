@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as SliderPrimitive from '@radix-ui/react-slider';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
 import { Tooltip, TooltipProvider } from '../tooltip';

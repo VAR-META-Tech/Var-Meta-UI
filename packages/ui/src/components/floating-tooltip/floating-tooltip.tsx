@@ -1,5 +1,5 @@
 import { FloatingArrow, FloatingPortal } from '@floating-ui/react';
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { ElementRef } from 'react';
 import React, { cloneElement, forwardRef } from 'react';

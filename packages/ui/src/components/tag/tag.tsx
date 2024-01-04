@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import { type CheckedState } from '@radix-ui/react-checkbox';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 

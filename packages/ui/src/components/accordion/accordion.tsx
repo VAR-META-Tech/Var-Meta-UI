@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
 import { type ElementProps } from '../../types';

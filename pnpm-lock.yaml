@@ -98,10 +98,10 @@ importers:
 
   apps/web:
     dependencies:
-      '@hashgraph/icons':
+      '@swiss-digital-assets-institute/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@hashgraph/ui':
+      '@swiss-digital-assets-institute/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       class-variance-authority:
@@ -120,10 +120,10 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@hashgraph/eslint-config':
+      '@swiss-digital-assets-institute/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@hashgraph/tailwindcss':
+      '@swiss-digital-assets-institute/tailwindcss':
         specifier: workspace:*
         version: link:../../packages/tailwindcss
       '@next/eslint-plugin-next':
@@ -249,7 +249,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.22.15
         version: 7.23.3(@babel/core@7.23.3)
-      '@hashgraph/eslint-config':
+      '@swiss-digital-assets-institute/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
       '@rollup/plugin-alias':
@@ -319,10 +319,10 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.0.4
         version: 2.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@hashgraph/tailwindcss':
+      '@swiss-digital-assets-institute/tailwindcss':
         specifier: workspace:*
         version: link:../tailwindcss
-      '@hashgraph/utils':
+      '@swiss-digital-assets-institute/utils':
         specifier: workspace:*
         version: link:../utils
       '@radix-ui/primitive':
@@ -419,10 +419,10 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.3.5)
     devDependencies:
-      '@hashgraph/eslint-config':
+      '@swiss-digital-assets-institute/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@hashgraph/test-utils':
+      '@swiss-digital-assets-institute/test-utils':
         specifier: workspace:^
         version: link:../test-utils
       '@types/node':

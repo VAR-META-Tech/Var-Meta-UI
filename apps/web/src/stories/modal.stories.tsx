@@ -1,7 +1,14 @@
-import { AlertCircleIcon } from '@hashgraph/icons';
-import { Button, FeaturedIcon, Modal, ModalAction, ModalHeader, type ModalProps } from '@hashgraph/ui';
-import { type ModalHeaderProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { AlertCircleIcon } from '@swiss-digital-assets-institute/icons';
+import {
+  Button,
+  FeaturedIcon,
+  Modal,
+  ModalAction,
+  ModalHeader,
+  type ModalProps,
+} from '@swiss-digital-assets-institute/ui';
+import { type ModalHeaderProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

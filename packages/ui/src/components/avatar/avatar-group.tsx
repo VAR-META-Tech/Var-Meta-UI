@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ReactElement } from 'react';
 
 import { Avatar, type AvatarProps } from './avatar';

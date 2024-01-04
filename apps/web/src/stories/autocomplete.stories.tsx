@@ -1,5 +1,5 @@
-import { Autocomplete, type AutocompleteProps } from '@hashgraph/ui';
 import type { Meta, StoryFn } from '@storybook/react';
+import { Autocomplete, type AutocompleteProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

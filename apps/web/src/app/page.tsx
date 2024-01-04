@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, toast } from '@hashgraph/ui';
+import { Button, toast } from '@swiss-digital-assets-institute/ui';
 
 export default function Page() {
   return (

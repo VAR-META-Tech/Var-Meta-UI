@@ -1,7 +1,7 @@
 'use client';
 
-import { type FCC } from '@hashgraph/ui';
-import { Toaster } from '@hashgraph/ui';
+import { type FCC } from '@swiss-digital-assets-institute/ui';
+import { Toaster } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 const Provider: FCC = ({ children }) => {

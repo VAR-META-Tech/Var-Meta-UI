@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import type { Meta, StoryFn } from '@storybook/react';
 import {
   Button,
   Drawer,
@@ -10,9 +11,8 @@ import {
   type DrawerProps,
   DrawerTitle,
   DrawerTrigger,
-} from '@hashgraph/ui';
-import { type DrawerContentProps } from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
+} from '@swiss-digital-assets-institute/ui';
+import { type DrawerContentProps } from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

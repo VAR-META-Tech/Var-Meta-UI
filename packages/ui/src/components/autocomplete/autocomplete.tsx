@@ -1,7 +1,7 @@
 import { useMergeRefs } from '@floating-ui/react';
-import { cn } from '@hashgraph/utils';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import {
   type ElementRef,
   forwardRef,

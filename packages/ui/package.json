@@ -1,5 +1,5 @@
 {
-  "name": "@hashgraph/ui",
+  "name": "@swiss-digital-assets-institute/ui",
   "license": "MIT",
   "version": "0.0.0",
   "sideEffects": [
@@ -26,8 +26,8 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@hashgraph/eslint-config": "workspace:*",
-    "@hashgraph/test-utils": "workspace:^",
+    "@swiss-digital-assets-institute/eslint-config": "workspace:*",
+    "@swiss-digital-assets-institute/test-utils": "workspace:^",
     "@types/node": "^20.9.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -38,8 +38,8 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.4",
     "@floating-ui/react-dom": "^2.0.4",
-    "@hashgraph/tailwindcss": "workspace:*",
-    "@hashgraph/utils": "workspace:*",
+    "@swiss-digital-assets-institute/tailwindcss": "workspace:*",
+    "@swiss-digital-assets-institute/utils": "workspace:*",
     "@radix-ui/primitive": "^1.0.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-avatar": "^1.0.4",

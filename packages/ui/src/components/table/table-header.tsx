@@ -1,4 +1,4 @@
-import { cn } from '@hashgraph/utils';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ElementRef } from 'react';
 
 import { type ElementProps } from '../../types';

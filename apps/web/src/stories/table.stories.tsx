@@ -1,3 +1,4 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import {
   MinimalPagination,
   Table,
@@ -8,8 +9,7 @@ import {
   TableHeader,
   type TableProps,
   TableRow,
-} from '@hashgraph/ui';
-import type { Meta, StoryFn } from '@storybook/react';
+} from '@swiss-digital-assets-institute/ui';
 import React from 'react';
 
 const meta: Meta = {

@@ -1,5 +1,5 @@
-import { cn } from '@hashgraph/utils';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
 import { ButtonClose, type ButtonCloseProps } from '../button';

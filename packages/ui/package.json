@@ -13,8 +13,8 @@
   "main": "./dist/index.js",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup src",
-    "build:fast": "tsup src",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "build:fast": "tsup",
     "lint": "eslint src/ --cache .",
     "lint:fix": "eslint src/ --fix",
     "clean": "rimraf .turbo && rimraf dist && rimraf node_modules ",

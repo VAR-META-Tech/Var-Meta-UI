@@ -3,7 +3,7 @@ import { Pagination, type PaginationProps } from '@swiss-digital-assets-institut
 import React from 'react';
 
 const meta: Meta = {
-  title: 'Components/Pagination',
+  title: 'Components/Pagination/Pagination',
   component: Pagination,
   tags: ['autodocs'],
   args: {

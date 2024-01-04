@@ -1,8 +1,9 @@
 import { cn } from '@swiss-digital-assets-institute/utils';
-import React, { type FC, useMemo, useState } from 'react';
+import React, { type ElementRef, forwardRef, useMemo, useState } from 'react';
 import { Caption } from 'react-day-picker';
 
 import { useMediaQuery } from '../../hooks';
+import { type ElementProps } from '../../types';
 import { Button } from '../button';
 import { Calendar } from './calendar';
 import { DateInput } from './date-input';
@@ -102,7 +103,7 @@ const MOBILE_PRESETS: Preset[] = [
   { name: 'lastYear', label: 'Last Year' },
 ];
 
-export interface DateRangePickerProps {
+export interface DateRangePickerProps extends ElementProps<'div', 'value' | 'onChange'> {
   /** Click handler for applying the updates from DateRangePicker. */
   onChange?: (range: DateRange) => void;
   /** Click handler for applying the updates from DateRangePicker. */
@@ -115,13 +116,17 @@ export interface DateRangePickerProps {
   withPreset?: boolean;
 }
 
-export const DateRangePicker: FC<DateRangePickerProps> = ({
-  from = new Date(new Date().setHours(0, 0, 0, 0)),
-  to,
-  onChange,
-  onCancel,
-  withPreset,
-}) => {
+export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProps>((props, ref) => {
+  const {
+    from = new Date(new Date().setHours(0, 0, 0, 0)),
+    to,
+    onChange,
+    onCancel,
+    withPreset,
+    className,
+    ...etc
+  } = props;
+
   const [range, setRange] = useState<DateRange>({
     from: new Date(new Date(from).setHours(0, 0, 0, 0)),
     to: to ? new Date(new Date(to).setHours(0, 0, 0, 0)) : new Date(new Date(from).setHours(0, 0, 0, 0)),
@@ -184,7 +189,11 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
   );
 
   return (
-    <div className="w-fit flex text-gray-700 relative  rounded-xl bg-base-white shadow-xl">
+    <div
+      ref={ref}
+      className={cn('w-fit flex text-gray-700 relative  rounded-xl bg-base-white shadow-xl', className)}
+      {...etc}
+    >
       {!isSmallScreen && withPreset && (
         <div className="w-[192px] hidden md:flex border-r border-gray-200 py-3 px-4 flex-col justify-start gap-1">
           {PRESETS.map((preset) => (
@@ -263,6 +272,6 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({
       </div>
     </div>
   );
-};
+});
 
 DateRangePicker.displayName = 'DateRangePicker';

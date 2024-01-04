@@ -30,6 +30,7 @@ const meta: Meta = {
     },
   },
   args: {
+    placeholder: 'Placeholder',
     helperText: 'This is a hint text to help user.',
     label: 'Label',
     fullWidth: true,
@@ -47,7 +48,7 @@ export default meta;
 const DefaultTemplate: StoryFn<TextareaProps> = ({ ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <Textarea {...args} placeholder="Placeholder" />
+      <Textarea {...args} />
     </EnhancedView>
   );
 };

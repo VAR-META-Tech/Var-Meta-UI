@@ -21,7 +21,7 @@ const positions: FloatingTooltipProps['position'][] = [
 ];
 
 const meta: Meta = {
-  title: 'Components/FloatingTooltip',
+  title: 'Components/Tooltip/FloatingTooltip',
   component: FloatingTooltip,
   tags: ['autodocs'],
   argTypes: {

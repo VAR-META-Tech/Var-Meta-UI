@@ -1,4 +1,4 @@
-export { MinimalPagination, type MinimalPaginationProps } from './minimal-pagination';
+export { CardPagination, type CardPaginationProps } from './card-pagination';
 export { Pagination, type PaginationProps } from './pagination';
 export { PaginationControl, type PaginationControlProps } from './pagination-control';
 export { PaginationDot, type PaginationDotProps } from './pagination-dot';

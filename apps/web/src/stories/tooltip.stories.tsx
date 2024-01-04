@@ -10,7 +10,7 @@ const align: TooltipProps['align'][] = ['center', 'end', 'start'];
 const side: TooltipProps['side'][] = ['bottom', 'left', 'right', 'top'];
 
 const meta: Meta = {
-  title: 'Components/Tooltip',
+  title: 'Components/Tooltip/Tooltip',
   component: Tooltip,
   argTypes: {
     title: {

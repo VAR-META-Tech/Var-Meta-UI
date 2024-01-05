@@ -73,6 +73,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "publishConfig": {
-    "@jeromektha:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }

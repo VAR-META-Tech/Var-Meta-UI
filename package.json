@@ -58,5 +58,11 @@
   "packageManager": "pnpm@8.9.0",
   "dependencies": {
     "next": "^14.0.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

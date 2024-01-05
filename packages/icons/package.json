@@ -53,6 +53,6 @@
     "svgo": "^3.0.2"
   },
   "publishConfig": {
-    "@jeromektha:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }

@@ -23,7 +23,7 @@
     "version-packages": "changeset version",
     "test": "jest --verbose --config ./jest.config.js",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
@@ -42,6 +42,7 @@
     "cross-env": "^7.0.3",
     "eslint": "8.42.0",
     "husky": "^8.0.0",
+    "is-ci": "^3.0.1",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
     "jest-watch-typeahead": "1.1.0",

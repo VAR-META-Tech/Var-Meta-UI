@@ -1,4 +1,4 @@
-# @swiss-digital-assets-institute/tailwindcss
+# @swiss-digital-assets-institute/tailwindcss-config
 
 ## 1.0.0
 

@@ -156,7 +156,7 @@ importers:
       '@swiss-digital-assets-institute/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@swiss-digital-assets-institute/tailwindcss':
+      '@swiss-digital-assets-institute/tailwindcss-config':
         specifier: workspace:*
         version: link:../../packages/tailwindcss
       '@types/node':
@@ -394,7 +394,7 @@ importers:
       '@storybook/react':
         specifier: ^7.5.3
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)
-      '@swiss-digital-assets-institute/tailwindcss':
+      '@swiss-digital-assets-institute/tailwindcss-config':
         specifier: workspace:*
         version: link:../tailwindcss
       '@swiss-digital-assets-institute/utils':

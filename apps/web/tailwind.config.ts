@@ -1,4 +1,4 @@
-import preset from '@swiss-digital-assets-institute/tailwindcss';
+import preset from '@swiss-digital-assets-institute/tailwindcss-config';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 

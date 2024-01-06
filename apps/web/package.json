@@ -23,7 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@swiss-digital-assets-institute/tailwindcss": "workspace:*",
+    "@swiss-digital-assets-institute/tailwindcss-config": "workspace:*",
     "@next/eslint-plugin-next": "13.4.19",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",

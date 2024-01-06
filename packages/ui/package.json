@@ -11,6 +11,10 @@
     "./styles.css": "./dist/index.css"
   },
   "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",

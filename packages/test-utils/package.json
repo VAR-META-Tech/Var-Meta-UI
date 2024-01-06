@@ -21,5 +21,8 @@
       "cjs",
       "esm"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

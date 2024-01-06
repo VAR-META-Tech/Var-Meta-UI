@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import {
-  MinimalPagination,
+  Pagination,
   Table,
   TableBody,
   TableCaption,
@@ -89,7 +89,7 @@ const DefaultTemplate: StoryFn<TableProps> = ({ header, ...args }) => {
       </TableBody>
 
       <TableCaption>
-        <MinimalPagination total={10} />
+        <Pagination total={10} />
       </TableCaption>
     </Table>
   );

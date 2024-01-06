@@ -2,12 +2,38 @@
   "name": "@swiss-digital-assets-institute/tailwindcss",
   "version": "0.0.0",
   "private": true,
-  "main": "index.ts",
-  "types": "index.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "check-types": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo node_modules"
+  },
   "devDependencies": {
     "tailwindcss": "^3.3.5",
     "tailwindcss-animate": "^1.0.7",
-    "@types/node": "^20.9.2"
+    "@types/node": "^20.9.2",
+    "tsconfig": "workspace:*",
+    "typescript": "^5.2.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

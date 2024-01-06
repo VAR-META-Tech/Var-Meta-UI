@@ -120,12 +120,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@swiss-digital-assets-institute/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@swiss-digital-assets-institute/tailwindcss':
-        specifier: workspace:*
-        version: link:../../packages/tailwindcss
       '@next/eslint-plugin-next':
         specifier: 13.4.19
         version: 13.4.19
@@ -156,6 +150,12 @@ importers:
       '@storybook/testing-library':
         specifier: 0.2.2
         version: 0.2.2
+      '@swiss-digital-assets-institute/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@swiss-digital-assets-institute/tailwindcss':
+        specifier: workspace:*
+        version: link:../../packages/tailwindcss
       '@types/node':
         specifier: ^18.11.17
         version: 18.18.13
@@ -249,9 +249,6 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.22.15
         version: 7.23.3(@babel/core@7.23.3)
-      '@swiss-digital-assets-institute/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.1(rollup@3.29.4)
@@ -276,6 +273,9 @@ importers:
       '@svgr/plugin-jsx':
         specifier: ^8.1.0
         version: 8.1.0(@svgr/core@8.1.0)
+      '@swiss-digital-assets-institute/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@types/node':
         specifier: ^20.9.2
         version: 20.9.5
@@ -306,6 +306,12 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.3.5)
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
 
   packages/test-utils: {}
 
@@ -319,12 +325,6 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.0.4
         version: 2.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@swiss-digital-assets-institute/tailwindcss':
-        specifier: workspace:*
-        version: link:../tailwindcss
-      '@swiss-digital-assets-institute/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@radix-ui/primitive':
         specifier: ^1.0.1
         version: 1.0.1
@@ -391,6 +391,12 @@ importers:
       '@storybook/react':
         specifier: ^7.5.3
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)
+      '@swiss-digital-assets-institute/tailwindcss':
+        specifier: workspace:*
+        version: link:../tailwindcss
+      '@swiss-digital-assets-institute/utils':
+        specifier: workspace:*
+        version: link:../utils
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.16(postcss@8.4.31)

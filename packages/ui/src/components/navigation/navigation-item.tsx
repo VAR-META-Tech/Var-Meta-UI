@@ -1,9 +1,9 @@
 import { Primitive } from '@radix-ui/react-primitive';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 
 export const navigationItemVariants = cva(
   'flex justify-between items-center gap-2 rounded-sm text-md font-semibold py-2 px-3 h-10 transition-colors cursor-pointer',

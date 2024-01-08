@@ -1,8 +1,8 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva } from 'class-variance-authority';
 import React, { type ElementRef, forwardRef, useMemo } from 'react';
 
 import { type NumberExcluded } from '../../types';
+import { cn } from '../../utils/cn';
 import { mappingSizing, mappingThickness, type Sizing } from './progress-config';
 
 // Function to convert polar coordinates to Cartesian

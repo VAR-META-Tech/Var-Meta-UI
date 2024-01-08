@@ -1,4 +1,4 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
+import { cn } from '../../utils/cn';
 
 export const PresetButton = ({
   preset,

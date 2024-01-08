@@ -1,9 +1,9 @@
 import { Primitive } from '@radix-ui/react-primitive';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, forwardRef } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 
 const navigationVariants = cva('list-none w-full flex gap-1', {
   variants: {

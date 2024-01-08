@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { type ElementRef, forwardRef } from 'react';
 
+import { cn } from '../../utils/cn';
 import { CloseIcon } from '../icons';
 
 const buttonCloseVariants = cva(

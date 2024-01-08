@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ElementRef, useEffect, useRef } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 
 interface DateInputProps extends ElementProps<'div', 'value' | 'onChange'> {
   value?: Date;

@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ElementRef, forwardRef, useState } from 'react';
 import { Caption } from 'react-day-picker';
 
+import { cn } from '../../utils/cn';
 import { Button } from '../button';
 import { Calendar, type CalendarProps } from './calendar';
 import { DateInput } from './date-input';

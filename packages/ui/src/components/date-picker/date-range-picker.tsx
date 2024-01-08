@@ -1,9 +1,9 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ElementRef, forwardRef, useMemo, useState } from 'react';
 import { Caption } from 'react-day-picker';
 
 import { useMediaQuery } from '../../hooks';
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { Button } from '../button';
 import { Calendar } from './calendar';
 import { DateInput } from './date-input';

@@ -4,7 +4,7 @@ import './styles.css';
 // utilities
 export * from './hooks';
 export * from './types';
-export { cn } from '@swiss-digital-assets-institute/utils';
+export { cn } from './utils/cn';
 
 // components
 export * from './components/accordion';

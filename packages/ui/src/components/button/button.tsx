@@ -1,8 +1,8 @@
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 
+import { cn } from '../../utils/cn';
 import { Dot } from '../dot';
 import { Spinner } from '../spinner';
 

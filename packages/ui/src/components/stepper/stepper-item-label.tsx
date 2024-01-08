@@ -1,6 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva } from 'class-variance-authority';
 
+import { cn } from '../../utils/cn';
 import { useStepperContext } from './stepper-context';
 
 export interface StepperItemLabelProps {

@@ -1,5 +1,4 @@
 import { Primitive } from '@radix-ui/react-primitive';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, {
   Children,
@@ -12,6 +11,7 @@ import React, {
 } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { SlashIcon } from '../icons';
 
 const breadcrumbActiveItemVariant = cva(

@@ -1,9 +1,9 @@
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { useDOMRef } from '../../hooks';
+import { cn } from '../../utils/cn';
 import { Indicator, type IndicatorProps } from './indicator';
 
 const avatarVariants = cva('relative z-[1] flex shrink-0 overflow-hidden bg-gray-100 rounded-full', {

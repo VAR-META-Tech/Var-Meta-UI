@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef } from 'react';
 
+import { cn } from '../../utils/cn';
 import { CloseIcon, DotIcon, TickIcon } from '../icons';
 import { Spinner } from '../spinner';
 import { type StepperContext, useStepperContext } from './stepper-context';

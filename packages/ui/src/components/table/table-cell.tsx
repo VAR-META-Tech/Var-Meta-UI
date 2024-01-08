@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva } from 'class-variance-authority';
 import React from 'react';
 
+import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';
 
 const tdVariant = cva(

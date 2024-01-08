@@ -1,8 +1,8 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva } from 'class-variance-authority';
 import React, { forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { type TableContext, TableProvider } from './table-context';
 
 const tableVariants = cva('w-full caption-bottom text-sm text-gray-600', {

@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, type ReactNode, useMemo } from 'react';
 
+import { cn } from '../../utils/cn';
 import { HStack } from '../utility';
 import { PaginationFirst, PaginationLast, PaginationNext, PaginationPrevious } from './pagination-edge';
 import { PaginationItems } from './pagination-item';

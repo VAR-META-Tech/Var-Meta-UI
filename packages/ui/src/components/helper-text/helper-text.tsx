@@ -1,6 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
+
+import { cn } from '../../utils/cn';
 
 const helperTextVariants = cva(cn('block text-sm font-normal mt-1.5'), {
   variants: {

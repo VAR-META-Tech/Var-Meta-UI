@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ElementRef, forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 
 export type PaginationDotStylesNames = 'control';
 

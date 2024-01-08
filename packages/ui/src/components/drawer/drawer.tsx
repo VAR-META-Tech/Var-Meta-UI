@@ -1,9 +1,9 @@
 import * as DrawerPrimitive from '@radix-ui/react-dialog';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { ButtonClose } from '../button';
 
 export interface DrawerProps extends ElementProps<typeof DrawerPrimitive.Root> {}

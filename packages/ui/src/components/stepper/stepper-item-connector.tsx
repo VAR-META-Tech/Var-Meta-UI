@@ -1,6 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React from 'react';
 
+import { cn } from '../../utils/cn';
 import { Divider } from '../divider';
 import { type StepperContext, useStepperContext } from './stepper-context';
 

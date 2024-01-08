@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ComponentProps } from 'react';
 import { DayPicker } from 'react-day-picker';
 
+import { cn } from '../../utils/cn';
 import { buttonVariants } from '../button/button';
 import { ChevronLeftIcon, ChevronRightIcon } from '../icons';
 import { isPastDate } from './date-utils';

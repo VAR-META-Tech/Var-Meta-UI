@@ -1,6 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React from 'react';
 
+import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';
 
 const TableBody = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(

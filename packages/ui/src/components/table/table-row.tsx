@@ -1,5 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React from 'react';
+
+import { cn } from '../../utils/cn';
 
 const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(
   ({ className, ...props }, ref) => (

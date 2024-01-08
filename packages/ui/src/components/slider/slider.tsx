@@ -1,7 +1,7 @@
 import * as SliderPrimitive from '@radix-ui/react-slider';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
+import { cn } from '../../utils/cn';
 import { Tooltip, TooltipProvider } from '../tooltip';
 
 export interface SliderProps extends React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> {

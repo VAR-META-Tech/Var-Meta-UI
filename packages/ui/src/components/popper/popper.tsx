@@ -1,11 +1,11 @@
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ElementRef, forwardRef, type ReactNode, useState } from 'react';
 
 import { useClickOutside } from '../../hooks/useClickOutSide';
 import { type ElementProps, type VisibleState } from '../../types';
+import { cn } from '../../utils/cn';
 
 const PopperRoot = PopperPrimitive.Root;
 const PopperAnchor = PopperPrimitive.Anchor;

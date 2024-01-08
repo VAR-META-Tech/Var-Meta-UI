@@ -1,6 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ReactNode } from 'react';
+
+import { cn } from '../../utils/cn';
 
 const inputVariants = cva(
   ['inline-flex gap-2 justify-between items-center relative', 'border bg-base-white rounded-md'],

@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ElementRef } from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';
 
 interface Props extends ElementProps<'thead'> {}

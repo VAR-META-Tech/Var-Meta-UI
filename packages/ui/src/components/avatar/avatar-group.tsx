@@ -1,6 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { type ReactElement } from 'react';
 
+import { cn } from '../../utils/cn';
 import { Avatar, type AvatarProps } from './avatar';
 
 export interface AvatarGroupProps extends React.ComponentPropsWithoutRef<'div'> {

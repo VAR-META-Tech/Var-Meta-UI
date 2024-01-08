@@ -1,7 +1,7 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import * as React from 'react';
 
+import { cn } from '../../utils/cn';
 import { Dot } from '../dot';
 import { CheckIcon, ChevronRightIcon } from '../icons';
 

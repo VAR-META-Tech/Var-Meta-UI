@@ -1,8 +1,8 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ComponentPropsWithoutRef, type ReactNode, useMemo } from 'react';
 
 import { type ReactNodeExcluded } from '../../types';
+import { cn } from '../../utils/cn';
 import { Avatar, type AvatarProps } from '../avatar';
 import { Button, ButtonClose, type ButtonProps } from '../button';
 import { AlertCircleIcon, CheckCircleIcon, FeaturedIcon } from '../icons';

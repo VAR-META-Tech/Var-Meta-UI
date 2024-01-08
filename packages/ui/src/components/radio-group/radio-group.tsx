@@ -1,8 +1,8 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { cn } from '../../utils/cn';
 import { CircleIcon } from '../icons';
 
 export interface RadioGroupProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {}

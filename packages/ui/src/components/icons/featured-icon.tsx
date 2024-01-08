@@ -1,6 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, forwardRef } from 'react';
+
+import { cn } from '../../utils/cn';
 
 const featuredIconVariants = cva('aspect-square relative flex items-center justify-center [&>svg]:z-20', {
   variants: {

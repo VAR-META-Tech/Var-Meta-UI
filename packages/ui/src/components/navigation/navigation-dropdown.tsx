@@ -1,8 +1,8 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type VariantProps } from 'class-variance-authority';
 import { type ElementRef, forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps, type VisibleState } from '../../types';
+import { cn } from '../../utils/cn';
 import { ChevronDownIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
 import { NavigationItem, type navigationItemVariants } from './navigation-item';

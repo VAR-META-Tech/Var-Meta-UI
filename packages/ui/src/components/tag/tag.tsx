@@ -1,8 +1,8 @@
 import { type CheckedState } from '@radix-ui/react-checkbox';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { cn } from '../../utils/cn';
 import { Checkbox } from '../checkbox';
 import { CloseIcon } from '../icons';
 import { Show } from '../utility';

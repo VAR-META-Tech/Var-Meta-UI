@@ -1,9 +1,9 @@
 import * as SwitchPrimitives from '@radix-ui/react-switch';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 
 const toggleVariants = cva(
   'peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none  data-[state=checked]:bg-brand-600 data-[state=unchecked]:bg-gray-100 focus-visible:shadow-gray-secondary focus-visible:data-[state=checked]:shadow-brand disabled:cursor-not-allowed  disabled:data-[state=checked]:bg-gray-100',

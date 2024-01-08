@@ -1,7 +1,7 @@
 import { DialogTrigger } from '@radix-ui/react-dialog';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
+import { cn } from '../../utils/cn';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, type DialogHeaderProps } from '../dialog';
 
 export interface ModalHeaderProps extends DialogHeaderProps {

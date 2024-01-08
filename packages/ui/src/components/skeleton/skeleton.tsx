@@ -1,5 +1,6 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { forwardRef } from 'react';
+
+import { cn } from '../../utils/cn';
 
 export interface SkeletonProps extends React.ComponentPropsWithoutRef<'div'> {}
 

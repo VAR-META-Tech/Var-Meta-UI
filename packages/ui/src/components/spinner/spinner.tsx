@@ -1,6 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import type { SVGProps } from 'react';
 import * as React from 'react';
+
+import { cn } from '../../utils/cn';
 
 export interface SpinnerProps extends SVGProps<SVGSVGElement> {}
 

@@ -1,7 +1,7 @@
-import { cn } from '@swiss-digital-assets-institute/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { useMemo } from 'react';
 
+import { cn } from '../../utils/cn';
 import { VerifiedIcon } from '../icons';
 
 const dotVariants = cva('rounded-full block border-1.5 border-base-white aspect-square', {

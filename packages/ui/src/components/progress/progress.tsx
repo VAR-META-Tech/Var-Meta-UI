@@ -1,10 +1,10 @@
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
-import { cn } from '@swiss-digital-assets-institute/utils';
 import React, { useEffect } from 'react';
 
 import { usePopover } from '../../hooks';
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { tooltipContentVariants } from '../tooltip/tooltip';
 
 export interface ProgressProps extends ElementProps<typeof ProgressPrimitive.Root> {

@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/tailwindcss-config
 
+## 1.0.3
+
+### Major Changes
+
+- bump version
+
 ## 1.0.0
 
 ### Major Changes

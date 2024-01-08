@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/icons
 
+## 1.0.2
+
+### Major Changes
+
+- bump version
+
 ## 1.0.0
 
 ### Major Changes

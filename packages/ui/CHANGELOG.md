@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/ui
 
+## 1.0.1
+
+### Major Changes
+
+- Move utils pkg to current work dir
+
 ## 1.0.0
 
 ### Major Changes

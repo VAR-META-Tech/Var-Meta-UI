@@ -1,11 +1,18 @@
 # web
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @swiss-digital-assets-institute/ui@1.0.2
+
 ## 1.0.2
 
 ### Patch Changes
 
 - Updated dependencies
-  - @swiss-digital-assets-institute/ui@2.0.0
+  - @swiss-digital-assets-institute/ui@1.0.1
 
 ## 1.0.1
 

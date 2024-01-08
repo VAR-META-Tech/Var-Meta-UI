@@ -22,7 +22,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "test": "jest --verbose --config ./jest.config.js",
-    "release": "turbo run build --filter=docs^... && changeset publish",
+    "release": "pnpm build:packages && changeset publish",
     "prepare": "is-ci || husky install"
   },
   "devDependencies": {

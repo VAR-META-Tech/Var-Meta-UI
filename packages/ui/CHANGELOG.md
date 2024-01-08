@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/ui
 
+## 1.0.2
+
+### Major Changes
+
+- Remove test-utils and update build release for ui pkg
+
 ## 1.0.1
 
 ### Major Changes

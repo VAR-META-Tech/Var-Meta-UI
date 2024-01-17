@@ -27,7 +27,7 @@ const steps = [
   },
   {
     label: 'Invite your team',
-    description: 'Start collaborating with your team',
+    description: 'Start collaborating ',
     icon: <LayersThree01Icon className="w-6 h-6" />,
     active: false,
   },

@@ -8,11 +8,11 @@ import { type StepperContext, useStepperContext } from './stepper-context';
 import { StepperItemConnector } from './stepper-item-connector';
 import { StepperItemLabel, type StepperItemLabelProps } from './stepper-item-label';
 
-const stepperItemVariants = cva('relative flex flex-row ', {
+const stepperItemVariants = cva('relative flex flex-row items-start', {
   variants: {
     isLastStep: {
-      true: 'flex-[0_0_auto] justify-end',
-      false: 'flex-[1_0_auto] justify-start',
+      true: 'flex-1 justify-end',
+      false: 'flex-1 justify-start',
     },
     isVertical: {
       true: 'flex-col',
@@ -27,7 +27,7 @@ const stepperItemVariants = cva('relative flex flex-row ', {
     {
       isVertical: true,
       isLastStep: true,
-      class: 'w-full flex-[1_0_auto] flex-col items-start justify-start',
+      class: 'w-full flex-1 flex-col items-start justify-start',
     },
   ],
 });
@@ -197,7 +197,7 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
       onClick={() => handleClick(index)}
       aria-disabled={!hasVisited}
     >
-      <div className={cn('flex items-center ', centeredLabel ? 'flex-col gap-3' : 'gap-4')}>
+      <div className={cn('flex items-center flex-1', centeredLabel ? 'flex-col gap-3' : 'gap-4')}>
         <button
           aria-current={isCurrentStep ? 'step' : undefined}
           data-invalid={isCurrentStep && isError}
@@ -221,6 +221,7 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
           {...{ isCurrentStep }}
         />
       </div>
+
       <StepperItemConnector
         index={index}
         isLastStep={isLastStep}

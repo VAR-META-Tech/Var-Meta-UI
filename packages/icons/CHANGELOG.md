@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/icons
 
+## 1.0.3
+
+### Major Changes
+
+- Release v1.0.3
+
 ## 1.0.2
 
 ### Major Changes

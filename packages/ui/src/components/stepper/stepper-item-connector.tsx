@@ -19,9 +19,9 @@ const spacing: Record<NonNullable<StepperContext['size']>, string> = {
 };
 
 const positions: Record<NonNullable<StepperContext['size']>, string> = {
-  sm: 'w-full absolute top-3 left-[calc(50%_-_24px)]',
-  md: 'w-full absolute top-4 left-[calc(50%_-_32px)]',
-  lg: 'w-full absolute top-5 left-[calc(50%_-_40px)]',
+  sm: 'absolute top-3 left-[calc(-50%_+_10px)] left-[calc(50%_+_10px)]',
+  md: 'absolute top-4 left-[calc(-50%_+_10px)] left-[calc(50%_+_10px)]',
+  lg: 'absolute top-5 left-[calc(-50%_+_10px)] left-[calc(50%_+_10px)]',
   none: '',
 };
 

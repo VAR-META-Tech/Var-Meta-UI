@@ -1,6 +1,6 @@
 {
   "name": "@swiss-digital-assets-institute/tailwindcss-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "sideEffects": false,
   "exports": {

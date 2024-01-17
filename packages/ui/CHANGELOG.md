@@ -1,5 +1,16 @@
 # @swiss-digital-assets-institute/ui
 
+## v1.0.3
+
+### Major Changes
+
+- Release v1.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @swiss-digital-assets-institute/tailwindcss-config@2.0.0
+
 ## 1.0.2
 
 ### Major Changes

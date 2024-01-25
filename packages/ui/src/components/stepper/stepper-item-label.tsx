@@ -14,6 +14,10 @@ export interface StepperItemLabelProps {
 
 const labelVariants = cva('text-gray-700 font-semibold', {
   variants: {
+    active: {
+      true: 'text-brand-700',
+      false: 'text-gray-700',
+    },
     size: {
       none: 'text-sm',
       sm: 'text-sm',
@@ -23,11 +27,16 @@ const labelVariants = cva('text-gray-700 font-semibold', {
   },
   defaultVariants: {
     size: 'none',
+    active: false,
   },
 });
 
 const descriptionVariants = cva('text-gray-600', {
   variants: {
+    active: {
+      true: 'text-brand-600',
+      false: 'text-gray-600',
+    },
     size: {
       none: 'text-sm',
       sm: 'text-sm',
@@ -37,6 +46,7 @@ const descriptionVariants = cva('text-gray-600', {
   },
   defaultVariants: {
     size: 'none',
+    active: false,
   },
 });
 
@@ -80,12 +90,14 @@ const StepperItemLabel = ({
       )}
     >
       {!!label && (
-        <p className={cn(labelVariants({ size }), labelClassName)}>
+        <p className={cn(labelVariants({ size, active: isCurrentStep }), labelClassName)}>
           {label}
           {renderOptionalLabel && <span className={cn(optionalLabelVariants({ size }))}>({optionalLabel})</span>}
         </p>
       )}
-      {!!description && <p className={cn(descriptionVariants({ size }), descriptionClassName)}>{description}</p>}
+      {!!description && (
+        <p className={cn(descriptionVariants({ size, active: isCurrentStep }), descriptionClassName)}>{description}</p>
+      )}
     </div>
   ) : null;
 };

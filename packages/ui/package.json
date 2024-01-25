@@ -1,7 +1,7 @@
 {
   "name": "@swiss-digital-assets-institute/ui",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "sideEffects": [
     "**/*.css"
   ],

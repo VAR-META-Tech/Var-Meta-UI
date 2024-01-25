@@ -1,5 +1,11 @@
 # @swiss-digital-assets-institute/ui
 
+## 1.0.4
+
+### Major Changes
+
+- update modal,stepper, featured icon, notification styles
+
 ## v1.0.3
 
 ### Major Changes

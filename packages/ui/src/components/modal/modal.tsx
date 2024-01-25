@@ -2,7 +2,14 @@ import { DialogTrigger } from '@radix-ui/react-dialog';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
 import { cn } from '../../utils/cn';
-import { Dialog, DialogContent, DialogFooter, DialogHeader, type DialogHeaderProps } from '../dialog';
+import {
+  CloseDialogTrigger,
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  type DialogHeaderProps,
+} from '../dialog';
 
 export interface ModalHeaderProps extends DialogHeaderProps {
   align?: 'left' | 'center' | 'baseline';
@@ -10,6 +17,9 @@ export interface ModalHeaderProps extends DialogHeaderProps {
   title?: React.ReactNode;
   description?: React.ReactNode;
 }
+
+export const ModalTrigger = DialogTrigger;
+export const CloseModalTrigger = CloseDialogTrigger;
 
 export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((props, ref) => {
   const { title, children, icon, description, align = 'left', ...etc } = props;

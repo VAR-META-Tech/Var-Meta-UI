@@ -34,10 +34,10 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
       success: '',
     },
     size: {
-      sm: 'w-8 h-8 [&>svg]:w-4 [&>svg]:h-4',
-      md: 'w-10 h-10 [&>svg]:w-5 [&>svg]:h-5',
-      lg: 'w-12 h-12 p-1.5 [&>svg]:w-6 [&>svg]:h-6',
-      xl: 'w-14 h-14 p-1.5 [&>svg]:w-7 [&>svg]:h-7',
+      sm: 'min-w-[2rem] w-8 h-8 [&>svg]:w-4 [&>svg]:h-4',
+      md: 'min-w-[2.5rem] w-10 h-10 [&>svg]:w-5 [&>svg]:h-5',
+      lg: 'min-w-[3rem] w-12 h-12 p-1.5 [&>svg]:w-6 [&>svg]:h-6',
+      xl: 'min-w-[3.5rem] w-14 h-14 p-1.5 [&>svg]:w-7 [&>svg]:h-7',
     },
   },
   compoundVariants: [

@@ -120,20 +120,20 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
     switch (icon) {
       case 'success':
         return (
-          <FeaturedIcon className="md:-mt-2.5 -ml-2.5" variant="outline" color="success">
+          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="success">
             <CheckCircleIcon />
           </FeaturedIcon>
         );
       case 'warning':
         return (
-          <FeaturedIcon className="md:-mt-2.5 -ml-2.5" variant="outline" color="warning">
+          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="warning">
             <AlertCircleIcon />
           </FeaturedIcon>
         );
 
       case 'error':
         return (
-          <FeaturedIcon className="md:-mt-2.5 -ml-2.5" variant="outline" color="error">
+          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="error">
             <AlertCircleIcon />
           </FeaturedIcon>
         );
@@ -184,7 +184,7 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
       </Show>
 
       <Show when={variant === 'icon' || variant === 'avatar'}>
-        <div className="flex flex-col items-start justify-start gap-2 md:gap-4 md:flex-row">
+        <div className="flex flex-col items-start md:pb-2 md:-mb-2 justify-start gap-2 md:gap-4 md:flex-row">
           {renderIcon}
           <div className="flex flex-col gap-3">
             <NotificationContent title={title} description={description} />

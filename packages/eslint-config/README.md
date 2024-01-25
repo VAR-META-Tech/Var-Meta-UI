@@ -1,3 +1,3 @@
-# `@swiss-digital-assets-institute/eslint-config`
+# `@var-meta/eslint-config`
 
 Collection of internal eslint configurations.

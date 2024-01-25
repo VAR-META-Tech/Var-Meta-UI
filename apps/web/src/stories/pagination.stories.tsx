@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Pagination, type PaginationProps } from '@swiss-digital-assets-institute/ui';
+import { Pagination, type PaginationProps } from '@var-meta/ui';
 import React from 'react';
 
 const meta: Meta = {

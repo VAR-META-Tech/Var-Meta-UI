@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Avatar, AvatarGroup, type AvatarGroupProps } from '@swiss-digital-assets-institute/ui';
+import { Avatar, AvatarGroup, type AvatarGroupProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

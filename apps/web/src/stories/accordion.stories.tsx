@@ -1,11 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  type AccordionProps,
-  AccordionTrigger,
-} from '@swiss-digital-assets-institute/ui';
+import { Accordion, AccordionContent, AccordionItem, type AccordionProps, AccordionTrigger } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

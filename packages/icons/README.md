@@ -1,11 +1,11 @@
-# `@swiss-digital-assets-institute/icon`
+# `@var-meta/icon`
 
 ## Installation
 
 ```sh
-$ pnpm add @swiss-digital-assets-institute/icon
+$ pnpm add @var-meta/icon
 # or
-$ yarn add @swiss-digital-assets-institute/icon
+$ yarn add @var-meta/icon
 # or
-$ npm install @swiss-digital-assets-institute/icon
+$ npm install @var-meta/icon
 ```

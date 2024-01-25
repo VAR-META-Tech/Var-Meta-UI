@@ -6,14 +6,8 @@ import {
   LayersThree01Icon,
   PieChart01Icon,
   Users01Icon,
-} from '@swiss-digital-assets-institute/icons';
-import {
-  cn,
-  Navigation,
-  NavigationDropdown,
-  NavigationItem,
-  type NavigationItemProps,
-} from '@swiss-digital-assets-institute/ui';
+} from '@var-meta/icons';
+import { cn, Navigation, NavigationDropdown, NavigationItem, type NavigationItemProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -9,7 +9,7 @@ import {
   TableHeader,
   type TableProps,
   TableRow,
-} from '@swiss-digital-assets-institute/ui';
+} from '@var-meta/ui';
 import React from 'react';
 
 const meta: Meta = {

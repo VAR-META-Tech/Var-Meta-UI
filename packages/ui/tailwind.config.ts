@@ -1,5 +1,5 @@
 // tailwind config is required for editor support
-import sharedConfig from '@swiss-digital-assets-institute/tailwindcss-config';
+import sharedConfig from '@var-meta/tailwindcss-config';
 import type { Config } from 'tailwindcss';
 
 const config: Pick<Config, 'presets'> = {

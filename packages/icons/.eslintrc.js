@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@swiss-digital-assets-institute/eslint-config/library'],
+  extends: ['@var-meta/eslint-config/library'],
 };

@@ -1,5 +1,5 @@
 import '../src/app/globals.css';
-import '@swiss-digital-assets-institute/ui/styles.css';
+import '@var-meta/ui/styles.css';
 
 import type { Preview } from '@storybook/react';
 

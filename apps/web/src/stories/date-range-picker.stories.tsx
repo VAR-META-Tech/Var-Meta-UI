@@ -10,7 +10,7 @@ import {
   Modal,
   Popper,
   useDisclosure,
-} from '@swiss-digital-assets-institute/ui';
+} from '@var-meta/ui';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 

@@ -1,12 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@swiss-digital-assets-institute/icons';
-import {
-  Button,
-  Stepper,
-  StepperItem,
-  type StepperProps,
-  useNonLinearStepper,
-} from '@swiss-digital-assets-institute/ui';
+import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@var-meta/icons';
+import { Button, Stepper, StepperItem, type StepperProps, useNonLinearStepper } from '@var-meta/ui';
 import React from 'react';
 
 import { View } from '@/components/View';

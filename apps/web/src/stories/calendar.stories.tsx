@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Calendar, type CalendarProps } from '@swiss-digital-assets-institute/ui';
+import { Calendar, type CalendarProps } from '@var-meta/ui';
 import React, { useState } from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Slider, type SliderProps } from '@swiss-digital-assets-institute/ui';
+import { Slider, type SliderProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

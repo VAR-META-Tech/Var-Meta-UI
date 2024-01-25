@@ -1,13 +1,13 @@
-# `@swiss-digital-assets-institute/ui`
+# `@var-meta/ui`
 
 ## Installation
 
 ```sh
-$ pnpm add @swiss-digital-assets-institute/ui
+$ pnpm add @var-meta/ui
 # or
-$ yarn add @swiss-digital-assets-institute/ui
+$ yarn add @var-meta/ui
 # or
-$ npm install @swiss-digital-assets-institute/ui
+$ npm install @var-meta/ui
 ```
 
 ## Usage

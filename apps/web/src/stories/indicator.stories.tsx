@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Star06Icon } from '@swiss-digital-assets-institute/icons';
-import { Indicator, type IndicatorProps } from '@swiss-digital-assets-institute/ui';
+import { Star06Icon } from '@var-meta/icons';
+import { Indicator, type IndicatorProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

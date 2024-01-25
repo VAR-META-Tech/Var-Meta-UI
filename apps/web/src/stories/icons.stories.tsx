@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { icons } from '@swiss-digital-assets-institute/icons';
-import { type TextField, type TextFieldProps, Tooltip, TooltipProvider } from '@swiss-digital-assets-institute/ui';
+import { icons } from '@var-meta/icons';
+import { type TextField, type TextFieldProps, Tooltip, TooltipProvider } from '@var-meta/ui';
 import React from 'react';
 
 import { View } from '@/components/View';

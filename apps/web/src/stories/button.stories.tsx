@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { CircleIcon, SearchLgIcon } from '@swiss-digital-assets-institute/icons';
-import { Button, type ButtonProps } from '@swiss-digital-assets-institute/ui';
+import { CircleIcon, SearchLgIcon } from '@var-meta/icons';
+import { Button, type ButtonProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView, View, ViewGroup } from '@/components/View';

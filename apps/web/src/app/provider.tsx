@@ -1,7 +1,7 @@
 'use client';
 
-import { type FCC } from '@swiss-digital-assets-institute/ui';
-import { Toaster } from '@swiss-digital-assets-institute/ui';
+import { type FCC } from '@var-meta/ui';
+import { Toaster } from '@var-meta/ui';
 import React from 'react';
 
 const Provider: FCC = ({ children }) => {

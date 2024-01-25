@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Divider, type DividerProps } from '@swiss-digital-assets-institute/ui';
+import { Divider, type DividerProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

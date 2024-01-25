@@ -2,7 +2,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@swiss-digital-assets-institute/icon', '@swiss-digital-assets-institute/ui'],
+    optimizePackageImports: ['@var-meta/icon', '@var-meta/ui'],
   },
 };
 

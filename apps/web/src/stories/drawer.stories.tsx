@@ -11,8 +11,8 @@ import {
   type DrawerProps,
   DrawerTitle,
   DrawerTrigger,
-} from '@swiss-digital-assets-institute/ui';
-import { type DrawerContentProps } from '@swiss-digital-assets-institute/ui';
+} from '@var-meta/ui';
+import { type DrawerContentProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

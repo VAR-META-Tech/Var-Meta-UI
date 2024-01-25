@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { CircularProgress, type CircularProgressProps } from '@swiss-digital-assets-institute/ui';
+import { CircularProgress, type CircularProgressProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

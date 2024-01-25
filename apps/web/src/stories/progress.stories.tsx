@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Progress, type ProgressProps } from '@swiss-digital-assets-institute/ui';
+import { Progress, type ProgressProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

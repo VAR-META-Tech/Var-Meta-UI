@@ -1,5 +1,5 @@
 import './globals.css';
-import '@swiss-digital-assets-institute/ui/styles.css';
+import '@var-meta/ui/styles.css';
 
 import type { Metadata } from 'next';
 

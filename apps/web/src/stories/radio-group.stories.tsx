@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { RadioGroup, RadioGroupItem, type RadioGroupItemProps } from '@swiss-digital-assets-institute/ui';
+import { RadioGroup, RadioGroupItem, type RadioGroupItemProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

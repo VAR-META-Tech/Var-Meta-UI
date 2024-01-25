@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { BarChart01Icon } from '@swiss-digital-assets-institute/icons';
-import { cn, Navigation, NavigationDropdown, NavigationItem } from '@swiss-digital-assets-institute/ui';
-import { type NavigationItemProps } from '@swiss-digital-assets-institute/ui';
+import { BarChart01Icon } from '@var-meta/icons';
+import { cn, Navigation, NavigationDropdown, NavigationItem } from '@var-meta/ui';
+import { type NavigationItemProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

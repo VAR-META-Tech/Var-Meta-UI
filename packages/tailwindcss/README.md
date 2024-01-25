@@ -1,13 +1,13 @@
-# `@swiss-digital-assets-institute/tailwindcss-config`
+# `@var-meta/tailwindcss-config`
 
 ## Installation
 
 ```sh
-$ pnpm add @swiss-digital-assets-institute/tailwindcss-config
+$ pnpm add @var-meta/tailwindcss-config
 # or
-$ yarn add @swiss-digital-assets-institute/tailwindcss-config
+$ yarn add @var-meta/tailwindcss-config
 # or
-$ npm install @swiss-digital-assets-institute/tailwindcss-config
+$ npm install @var-meta/tailwindcss-config
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @swiss-digital-assets-institute/tailwindcss-config
 Update your `tailwind.config.ts`
 
 ```ts
-import preset from '@swiss-digital-assets-institute/tailwindcss-config';
+import preset from '@var-meta/tailwindcss-config';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 

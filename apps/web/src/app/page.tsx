@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, toast } from '@swiss-digital-assets-institute/ui';
+import { Button, toast } from '@var-meta/ui';
 
 export default function Page() {
   return (

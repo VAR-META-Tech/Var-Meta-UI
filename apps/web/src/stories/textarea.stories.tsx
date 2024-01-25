@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Textarea, type TextareaProps } from '@swiss-digital-assets-institute/ui';
+import { Textarea, type TextareaProps } from '@var-meta/ui';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

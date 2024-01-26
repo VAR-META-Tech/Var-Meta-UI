@@ -1,32 +1,73 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
-import { ChevronDownIcon, ChevronUpIcon } from '../icons';
 import { type AccordionContext, AccordionProvider, useAccordionContext } from './accordion-context';
-
 export interface AccordionSingleProps extends AccordionContext, AccordionPrimitive.AccordionSingleProps {}
 export interface AccordionMultipleProps extends AccordionContext, AccordionPrimitive.AccordionMultipleProps {}
-export interface AccordionProps extends AccordionContext, ElementProps<typeof AccordionPrimitive.Root> {}
+
+const iconSize: Record<string, string> = {
+  sm: 'w-4 h-4',
+  md: 'w-5 h-5',
+  lg: 'w-6 h-6',
+};
+
+const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', {
+  variants: {
+    variant: {
+      default: '',
+      outline: 'border border-gray-200 ',
+      solid: 'bg-base-white shadow-sm',
+    },
+    rounded: {
+      default: '',
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
+export interface AccordionProps
+  extends AccordionContext,
+    ElementProps<typeof AccordionPrimitive.Root>,
+    Pick<VariantProps<typeof accordionVariant>, 'rounded'> {}
 
 const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Root>, AccordionProps>(
-  (
-    {
+  (props: any, ref) => {
+    const {
       children,
       divider = false,
-      activeIcon = <ChevronDownIcon />,
-      inactiveIcon = <ChevronUpIcon />,
+      activeIcon = <ChevronDownIcon className={iconSize[props.size ?? 'md']} />,
+      inactiveIcon = <ChevronUpIcon className={iconSize[props.size ?? 'md']} />,
       iconPosition = 'right',
       hideIcon,
-      ...props
-    }: any,
-    ref
-  ) => {
+      size,
+      variant,
+      rounded,
+      ...etc
+    } = props;
+
     return (
-      <AccordionProvider value={{ divider, activeIcon, inactiveIcon, iconPosition, hideIcon }}>
-        <AccordionPrimitive.Root {...props} ref={ref}>
-          <div className="flex flex-col gap-4">{children}</div>
+      <AccordionProvider
+        value={{
+          size,
+          divider,
+          variant,
+          activeIcon,
+          inactiveIcon,
+          iconPosition,
+          hideIcon,
+        }}
+      >
+        <AccordionPrimitive.Root {...etc} ref={ref}>
+          <div className={cn(accordionVariant({ variant, rounded }))}>{children}</div>
         </AccordionPrimitive.Root>
       </AccordionProvider>
     );
@@ -41,64 +82,119 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
     return (
       <AccordionPrimitive.Item
         ref={ref}
-        className={cn({ 'border-t border-gray-200 pt-6': divider }, className)}
+        className={cn({ 'border-t border-gray-200': divider }, className)}
         {...props}
       />
     );
   }
 );
+
 AccordionItem.displayName = 'AccordionItem';
 
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  ElementProps<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => {
-  const { iconPosition, hideIcon, activeIcon, inactiveIcon } = useAccordionContext();
+const accordionTriggerVariant = cva(
+  'flex flex-1 items-center  text-gray-900 group gap-6 font-medium transition-all [&[data-state=open]>svg]:rotate-180',
+  {
+    variants: {
+      variant: {
+        default: '',
+        outline: '',
+        solid: '',
+      },
+      size: {
+        sm: 'text-sm py-2 px-4',
+        md: 'text-md py-3 px-4',
+        lg: 'text-lg py-4 px-4',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);
 
-  return (
-    <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger
+export interface AccordionTriggerProps
+  extends ElementProps<typeof AccordionPrimitive.Trigger>,
+    VariantProps<typeof accordionTriggerVariant> {}
+
+const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Trigger>, AccordionTriggerProps>(
+  ({ className, children, size: sizeProp, variant: variantProp, ...props }, ref) => {
+    const { iconPosition, size, hideIcon, activeIcon, variant, inactiveIcon } = useAccordionContext();
+
+    return (
+      <AccordionPrimitive.Header className="flex">
+        <AccordionPrimitive.Trigger
+          ref={ref}
+          className={cn(
+            accordionTriggerVariant({ variant: variantProp ?? variant, size: sizeProp ?? size }),
+            iconPosition === 'left' ? 'flex-row-reverse justify-end' : 'flex-row justify-between',
+            className
+          )}
+          {...props}
+        >
+          {children}
+          {hideIcon ? null : (
+            <>
+              <div className="group-aria-expanded:hidden block w-6">{inactiveIcon}</div>
+              <div className="group-aria-expanded:block hidden w-6">{activeIcon}</div>
+            </>
+          )}
+        </AccordionPrimitive.Trigger>
+      </AccordionPrimitive.Header>
+    );
+  }
+);
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+
+const accordionContentVariant = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      outline: '',
+      solid: '',
+    },
+    size: {
+      sm: 'text-sm pb-4 px-4',
+      md: 'text-md pb-4 px-4',
+      lg: 'text-lg pb-4 px-4',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
+export interface AccordionContentProps
+  extends ElementProps<typeof AccordionPrimitive.Content>,
+    VariantProps<typeof accordionContentVariant> {}
+
+const AccordionContent = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Content>, AccordionContentProps>(
+  ({ className, children, size: sizeProp, variant: variantProp, ...props }, ref) => {
+    const { iconPosition, hideIcon, size, variant } = useAccordionContext();
+
+    const shiftClassName = iconPosition === 'left' ? 'pl-12' : 'pr-12';
+
+    return (
+      <AccordionPrimitive.Content
         ref={ref}
         className={cn(
-          'flex flex-1 items-center text-lg text-gray-900 group gap-6 font-medium transition-all [&[data-state=open]>svg]:rotate-180',
-          iconPosition === 'left' ? 'flex-row-reverse justify-end' : 'flex-row justify-between',
-          className
+          'overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+          { [shiftClassName]: !hideIcon }
         )}
         {...props}
       >
-        {children}
-        {hideIcon ? null : (
-          <>
-            <div className="group-aria-expanded:hidden block w-6">{inactiveIcon}</div>
-            <div className="group-aria-expanded:block hidden w-6">{activeIcon}</div>
-          </>
-        )}
-      </AccordionPrimitive.Trigger>
-    </AccordionPrimitive.Header>
-  );
-});
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+        <div
+          className={cn(
+            accordionContentVariant({ variant: variantProp ?? variant, size: sizeProp ?? size }),
 
-const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  ElementProps<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => {
-  const { iconPosition, hideIcon } = useAccordionContext();
-
-  const shiftClassName = iconPosition === 'left' ? 'pl-12' : 'pr-12';
-
-  return (
-    <AccordionPrimitive.Content
-      ref={ref}
-      className="overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-      {...props}
-    >
-      <div className={cn('pb-4 pt-2 text-md text-gray-600', { [shiftClassName]: !hideIcon }, className)}>
-        {children}
-      </div>
-    </AccordionPrimitive.Content>
-  );
-});
+            className
+          )}
+        >
+          {children}
+        </div>
+      </AccordionPrimitive.Content>
+    );
+  }
+);
 
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 

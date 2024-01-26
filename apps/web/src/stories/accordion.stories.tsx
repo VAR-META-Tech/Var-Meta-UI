@@ -3,10 +3,14 @@ import { Accordion, AccordionContent, AccordionItem, type AccordionProps, Accord
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';
+const sizes: AccordionProps['size'][] = ['sm', 'md', 'lg'];
+const variants: AccordionProps['variant'][] = ['default', 'outline', 'solid'];
+const roundeds: AccordionProps['rounded'][] = ['default', 'sm', 'md', 'lg'];
 
 const meta: Meta = {
   title: 'Components/Accordion',
   component: Accordion,
+  tags: ['autodocs'],
   argTypes: {
     divider: {
       control: {
@@ -24,6 +28,24 @@ const meta: Meta = {
         type: 'radio',
       },
     },
+    size: {
+      options: sizes,
+      control: {
+        type: 'radio',
+      },
+    },
+    variant: {
+      options: variants,
+      control: {
+        type: 'radio',
+      },
+    },
+    rounded: {
+      options: roundeds,
+      control: {
+        type: 'radio',
+      },
+    },
     type: {
       options: ['single', 'multiple'],
       control: {
@@ -36,6 +58,8 @@ const meta: Meta = {
     divider: false,
     iconPosition: 'right',
     type: 'multiple',
+    size: 'md',
+    rounded: 'md',
   },
 };
 

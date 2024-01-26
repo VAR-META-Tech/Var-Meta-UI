@@ -28,6 +28,10 @@ export interface AccordionContext {
    * Specifies whether to hide the icon.
    */
   hideIcon?: boolean;
+
+  size?: 'sm' | 'md' | 'lg';
+
+  variant?: 'default' | 'outline' | 'solid';
 }
 
 export const [AccordionProvider, useAccordionContext] = createSafeContext<AccordionContext>(

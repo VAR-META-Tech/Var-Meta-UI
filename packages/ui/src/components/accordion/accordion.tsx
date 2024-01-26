@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
-import { MinusCircleIcon, PlusCircleIcon } from '../icons';
+import { ChevronDownIcon, ChevronUpIcon } from '../icons';
 import { type AccordionContext, AccordionProvider, useAccordionContext } from './accordion-context';
 
 export interface AccordionSingleProps extends AccordionContext, AccordionPrimitive.AccordionSingleProps {}
@@ -15,8 +15,8 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
     {
       children,
       divider = false,
-      activeIcon = <MinusCircleIcon />,
-      inactiveIcon = <PlusCircleIcon />,
+      activeIcon = <ChevronDownIcon />,
+      inactiveIcon = <ChevronUpIcon />,
       iconPosition = 'right',
       hideIcon,
       ...props
@@ -93,15 +93,7 @@ const AccordionContent = React.forwardRef<
       className="overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       {...props}
     >
-      <div
-        className={cn(
-          'pb-4 pt-2 text-md text-gray-600',
-          {
-            [shiftClassName]: !hideIcon,
-          },
-          className
-        )}
-      >
+      <div className={cn('pb-4 pt-2 text-md text-gray-600', { [shiftClassName]: !hideIcon }, className)}>
         {children}
       </div>
     </AccordionPrimitive.Content>

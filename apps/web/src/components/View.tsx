@@ -40,23 +40,7 @@ export const EnhancedView = ({ prop, value = '', ...props }: ViewProps) => {
         {prop}
         {value && <Badge>{value}</Badge>}
       </div>
-      <div className="flex flex-wrap">
-        <div className="m-2.5 flex min-w-[250px] flex-col divide-y divide-gray-200 rounded border text-sm ">
-          <span className="p-1.5 font-medium">Props</span>
-          {Object.keys(rest).map((prop) => (
-            <div key={prop} className="flex items-center space-x-0 p-1.5 max-w-xs">
-              <div className="text-gray-500">{prop}</div>
-              {typeof rest[prop] === 'string' && (
-                <div className="text-gray-800">
-                  <Badge>{rest[prop]}</Badge>
-                </div>
-              )}
-            </div>
-          ))}
-          {!Object.keys(rest).length && <span className="p-1.5 text-gray-700">No properties selected</span>}
-        </div>
-        <div className="bg-grid relative flex-1 space-x-1 bg-gray-50/50 p-2.5">{props.children}</div>
-      </div>
+      <div className="bg-grid relative flex-1 space-x-1 bg-gray-50/50 p-2.5">{props.children}</div>
     </div>
   );
 };

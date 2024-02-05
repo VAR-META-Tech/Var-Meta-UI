@@ -230,7 +230,7 @@ const AutocompleteComponent = <T extends boolean = false>(
               />
               {suffix && (
                 <div
-                  className={cn('bg-base-white absolute right-[10px] top-1/2 -translate-y-1/2', {
+                  className={cn('bg-white absolute right-[10px] top-1/2 -translate-y-1/2', {
                     'text-error-300': variant === 'destructive',
                   })}
                 >

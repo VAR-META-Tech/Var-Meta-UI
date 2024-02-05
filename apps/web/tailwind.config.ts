@@ -1,23 +1,19 @@
-import preset from '@var-meta/tailwindcss-config';
+import { defaultTheme } from '@var-meta/tailwindcss-config';
 import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
+
+const { centerPlugin, animatePlugin } = require('@var-meta/tailwindcss-plugins');
 
 const config: Config = {
-  presets: [preset],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@var-meta/ui/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
-        serif: ['var(--font-serif)', ...fontFamily.serif],
-      },
-    },
+    ...defaultTheme,
   },
-  plugins: [],
+  plugins: [centerPlugin, animatePlugin],
 };
 
 export default config;

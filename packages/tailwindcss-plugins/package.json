@@ -1,0 +1,22 @@
+{
+  "name": "@var-meta/tailwindcss-plugins",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "src/*.js",
+    "src/*.d.ts",
+    "dist/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist .turbo node_modules"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

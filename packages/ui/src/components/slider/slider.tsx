@@ -80,7 +80,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
               <SliderPrimitive.Thumb
                 key={i}
                 className={cn([
-                  'block w-6 h-6 transition-colors border-2 shadow-md rounded-full border-brand-600 bg-base-white  ',
+                  'block w-6 h-6 transition-colors border-2 shadow-md rounded-full border-brand-600 bg-white  ',
                   'focus-visible:outline-none focus-visible:shadow-brand-sm disabled:pointer-events-none',
                 ])}
               >

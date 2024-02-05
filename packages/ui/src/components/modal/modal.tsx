@@ -1,6 +1,7 @@
 import { DialogTrigger } from '@radix-ui/react-dialog';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
+import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import {
   CloseDialogTrigger,
@@ -61,24 +62,40 @@ export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   className?: string;
   fitContent?: boolean;
   fullScreen?: boolean;
+  modalContentProps?: ElementProps<typeof DialogContent, 'className'>;
+  overlayClosable?: boolean;
 }
 
 export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
-  const { children, className, fitContent, fullScreen, trigger, ...etc } = props;
+  const {
+    children,
+    overlayClosable = true,
+    modal = false,
+    className,
+    fitContent,
+    fullScreen,
+    modalContentProps,
+    trigger,
+    ...etc
+  } = props;
 
   return (
-    <Dialog {...etc}>
+    <Dialog modal={modal} {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent
+        modal={modal}
         ref={ref}
         className={cn(
-          'min-h-[200px] p-0 shadow-lg',
+          'min-h-[200px] p-0 shad`ow-lg',
           {
             'max-w-fit w-fit': fitContent,
             'max-w-full min-h-screen': fullScreen,
           },
           className
         )}
+        onInteractOutside={(e) => e.preventDefault()}
+        overlayClosable={overlayClosable}
+        {...modalContentProps}
       >
         {children}
       </DialogContent>

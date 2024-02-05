@@ -45,7 +45,7 @@ const DefaultTemplate: StoryFn<NavigationItemProps> = ({ variant, ...args }) => 
         className={cn(' flex items-center', {
           'bg-gray-950': variant === 'dark',
           'bg-brand-700': variant === 'brand',
-          'bg-base-white': variant === 'default' || !variant,
+          'bg-white': variant === 'default' || !variant,
         })}
       >
         <Navigation orientation="vertical">

@@ -67,7 +67,7 @@ const NotificationContent = React.forwardRef<HTMLDivElement, NotificationContent
 );
 
 const notificationVariants = cva(
-  'flex relative p-4 gap-4 overflow-hidden rounded-xl border border-gray-300 shadow-lg bg-base-white w-full md:w-[400px]',
+  'flex relative p-4 gap-4 overflow-hidden rounded-xl border border-gray-300 shadow-lg bg-white w-full md:w-[400px]',
   {
     variants: {
       variant: {
@@ -184,7 +184,11 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
       </Show>
 
       <Show when={variant === 'icon' || variant === 'avatar'}>
-        <div className="flex flex-col items-start md:pb-2 md:-mb-2 justify-start gap-2 md:gap-4 md:flex-row">
+        <div
+          className={cn('flex flex-col items-start  md:-mb-2 justify-start gap-2 md:gap-4 md:flex-row', {
+            'md:pb-2': !!description,
+          })}
+        >
           {renderIcon}
           <div className="flex flex-col gap-3">
             <NotificationContent title={title} description={description} />

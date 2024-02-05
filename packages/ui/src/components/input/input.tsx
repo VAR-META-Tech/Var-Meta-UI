@@ -3,26 +3,23 @@ import React, { type ReactNode } from 'react';
 
 import { cn } from '../../utils/cn';
 
-const inputVariants = cva(
-  ['inline-flex gap-2 justify-between items-center relative', 'border bg-base-white rounded-md'],
-  {
-    variants: {
-      variant: {
-        default: 'border-gray-300 focus-within:shadow-brand-xs focus-within:border-brand-300',
-        destructive: 'border-error-300 bg-base-white focus-within:shadow-error-xs focus-within:border-error-300',
-      },
-      size: {
-        none: '',
-        sm: 'h-10 px-3 py-2',
-        md: 'h-11 px-3.5 py-2.5',
-      },
+const inputVariants = cva(['inline-flex gap-2 justify-between items-center relative', 'border bg-white rounded-md'], {
+  variants: {
+    variant: {
+      default: 'border-gray-300 focus-within:shadow-brand-xs focus-within:border-brand-300',
+      destructive: 'border-error-300 bg-white focus-within:shadow-error-xs focus-within:border-error-300',
     },
-    defaultVariants: {
-      size: 'md',
-      variant: 'default',
+    size: {
+      none: '',
+      sm: 'h-10 px-3 py-2',
+      md: 'h-11 px-3.5 py-2.5',
     },
-  }
-);
+  },
+  defaultVariants: {
+    size: 'md',
+    variant: 'default',
+  },
+});
 
 const baseInputVariant = cva(
   [
@@ -62,7 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input className={cn(baseInputVariant())} ref={ref} {...props} />
 
         {suffix && (
-          <div className={cn('bg-base-white', { 'text-error-300': variant === 'destructive' }, suffixClassName)}>
+          <div className={cn('bg-white', { 'text-error-300': variant === 'destructive' }, suffixClassName)}>
             {suffix}
           </div>
         )}

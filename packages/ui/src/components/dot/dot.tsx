@@ -33,7 +33,7 @@ const dotVariants = cva('aspect-square block rounded-half p-1', {
     {
       variant: 'solid',
       type: 'white',
-      className: 'bg-base-white border-0',
+      className: 'bg-white border-0',
     },
     {
       variant: 'solid',
@@ -48,7 +48,7 @@ const dotVariants = cva('aspect-square block rounded-half p-1', {
     {
       variant: 'outline',
       type: 'white',
-      className: 'border-base-white',
+      className: 'border-white',
     },
     {
       variant: 'outline',

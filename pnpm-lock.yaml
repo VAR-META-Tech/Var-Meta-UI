@@ -104,6 +104,9 @@ importers:
       '@var-meta/icons':
         specifier: workspace:^
         version: link:../../packages/icons
+      '@var-meta/tailwindcss-plugins':
+        specifier: workspace:^
+        version: link:../../packages/tailwindcss-plugins
       '@var-meta/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -181,8 +184,11 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@storybook/components@7.5.3)(@storybook/core-events@7.5.3)(@storybook/manager-api@7.5.3)(@storybook/preview-api@7.5.3)(@storybook/theming@7.5.3)(react-dom@18.2.0)(react@18.2.0)
       tailwindcss:
-        specifier: ^3.2.4
-        version: 3.3.5
+        specifier: ^3.4.1
+        version: 3.4.1
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.1)
       tsconfig:
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -315,7 +321,7 @@ importers:
         version: 10.0.0(eslint@8.42.0)
       eslint-plugin-tailwindcss:
         specifier: 3.12.1
-        version: 3.12.1(tailwindcss@3.3.5)
+        version: 3.12.1(tailwindcss@3.4.1)
       eslint-plugin-testing-library:
         specifier: 5.11.0
         version: 5.11.0(eslint@8.42.0)(typescript@5.3.2)
@@ -389,17 +395,23 @@ importers:
         specifier: ^20.9.2
         version: 20.9.5
       tailwindcss:
-        specifier: ^3.3.5
-        version: 3.3.5
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.3.5)
+        specifier: ^3.4.1
+        version: 3.4.1
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
       typescript:
         specifier: ^5.2.2
         version: 5.3.2
+
+  packages/tailwindcss-plugins:
+    devDependencies:
+      tailwindcss:
+        specifier: ^3.4.1
+        version: 3.4.1
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.1)
 
   packages/test-utils: {}
 
@@ -503,6 +515,9 @@ importers:
       react-day-picker:
         specifier: ^8.9.1
         version: 8.9.1(date-fns@3.0.3)(react@18.2.0)
+      react-remove-scroll:
+        specifier: ^2.5.7
+        version: 2.5.7(@types/react@18.2.38)(react@18.2.0)
       react-select:
         specifier: ^5.8.0
         version: 5.8.0(@types/react@18.2.38)(react-dom@18.2.0)(react@18.2.0)
@@ -513,11 +528,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       tailwindcss:
-        specifier: ^3.3.5
-        version: 3.3.5
+        specifier: ^3.4.1
+        version: 3.4.1
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.3.5)
+        version: 1.0.7(tailwindcss@3.4.1)
     devDependencies:
       '@types/node':
         specifier: ^20.9.2
@@ -10511,7 +10526,7 @@ packages:
       eslint: 8.42.0
     dev: true
 
-  /eslint-plugin-tailwindcss@3.12.1(tailwindcss@3.3.5):
+  /eslint-plugin-tailwindcss@3.12.1(tailwindcss@3.4.1):
     resolution:
       { integrity: sha512-LyIRV0rx6prTpJZsSCXSNJ34Yry3Nj9OJwvzh1xTsiG6+UCnAPW1Bx41s7vZzUDKMlwFgpUN9Me+NK12T4DHYg== }
     engines: { node: '>=12.13.0' }
@@ -10520,7 +10535,7 @@ packages:
     dependencies:
       fast-glob: 3.3.2
       postcss: 8.4.31
-      tailwindcss: 3.3.5
+      tailwindcss: 3.4.1
     dev: true
 
   /eslint-plugin-testing-library@5.11.0(eslint@8.42.0)(typescript@5.3.2):
@@ -15283,6 +15298,26 @@ packages:
       use-callback-ref: 1.3.0(@types/react@18.2.38)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.38)(react@18.2.0)
 
+  /react-remove-scroll@2.5.7(@types/react@18.2.38)(react@18.2.0):
+    resolution:
+      { integrity: sha512-FnrTWO4L7/Bhhf3CYBNArEG/yROV0tKmTv7/3h9QCFvH6sndeFf1wPqOcbFVu5VAulS5dV1wGT3GZZ/1GawqiA== }
+    engines: { node: '>=10' }
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.2.38
+      react: 18.2.0
+      react-remove-scroll-bar: 2.3.4(@types/react@18.2.38)(react@18.2.0)
+      react-style-singleton: 2.2.1(@types/react@18.2.38)(react@18.2.0)
+      tslib: 2.6.2
+      use-callback-ref: 1.3.0(@types/react@18.2.38)(react@18.2.0)
+      use-sidecar: 1.1.2(@types/react@18.2.38)(react@18.2.0)
+    dev: false
+
   /react-select@5.8.0(@types/react@18.2.38)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       { integrity: sha512-TfjLDo58XrhP6VG5M/Mi56Us0Yt8X7xD6cDybC7yoRMUNm7BGO7qk8J0TLQOua/prb8vUOtsfnXZwfm30HGsAA== }
@@ -16652,17 +16687,17 @@ packages:
       '@babel/runtime': 7.23.4
     dev: false
 
-  /tailwindcss-animate@1.0.7(tailwindcss@3.3.5):
+  /tailwindcss-animate@1.0.7(tailwindcss@3.4.1):
     resolution:
       { integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA== }
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
-      tailwindcss: 3.3.5
+      tailwindcss: 3.4.1
 
-  /tailwindcss@3.3.5:
+  /tailwindcss@3.4.1:
     resolution:
-      { integrity: sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA== }
+      { integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA== }
     engines: { node: '>=14.0.0' }
     hasBin: true
     dependencies:

@@ -91,7 +91,7 @@ const data = [
 const DefaultTemplate: StoryFn<AccordionProps> = ({ ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <Accordion className="w-full bg-base-white p-6" {...args}>
+      <Accordion className="w-full bg-white p-6" {...args}>
         {data.map((x, i) => (
           <AccordionItem key={i} value={`${i}`}>
             <AccordionTrigger>{x.title}</AccordionTrigger>

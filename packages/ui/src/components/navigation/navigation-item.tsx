@@ -10,9 +10,9 @@ export const navigationItemVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-base-white text-gray-700 hover:bg-gray-50 hover:text-gray-800 focus:shadow-gray',
-        brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 hover:text-base-white focus:shadow-brand',
-        dark: 'bg-gray-950 text-gray-100 hover:text-base-white hover:bg-gray-800 focus:shadow-gray',
+        default: 'bg-white text-gray-700 hover:bg-gray-50 hover:text-gray-800 focus:shadow-gray',
+        brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 hover:text-white focus:shadow-brand',
+        dark: 'bg-gray-950 text-gray-100 hover:text-white hover:bg-gray-800 focus:shadow-gray',
       },
       active: {
         true: '',
@@ -31,12 +31,12 @@ export const navigationItemVariants = cva(
       {
         variant: 'dark',
         active: true,
-        className: 'text-base-white bg-gray-800',
+        className: 'text-white bg-gray-800',
       },
       {
         variant: 'brand',
         active: true,
-        className: 'bg-brand-600 text-base-white',
+        className: 'bg-brand-600 text-white',
       },
     ],
   }

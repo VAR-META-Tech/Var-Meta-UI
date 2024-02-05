@@ -27,8 +27,8 @@ export const tooltipContentVariants = cva(
         outlined: 'border border-gray-200',
       },
       theme: {
-        light: 'bg-base-white text-gray-700',
-        dark: 'bg-gray-900 text-base-white',
+        light: 'bg-white text-gray-700',
+        dark: 'bg-gray-900 text-white',
       },
     },
     defaultVariants: {
@@ -116,7 +116,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
           {arrow && (
             <TooltipPrimitive.Arrow
               className={cn('drop-shadow-lg -mt-px w-3', {
-                'fill-base-white': theme === 'light',
+                'fill-white': theme === 'light',
                 'fill-gray-900': theme === 'dark',
               })}
             />

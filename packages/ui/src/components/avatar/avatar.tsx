@@ -83,9 +83,9 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
         <div
           className={cn(
             'w-[calc(100%_+_5px)] h-[calc(100%_+_5px)] inset-center z-[1] rounded-full opacity-[14%] pointer-events-none',
-            'group-focus-within:border-4 group-focus-within:border-focus-border',
-            'group-focus:border-4 group-focus:border-focus-border',
-            'group-focus-visible:border-4 group-focus-visible:border-focus-border'
+            'group-focus-within:border-4 group-focus-within:border-avatar-border',
+            'group-focus:border-4 group-focus:border-avatar-border',
+            'group-focus-visible:border-4 group-focus-visible:border-avatar-border'
           )}
         />
         {indicator !== 'none' && !!indicator ? (

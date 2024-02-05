@@ -12,7 +12,7 @@ const badgeVariants = cva(
         'pill-color': 'rounded-2xl border',
         'pill-outline': 'rounded-2xl border-[1.5px]',
         'badge-color': 'rounded-sm border',
-        'badge-modern': 'rounded-sm border bg-base-white border-gray-300 !text-gray-700',
+        'badge-modern': 'rounded-sm border bg-white border-gray-300 !text-gray-700',
       },
       size: {
         sm: 'text-xs py-0.75 gap-1 h-5.5',

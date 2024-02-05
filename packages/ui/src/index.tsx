@@ -1,6 +1,3 @@
-// styles
-import './styles.css';
-
 // utilities
 export * from './hooks';
 export * from './types';

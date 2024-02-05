@@ -13,7 +13,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
       'dark-square': '',
       'mid-square': '',
       glass: [
-        'text-base-white',
+        'text-white',
         '[&>span]:absolute [&>span]:inset-0 [&>span]:w-full [&>span]:h-full [&>span:first-of-type]:z-10 ',
         '[&>span:last-of-type]:rotate-[15deg]  [&>span:last-of-type]:left-[18%] [&>span:last-of-type]:top-[-20%]',
         '[&>span:first-of-type]:bg-white/60 [&>span:first-of-type]:backdrop-blur-md [&>span:first-of-type]:border [&>span:first-of-type]:border-white/60',
@@ -24,7 +24,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
         '[&>span:first-of-type]:scale-[.65] [&>span:first-of-type]:opacity-30',
         '[&>span:last-of-type]:scale-[.83] [&>span:last-of-type]:opacity-10',
       ],
-      modern: 'bg-base-white text-gray-700 shadow-xs border border-gray-200',
+      modern: 'bg-white text-gray-700 shadow-xs border border-gray-200',
     },
     color: {
       brand: '',
@@ -158,7 +158,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
 
     {
       variant: ['dark-outline', 'dark-square', 'mid-square'],
-      className: 'text-base-white',
+      className: 'text-white',
     },
 
     {

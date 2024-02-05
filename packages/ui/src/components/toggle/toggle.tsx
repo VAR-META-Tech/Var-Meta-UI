@@ -21,7 +21,7 @@ const toggleVariants = cva(
 );
 
 const thumbVariant = cva(
-  'pointer-events-none block rounded-full bg-base-white shadow-sm ring-0 transition-transform data-[state=unchecked]:translate-x-0',
+  'pointer-events-none block rounded-full bg-white shadow-sm ring-0 transition-transform data-[state=unchecked]:translate-x-0',
   {
     variants: {
       size: {

@@ -1,5 +1,7 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { type ComponentPropsWithoutRef, Primitive } from '@radix-ui/react-primitive';
 import * as React from 'react';
+import { RemoveScroll } from 'react-remove-scroll';
 
 import { cn } from '../../utils/cn';
 import { ButtonClose, type ButtonCloseProps } from '../button';
@@ -12,40 +14,66 @@ const CloseDialogTrigger = DialogPrimitive.Close;
 
 const DialogPortal = DialogPrimitive.Portal;
 
+const dialogOverLayerClass =
+  'animate-in fade-in-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-950/70 backdrop-blur-sm';
+
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
-    className={cn(
-      'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-950/70 backdrop-blur-sm',
-      className
-    )}
-    {...props}
-  />
+  <DialogPrimitive.Overlay ref={ref} className={cn(dialogOverLayerClass, className)} {...props} />
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
-        'border-linear bg-base-white fixed left-[50%] top-[50%] z-50 grid max-h-screen w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 overflow-auto border px-4 py-3 shadow-xl duration-200 sm:rounded-lg md:w-full',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </DialogPrimitive.Content>
-  </DialogPortal>
-));
+type DialogOverlayImplElement = React.ElementRef<typeof Primitive.div>;
+type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+interface DialogOverlayImplProps extends PrimitiveDivProps {
+  shards?: Array<React.RefObject<any> | HTMLElement>;
+  disabled?: boolean;
+}
+
+const DialogOverlayImpl = React.forwardRef<DialogOverlayImplElement, DialogOverlayImplProps>(
+  ({ className, shards: _shards, disabled, ...props }: DialogOverlayImplProps, forwardedRef) => {
+    return (
+      <CloseDialogTrigger asChild disabled={disabled}>
+        <Primitive.div
+          {...props}
+          ref={forwardedRef}
+          className={cn(dialogOverLayerClass, className)}
+          // We re-enable pointer-events prevented by `Dialog.Content` to allow scrolling the overlay.
+          style={{ pointerEvents: 'auto', ...props.style }}
+        />
+      </CloseDialogTrigger>
+    );
+  }
+);
+
+interface DialogContentProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  modal?: boolean;
+  overlayClosable?: boolean;
+}
+
+const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, DialogContentProps>(
+  ({ className, children, modal, overlayClosable = true, ...props }, ref) => (
+    <DialogPortal>
+      {modal ? <DialogOverlay /> : <DialogOverlayImpl disabled={!overlayClosable} />}
+
+      <RemoveScroll>
+        <DialogPrimitive.Content
+          ref={ref}
+          className={cn(
+            'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
+            'border-linear bg-white fixed left-[50%] top-[50%] z-50 grid max-h-screen w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 overflow-auto border px-4 py-3 shadow-xl duration-200 sm:rounded-lg md:w-full',
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </DialogPrimitive.Content>
+      </RemoveScroll>
+    </DialogPortal>
+  )
+);
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 export interface DialogHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -104,6 +132,7 @@ export {
   DialogFooter,
   DialogHeader,
   DialogOverlay,
+  DialogOverlayImpl,
   DialogTitle,
   DialogTrigger,
 };

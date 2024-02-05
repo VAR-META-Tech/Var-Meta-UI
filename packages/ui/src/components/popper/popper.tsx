@@ -22,7 +22,7 @@ const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content
       <PopperPrimitive.Content
         ref={ref}
         className={cn(
-          'bg-base-white z-50 min-h-[40px] rounded-sm shadow-md',
+          'bg-white z-50 min-h-[40px] rounded-sm shadow-md',
           'max-h-[var(--radix-popper-available-height)] w-[var(--radix-popper-anchor-width)] origin-[var(--radix-popper-transform-origin)]',
           className
         )}
@@ -77,7 +77,7 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
             sideOffset={sideOffset}
             align={align}
             side={side}
-            className={cn(theme === 'light' ? 'bg-base-white text-gray-700' : 'bg-gray-900 text-base-white', className)}
+            className={cn(theme === 'light' ? 'bg-white text-gray-700' : 'bg-gray-900 text-white', className)}
             ref={ref}
             {...etc}
           >
@@ -85,7 +85,7 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
             {arrow ? (
               <PopperArrow
                 className={cn('drop-shadow-lg -mt-px w-3', {
-                  'fill-base-white': theme === 'light',
+                  'fill-white': theme === 'light',
                   'fill-gray-900': theme === 'dark',
                 })}
               />

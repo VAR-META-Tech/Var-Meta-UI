@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { cn } from '../../utils/cn';
 import { VerifiedIcon } from '../icons';
 
-const dotVariants = cva('rounded-full block border-1.5 border-base-white aspect-square', {
+const dotVariants = cva('rounded-full block border border-white aspect-square', {
   variants: {
     variant: {
       offline: 'bg-gray-300',
@@ -46,7 +46,7 @@ const verifiedVariants = cva('', {
 });
 
 const iconVariants = cva(
-  'flex justify-center items-center rounded-full bg-gray-200 border-1.5 border-base-white aspect-square [&>*]:scale-90',
+  'flex justify-center items-center rounded-full bg-gray-200 border border-white aspect-square [&>*]:scale-90',
   {
     variants: {
       size: {

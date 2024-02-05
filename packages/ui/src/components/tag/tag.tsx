@@ -46,7 +46,7 @@ const tagContentVariants = cva('flex items-center', {
   },
 });
 
-const countVariants = cva('flex text-center font-medium bg-gray-100 items-center rounded-3', {
+const countVariants = cva('flex text-center font-medium bg-gray-100 items-center rounded-xxs', {
   variants: {
     size: {
       sm: 'px-1 text-xs ',

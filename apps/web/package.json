@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@var-meta/icons": "workspace:^",
+    "@var-meta/tailwindcss-plugins": "workspace:^",
     "@var-meta/ui": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
@@ -23,7 +24,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@var-meta/tailwindcss-config": "workspace:*",
     "@next/eslint-plugin-next": "13.4.19",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
@@ -37,12 +37,13 @@
     "@types/node": "^18.11.17",
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
-    "autoprefixer": "^10.4.13",
     "@var-meta/eslint-config": "workspace:*",
+    "@var-meta/tailwindcss-config": "workspace:*",
+    "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
     "storybook": "^7.5.3",
     "storybook-addon-pseudo-states": "^2.1.2",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "^3.4.1",
     "tsconfig": "workspace:*",
     "typescript": "^5.3.2"
   }

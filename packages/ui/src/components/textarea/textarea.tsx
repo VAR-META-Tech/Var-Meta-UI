@@ -7,7 +7,7 @@ import { Label } from '../label';
 
 const textareaVariants = cva(
   cn(
-    'flex min-h-[128px] border text-gray-900 placeholder:text-gray-500 bg-base-white rounded-md',
+    'flex min-h-[128px] border text-gray-900 placeholder:text-gray-500 bg-white rounded-md',
     'focus-visible:outline-none  outline-none',
     'disabled:cursor-not-allowed disabled:border-gray-300 disabled:shadow-xs disabled:bg-gray-50 disabled:text-gray-500',
     'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default'
@@ -16,7 +16,7 @@ const textareaVariants = cva(
     variants: {
       variant: {
         default: 'border-gray-300 focus-visible:shadow-brand-xs focus-visible:border-brand-300',
-        destructive: 'border-error-300 bg-base-white focus-visible:shadow-error-xs focus-visible:border-error-300',
+        destructive: 'border-error-300 bg-white focus-visible:shadow-error-xs focus-visible:border-error-300',
       },
       size: {
         none: '',

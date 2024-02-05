@@ -20,7 +20,7 @@ export const PaginationDot = forwardRef<ElementRef<'div'>, PaginationDotProps>((
         'min-w-[var(--pagination-control-size)] h-[var(--pagination-control-size)]',
         'flex items-center justify-center pointer-events-none',
         {
-          'bg-base-white ': variant === 'filled',
+          'bg-white ': variant === 'filled',
           'text-gray-400 opacity-50 cursor-not-allowed': disabled,
         },
         className

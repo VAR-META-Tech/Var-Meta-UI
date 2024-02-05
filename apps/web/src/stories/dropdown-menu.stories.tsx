@@ -95,7 +95,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
             <DropdownMenuHeader>
               <div className="flex items-center gap-3">
                 <img
-                  className="border-base-black aspect-square h-10 w-10 rounded-full border"
+                  className="border-black aspect-square h-10 w-10 rounded-full border"
                   src="https://i.pravatar.cc/400?img=2"
                 />
                 <div>

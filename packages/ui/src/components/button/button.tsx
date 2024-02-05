@@ -7,8 +7,8 @@ import { Dot } from '../dot';
 import { Spinner } from '../spinner';
 
 const base = {
-  solid: 'text-base-white shadow-xs disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400',
-  outline: 'disabled:bg-base-white disabled:border-gray-200 disabled:text-gray-400',
+  solid: 'text-white shadow-xs disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400',
+  outline: 'disabled:bg-white disabled:border-gray-200 disabled:text-gray-400',
   ghost: 'disabled:text-gray-400',
   link: 'disabled:text-gray-400',
 };
@@ -23,11 +23,11 @@ const buttonVariants = cva(
           base.solid,
         ],
         secondary: [
-          'bg-base-white border border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-700 shadow-xs focus:shadow-brand-xs ',
+          'bg-white border border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-700 shadow-xs focus:shadow-brand-xs ',
           base.outline,
         ],
         'secondary-gray': [
-          'bg-base-white border border-gray-300 hover:bg-gray-50 text-gray-700 shadow-xs focus:shadow-gray-xs ',
+          'bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 shadow-xs focus:shadow-gray-xs ',
           base.outline,
         ],
         tertiary: ['text-brand-700 hover:text-brand-800 hover:bg-brand-50', base.ghost],
@@ -40,7 +40,7 @@ const buttonVariants = cva(
           base.solid,
         ],
         'destructive-secondary': [
-          'bg-base-white border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
+          'bg-white border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
           base.outline,
         ],
         'destructive-tertiary': ['text-error-700 hover:text-error-800 hover:bg-error-50', base.ghost],
@@ -51,7 +51,7 @@ const buttonVariants = cva(
           base.solid,
         ],
         'error-secondary': [
-          'bg-base-white border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
+          'bg-white border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
           base.outline,
         ],
         'error-tertiary': ['text-error-700 hover:text-error-800 hover:bg-error-50', base.ghost],
@@ -62,7 +62,7 @@ const buttonVariants = cva(
           base.solid,
         ],
         'warning-secondary': [
-          'bg-base-white border border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-700 shadow-xs focus:shadow-warning-xs ',
+          'bg-white border border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-700 shadow-xs focus:shadow-warning-xs ',
           base.outline,
         ],
         'warning-tertiary': ['text-warning-700 hover:text-warning-800 hover:bg-warning-50', base.ghost],
@@ -73,7 +73,7 @@ const buttonVariants = cva(
           base.solid,
         ],
         'success-secondary': [
-          'bg-base-white border border-success-300 hover:border-success-300 hover:bg-success-50 text-success-700 shadow-xs focus:shadow-success-xs ',
+          'bg-white border border-success-300 hover:border-success-300 hover:bg-success-50 text-success-700 shadow-xs focus:shadow-success-xs ',
           base.outline,
         ],
         'success-tertiary': ['text-success-700 hover:text-success-800 hover:bg-success-50', base.ghost],

@@ -18,7 +18,7 @@ const paginationControlVariants = cva(
       variant: {
         square: 'rounded-md bg-transparent',
         circle: 'rounded-full bg-transparent',
-        button: 'bg-base-white',
+        button: 'bg-white',
       },
       state: {
         default: '',

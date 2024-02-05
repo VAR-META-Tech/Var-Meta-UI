@@ -19,8 +19,8 @@ export const floatingTooltipContentVariants = cva(
   {
     variants: {
       theme: {
-        light: 'bg-base-white text-gray-700',
-        dark: 'bg-gray-900 text-base-white',
+        light: 'bg-white text-gray-700',
+        dark: 'bg-gray-900 text-white',
       },
     },
     defaultVariants: {
@@ -114,7 +114,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
                 ref={arrowRef}
                 context={context}
                 className={cn('drop-shadow-lg -mt-px w-3', {
-                  'fill-base-white': theme === 'light',
+                  'fill-white': theme === 'light',
                   'fill-gray-900': theme === 'dark',
                 })}
               />

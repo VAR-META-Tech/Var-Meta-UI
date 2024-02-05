@@ -20,7 +20,7 @@ const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', 
     variant: {
       default: '',
       outline: 'border border-gray-200 ',
-      solid: 'bg-base-white shadow-sm',
+      solid: 'bg-white shadow-sm',
     },
     rounded: {
       default: '',

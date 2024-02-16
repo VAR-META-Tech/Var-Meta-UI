@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Toggle, type ToggleProps } from '@var-meta/ui';
+import { Toggle, type ToggleProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -4,8 +4,8 @@ import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'reac
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import {
-  CloseDialogTrigger,
   Dialog,
+  DialogCloseTrigger,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -20,7 +20,7 @@ export interface ModalHeaderProps extends DialogHeaderProps {
 }
 
 export const ModalTrigger = DialogTrigger;
-export const CloseModalTrigger = CloseDialogTrigger;
+export const ModalCloseTrigger = DialogCloseTrigger;
 
 export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((props, ref) => {
   const { title, children, icon, description, align = 'left', ...etc } = props;
@@ -40,7 +40,7 @@ export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((prop
             'justify-center items-center text-center': align === 'center',
           })}
         >
-          <div className="text-lg text-gray-900 font-semibold">{title}</div>
+          <div className="text-lg font-semibold text-gray-900">{title}</div>
           <div className="text-sm text-gray-600">{description}</div>
         </div>
       </div>
@@ -70,7 +70,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
   const {
     children,
     overlayClosable = true,
-    modal = false,
+    modal = true,
     className,
     fitContent,
     fullScreen,
@@ -83,7 +83,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
     <Dialog modal={modal} {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent
-        modal={modal}
+        {...modalContentProps}
         ref={ref}
         className={cn(
           'min-h-[200px] p-0 shad`ow-lg',
@@ -93,9 +93,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
           },
           className
         )}
-        onInteractOutside={(e) => e.preventDefault()}
         overlayClosable={overlayClosable}
-        {...modalContentProps}
       >
         {children}
       </DialogContent>

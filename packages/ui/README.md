@@ -1,13 +1,13 @@
-# `@var-meta/ui`
+# `@var-ui/core`
 
 ## Installation
 
 ```sh
-$ pnpm add @var-meta/ui
+$ pnpm add @var-ui/core
 # or
-$ yarn add @var-meta/ui
+$ yarn add @var-ui/core
 # or
-$ npm install @var-meta/ui
+$ npm install @var-ui/core
 ```
 
 ## Usage

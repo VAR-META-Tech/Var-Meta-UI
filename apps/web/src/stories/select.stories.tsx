@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { SelectField, type SelectFieldProps } from '@var-meta/ui';
+import { SelectField, type SelectFieldProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

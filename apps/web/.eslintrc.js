@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@var-meta/eslint-config/library'],
+  extends: ['@var-ui/eslint-config/library'],
 };

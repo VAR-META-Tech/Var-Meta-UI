@@ -83,7 +83,7 @@ export declare type IconName = ${iconNames.join(' | ')}
 /**
  * @deprecated If you import this module, all icons are bundled, so please import and use the individual icons.
  * @example
- * import { AllIcon } from '@var-meta/icons'
+ * import { AllIcon } from '@var-ui/icons'
  */
 export declare const icons: Record<IconName, HashgraphIcon>
 

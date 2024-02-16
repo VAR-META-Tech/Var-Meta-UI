@@ -1,4 +1,4 @@
-# @var-meta/test-utils
+# @var-ui/test-utils
 
 ## 1.0.0
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Star06Icon } from '@var-meta/icons';
-import { Avatar, type AvatarProps } from '@var-meta/ui';
+import { Avatar, type AvatarProps } from '@var-ui/core';
+import { Star06Icon } from '@var-ui/icons';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

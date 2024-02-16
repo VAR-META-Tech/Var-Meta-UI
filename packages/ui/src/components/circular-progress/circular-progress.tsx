@@ -44,13 +44,12 @@ const CircleProgress = React.forwardRef<SVGCircleElement, CircleProps>(
         r={r}
         cx="50%"
         cy="50%"
-        stroke="#27BFF1"
         fill="transparent"
         strokeLinecap="round"
         strokeWidth={thickness}
         strokeDasharray={strokeDasharray}
         strokeDashoffset={strokeDashoffset}
-        className={cn('transition-all duration-700 ease-in-out', className)}
+        className={cn('transition-all stroke-brand-600 duration-700 ease-in-out', className)}
         {...props}
       />
     );

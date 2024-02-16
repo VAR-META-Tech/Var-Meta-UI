@@ -1,10 +1,10 @@
 import { Slot } from '@radix-ui/react-slot';
-import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
-import { cn } from '../../utils/cn';
+import { cn, twv, type VariantProps } from '../../utils/cn';
 
-const hStackVariants = cva('flex flex-wrap items-center', {
+const hStackVariants = twv({
+  base: 'flex flex-wrap items-center',
   variants: {
     pos: {
       left: 'justify-start',

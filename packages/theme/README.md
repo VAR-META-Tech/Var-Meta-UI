@@ -1,13 +1,13 @@
-# `@var-meta/tailwindcss-config`
+# `@var-ui/theme`
 
 ## Installation
 
 ```sh
-$ pnpm add @var-meta/tailwindcss-config
+$ pnpm add @var-ui/theme
 # or
-$ yarn add @var-meta/tailwindcss-config
+$ yarn add @var-ui/theme
 # or
-$ npm install @var-meta/tailwindcss-config
+$ npm install @var-ui/theme
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @var-meta/tailwindcss-config
 Update your `tailwind.config.ts`
 
 ```ts
-import preset from '@var-meta/tailwindcss-config';
+import preset from '@var-ui/theme';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
@@ -30,3 +30,7 @@ const config: Config = {
 
 export default config;
 ```
+
+## Getting correct color
+
+[https://uicolors.app/create] use this

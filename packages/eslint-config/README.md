@@ -1,3 +1,3 @@
-# `@var-meta/eslint-config`
+# `@var-ui/eslint-config`
 
 Collection of internal eslint configurations.

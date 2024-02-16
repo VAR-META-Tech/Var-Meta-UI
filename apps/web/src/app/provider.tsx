@@ -1,7 +1,7 @@
 'use client';
 
-import { type FCC } from '@var-meta/ui';
-import { Toaster } from '@var-meta/ui';
+import { type FCC } from '@var-ui/core';
+import { Toaster } from '@var-ui/core';
 import React from 'react';
 
 const Provider: FCC = ({ children }) => {

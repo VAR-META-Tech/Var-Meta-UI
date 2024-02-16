@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, toast } from '@var-meta/ui';
+import { Button, toast } from '@var-ui/core';
 
 export default function Page() {
   return (

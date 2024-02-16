@@ -1,14 +1,14 @@
-import { defaultTheme } from '@var-meta/tailwindcss-config';
+import { defaultTheme } from '@var-ui/theme';
 import type { Config } from 'tailwindcss';
 
-const { centerPlugin, animatePlugin } = require('@var-meta/tailwindcss-plugins');
+const { centerPlugin, animatePlugin } = require('@var-ui/plugins');
 
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@var-meta/ui/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@var-ui/core/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     ...defaultTheme,

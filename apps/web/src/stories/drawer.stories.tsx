@@ -11,8 +11,8 @@ import {
   type DrawerProps,
   DrawerTitle,
   DrawerTrigger,
-} from '@var-meta/ui';
-import { type DrawerContentProps } from '@var-meta/ui';
+} from '@var-ui/core';
+import { type DrawerContentProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

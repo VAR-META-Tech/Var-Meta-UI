@@ -10,12 +10,12 @@ const Dialog = DialogPrimitive.Root;
 
 const DialogTrigger = DialogPrimitive.Trigger;
 
-const CloseDialogTrigger = DialogPrimitive.Close;
+const DialogCloseTrigger = DialogPrimitive.Close;
 
 const DialogPortal = DialogPrimitive.Portal;
 
 const dialogOverLayerClass =
-  'animate-in fade-in-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-950/70 backdrop-blur-sm';
+  'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-gray-950/70 backdrop-blur-sm';
 
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
@@ -35,31 +35,28 @@ interface DialogOverlayImplProps extends PrimitiveDivProps {
 const DialogOverlayImpl = React.forwardRef<DialogOverlayImplElement, DialogOverlayImplProps>(
   ({ className, shards: _shards, disabled, ...props }: DialogOverlayImplProps, forwardedRef) => {
     return (
-      <CloseDialogTrigger asChild disabled={disabled}>
-        <Primitive.div
-          {...props}
-          ref={forwardedRef}
-          className={cn(dialogOverLayerClass, className)}
-          // We re-enable pointer-events prevented by `Dialog.Content` to allow scrolling the overlay.
-          style={{ pointerEvents: 'auto', ...props.style }}
-        />
-      </CloseDialogTrigger>
+      <Primitive.div
+        {...props}
+        ref={forwardedRef}
+        className={cn(dialogOverLayerClass, className)}
+        // We re-enable pointer-events prevented by `Dialog.Content` to allow scrolling the overlay.
+        style={{ pointerEvents: disabled ? 'none' : 'auto', ...props.style }}
+      />
     );
   }
 );
 
 interface DialogContentProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
-  modal?: boolean;
   overlayClosable?: boolean;
 }
 
 const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, DialogContentProps>(
-  ({ className, children, modal, overlayClosable = true, ...props }, ref) => (
+  ({ className, children, overlayClosable = true, ...props }, ref) => (
     <DialogPortal>
-      {modal ? <DialogOverlay /> : <DialogOverlayImpl disabled={!overlayClosable} />}
-
+      {overlayClosable ? <DialogOverlay /> : <DialogOverlayImpl disabled />}
       <RemoveScroll>
         <DialogPrimitive.Content
+          onInteractOutside={(e) => (overlayClosable ? null : e.preventDefault())}
           ref={ref}
           className={cn(
             'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
@@ -88,9 +85,9 @@ const DialogHeader = React.forwardRef<React.ElementRef<'div'>, DialogHeaderProps
     <div ref={ref} className={cn('px-6 pt-6 relative', className)} {...props}>
       {children}
       {hideCloseButton ? null : (
-        <CloseDialogTrigger className="absolute top-4 right-4" asChild onClick={onClose}>
+        <DialogCloseTrigger className="absolute top-4 right-4" asChild onClick={onClose}>
           <ButtonClose size="lg" {...buttonCloseProps} />
-        </CloseDialogTrigger>
+        </DialogCloseTrigger>
       )}
     </div>
   )
@@ -125,8 +122,8 @@ const DialogDescription = React.forwardRef<
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 export {
-  CloseDialogTrigger,
   Dialog,
+  DialogCloseTrigger,
   DialogContent,
   DialogDescription,
   DialogFooter,

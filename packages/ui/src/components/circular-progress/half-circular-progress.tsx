@@ -95,12 +95,11 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
           <path
             d={backgroundArc}
             fill="none"
-            stroke="#27BFF1"
             strokeWidth={thickness}
             strokeLinecap="round"
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
-            className={cn('transition-all duration-700 ease-in-out')}
+            className={cn('transition-all stroke-brand-600 duration-700 ease-in-out')}
           />
         </svg>
 

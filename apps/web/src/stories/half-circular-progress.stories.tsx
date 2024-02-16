@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { HalfCircularProgress, type HalfCircularProgressProps } from '@var-meta/ui';
+import { HalfCircularProgress, type HalfCircularProgressProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { CircleIcon, SearchLgIcon } from '@var-meta/icons';
-import { Button, type ButtonProps } from '@var-meta/ui';
+import { Button, type ButtonProps } from '@var-ui/core';
+import { CircleIcon, SearchLgIcon } from '@var-ui/icons';
 import React from 'react';
 
 import { EnhancedView, View, ViewGroup } from '@/components/View';

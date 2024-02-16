@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Autocomplete, type AutocompleteProps } from '@var-meta/ui';
+import { Autocomplete, type AutocompleteProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

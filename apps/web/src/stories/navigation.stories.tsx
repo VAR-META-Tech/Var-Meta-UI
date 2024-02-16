@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { BarChart01Icon } from '@var-meta/icons';
-import { cn, Navigation, NavigationDropdown, NavigationItem } from '@var-meta/ui';
-import { type NavigationItemProps } from '@var-meta/ui';
+import { cn, Navigation, NavigationDropdown, NavigationItem } from '@var-ui/core';
+import { type NavigationItemProps } from '@var-ui/core';
+import { BarChart01Icon } from '@var-ui/icons';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

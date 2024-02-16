@@ -10,7 +10,7 @@ import {
   Modal,
   Popper,
   useDisclosure,
-} from '@var-meta/ui';
+} from '@var-ui/core';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 

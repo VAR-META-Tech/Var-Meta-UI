@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { HomeLineIcon } from '@var-meta/icons';
-import { BreadcrumbItem, type BreadcrumbItemProps, Breadcrumbs } from '@var-meta/ui';
+import { BreadcrumbItem, type BreadcrumbItemProps, Breadcrumbs } from '@var-ui/core';
+import { HomeLineIcon } from '@var-ui/icons';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';

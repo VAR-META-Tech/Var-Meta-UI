@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@var-meta/icons';
-import { Badge, type BadgeProps } from '@var-meta/ui';
+import { Badge, type BadgeProps } from '@var-ui/core';
+import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@var-ui/icons';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';
@@ -13,14 +13,11 @@ const colors: BadgeProps['color'][] = [
   'error',
   'warning',
   'success',
-  'blue-light',
   'blue',
   'indigo',
   'purple',
   'pink',
   'orange',
-  'blue-gray',
-  'gray-blue',
 ];
 
 const meta: Meta = {

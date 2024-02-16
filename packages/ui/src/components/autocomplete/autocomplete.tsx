@@ -245,7 +245,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 data-state={isOpen ? 'open' : 'closed'}
                 className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1"
               >
-                <CommandList>
+                <CommandList className="max-h-[var(--radix-popper-available-height)]">
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="p-1">

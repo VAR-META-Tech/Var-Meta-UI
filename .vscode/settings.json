@@ -9,7 +9,6 @@
     "source.addMissingImports": "always",
     "source.fixAll.eslint": "always"
   },
-  "eslint.workingDirectories": [{ "mode": "auto" }],
   // Multiple language settings for json and jsonc files
   "[json][jsonc]": {
     "editor.formatOnSave": false,
@@ -27,7 +26,8 @@
   },
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "html.format.wrapAttributes": "auto",
   "cSpell.words": ["hashgraph", "Hoverable", "sonner", "tailwindcss", "tsup"],

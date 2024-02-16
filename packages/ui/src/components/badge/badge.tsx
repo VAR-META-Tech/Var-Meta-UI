@@ -31,17 +31,11 @@ const badgeVariants = cva(
         error: ' text-error-700 [&>div[role="trailing"]]:text-error-600 [&>div[role="leading"]]:text-error-600',
         warning: ' text-warning-700 [&>div[role="trailing"]]:text-warning-600 [&>div[role="leading"]]:text-warning-600',
         success: ' text-success-700 [&>div[role="trailing"]]:text-success-600 [&>div[role="leading"]]:text-success-600',
-        'blue-light':
-          ' text-blue-light-700 [&>div[role="trailing"]]:text-blue-light-600 [&>div[role="leading"]]:text-blue-light-600',
         blue: ' text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
         indigo: ' text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
         purple: ' text-purple-700 [&>div[role="trailing"]]:text-purple-600 [&>div[role="leading"]]:text-purple-600',
         pink: ' text-pink-700 [&>div[role="trailing"]]:text-pink-600 [&>div[role="leading"]]:text-pink-600',
         orange: ' text-orange-700 [&>div[role="trailing"]]:text-orange-600 [&>div[role="leading"]]:text-orange-600',
-        'blue-gray':
-          'text-blue-gray-700 [&>div[role="trailing"]]:text-blue-gray-600 [&>div[role="leading"]]:text-blue-gray-600',
-        'gray-blue':
-          ' text-gray-blue-700 [&>div[role="trailing"]]:text-gray-blue-600 [&>div[role="leading"]]:text-gray-blue-600',
       },
     },
     defaultVariants: {
@@ -126,11 +120,6 @@ const badgeVariants = cva(
         className: 'bg-success-50 border-success-200',
       },
       {
-        color: 'blue-light',
-        variant: ['pill-color', 'badge-color'],
-        className: 'bg-blue-light-50 border-blue-light-200',
-      },
-      {
         color: 'blue',
         variant: ['pill-color', 'badge-color'],
         className: 'bg-blue-50 border-blue-200',
@@ -154,16 +143,6 @@ const badgeVariants = cva(
         color: 'orange',
         variant: ['pill-color', 'badge-color'],
         className: 'bg-orange-50 border-orange-200',
-      },
-      {
-        color: 'blue-gray',
-        variant: ['pill-color', 'badge-color'],
-        className: 'bg-blue-gray-50 border-blue-gray-200',
-      },
-      {
-        color: 'gray-blue',
-        variant: ['pill-color', 'badge-color'],
-        className: 'bg-gray-blue-50 border-gray-blue-200',
       },
 
       // Pill outline
@@ -194,11 +173,6 @@ const badgeVariants = cva(
         className: ' border-success-600',
       },
       {
-        color: 'blue-light',
-        variant: 'pill-outline',
-        className: ' border-blue-light-600',
-      },
-      {
         color: 'blue',
         variant: 'pill-outline',
         className: ' border-blue-600',
@@ -222,16 +196,6 @@ const badgeVariants = cva(
         color: 'orange',
         variant: 'pill-outline',
         className: ' border-orange-600',
-      },
-      {
-        color: 'blue-gray',
-        variant: 'pill-outline',
-        className: 'border-blue-gray-600',
-      },
-      {
-        color: 'gray-blue',
-        variant: 'pill-outline',
-        className: 'border-gray-blue-600',
       },
     ],
   }

@@ -26,14 +26,20 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "check-types": "tsc --noEmit",
+    "test": "node dist/index.js",
     "clean": "rm -rf dist .turbo node_modules"
   },
   "devDependencies": {
     "@types/color": "^3.0.3",
     "@types/flat": "^5.0.2",
     "@types/lodash.foreach": "^4.5.7",
+    "@types/lodash.get": "^4.4.7",
+    "@types/lodash.kebabcase": "^4.1.7",
+    "@types/lodash.mapkeys": "^4.6.7",
+    "@types/lodash.omit": "^4.5.7",
     "@types/node": "^20.9.2",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "tsconfig": "workspace:*",
     "typescript": "^5.2.2"
   },
@@ -42,7 +48,13 @@
   },
   "dependencies": {
     "color": "^4.2.3",
+    "color2k": "^2.0.2",
+    "deepmerge": "4.3.1",
     "flat": "^5.0.2",
-    "lodash.foreach": "^4.5.0"
+    "lodash.foreach": "^4.5.0",
+    "lodash.get": "^4.4.2",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.mapkeys": "^4.6.0",
+    "lodash.omit": "^4.5.0"
   }
 }

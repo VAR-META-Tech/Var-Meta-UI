@@ -1,4 +1,11 @@
-export const defaultColor = {
+import { ThemeColors } from './types';
+
+export const colors = {
+  base: {
+    white: '#FFFFFF',
+    black: '#000000',
+    transparent: '##FFFFFF00',
+  },
   brand: {
     50: '#f6f4fe',
     100: '#eeebfc',
@@ -11,6 +18,7 @@ export const defaultColor = {
     800: '#602cab',
     900: '#51268c',
     950: '#32165f',
+    DEFAULT: '#9e77ed',
   },
   blue: {
     50: '#eff8ff',
@@ -24,6 +32,7 @@ export const defaultColor = {
     800: '#1849a9',
     900: '#194185',
     950: '#102a56',
+    DEFAULT: '#2e90fa',
   },
   cyan: {
     50: '#ecfdff',
@@ -37,6 +46,7 @@ export const defaultColor = {
     800: '#155b75',
     900: '#164c63',
     950: '#0d2d3a',
+    DEFAULT: '#06aed4',
   },
   fuchsia: {
     50: '#fdf4ff',
@@ -50,6 +60,7 @@ export const defaultColor = {
     800: '#821890',
     900: '#6f1877',
     950: '#47104c',
+    DEFAULT: '#d444f1',
   },
   gray: {
     50: '#f9fafb',
@@ -63,6 +74,7 @@ export const defaultColor = {
     800: '#182230',
     900: '#101828',
     950: '#0c111d',
+    DEFAULT: '#667085',
   },
   green: {
     50: '#edfcf2',
@@ -76,6 +88,7 @@ export const defaultColor = {
     800: '#095c37',
     900: '#084c2e',
     950: '#052e1c',
+    DEFAULT: '#16b364',
   },
   indigo: {
     50: '#eef4ff',
@@ -89,6 +102,7 @@ export const defaultColor = {
     800: '#2d31a6',
     900: '#2d3282',
     950: '#1f235b',
+    DEFAULT: '#6172f3',
   },
   moss: {
     50: '#f5fbee',
@@ -102,6 +116,7 @@ export const defaultColor = {
     800: '#335015',
     900: '#2b4212',
     950: '#1a280b',
+    DEFAULT: '#669f2a',
   },
   orange: {
     50: '#fef6ee',
@@ -115,19 +130,7 @@ export const defaultColor = {
     800: '#932f19',
     900: '#772917',
     950: '#511c10',
-    dark: {
-      50: '#fff4ed',
-      100: '#ffe6d5',
-      200: '#ffd6ae',
-      300: '#ff9c66',
-      400: '#ff692e',
-      500: '#ff4405',
-      600: '#e62e05',
-      700: '#bc1b06',
-      800: '#97180c',
-      900: '#771a0d',
-      950: '#57130a',
-    },
+    DEFAULT: '#ef6820',
   },
   pink: {
     50: '#fdf2fa',
@@ -141,6 +144,7 @@ export const defaultColor = {
     800: '#9e165f',
     900: '#851651',
     950: '#4e0d30',
+    DEFAULT: '#ee46bc',
   },
   purple: {
     50: '#f4f3ff',
@@ -154,6 +158,7 @@ export const defaultColor = {
     800: '#4a1fb8',
     900: '#3e1c96',
     950: '#27115f',
+    DEFAULT: '#7a5af8',
   },
   rose: {
     50: '#fff1f3',
@@ -167,6 +172,7 @@ export const defaultColor = {
     800: '#a11043',
     900: '#89123e',
     950: '#510b24',
+    DEFAULT: '#f63d68',
   },
   teal: {
     50: '#f0fdf9',
@@ -180,6 +186,7 @@ export const defaultColor = {
     800: '#125d56',
     900: '#134e48',
     950: '#0a2926',
+    DEFAULT: '#15b79e',
   },
   violet: {
     50: '#f5f3ff',
@@ -193,6 +200,7 @@ export const defaultColor = {
     800: '#5720b7',
     900: '#491c96',
     950: '#2e125e',
+    DEFAULT: '#875bf7',
   },
   error: {
     50: '#fef3f2',
@@ -206,6 +214,7 @@ export const defaultColor = {
     800: '#912018',
     900: '#7a271a',
     950: '#55160c',
+    DEFAULT: '#f04438',
   },
   yellow: {
     50: '#fefbe8',
@@ -219,6 +228,7 @@ export const defaultColor = {
     800: '#854a0e',
     900: '#713b12',
     950: '#542c0d',
+    DEFAULT: '#eaaa08',
   },
   warning: {
     50: '#fffaeb',
@@ -232,6 +242,7 @@ export const defaultColor = {
     800: '#93370d',
     900: '#7a2e0e',
     950: '#4e1d09',
+    DEFAULT: '#f79009',
   },
   success: {
     50: '#ecfdf3',
@@ -245,5 +256,38 @@ export const defaultColor = {
     800: '#085d3a',
     900: '#074d31',
     950: '#053321',
+    DEFAULT: '#17b26a',
   },
+};
+
+export const defaultLightColors: ThemeColors = {
+  default: colors.base.black,
+  background: colors.base.white,
+  foreground: colors.gray[900],
+  border: colors.gray[300],
+  divider: colors.gray[200],
+  overlay: colors.gray[950],
+  brand: colors.brand,
+  gray: colors.gray,
+  secondary: colors.blue,
+  warning: colors.warning,
+  error: colors.error,
+  success: colors.success,
+  disabled: colors.gray[400],
+};
+
+export const defaultDarkColors: ThemeColors = {
+  default: colors.base.white,
+  background: colors.gray[950],
+  foreground: colors.gray[50],
+  border: colors.gray[700],
+  divider: colors.gray[800],
+  overlay: colors.gray[950],
+  brand: colors.brand,
+  gray: colors.gray,
+  secondary: colors.blue,
+  warning: colors.warning,
+  error: colors.error,
+  success: colors.success,
+  disabled: colors.gray[400],
 };

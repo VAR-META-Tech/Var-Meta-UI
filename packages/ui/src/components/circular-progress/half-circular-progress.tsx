@@ -32,10 +32,10 @@ const labelVariant = cva('absolute inset-x-center bottom-0 text-gray-900 font-se
   variants: {
     size: {
       xxs: 'text-sm ',
-      xs: 'text-display-xs',
-      sm: 'text-display-sm',
-      md: 'text-display-md',
-      lg: 'text-display-lg',
+      xs: 'text-2xl',
+      sm: 'text-3xl',
+      md: 'text-4xl',
+      lg: 'text-5xl',
     },
   },
   defaultVariants: {

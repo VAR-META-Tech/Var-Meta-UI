@@ -98,11 +98,23 @@ const buttonVariants = cva(
         '3xl': 'rounded-3xl',
         full: 'rounded-full',
       },
+      fullWidth: {
+        true: 'w-full',
+      },
+      iconOnly: {
+        true: 'aspect-square p-0',
+      },
+      loading: {
+        true: 'cursor-progress',
+      },
     },
     defaultVariants: {
       variant: 'primary',
       size: 'md',
       radius: 'default',
+      fullWidth: false,
+      iconOnly: false,
+      loading: false,
     },
   }
 );
@@ -111,10 +123,7 @@ export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, ''>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  loading?: boolean;
   spinnerClasses?: string;
-  fullWidth?: boolean;
-  iconOnly?: boolean;
   dotLeading?: boolean;
 }
 
@@ -126,15 +135,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       children,
       spinnerClasses,
-      fullWidth,
-      loading,
       disabled,
       variant = 'primary',
+      fullWidth,
       size,
       iconOnly = false,
       radius = 'default',
       asChild = false,
       dotLeading = false,
+      loading = false,
       ...props
     },
     ref
@@ -142,15 +151,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button';
     return (
       <Comp
-        className={cn(
-          buttonVariants({ variant, radius, size }),
-          {
-            'w-full': fullWidth,
-            'cursor-progress': loading,
-            'aspect-square p-0': iconOnly,
-          },
-          className
-        )}
+        className={cn(buttonVariants({ variant, iconOnly, loading, fullWidth, radius, size }), {}, className)}
         ref={ref}
         disabled={loading || disabled}
         aria-disabled={loading || disabled}

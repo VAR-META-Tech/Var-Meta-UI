@@ -15,7 +15,7 @@ export const View = ({ prop, value = '', direction = 'row', justify = 'evenly', 
   const flexDirection = direction === 'column' ? 'column' : 'row';
   const justifyContent = justify === 'start' ? 'flex-start' : 'space-evenly';
   return (
-    <div className="flex grow flex-col divide-y divide-gray-200 rounded-lg border shadow-sm">
+    <div className="flex grow flex-col divide-y divide-gray-200 border shadow-sm">
       <div className="flex items-center space-x-2 bg-gray-100/75 p-2.5 text-gray-800">
         {prop}
         {value && <Badge>{value}</Badge>}
@@ -35,7 +35,7 @@ export const EnhancedView = ({ prop, value = '', ...props }: ViewProps) => {
   const { children, ...rest } = child!.props!;
 
   return (
-    <div className="flex flex-col divide-y divide-gray-200 rounded-lg border shadow-sm">
+    <div className="flex flex-col divide-y divide-gray-200 border border-border shadow-sm">
       <div className="flex items-center space-x-2 bg-gray-100/75 p-2.5 text-gray-800">
         {prop}
         {value && <Badge>{value}</Badge>}

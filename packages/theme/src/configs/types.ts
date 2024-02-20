@@ -1,4 +1,4 @@
-export type Color =
+export type ColorScheme =
   | Partial<{
       50: string;
       100: string;
@@ -11,14 +11,25 @@ export type Color =
       800: string;
       900: string;
       950: string;
+      DEFAULT: string;
     }>
   | string;
 
 export type BaseColors = {
-  background: string;
-  foreground: string;
-  divider: string;
-  overlay: string;
-  focus: string;
-  border: string;
+  background: ColorScheme;
+  foreground: ColorScheme;
+  divider: ColorScheme;
+  disabled: ColorScheme;
+  overlay: ColorScheme;
+  border: ColorScheme;
+};
+
+export type ThemeColors = BaseColors & {
+  default: ColorScheme;
+  brand: ColorScheme;
+  secondary: ColorScheme;
+  gray: ColorScheme;
+  error: ColorScheme;
+  warning: ColorScheme;
+  success: ColorScheme;
 };

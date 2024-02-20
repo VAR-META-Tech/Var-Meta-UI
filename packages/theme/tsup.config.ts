@@ -2,7 +2,7 @@ import type { Options } from 'tsup';
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options: Options) => ({
-  clean: !options.watch,
+  clean: true,
   dts: true,
   entry: ['index.ts'],
   external: ['react'],

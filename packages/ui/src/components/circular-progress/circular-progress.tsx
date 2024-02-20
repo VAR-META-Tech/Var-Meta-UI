@@ -66,10 +66,10 @@ const labelVariant = cva('absolute inset-center text-gray-900 font-semibold', {
   variants: {
     size: {
       xxs: 'text-sm ',
-      xs: 'text-display-xs',
-      sm: 'text-display-sm',
-      md: 'text-display-md',
-      lg: 'text-display-lg',
+      xs: 'text-2xl',
+      sm: 'text-3xl',
+      md: 'text-4xl',
+      lg: 'text-5xl',
     },
   },
   defaultVariants: {

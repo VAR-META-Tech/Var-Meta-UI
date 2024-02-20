@@ -128,11 +128,15 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
   return plugin(
-    ({ addBase, addUtilities, addVariant }) => {
+    ({ addBase, addUtilities, addVariant, config }) => {
       // add base classNames
       addBase({
         [':root, [data-theme]']: {
           ...baseStyles(prefix),
+          '--toaster-width': '440px',
+          '@media (max-width: 37.5rem)': {
+            '--toaster-width': '359px',
+          },
         },
       });
       // add the css variables to "@layer utilities"
@@ -185,5 +189,3 @@ export const createThemes = (config: PluginConfig = {}): ReturnType<typeof plugi
 
   return corePlugin(themes, defaultTheme, defaultPrefix);
 };
-
-createThemes();

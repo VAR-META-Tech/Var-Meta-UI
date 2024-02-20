@@ -101,11 +101,11 @@ const tabTriggerVariants = cva(
     variants: {
       variant: {
         primary: [
-          'data-[state=active]:bg-brand-50 data-[state=active]:text-brand-700 focus-visible:shadow-brand',
+          'data-[state=active]:bg-brand-50 data-[state=active]:text-brand-700 focus-visible:shadow-brand-base',
           'hover:bg-brand-50 hover:text-brand-700 ',
         ],
         gray: [
-          'data-[state=active]:bg-gray-50 data-[state=active]:text-gray-700 focus-visible:shadow-gray',
+          'data-[state=active]:bg-gray-50 data-[state=active]:text-gray-700 focus-visible:shadow-gray-base',
           'hover:bg-gray-50 hover:text-gray-700',
         ],
         white: [

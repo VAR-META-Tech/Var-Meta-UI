@@ -39,8 +39,8 @@ const iconButtonVariants = cva(
       variant: {
         default: [
           'bg-white border-2 border-gray-200 text-gray-300',
-          'aria-[current=step]:bg-brand-600 aria-[current=step]:text-white aria-[current=step]:border-brand-600 aria-[current=step]:shadow-brand',
-          'data-[invalid=true]:bg-error-600 data-[invalid=true]:text-white data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error',
+          'aria-[current=step]:bg-brand-600 aria-[current=step]:text-white aria-[current=step]:border-brand-600 aria-[current=step]:shadow-brand-base',
+          'data-[invalid=true]:bg-error-600 data-[invalid=true]:text-white data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base',
           'data-[complete=true]:bg-brand-600 data-[complete=true]:text-white',
         ],
         unstyled: '',

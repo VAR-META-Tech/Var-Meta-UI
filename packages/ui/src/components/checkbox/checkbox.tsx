@@ -8,10 +8,10 @@ import { CheckboxIcon, MinusIcon } from '../icons';
 
 const checkboxVariant = cva(
   [
-    'border-gray-300 focus-visible:outline-none focus-visible:shadow-brand',
+    'border-gray-300 focus-visible:outline-none focus-visible:shadow-brand-base',
     'data-[state=indeterminate]:bg-brand-600 data-[state=indeterminate]:border-brand-600 data-[state=indeterminate]:text-white',
     'data-[state=checked]:bg-brand-600 data-[state=checked]:border-brand-600 data-[state=checked]:text-white',
-    'shrink-0 border disabled:cursor-not-allowed disabled:bg-gray-50 disabled:border-gray-300 disabled:!text-gray-300 disabled:focus-visible:shadow-gray',
+    'shrink-0 border disabled:cursor-not-allowed disabled:bg-gray-50 disabled:border-gray-300 disabled:!text-gray-300 disabled:focus-visible:shadow-gray-base',
     'disabled:data-[state=checked]:border-gray-300 disabled:data-[state=checked]:bg-gray-50',
     'disabled:data-[state=indeterminate]:border-gray-300 disabled:data-[state=indeterminate]:bg-gray-50 ',
   ],

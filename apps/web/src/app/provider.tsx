@@ -8,7 +8,7 @@ const Provider: FCC = ({ children }) => {
   return (
     <>
       {children}
-      <Toaster />
+      <Toaster duration={500000} />
     </>
   );
 };

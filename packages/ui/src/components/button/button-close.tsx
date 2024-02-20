@@ -9,7 +9,7 @@ const buttonCloseVariants = cva(
     'rounded-xs text-gray-400 aspect-square bg-transparent outline-none transition-colors',
     'flex items-center justify-center',
     'hover:bg-gray-50 hover:text-gray-900 hover:outline-none',
-    'focus:bg-gray-50 focus:text-gray-400 focus:outline-none focus:shadow-gray',
+    'focus:bg-gray-50 focus:text-gray-400 focus:outline-none focus:shadow-base',
   ],
   {
     variants: {

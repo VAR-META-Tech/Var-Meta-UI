@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
+import { type ModalHeaderProps } from '@var-ui/core';
 import {
   Autocomplete,
   type AutocompleteProps,
@@ -9,9 +10,9 @@ import {
   ModalHeader,
   type ModalProps,
   SelectField,
+  toast,
   VStack,
 } from '@var-ui/core';
-import { type ModalHeaderProps } from '@var-ui/core';
 import { AlertCircleIcon } from '@var-ui/icons';
 import React from 'react';
 
@@ -35,12 +36,6 @@ const meta: Meta = {
         type: 'radio',
       },
     },
-    modal: {
-      options: [true, false, undefined],
-      control: {
-        type: 'radio',
-      },
-    },
     align: {
       options: aligns,
       control: {
@@ -59,7 +54,7 @@ const meta: Meta = {
         type: 'radio',
       },
     },
-    overlayClosable: {
+    dismissable: {
       options: [true, false, undefined],
       control: {
         type: 'radio',
@@ -143,13 +138,19 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
 
           <VStack className="px-4">
             <Autocomplete label="Team" placeholder="Placeholder" options={options} />
-            <SelectField label="Member" fullWidth placeholder="Select team member" options={options} />
+            <SelectField
+              fullWidth
+              placeholder="Placeholder"
+              options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
+            />
           </VStack>
           <ModalAction>
             <Button variant="secondary-gray" fullWidth>
               Discard
             </Button>
-            <Button fullWidth>Save changes</Button>
+            <Button onClick={() => toast.error('error')} fullWidth>
+              Save changes
+            </Button>
           </ModalAction>
         </Modal>
       </div>

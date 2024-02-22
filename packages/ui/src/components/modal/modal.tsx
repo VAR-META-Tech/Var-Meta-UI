@@ -1,16 +1,17 @@
-import { DialogTrigger } from '@radix-ui/react-dialog';
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import {
   Dialog,
-  DialogCloseTrigger,
+  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
   type DialogHeaderProps,
-} from '../dialog';
+  DialogPortal,
+  DialogTrigger,
+} from './dialog.styles';
 
 export interface ModalHeaderProps extends DialogHeaderProps {
   align?: 'left' | 'center' | 'baseline';
@@ -20,7 +21,7 @@ export interface ModalHeaderProps extends DialogHeaderProps {
 }
 
 export const ModalTrigger = DialogTrigger;
-export const ModalCloseTrigger = DialogCloseTrigger;
+export const ModalClose = DialogClose;
 
 export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((props, ref) => {
   const { title, children, icon, description, align = 'left', ...etc } = props;
@@ -63,40 +64,31 @@ export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   fitContent?: boolean;
   fullScreen?: boolean;
   modalContentProps?: ElementProps<typeof DialogContent, 'className'>;
-  overlayClosable?: boolean;
 }
 
 export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
-  const {
-    children,
-    overlayClosable = true,
-    modal = true,
-    className,
-    fitContent,
-    fullScreen,
-    modalContentProps,
-    trigger,
-    ...etc
-  } = props;
+  const { children, className, fitContent, fullScreen, modalContentProps, trigger, ...etc } = props;
 
   return (
-    <Dialog modal={modal} {...etc}>
+    <Dialog {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent
-        {...modalContentProps}
-        ref={ref}
-        className={cn(
-          'min-h-[200px] p-0 shad`ow-lg',
-          {
-            'max-w-fit w-fit': fitContent,
-            'max-w-full min-h-screen': fullScreen,
-          },
-          className
-        )}
-        overlayClosable={overlayClosable}
-      >
-        {children}
-      </DialogContent>
+
+      <DialogPortal>
+        <DialogContent
+          ref={ref}
+          className={cn(
+            'min-h-[200px] p-0 shadow-lg',
+            {
+              'max-w-fit w-fit': fitContent,
+              'max-w-full min-h-screen': fullScreen,
+            },
+            className
+          )}
+          {...modalContentProps}
+        >
+          {children}
+        </DialogContent>
+      </DialogPortal>
     </Dialog>
   );
 });

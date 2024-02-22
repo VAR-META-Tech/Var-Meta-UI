@@ -6,7 +6,7 @@
 // @ts-nocheck
 /* eslint-disable */
 
-import * as RadixDialog from '@radix-ui/react-dialog';
+import * as RadixDialog from '../../dialog';
 import * as React from 'react';
 
 import { commandScore } from './command-score';

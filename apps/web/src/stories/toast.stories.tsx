@@ -36,6 +36,13 @@ const meta: Meta = {
     description: 'Check out the all new dashboard view. Pages and exports now load faster.',
     withAction: true,
   },
+  decorators: [
+    (Story) => (
+      <>
+        <Story />
+      </>
+    ),
+  ],
 };
 
 export default meta;

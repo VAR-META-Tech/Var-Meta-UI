@@ -4,7 +4,7 @@ import omit from 'lodash.omit';
 import plugin from 'tailwindcss/plugin.js';
 import { ConfigTheme, ConfigThemes, DefaultThemeType, PluginConfig } from './types';
 import deepMerge from 'deepmerge';
-import { utilities } from './utilities';
+import { utilities, animateExtendedTheme, addAnimateUtilities } from './utilities';
 import flatten from 'flat';
 import {
   defaultDarkColors,
@@ -128,7 +128,7 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
   return plugin(
-    ({ addBase, addUtilities, addVariant, config }) => {
+    ({ addBase, addUtilities, addVariant, matchUtilities, theme, config }) => {
       // add base classNames
       addBase({
         [':root, [data-theme]']: {
@@ -141,6 +141,7 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
       });
       // add the css variables to "@layer utilities"
       addUtilities({ ...resolved?.utilities, ...utilities });
+      addAnimateUtilities(addUtilities, matchUtilities, theme);
       // add the theme as variant e.g. "[theme-name]:text-2xl"
       resolved?.variants.forEach((variant) => {
         addVariant(variant.name, variant.definition);
@@ -151,18 +152,21 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
       theme: {
         screens: defaultScreen,
         container: defaultContainer,
-        extend: {
-          colors: resolved?.colors as any,
-          fontSize: defaultFont,
-          width: defaultWidth,
-          maxWidth: defaultWidth,
-          minWidth: defaultWidth,
-          spacing: defaultSpacing,
-          borderRadius: defaultRadius,
-          boxShadow: defaultShadow,
-          keyframes: defaultKeyFrame,
-          animation: defaultAnimation,
-        },
+        extend: deepMerge(
+          {
+            colors: resolved?.colors as any,
+            fontSize: defaultFont,
+            width: defaultWidth,
+            maxWidth: defaultWidth,
+            minWidth: defaultWidth,
+            spacing: defaultSpacing,
+            borderRadius: defaultRadius,
+            boxShadow: defaultShadow,
+            keyframes: defaultKeyFrame,
+            animation: defaultAnimation,
+          },
+          animateExtendedTheme
+        ),
       },
     }
   );

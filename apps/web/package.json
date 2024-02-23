@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@var-ui/icons": "workspace:^",
-    "@var-ui/plugins": "workspace:^",
     "@var-ui/core": "workspace:*",
     "@var-ui/theme": "workspace:*",
     "class-variance-authority": "^0.7.0",

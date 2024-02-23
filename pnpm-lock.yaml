@@ -107,9 +107,6 @@ importers:
       '@var-ui/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@var-ui/plugins':
-        specifier: workspace:^
-        version: link:../../packages/plugins
       '@var-ui/theme':
         specifier: workspace:*
         version: link:../../packages/theme
@@ -386,15 +383,6 @@ importers:
         specifier: ^3.0.2
         version: 3.0.4
 
-  packages/plugins:
-    devDependencies:
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1(ts-node@10.9.2)
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.1)
-
   packages/test-utils: {}
 
   packages/theme:
@@ -588,9 +576,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.1(ts-node@10.9.2)
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.1)
     devDependencies:
       '@types/node':
         specifier: ^20.9.2
@@ -604,9 +589,6 @@ importers:
       '@var-ui/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@var-ui/plugins':
-        specifier: workspace:^
-        version: link:../plugins
       '@var-ui/test-utils':
         specifier: workspace:^
         version: link:../test-utils
@@ -16885,14 +16867,6 @@ packages:
       tailwind-merge: 1.14.0
       tailwindcss: 3.4.1(ts-node@10.9.2)
     dev: false
-
-  /tailwindcss-animate@1.0.7(tailwindcss@3.4.1):
-    resolution:
-      { integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA== }
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
-    dependencies:
-      tailwindcss: 3.4.1(ts-node@10.9.2)
 
   /tailwindcss@3.4.1(ts-node@10.9.2):
     resolution:

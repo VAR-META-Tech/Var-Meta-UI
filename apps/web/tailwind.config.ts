@@ -1,4 +1,3 @@
-import { animatePlugin } from '@var-ui/plugins';
 import { createThemes } from '@var-ui/theme';
 import type { Config } from 'tailwindcss';
 
@@ -10,7 +9,6 @@ const config: Config = {
     './node_modules/@var-ui/core/**/*.{js,ts,jsx,tsx}',
   ],
   plugins: [
-    animatePlugin,
     createThemes({
       defaultTheme: 'light',
     }),

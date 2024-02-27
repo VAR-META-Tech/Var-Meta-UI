@@ -1,20 +1,23 @@
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { cn } from '../../utils/cn';
-import { Dialog, DialogContent, type DialogProps } from '../dialog';
+import type { DialogProps } from '../dialog';
+import { Dialog, DialogContent } from '../dialog';
 import { SearchIcon } from '../icons';
 import { Command as CommandPrimitive } from './cmdk';
 
-const Command = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
-  <CommandPrimitive
-    ref={ref}
-    className={cn('bg-white flex h-full w-full flex-col overflow-hidden rounded-md text-gray-700', className)}
-    {...props}
-  />
-));
+export interface CommandProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive> {}
+
+const Command = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, CommandProps>(
+  ({ className, ...props }, ref) => (
+    <CommandPrimitive
+      ref={ref}
+      className={cn('bg-white flex h-full w-full flex-col overflow-hidden rounded-md text-gray-700', className)}
+      {...props}
+    />
+  )
+);
 Command.displayName = CommandPrimitive.displayName;
 
 interface CommandDialogProps extends DialogProps {}
@@ -31,25 +34,28 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   );
 };
 
+const commandInputVariant = cva(
+  'flex h-full bg-transparent outline-none placeholder:text-gray-500 disabled:cursor-not-allowed disabled:text-gray-500',
+  {
+    variants: {
+      fullWidth: {
+        true: 'w-full',
+      },
+    },
+  }
+);
 export interface CommandInputProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, 'prefix'> {
+  extends Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, 'prefix'>,
+    VariantProps<typeof commandInputVariant> {
   prefix?: React.ReactNode;
   wrapperClassName?: string;
 }
 
 const CommandInput = React.forwardRef<React.ElementRef<typeof CommandPrimitive.Input>, CommandInputProps>(
-  ({ className, wrapperClassName, prefix, ...props }, ref) => (
+  ({ className, wrapperClassName, fullWidth = true, prefix, ...props }, ref) => (
     <div className={cn('flex items-center px-3', wrapperClassName)} cmdk-input-wrapper="">
       {prefix ?? <SearchIcon className="mr-2 shrink-0" />}
-      <CommandPrimitive.Input
-        ref={ref}
-        className={cn(
-          'flex h-full w-full bg-transparent outline-none ',
-          'placeholder:text-gray-500 disabled:cursor-not-allowed disabled:text-gray-500',
-          className
-        )}
-        {...props}
-      />
+      <CommandPrimitive.Input ref={ref} className={cn(commandInputVariant({ fullWidth }), className)} {...props} />
     </div>
   )
 );

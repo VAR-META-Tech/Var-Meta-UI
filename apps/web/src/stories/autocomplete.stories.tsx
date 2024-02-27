@@ -48,6 +48,7 @@ const meta: Meta = {
     helperText: 'This is a hint text to help user.',
     label: 'Label',
     showIcon: true,
+    allowsCustomValue: true,
   },
   parameters: {
     docs: {
@@ -100,7 +101,6 @@ const options: AutocompleteProps['options'] = [
       </div>
     ),
   },
-
   {
     value: 'Gaba',
     label: (

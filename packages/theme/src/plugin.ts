@@ -1,6 +1,4 @@
-import forEach from 'lodash.foreach';
 import get from 'lodash.get';
-import omit from 'lodash.omit';
 import plugin from 'tailwindcss/plugin.js';
 import { ConfigTheme, ConfigThemes, DefaultThemeType, PluginConfig } from './types';
 import deepMerge from 'deepmerge';
@@ -133,10 +131,6 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
       addBase({
         [':root, [data-theme]']: {
           ...baseStyles(prefix),
-          '--toaster-width': '440px',
-          '@media (max-width: 37.5rem)': {
-            '--toaster-width': '359px',
-          },
         },
       });
       // add the css variables to "@layer utilities"
@@ -164,6 +158,9 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
             boxShadow: defaultShadow,
             keyframes: defaultKeyFrame,
             animation: defaultAnimation,
+            borderColor: {
+              DEFAULT: `hsl(var(--${prefix}-border))`,
+            },
           },
           animateExtendedTheme
         ),

@@ -9,7 +9,7 @@ const variants: TextFieldProps['variant'][] = ['default', 'destructive'];
 const sizes: TextFieldProps['size'][] = ['sm', 'md'];
 
 const meta: Meta = {
-  title: 'Components/TextField',
+  title: 'Components/Input/TextField',
   component: TextField,
   argTypes: {
     variant: {

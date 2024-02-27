@@ -3,7 +3,6 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { cn } from '../../utils/cn';
-import { CircleIcon } from '../icons';
 
 export interface RadioGroupProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {}
 
@@ -39,14 +38,13 @@ export interface RadioGroupItemProps
     VariantProps<typeof radioGroupVariant> {}
 
 const RadioGroupItem = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Item>, RadioGroupItemProps>(
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  ({ className, size, children, ...props }, ref) => {
+  ({ className, size, ...props }, ref) => {
     return (
       <RadioGroupPrimitive.Item ref={ref} className={cn(radioGroupVariant({ size }), className)} {...props}>
-        <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-          <CircleIcon
-            className={cn('h-2 w-2 fill-current text-current', {
-              'w-1.5 h-1.5': size === 'sm',
+        <RadioGroupPrimitive.Indicator asChild>
+          <span
+            className={cn('h-2 w-2 min-w-2 block mx-auto rounded-full bg-current', {
+              'w-1.5 h-1.5 min-w-1.5': size === 'sm',
             })}
           />
         </RadioGroupPrimitive.Indicator>

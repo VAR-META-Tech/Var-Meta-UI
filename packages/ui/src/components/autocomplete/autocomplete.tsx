@@ -1,6 +1,7 @@
 import { useMergeRefs } from '@floating-ui/react';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { cva } from 'class-variance-authority';
 import {
   type ElementRef,
   forwardRef,
@@ -18,17 +19,27 @@ import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } fr
 import { Command as CommandPrimitive } from '../command/cmdk';
 import { commandScore } from '../command/cmdk/command-score';
 import { HelperText } from '../helper-text';
-import { CheckIcon, SearchIcon } from '../icons';
+import { CheckIcon, CloseIcon, SearchIcon } from '../icons';
 import { type InputProps, inputVariants } from '../input/input';
 import { Label } from '../label';
 import { PopperAnchor, PopperContent, PopperRoot } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';
-import { VStack } from '../utility';
+import { Show, VStack } from '../utility';
 
 type TValue<T extends boolean> = T extends true ? string[] : string;
+const autocompleteVariants = cva('inline-flex flex-col', {
+  variants: {
+    fullWidth: {
+      true: 'w-full',
+    },
+  },
+  defaultVariants: {},
+});
 
-export interface AutocompleteProps<T extends boolean = false> extends InputProps, VisibleState {
+export interface AutocompleteProps<T extends boolean = false>
+  extends Omit<InputProps, 'suffixClassName' | 'prefixClassName'>,
+    VisibleState {
   options: Option[];
   value?: TValue<T>;
   defaultValue?: TValue<T>;
@@ -36,6 +47,8 @@ export interface AutocompleteProps<T extends boolean = false> extends InputProps
   onInputChange?: (value: string) => void;
   loading?: boolean;
   disabled?: boolean;
+  allowsCustomValue?: boolean;
+  clearable?: boolean;
   placeholder?: string;
   name?: string;
   multiple?: T;
@@ -51,6 +64,7 @@ const AutocompleteComponent = <T extends boolean = false>(
     options = [],
     onValueChange,
     loading = false,
+    clearable,
     suffix,
     onInputChange,
     variant,
@@ -65,6 +79,8 @@ const AutocompleteComponent = <T extends boolean = false>(
     multiple,
     label,
     helperText,
+    allowsCustomValue,
+    fullWidth,
     ...etc
   } = props;
 
@@ -121,7 +137,7 @@ const AutocompleteComponent = <T extends boolean = false>(
 
   const [inputValue, setInputValue] = useState<string>();
 
-  const handleKeyDown = useCallback(
+  const handleKeyUp = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
       const input = inputRef.current;
       if (!input) {
@@ -134,10 +150,20 @@ const AutocompleteComponent = <T extends boolean = false>(
       }
 
       // This is not a default behavior of the <input /> field
-      if (event.key === 'Enter' && input.value !== '') {
-        const optionToSelect = options.find((option) => option.label === input.value);
-        if (optionToSelect) {
-          handleNewValue(optionToSelect.value);
+      if (allowsCustomValue) {
+        if (multiple) {
+          if (event.key === 'Enter' && input.value !== '') {
+            handleNewValue(input.value);
+          }
+        } else {
+          handleNewValue(input.value);
+        }
+      } else {
+        if (event.key === 'Enter' && input.value !== '') {
+          const optionToSelect = options.find((option) => option.label === input.value);
+          if (optionToSelect) {
+            handleNewValue(optionToSelect.value);
+          }
         }
       }
 
@@ -145,15 +171,19 @@ const AutocompleteComponent = <T extends boolean = false>(
         input.blur();
       }
     },
-    [isOpen, options, setOpen, handleNewValue]
+    [allowsCustomValue, handleNewValue, isOpen, multiple, options, setOpen]
   );
 
-  const handleBlur = useCallback(() => {
-    setOpen(false);
-    if (!multiple) {
-      setInputValue((selected ?? inputValue) as string);
-    }
-  }, [inputValue, multiple, selected, setOpen]);
+  const handleBlur = useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      setOpen(false);
+      if (e.relatedTarget) return;
+      if (!multiple) {
+        setInputValue((selected ?? inputValue) as string);
+      }
+    },
+    [inputValue, multiple, selected, setOpen]
+  );
 
   const handleSelectOption = useCallback(
     (selectedValue: Option) => {
@@ -175,6 +205,14 @@ const AutocompleteComponent = <T extends boolean = false>(
     setInputValue(val);
   };
 
+  const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onInputChange?.('');
+    setInputValue('');
+    setSelected((multiple ? [] : '') as TValue<T>);
+  };
+
   /**
    * * This is a hack to prevent the input from being focused after the user selects an option
    */
@@ -187,15 +225,15 @@ const AutocompleteComponent = <T extends boolean = false>(
   };
 
   return (
-    <div>
+    <div className={autocompleteVariants({ fullWidth })}>
       {label && <Label>{label}</Label>}
 
-      <CommandPrimitive filter={handleSearch} onKeyDown={handleKeyDown}>
+      <CommandPrimitive disableDefaultSelectFirstItem={allowsCustomValue} filter={handleSearch} onKeyUp={handleKeyUp}>
         <PopperRoot>
           <PopperAnchor>
             <div
               className={cn(inputVariants({ variant, className, size: 'none' }), {
-                'flex justify-start flex-wrap items-center gap-2': true,
+                'group flex justify-start flex-wrap items-center gap-2': true,
                 'focus-within:shadow-brand-xs': variant === 'default' || !variant,
                 'focus-within:shadow-error-xs': variant === 'destructive',
                 'shadow-xs cursor-not-allowed bg-gray-50 text-gray-500': props.disabled,
@@ -221,31 +259,51 @@ const AutocompleteComponent = <T extends boolean = false>(
                 onBlur={handleBlur}
                 onFocus={() => setOpen(true)}
                 prefix={<></>}
-                className="w-0 min-w-[30px] h-full flex-1"
-                wrapperClassName={cn('border-none p-0 flex-1', {
-                  // 'h-10': size === 'sm',
-                  // 'h-11': size === 'md',
+                className={cn('h-full flex-1 peer', {
+                  '': size === 'sm',
+                  '': size === 'md',
                 })}
+                fullWidth
+                wrapperClassName={cn('border-none p-0 flex-1 min-w-28')}
                 {...etc}
               />
-              {suffix && (
-                <div
-                  className={cn('bg-white absolute right-[10px] top-1/2 -translate-y-1/2', {
-                    'text-error-300': variant === 'destructive',
-                  })}
-                >
-                  {suffix}
+
+              <Show when={clearable || !!suffix}>
+                <div className="flex items-center">
+                  {clearable ? (
+                    <button
+                      onClick={handleClear}
+                      className={cn(
+                        'invisible opacity-0 pointer-events-none z-10 w-6 h-6 hover:bg-gray-50 hover:text-gray-900 outline-none text-gray-400 flex items-center justify-center rounded-full relative transition-all ',
+                        {
+                          'group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100':
+                            selected?.length !== 0,
+                        }
+                      )}
+                    >
+                      <CloseIcon />
+                    </button>
+                  ) : null}
+                  {suffix ? (
+                    <div
+                      className={cn('bg-base-white', {
+                        'text-error-300': variant === 'destructive',
+                      })}
+                    >
+                      {suffix}
+                    </div>
+                  ) : null}
                 </div>
-              )}
+              </Show>
             </div>
           </PopperAnchor>
           {isOpen && (
             <Portal asChild>
               <PopperContent
                 data-state={isOpen ? 'open' : 'closed'}
-                className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1"
+                className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1 bg-transparent shadow-none"
               >
-                <CommandList className="max-h-[var(--radix-popper-available-height)]">
+                <CommandList className="max-h-[var(--radix-popper-available-height)] bg-white shadow-md">
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="p-1">
@@ -255,7 +313,9 @@ const AutocompleteComponent = <T extends boolean = false>(
                       </VStack>
                     </CommandPrimitive.Loading>
                   ) : (
-                    <CommandEmpty>No Options</CommandEmpty>
+                    <Show when={!allowsCustomValue}>
+                      <CommandEmpty>No Options</CommandEmpty>
+                    </Show>
                   )}
 
                   <CommandGroup>

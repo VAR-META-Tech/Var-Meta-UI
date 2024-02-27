@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import * as React from 'react';
 
 import { cn } from '../../utils/cn';
-import { CheckboxIcon, MinusIcon } from '../icons';
+import { CheckboxIcon } from './checkbox-icon';
 
 const checkboxVariant = cva(
   [
@@ -31,20 +31,42 @@ const checkboxVariant = cva(
   }
 );
 
+type Child = React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+
+/**
+ * Props for the Checkbox component.
+ */
 export interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
-    VariantProps<typeof checkboxVariant> {}
+    VariantProps<typeof checkboxVariant> {
+  /**
+   * The icon to be displayed when the checkbox is checked.
+   */
+  icon?: React.ReactNode;
+}
 
-const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, CheckboxProps>(
-  ({ className, checked, size, ...props }, ref) => (
-    <CheckboxPrimitive.Root checked={checked} ref={ref} className={cn(checkboxVariant({ size, className }))} {...props}>
-      <CheckboxPrimitive.Indicator className={cn('flex items-center justify-center text-current')}>
-        {checked === 'indeterminate' && <MinusIcon className="w-3 h-w-3" />}
-        {(checked === true || checked === undefined) && <CheckboxIcon className="w-4 h-4" />}
+const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root>, CheckboxProps>((props, ref) => {
+  const { className, checked, icon = <CheckboxIcon checked={checked} className="w-4 h-4" />, size, ...etc } = props;
+
+  const iconProp = icon as Child;
+
+  const iconRender = React.cloneElement(iconProp, {
+    ...iconProp.props,
+    className: cn(
+      'w-4 h-4 group-data-[state=checked]:visible group-data-[state=unchecked]:invisible',
+      iconProp?.props?.className
+    ),
+    checked,
+  });
+
+  return (
+    <CheckboxPrimitive.Root checked={checked} ref={ref} className={cn(checkboxVariant({ size, className }))} {...etc}>
+      <CheckboxPrimitive.Indicator forceMount className={cn('flex items-center justify-center text-current group')}>
+        {iconRender}
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-  )
-);
+  );
+});
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
 export { Checkbox };

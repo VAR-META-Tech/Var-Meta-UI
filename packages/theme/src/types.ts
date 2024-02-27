@@ -1,4 +1,4 @@
-import { ThemeColors } from './configs/types';
+import { ThemeColors } from './configs/colors/types';
 
 export type DefaultThemeType = 'light' | 'dark';
 

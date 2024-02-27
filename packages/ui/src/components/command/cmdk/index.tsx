@@ -10,6 +10,7 @@ import * as RadixDialog from '../../dialog';
 import * as React from 'react';
 
 import { commandScore } from './command-score';
+import { composeEventHandlers } from '../../../utils/compose-event-handler';
 
 type Children = { children?: React.ReactNode };
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -104,6 +105,11 @@ type CommandProps = Children &
      * Set to `false` to disable ctrl+n/j/p/k shortcuts. Defaults to `true`.
      */
     vimBindings?: boolean;
+
+    /**
+     * Set to `false` to disable default selection on first item. Defaults to `true`.
+     */
+    disableDefaultSelectFirstItem?: boolean;
   };
 
 type Context = {
@@ -112,6 +118,7 @@ type Context = {
   group: (id: string) => () => void;
   filter: () => boolean;
   label: string;
+  disableDefaultSelectFirstItem?: boolean;
   commandRef: React.RefObject<HTMLDivElement | null>;
   listRef: React.RefObject<HTMLDivElement | null>;
   // Ids
@@ -176,7 +183,17 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
   const ids = useLazyRef<Map<string, string>>(() => new Map()); // id → value
   const listeners = useLazyRef<Set<() => void>>(() => new Set()); // [...rerenders]
   const propsRef = useAsRef(props);
-  const { label, children, value, onValueChange, filter, shouldFilter, vimBindings = true, ...etc } = props;
+  const {
+    label,
+    children,
+    value,
+    onValueChange,
+    filter,
+    disableDefaultSelectFirstItem,
+    shouldFilter,
+    vimBindings = true,
+    ...etc
+  } = props;
 
   const listId = React.useId();
   const labelId = React.useId();
@@ -306,6 +323,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
       filter: () => {
         return propsRef.current.shouldFilter;
       },
+      disableDefaultSelectFirstItem,
       label: label || props['aria-label'],
       commandRef: ref,
       listRef: listRef,
@@ -380,6 +398,10 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
   }
 
   function selectFirstItem() {
+    if (disableDefaultSelectFirstItem) {
+      store.setState('value', undefined);
+      return;
+    }
     const item = getValidItems().find((item) => !item.ariaDisabled);
     const value = item?.getAttribute(VALUE_ATTR);
     store.setState('value', value || undefined);
@@ -532,7 +554,6 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
       cmdk-root=""
       onKeyDown={(e) => {
         etc.onKeyDown?.(e);
-
         if (!e.defaultPrevented) {
           switch (e.key) {
             case 'n':
@@ -764,6 +785,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, forwardedRe
       aria-activedescendant={selectedItemId}
       id={context.inputId}
       type="text"
+      onFocus={composeEventHandlers(etc.onFocus, () => {
+        if (context.disableDefaultSelectFirstItem) {
+          store.setState('value', undefined);
+        }
+      })}
       value={isControlled ? props.value : search}
       onChange={(e) => {
         if (!isControlled) {

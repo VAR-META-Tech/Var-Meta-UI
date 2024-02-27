@@ -10,9 +10,13 @@ const roundeds: AccordionProps['rounded'][] = ['default', 'sm', 'md', 'lg'];
 const meta: Meta = {
   title: 'Components/Accordion',
   component: Accordion,
-  tags: ['autodocs'],
   argTypes: {
     divider: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    singleIndicator: {
       control: {
         type: 'boolean',
       },

@@ -29,6 +29,11 @@ export interface AccordionContext {
    */
   hideIcon?: boolean;
 
+  /**
+   * Specifies whether to display a single indicator for animation
+   */
+  singleIndicator?: boolean;
+
   size?: 'sm' | 'md' | 'lg';
 
   variant?: 'default' | 'outline' | 'solid';

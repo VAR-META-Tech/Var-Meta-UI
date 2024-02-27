@@ -159,7 +159,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {dotLeading && (
           <Dot
-            className="mr-0.5"
+            className="mr-0.5 "
             variant="solid"
             type={disabled ? 'disabled' : solidVariants.includes(variant) ? 'white' : 'success'}
           />

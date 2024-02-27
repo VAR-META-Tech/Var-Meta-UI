@@ -51,6 +51,7 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
       size,
       variant,
       rounded,
+      singleIndicator,
       ...etc
     } = props;
 
@@ -64,6 +65,7 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
           inactiveIcon,
           iconPosition,
           hideIcon,
+          singleIndicator,
         }}
       >
         <AccordionPrimitive.Root {...etc} ref={ref}>
@@ -91,26 +93,26 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
 
 AccordionItem.displayName = 'AccordionItem';
 
-const accordionTriggerVariant = cva(
-  'flex flex-1 items-center  text-gray-900 group gap-6 font-medium transition-all [&[data-state=open]>svg]:rotate-180',
-  {
-    variants: {
-      variant: {
-        default: '',
-        outline: '',
-        solid: '',
-      },
-      size: {
-        sm: 'text-sm py-2 px-4',
-        md: 'text-md py-3 px-4',
-        lg: 'text-lg py-4 px-4',
-      },
+const accordionTriggerVariant = cva('flex flex-1 items-center  text-gray-900 group gap-6 font-medium transition-all', {
+  variants: {
+    variant: {
+      default: '',
+      outline: '',
+      solid: '',
     },
-    defaultVariants: {
-      size: 'md',
+    size: {
+      sm: 'text-sm py-2 px-4',
+      md: 'text-md py-3 px-4',
+      lg: 'text-lg py-4 px-4',
     },
-  }
-);
+    singleIndicator: {
+      true: '[&_svg]:transition-all [&[data-state=open]_svg]:rotate-180',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
 
 export interface AccordionTriggerProps
   extends ElementProps<typeof AccordionPrimitive.Trigger>,
@@ -118,24 +120,31 @@ export interface AccordionTriggerProps
 
 const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Trigger>, AccordionTriggerProps>(
   ({ className, children, size: sizeProp, variant: variantProp, ...props }, ref) => {
-    const { iconPosition, size, hideIcon, activeIcon, variant, inactiveIcon } = useAccordionContext();
+    const { iconPosition, size, hideIcon, singleIndicator, activeIcon, variant, inactiveIcon } = useAccordionContext();
 
     return (
       <AccordionPrimitive.Header className="flex">
         <AccordionPrimitive.Trigger
           ref={ref}
           className={cn(
-            accordionTriggerVariant({ variant: variantProp ?? variant, size: sizeProp ?? size }),
+            accordionTriggerVariant({ variant: variantProp ?? variant, singleIndicator, size: sizeProp ?? size }),
             iconPosition === 'left' ? 'flex-row-reverse justify-end' : 'flex-row justify-between',
             className
           )}
           {...props}
         >
           {children}
+
           {hideIcon ? null : (
             <>
-              <div className="group-aria-expanded:hidden block w-6">{inactiveIcon}</div>
-              <div className="group-aria-expanded:block hidden w-6">{activeIcon}</div>
+              {singleIndicator ? (
+                <div className="block w-6">{inactiveIcon}</div>
+              ) : (
+                <>
+                  <div className="group-aria-expanded:hidden block w-6">{inactiveIcon}</div>
+                  <div className="group-aria-expanded:block hidden w-6">{activeIcon}</div>
+                </>
+              )}
             </>
           )}
         </AccordionPrimitive.Trigger>

@@ -1,8 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { Checkbox, type CheckboxProps } from '@var-ui/core';
+import { Star01Icon } from '@var-ui/icons';
 import React from 'react';
 
-import { EnhancedView } from '@/components/View';
+import { EnhancedView, View } from '@/components/View';
 
 const sizes: CheckboxProps['size'][] = ['sm', 'md'];
 const checkboxOptions: CheckboxProps['checked'][] = ['indeterminate', true, false, undefined];
@@ -44,3 +45,16 @@ const DefaultTemplate: StoryFn<CheckboxProps> = (args) => {
 };
 
 export const Default: StoryFn<typeof Checkbox> = DefaultTemplate.bind({});
+
+const CheckBoxIconTemplate: StoryFn<CheckboxProps> = (args) => {
+  return (
+    <View prop="Default">
+      <label htmlFor="checkbox-icon" className="flex items-center space-x-2">
+        <Checkbox id="checkbox-icon" icon={<Star01Icon />} {...args} />
+        <span className="text-sm">Please check to see the icon</span>
+      </label>
+    </View>
+  );
+};
+
+export const CheckBoxIcon: StoryFn<typeof Checkbox> = CheckBoxIconTemplate.bind({});

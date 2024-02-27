@@ -1,15 +1,15 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Select, type SelectProps } from '@var-ui/core';
+import { SelectField, type SelectFieldProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 
-const variants: SelectProps['variant'][] = ['default', 'destructive'];
-const sizes: SelectProps['size'][] = ['sm', 'md'];
+const variants: SelectFieldProps['variant'][] = ['default', 'destructive'];
+const sizes: SelectFieldProps['size'][] = ['sm', 'md'];
 
 const meta: Meta = {
-  title: 'Components/Select',
-  component: Select,
+  title: 'Components/Select/SelectField',
+  component: SelectField,
   argTypes: {
     variant: {
       options: variants,
@@ -22,8 +22,17 @@ const meta: Meta = {
     fullWidth: {
       control: { type: 'boolean' },
     },
+    label: {
+      control: { type: 'text' },
+    },
+    helperText: {
+      control: { type: 'text' },
+    },
   },
-  args: {},
+  args: {
+    helperText: 'This is a hint text to help user.',
+    label: 'Label',
+  },
   parameters: {
     docs: {
       page: null,
@@ -67,12 +76,12 @@ const options = [
   },
 ];
 
-const DefaultTemplate: StoryFn<SelectProps> = (args) => {
+const DefaultTemplate: StoryFn<SelectFieldProps> = (args) => {
   return (
     <EnhancedView prop="Default" value={''}>
-      <Select {...args} placeholder="Select team member" options={options} />
+      <SelectField {...args} placeholder="Select team member" options={options} />
     </EnhancedView>
   );
 };
 
-export const Default: StoryFn<typeof Select> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof SelectField> = DefaultTemplate.bind({});

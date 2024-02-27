@@ -25,7 +25,7 @@ export type BaseColors = {
 };
 
 export type ThemeColors = BaseColors & {
-  default: ColorScheme;
+  base: ColorScheme;
   brand: ColorScheme;
   secondary: ColorScheme;
   gray: ColorScheme;

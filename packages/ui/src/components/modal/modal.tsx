@@ -58,6 +58,12 @@ export const ModalAction = forwardRef<ElementRef<'div'>, ModalActionProps>(({ cl
   <DialogFooter className={className} {...props} ref={ref} />
 ));
 
+export interface ModalBodyProps extends ElementProps<'div'> {}
+
+export const ModalBody = forwardRef<ElementRef<'div'>, ModalBodyProps>(({ className, ...props }, ref) => (
+  <div className={cn('px-4 md:px-6 ', className)} {...props} ref={ref} />
+));
+
 export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   trigger?: React.ReactNode;
   className?: string;
@@ -78,10 +84,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
           ref={ref}
           className={cn(
             'min-h-[200px] p-0 shadow-lg',
-            {
-              'max-w-fit w-fit': fitContent,
-              'max-w-full min-h-screen': fullScreen,
-            },
+            { 'max-w-fit w-fit': fitContent, 'max-w-full min-h-screen rounded-none': fullScreen },
             className
           )}
           {...modalContentProps}

@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { type ModalHeaderProps } from '@var-ui/core';
+import { ModalBody, type ModalHeaderProps } from '@var-ui/core';
 import {
   Autocomplete,
   type AutocompleteProps,
@@ -136,14 +136,17 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
             description="This blog post has been published. Team members will be able to edit this post and republish changes."
           />
 
-          <VStack className="px-4">
-            <Autocomplete label="Team" placeholder="Placeholder" options={options} />
-            <SelectField
-              fullWidth
-              placeholder="Placeholder"
-              options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
-            />
-          </VStack>
+          <ModalBody>
+            <VStack>
+              <Autocomplete label="Team" placeholder="Placeholder" options={options} />
+              <SelectField
+                fullWidth
+                placeholder="Placeholder"
+                options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
+              />
+            </VStack>
+          </ModalBody>
+
           <ModalAction>
             <Button variant="secondary-gray" fullWidth>
               Discard

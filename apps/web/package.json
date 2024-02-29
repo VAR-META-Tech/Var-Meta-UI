@@ -14,14 +14,15 @@
     "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "
   },
   "dependencies": {
-    "@var-ui/icons": "workspace:^",
     "@var-ui/core": "workspace:*",
+    "@var-ui/icons": "workspace:^",
     "@var-ui/theme": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
     "next": "^14.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-variants": "^0.1.20"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "13.4.19",

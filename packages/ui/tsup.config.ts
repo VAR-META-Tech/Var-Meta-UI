@@ -38,7 +38,7 @@ export default defineConfig((options: Options) => ({
   outDir: DIST_PATH,
   dts: true,
   minify: true,
-  clean: !options.watch,
+  clean: true,
   external: ['react'],
   async onSuccess() {
     await cleanFile();

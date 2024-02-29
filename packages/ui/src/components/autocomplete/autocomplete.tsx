@@ -259,10 +259,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 onBlur={handleBlur}
                 onFocus={() => setOpen(true)}
                 prefix={<></>}
-                className={cn('h-full flex-1 peer', {
-                  '': size === 'sm',
-                  '': size === 'md',
-                })}
+                className={cn('h-full flex-1 peer')}
                 fullWidth
                 wrapperClassName={cn('border-none p-0 flex-1 min-w-28')}
                 {...etc}
@@ -303,7 +300,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 data-state={isOpen ? 'open' : 'closed'}
                 className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1 bg-transparent shadow-none"
               >
-                <CommandList className="max-h-[var(--radix-popper-available-height)] bg-white shadow-md">
+                <CommandList className="max-h-[var(--radix-popper-available-height)] rounded-sm bg-white shadow-md">
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="p-1">

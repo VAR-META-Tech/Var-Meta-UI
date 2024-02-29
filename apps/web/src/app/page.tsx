@@ -6,6 +6,7 @@ import {
   type AutocompleteProps,
   Button,
   FeaturedIcon,
+  HStack,
   Modal,
   ModalAction,
   ModalHeader,
@@ -66,12 +67,24 @@ const options: AutocompleteProps['options'] = [
     ),
   },
 ];
+
 export default function Page() {
   return (
     <>
       <main className="flex flex-col items-center justify-center min-h-screen gap-2xl">
         <div className="font-serif font-semibold text-4xl md:text-6xl">VAR UI</div>
-        <Button onClick={() => toast.success('Good UI')}>Show toast</Button>
+
+        <HStack
+          className="w-full"
+          pos={{
+            initial: 'center',
+            lg: 'apart',
+            sm: 'around',
+          }}
+        >
+          <Button onClick={() => toast.success('Good UI')}>Show toast</Button>
+          <Button onClick={() => toast.success('Good UI')}>Show toast</Button>
+        </HStack>
         <div className="flex gap-4">
           <Modal trigger={<Button>Show Modal</Button>}>
             <ModalHeader

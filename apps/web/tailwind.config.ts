@@ -1,4 +1,5 @@
 import { createThemes } from '@var-ui/theme';
+import { withTV } from 'tailwind-variants/transformer';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -15,4 +16,4 @@ const config: Config = {
   ],
 };
 
-export default config;
+export default withTV(config);

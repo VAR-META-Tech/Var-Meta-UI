@@ -37,7 +37,9 @@ const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', 
 export interface AccordionProps
   extends AccordionContext,
     ElementProps<typeof AccordionPrimitive.Root>,
-    Pick<VariantProps<typeof accordionVariant>, 'rounded'> {}
+    Pick<VariantProps<typeof accordionVariant>, 'rounded'> {
+  className?: string;
+}
 
 const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Root>, AccordionProps>(
   (props: any, ref) => {
@@ -52,6 +54,8 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
       variant,
       rounded,
       singleIndicator,
+      className,
+      type = 'single',
       ...etc
     } = props;
 
@@ -68,8 +72,8 @@ const Accordion = React.forwardRef<React.ElementRef<typeof AccordionPrimitive.Ro
           singleIndicator,
         }}
       >
-        <AccordionPrimitive.Root {...etc} ref={ref}>
-          <div className={cn(accordionVariant({ variant, rounded }))}>{children}</div>
+        <AccordionPrimitive.Root {...etc} type={type} ref={ref}>
+          <div className={cn(accordionVariant({ variant, rounded, className }))}>{children}</div>
         </AccordionPrimitive.Root>
       </AccordionProvider>
     );
@@ -152,7 +156,7 @@ const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimi
     );
   }
 );
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+AccordionPrimitive.AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const accordionContentVariant = cva('', {
   variants: {

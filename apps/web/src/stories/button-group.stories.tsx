@@ -8,7 +8,7 @@ import { EnhancedView } from '@/components/View';
 const variants: ButtonProps['variant'][] = [
   'primary',
   'secondary',
-  'secondary-gray',
+  'link',
   'tertiary',
   'tertiary-gray',
 

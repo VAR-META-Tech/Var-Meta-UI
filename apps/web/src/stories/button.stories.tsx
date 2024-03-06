@@ -5,30 +5,10 @@ import React from 'react';
 
 import { EnhancedView, View, ViewGroup } from '@/components/View';
 
-const variants: ButtonProps['variant'][] = [
-  'primary',
-  'secondary',
-  'secondary-gray',
-  'tertiary',
-  'tertiary-gray',
-
-  'destructive',
-  'destructive-secondary',
-  'destructive-tertiary',
-  'destructive-link',
-
-  'warning',
-  'warning-secondary',
-  'warning-tertiary',
-  'warning-link',
-
-  'success',
-  'success-secondary',
-  'success-tertiary',
-  'success-link',
-];
+const variants: ButtonProps['variant'][] = ['solid', 'ghost', 'link', 'outline'];
+const color: ButtonProps['color'][] = ['primary', 'secondary', 'tertiary', 'gray', 'error', 'success', 'warning'];
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg', 'xl', '2xl'];
-const radiuses: ButtonProps['radius'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
+const rounded: ButtonProps['rounded'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 
 const meta: Meta = {
   title: 'Components/Button',
@@ -38,12 +18,16 @@ const meta: Meta = {
       options: variants,
       control: { type: 'select' },
     },
+    color: {
+      options: color,
+      control: { type: 'select' },
+    },
     size: {
       options: sizes,
       control: { type: 'select' },
     },
-    radius: {
-      options: radiuses,
+    rounded: {
+      options: rounded,
       control: { type: 'select' },
     },
     disabled: {
@@ -145,21 +129,3 @@ const IconsTemplate: StoryFn<ButtonProps> = (args) => {
 };
 
 export const WithIcon: StoryFn<typeof Button> = IconsTemplate.bind({});
-
-const WithDotLeadingTemplate: StoryFn<ButtonProps> = (args) => {
-  return (
-    <View prop="iconOnly" justify="start" value="true">
-      {variants.map((variant) =>
-        sizes.map((size) => (
-          <React.Fragment key={size + variant}>
-            <Button {...args} dotLeading key={size} variant={variant} size={size} className="capitalize">
-              {variant}
-            </Button>
-          </React.Fragment>
-        ))
-      )}
-    </View>
-  );
-};
-
-export const WithDotLeading: StoryFn<typeof Button> = WithDotLeadingTemplate.bind({});

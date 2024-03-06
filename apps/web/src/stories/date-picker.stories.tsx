@@ -56,7 +56,7 @@ const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
         onOpenChange={setOpened}
         open={isOpen}
         trigger={
-          <Button variant="secondary-gray">
+          <Button variant="link">
             <CalendarIcon />
             {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
           </Button>
@@ -86,7 +86,7 @@ const WithModalTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
         open={isOpen}
         fitContent
         trigger={
-          <Button variant="secondary-gray">
+          <Button variant="link">
             <CalendarIcon />
             {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
           </Button>

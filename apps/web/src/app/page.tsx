@@ -106,7 +106,7 @@ export default function Page() {
               />
             </div>
             <ModalAction>
-              <Button onClick={() => toast.error('discard')} variant="secondary-gray" fullWidth>
+              <Button onClick={() => toast.error('discard')} variant="outline" color="gray" fullWidth>
                 Discard
               </Button>
               <Button onClick={() => toast.error('error')} fullWidth>

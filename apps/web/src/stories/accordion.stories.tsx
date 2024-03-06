@@ -95,14 +95,16 @@ const data = [
 const DefaultTemplate: StoryFn<AccordionProps> = ({ ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <Accordion className="w-full bg-white p-6" {...args}>
-        {data.map((x, i) => (
-          <AccordionItem key={i} value={`${i}`}>
-            <AccordionTrigger>{x.title}</AccordionTrigger>
-            <AccordionContent>{x.content}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div className="">
+        <Accordion className="w-full p-6" {...args}>
+          {data.map((x, i) => (
+            <AccordionItem key={i} value={`${i}`}>
+              <AccordionTrigger>{x.title}</AccordionTrigger>
+              <AccordionContent>{x.content}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </EnhancedView>
   );
 };

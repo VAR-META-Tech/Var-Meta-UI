@@ -10,7 +10,7 @@ describe('Label', () => {
       <Modal trigger={<Button>Show Modal</Button>}>
         <ModalHeader title="Tilte" description="description" />
         <ModalAction>
-          <Button variant="secondary-gray" fullWidth>
+          <Button variant="link" fullWidth>
             Discard
           </Button>
           <Button fullWidth>Save changes</Button>

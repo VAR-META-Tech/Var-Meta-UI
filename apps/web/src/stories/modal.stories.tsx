@@ -148,7 +148,7 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
           </ModalBody>
 
           <ModalAction>
-            <Button variant="secondary-gray" fullWidth>
+            <Button variant="link" fullWidth>
               Discard
             </Button>
             <Button onClick={() => toast.error('error')} fullWidth>

@@ -2,7 +2,7 @@ import { type ComponentProps } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { cn } from '../../utils/cn';
-import { buttonVariants } from '../button/button';
+import { buttonVariants } from '../button/button_old';
 import { ChevronLeftIcon, ChevronRightIcon } from '../icons';
 import { isPastDate } from './date-utils';
 

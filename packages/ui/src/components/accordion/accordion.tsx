@@ -19,8 +19,8 @@ const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', 
   variants: {
     variant: {
       default: '',
-      outline: 'border border-gray-200 ',
-      solid: 'bg-white shadow-sm',
+      outline: 'border border-divider',
+      solid: 'bg-background shadow-sm',
     },
     rounded: {
       default: '',
@@ -86,18 +86,14 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
   ({ className, ...props }, ref) => {
     const { divider = false } = useAccordionContext();
     return (
-      <AccordionPrimitive.Item
-        ref={ref}
-        className={cn({ 'border-t border-gray-200': divider }, className)}
-        {...props}
-      />
+      <AccordionPrimitive.Item ref={ref} className={cn({ 'border-t border-divider': divider }, className)} {...props} />
     );
   }
 );
 
 AccordionItem.displayName = 'AccordionItem';
 
-const accordionTriggerVariant = cva('flex flex-1 items-center  text-gray-900 group gap-6 font-medium transition-all', {
+const accordionTriggerVariant = cva('flex flex-1 items-center text-foreground group gap-6 font-medium transition-all', {
   variants: {
     variant: {
       default: '',
@@ -198,7 +194,6 @@ const AccordionContent = React.forwardRef<React.ElementRef<typeof AccordionPrimi
         <div
           className={cn(
             accordionContentVariant({ variant: variantProp ?? variant, size: sizeProp ?? size }),
-
             className
           )}
         >

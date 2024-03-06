@@ -66,7 +66,7 @@ const DefaultTemplate: StoryFn<DrawerProps> = ({ ...args }: any) => {
         {sides.map((side) => (
           <Drawer key={side} {...args}>
             <DrawerTrigger asChild>
-              <Button variant="secondary-gray">{side}</Button>
+              <Button variant="link">{side}</Button>
             </DrawerTrigger>
             <DrawerContent side={side}>
               <DrawerHeader>

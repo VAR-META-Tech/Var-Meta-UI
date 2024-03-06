@@ -80,7 +80,7 @@ const DefaultTemplate: StoryFn<StepperProps> = ({ ...args }) => {
                 Prev
               </Button>
               <Button onClick={nextStep}>{isLastStep ? 'Finish' : isOptionalStep ? 'Skip' : 'Next'}</Button>
-              <Button variant="secondary-gray" onClick={() => setCompletedStep(activeStep)}>
+              <Button variant="link" onClick={() => setCompletedStep(activeStep)}>
                 Finish this step
               </Button>
             </>

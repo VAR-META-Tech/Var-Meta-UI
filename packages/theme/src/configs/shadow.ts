@@ -17,4 +17,8 @@ export const defaultShadow = {
   'gray-secondary': '0px 0px 0px 4px rgba(152,162,179,0.2)',
   'error-base': '0px 0px 0px 4px rgba(240,68,56,0.24)',
   'error-xs': '0px 0px 0px 4px rgba(240,68,56,0.24), 0px 1px 2px 0px rgba(16,24,40,0.05)',
+  'success-base': '0px 0px 0px 4px rgb(23,178,106,0.24)',
+  'success-xs': '0px 0px 0px 4px rgb(23,178,106,0.24), 0px 1px 2px 0px rgba(16,24,40,0.05)',
+  'warning-base': '0px 0px 0px 4px rgb(234,170,8,0.24)',
+  'warning-xs': '0px 0px 0px 4px rgb(234,170,8,0.24), 0px 1px 2px 0px rgba(16,24,40,0.05)',
 };

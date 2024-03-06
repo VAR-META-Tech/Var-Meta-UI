@@ -69,7 +69,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
       <>
         <DropdownMenu {...args}>
           <DropdownMenuTrigger asChild>
-            <Button variant="secondary-gray">
+            <Button variant="link">
               Account
               <ChevronDownIcon />
             </Button>
@@ -85,7 +85,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
 
         <DropdownMenu {...args}>
           <DropdownMenuTrigger asChild>
-            <Button variant="secondary-gray">
+            <Button variant="link">
               Account with avatar
               <ChevronDownIcon />
             </Button>

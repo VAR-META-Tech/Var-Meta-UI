@@ -47,8 +47,8 @@ const AlertContent = React.forwardRef<HTMLDivElement, AlertContentProps>(
 const alertVariants = cva('flex relative', {
   variants: {
     variant: {
-      floating: ['p-4 gap-4 rounded-xl border border-gray-300 shadow-xs bg-white w-full'],
-      fullWidth: ['gap-4 border-t md:border-t-0 md:border-b border-gray-300 bg-white w-full'],
+      floating: ['p-4 gap-4 rounded-xl border border-gray-300 shadow-xs bg-background w-full'],
+      fullWidth: ['gap-4 border-t md:border-t-0 md:border-b border-gray-300 bg-background w-full'],
     },
   },
   defaultVariants: {

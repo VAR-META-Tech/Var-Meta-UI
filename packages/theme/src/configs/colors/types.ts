@@ -15,19 +15,28 @@ export type ColorScheme =
     }>
   | string;
 
+export type SemanticScheme =
+  | Partial<{
+      secondary: string;
+      DEFAULT: string;
+    }>
+  | string;
+
 export type BaseColors = {
-  background: ColorScheme;
-  foreground: ColorScheme;
-  divider: ColorScheme;
-  disabled: ColorScheme;
-  overlay: ColorScheme;
-  border: ColorScheme;
+  background: SemanticScheme;
+  foreground: SemanticScheme;
+  divider: SemanticScheme;
+  disabled: SemanticScheme;
+  overlay: SemanticScheme;
+  border: SemanticScheme;
+  muted: SemanticScheme;
 };
 
 export type ThemeColors = BaseColors & {
   base: ColorScheme;
   brand: ColorScheme;
   secondary: ColorScheme;
+  tertiary: ColorScheme;
   gray: ColorScheme;
   error: ColorScheme;
   warning: ColorScheme;

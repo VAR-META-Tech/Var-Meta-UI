@@ -66,7 +66,7 @@ const DefaultTemplate: StoryFn<ToasterProps> = ({ title, withAction, description
             Avatar toast
           </Button>
 
-          <Button onClick={() => toast.image(title, { description, action, src })} variant="secondary-gray">
+          <Button onClick={() => toast.image(title, { description, action, src })} variant="link">
             Image toast
           </Button>
         </VStack>

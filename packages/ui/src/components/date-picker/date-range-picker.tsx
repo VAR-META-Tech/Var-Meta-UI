@@ -261,7 +261,7 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
         <div className="flex p-4 justify-between">
           <div className="md:block hidden">{renderInputGroup}</div>
           <div className="flex md:w-[155px] w-full gap-3">
-            <Button fullWidth variant="secondary-gray" onClick={handleCancel}>
+            <Button fullWidth variant="link" onClick={handleCancel}>
               Cancel
             </Button>
             <Button fullWidth onClick={handleApply}>

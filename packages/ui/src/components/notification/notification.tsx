@@ -36,7 +36,7 @@ const NotificationAction = React.forwardRef<HTMLDivElement, NotificationActionPr
   return (
     <div ref={ref} className={cn('flex gap-3 items-start', className)} {...etc}>
       {!hideCancel ? (
-        <Button onClick={onCancel} size="none" variant="link-gray" {...cancelBtnProps}>
+        <Button onClick={onCancel} size="none" variant="link" color="gray" {...cancelBtnProps}>
           {cancelLabel}
         </Button>
       ) : null}

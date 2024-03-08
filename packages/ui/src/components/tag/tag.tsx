@@ -12,7 +12,7 @@ const tagVariants = cva(
   {
     variants: {
       variant: {
-        default: 'text-gray-700',
+        default: 'text-foreground-secondary',
       },
       rounded: {
         default: 'rounded-xs',

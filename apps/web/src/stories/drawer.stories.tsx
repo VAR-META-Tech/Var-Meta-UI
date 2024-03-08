@@ -35,6 +35,12 @@ const meta: Meta = {
         type: 'select',
       },
     },
+    blur: {
+      options: [true, false, undefined],
+      control: {
+        type: 'select',
+      },
+    },
     side: {
       options: sides,
       control: {
@@ -42,7 +48,9 @@ const meta: Meta = {
       },
     },
   },
-  args: {},
+  args: {
+    blur: true,
+  },
   parameters: {
     docs: {
       page: null,
@@ -53,22 +61,18 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<DrawerProps> = ({ ...args }: any) => {
+const DefaultTemplate: StoryFn<DrawerProps & { blur: boolean }> = ({ blur, ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <div
-        style={{
-          gap: 8,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        }}
-      >
+      <div style={{ gap: 8, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
         {sides.map((side) => (
           <Drawer key={side} {...args}>
             <DrawerTrigger asChild>
-              <Button variant="link">{side}</Button>
+              <Button color="gray" variant="outline">
+                {side}
+              </Button>
             </DrawerTrigger>
-            <DrawerContent side={side}>
+            <DrawerContent blur={blur} side={side}>
               <DrawerHeader>
                 <DrawerTitle>Drawer title</DrawerTitle>
                 <DrawerDescription>

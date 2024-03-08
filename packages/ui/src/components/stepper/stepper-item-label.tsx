@@ -12,11 +12,11 @@ export interface StepperItemLabelProps {
   descriptionClassName?: string;
 }
 
-const labelVariants = cva('text-gray-700 font-semibold', {
+const labelVariants = cva('text-foreground-secondary font-semibold', {
   variants: {
     active: {
       true: 'text-brand-700',
-      false: 'text-gray-700',
+      false: 'text-foreground-secondary',
     },
     size: {
       none: 'text-sm',

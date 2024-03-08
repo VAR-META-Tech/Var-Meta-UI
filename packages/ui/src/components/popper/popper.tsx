@@ -35,14 +35,12 @@ const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content
 export interface PopperProps extends PopperContentProps, VisibleState {
   trigger?: ReactNode;
   arrow?: boolean;
-  theme?: 'dark' | 'light';
 }
 
 const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props, ref) => {
   const {
     open: openProp,
     arrow,
-    theme = 'light',
     defaultOpen,
     className,
     onOpenChange,
@@ -77,19 +75,12 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
             sideOffset={sideOffset}
             align={align}
             side={side}
-            className={cn(theme === 'light' ? 'bg-white text-gray-700' : 'bg-gray-900 text-white', className)}
+            className={cn('bg-background text-foreground', className)}
             ref={ref}
             {...etc}
           >
             <div ref={setContentRef}>{children}</div>
-            {arrow ? (
-              <PopperArrow
-                className={cn('drop-shadow-lg -mt-px w-3', {
-                  'fill-white': theme === 'light',
-                  'fill-gray-900': theme === 'dark',
-                })}
-              />
-            ) : null}
+            {arrow ? <PopperArrow className={cn('drop-shadow-lg -mt-px w-3 fill-current')} /> : null}
           </PopperContent>
         </Portal>
       )}

@@ -41,14 +41,17 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
 
   return (
     <div
-      className={cn('w-fit relative flex flex-col text-gray-700 rounded-xl bg-white shadow-xl', className)}
+      className={cn(
+        'w-fit relative flex flex-col text-foreground-secondary rounded-xl bg-background shadow-xl',
+        className
+      )}
       ref={ref}
       {...etc}
     >
       <div className="w-full px-6 absolute top-16 left-0">
         <div className="flex w-full gap-3">
           <DateInput single value={date} onChange={setDate} />
-          <Button onClick={handleSetToday} className="min-w-[70px]" size="md" variant="link">
+          <Button onClick={handleSetToday} className="min-w-[70px]" size="md" variant="link" color="default">
             Today
           </Button>
         </div>
@@ -69,8 +72,8 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
         {...calendarProps}
         className={cn('px-6 py-5', calendarProps?.className)}
       />
-      <div className="flex w-full gap-3 p-4 border-t border-gray-200">
-        <Button fullWidth variant="link" onClick={handleCancel}>
+      <div className="flex w-full gap-3 p-4 border-t border-border-secondary">
+        <Button fullWidth variant="outline" color="gray" onClick={handleCancel}>
           Cancel
         </Button>
         <Button fullWidth onClick={handleApply}>

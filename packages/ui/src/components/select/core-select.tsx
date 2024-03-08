@@ -16,7 +16,7 @@ const SelectValue = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Value>
 >((props, ref) => {
   return (
-    <div className="truncate whitespace-nowrap placeholder:text-gray-500">
+    <div className="truncate whitespace-nowrap">
       <SelectPrimitive.Value ref={ref} {...props} />
     </div>
   );
@@ -24,15 +24,16 @@ const SelectValue = React.forwardRef<
 
 export const selectTriggerVariants = cva(
   cn([
-    'flex items-center justify-between text-gray-900 placeholder:text-gray-500 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
-    'border outline-none bg-white rounded-md',
+    'flex items-center justify-between text-foreground data-[placeholder]:text-muted disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+    'border outline-none bg-background rounded-md',
     'focus:outline-none outline-none group',
   ]),
   {
     variants: {
       variant: {
-        default: 'border-gray-300 data-[state=open]:shadow-brand-xs data-[state=open]:border-brand-300',
-        destructive: 'border-error-300 bg-white data-[state=open]:shadow-error-xs data-[state=open]:border-error-300',
+        default: 'border-border data-[state=open]:shadow-brand-xs data-[state=open]:border-brand-300',
+        destructive:
+          'border-error-300 bg-background data-[state=open]:shadow-error-xs data-[state=open]:border-error-300',
       },
       size: {
         none: '',
@@ -61,7 +62,7 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.T
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="group-data-[state=open]:rotate-180 ml-2 h-5 w-5 transition-transform" />
+        <ChevronDownIcon className="group-data-[state=open]:rotate-180 ml-2 h-5 w-5 text-foreground transition-transform" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -91,7 +92,7 @@ const SelectContent = React.forwardRef<
           selectRef.current?.addEventListener('touchend', (e) => e.cancelable && e.preventDefault());
         }}
         className={cn(
-          'bg-white data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border border-gray-200 text-gray-500 shadow-lg',
+          'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border border-border-secondary text-foreground shadow-lg',
           position === 'popper' &&
             'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
           className
@@ -129,7 +130,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'hover:bg-gra-50 data-[disabled]:pointer-events-none data-[state=checked]:bg-gray-50 data-[disabled]:opacity-50 relative flex w-full cursor-pointer select-none items-center rounded-sm py-2.5 pl-2 pr-9 text-base outline-none focus:bg-gray-50',
+      'hover:bg-background-secondary data-[disabled]:pointer-events-none data-[state=checked]:bg-background-secondary data-[disabled]:opacity-50 relative flex w-full cursor-pointer select-none items-center rounded-sm py-2.5 pl-2 pr-9 text-base outline-none focus:bg-background-secondary',
       className
     )}
     {...props}
@@ -138,7 +139,7 @@ const SelectItem = React.forwardRef<
 
     <span className="absolute right-2.5 flex h-5 w-5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <CheckIcon className="h-5 w-5" />
+        <CheckIcon className="h-5 w-5 text-brand-600" />
       </SelectPrimitive.ItemIndicator>
     </span>
   </SelectPrimitive.Item>

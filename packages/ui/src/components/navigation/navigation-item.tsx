@@ -10,7 +10,7 @@ export const navigationItemVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-white text-gray-700 hover:bg-gray-50 hover:text-gray-800 focus:shadow-gray-base',
+        default: 'bg-white text-foreground-secondary hover:bg-gray-50 hover:text-gray-800 focus:shadow-gray-base',
         brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 hover:text-white focus:shadow-brand-base',
         dark: 'bg-gray-950 text-gray-100 hover:text-white hover:bg-gray-800 focus:shadow-gray-base',
       },

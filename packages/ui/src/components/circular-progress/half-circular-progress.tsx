@@ -28,7 +28,7 @@ export interface HalfCircularProgressProps extends React.HTMLAttributes<HTMLDivE
   thickness?: number;
 }
 
-const labelVariant = cva('absolute inset-x-center bottom-0 text-gray-900 font-semibold', {
+const labelVariant = cva('absolute inset-x-center bottom-0 text-foreground font-semibold', {
   variants: {
     size: {
       xxs: 'text-sm ',
@@ -90,7 +90,14 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
           style={{ transform: `rotateY(-180deg)` }}
         >
           {/* Background arc */}
-          <path d={backgroundArc} fill="none" stroke="#EAECF0" strokeWidth={thickness} strokeLinecap="round" />
+          <path
+            d={backgroundArc}
+            fill="none"
+            stroke="currentColor"
+            className="text-background-quaternary"
+            strokeWidth={thickness}
+            strokeLinecap="round"
+          />
           {/* Foreground arc */}
           <path
             d={backgroundArc}

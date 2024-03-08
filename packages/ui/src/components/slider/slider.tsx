@@ -75,7 +75,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
               className="border border-gray-200"
               open={!withTooltip ? false : true}
               key={i}
-              title={<span className="text-xs font-semibold text-gray-900">{formatLabel(v ?? 0)}</span>}
+              title={<span className="text-xs font-semibold text-foreground">{formatLabel(v ?? 0)}</span>}
             >
               <SliderPrimitive.Thumb
                 key={i}
@@ -85,7 +85,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
                 ])}
               >
                 <div
-                  className={cn('absolute font-medium  text-gray-900 text-md', {
+                  className={cn('absolute font-medium  text-foreground text-md', {
                     'left-1/2 -translate-x-1/2 top-7': orientation === 'horizontal',
                     'top-1/2 -translate-y-1/2 left-7': orientation === 'vertical',
                     hidden: !withLabel,

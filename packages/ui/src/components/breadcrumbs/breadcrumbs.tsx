@@ -20,7 +20,7 @@ const breadcrumbActiveItemVariant = cva(
     variants: {
       variant: {
         text: 'px-0 py-0 text-brand-700 ',
-        'btn-gray': 'bg-gray-50 text-gray-700',
+        'btn-gray': 'bg-gray-50 text-foreground-secondary',
         'btn-brand': 'bg-brand-50 text-brand-700',
       },
       disabled: {
@@ -45,8 +45,10 @@ const breadcrumbItemVariant = cva(
     variants: {
       variant: {
         text: 'px-0 py-0 hover:text-brand-700 focus:text-brand-700 text-gray-500',
-        'btn-gray': 'text-gray-500 hover:bg-gray-50 hover:text-gray-700 focus:bg-gray-50 focus:text-gray-700',
-        'btn-brand': 'text-gray-700 hover:bg-brand-50 hover:text-brand-700 focus:bg-brand-50 focus:text-brand-700',
+        'btn-gray':
+          'text-gray-500 hover:bg-gray-50 hover:text-foreground-secondary focus:bg-gray-50 focus:text-foreground-secondary',
+        'btn-brand':
+          'text-foreground-secondary hover:bg-brand-50 hover:text-brand-700 focus:bg-brand-50 focus:text-brand-700',
       },
       disabled: {
         true: 'pointer-events-none',

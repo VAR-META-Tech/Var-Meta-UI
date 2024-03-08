@@ -12,7 +12,7 @@ const badgeVariants = cva(
         'pill-color': 'rounded-2xl border',
         'pill-outline': 'rounded-2xl border-[1.5px]',
         'badge-color': 'rounded-sm border',
-        'badge-modern': 'rounded-sm border bg-white border-gray-300 !text-gray-700',
+        'badge-modern': 'rounded-sm border bg-background border-border !text-foreground-secondary',
       },
       size: {
         sm: 'text-xs py-0.75 gap-1 h-5.5',
@@ -26,16 +26,16 @@ const badgeVariants = cva(
         only: 'aspect-square',
       },
       color: {
-        gray: ' text-gray-700 [&>div[role="trailing"]]:text-gray-600 [&>div[role="leading"]]:text-gray-600',
-        brand: ' text-brand-700 [&>div[role="trailing"]]:text-brand-600 [&>div[role="leading"]]:text-brand-600',
-        error: ' text-error-700 [&>div[role="trailing"]]:text-error-600 [&>div[role="leading"]]:text-error-600',
-        warning: ' text-warning-700 [&>div[role="trailing"]]:text-warning-600 [&>div[role="leading"]]:text-warning-600',
-        success: ' text-success-700 [&>div[role="trailing"]]:text-success-600 [&>div[role="leading"]]:text-success-600',
-        blue: ' text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
-        indigo: ' text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
-        purple: ' text-purple-700 [&>div[role="trailing"]]:text-purple-600 [&>div[role="leading"]]:text-purple-600',
-        pink: ' text-pink-700 [&>div[role="trailing"]]:text-pink-600 [&>div[role="leading"]]:text-pink-600',
-        orange: ' text-orange-700 [&>div[role="trailing"]]:text-orange-600 [&>div[role="leading"]]:text-orange-600',
+        gray: 'text-foreground-secondary [&>div[role="trailing"]]:text-foreground-tertiary [&>div[role="leading"]]:text-foreground-tertiary',
+        brand: 'text-brand-700 [&>div[role="trailing"]]:text-brand-600 [&>div[role="leading"]]:text-brand-600',
+        error: 'text-error-700 [&>div[role="trailing"]]:text-error-600 [&>div[role="leading"]]:text-error-600',
+        warning: 'text-warning-700 [&>div[role="trailing"]]:text-warning-600 [&>div[role="leading"]]:text-warning-600',
+        success: 'text-success-700 [&>div[role="trailing"]]:text-success-600 [&>div[role="leading"]]:text-success-600',
+        blue: 'text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
+        indigo: 'text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
+        purple: 'text-purple-700 [&>div[role="trailing"]]:text-purple-600 [&>div[role="leading"]]:text-purple-600',
+        pink: 'text-pink-700 [&>div[role="trailing"]]:text-pink-600 [&>div[role="leading"]]:text-pink-600',
+        orange: 'text-orange-700 [&>div[role="trailing"]]:text-orange-600 [&>div[role="leading"]]:text-orange-600',
       },
     },
     defaultVariants: {
@@ -97,7 +97,7 @@ const badgeVariants = cva(
       {
         color: 'gray',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-gray-50 border-gray-200',
+        className: 'bg-background-secondary border-border-secondary',
       },
       {
         color: 'brand',
@@ -146,56 +146,55 @@ const badgeVariants = cva(
       },
 
       // Pill outline
-
       {
         color: 'gray',
         variant: 'pill-outline',
-        className: ' border-gray-600',
+        className: 'border-gray-600',
       },
       {
         color: 'brand',
         variant: 'pill-outline',
-        className: ' border-brand-600',
+        className: 'border-brand-600',
       },
       {
         color: 'error',
         variant: 'pill-outline',
-        className: ' border-error-600',
+        className: 'border-error-600',
       },
       {
         color: 'warning',
         variant: 'pill-outline',
-        className: ' border-warning-600',
+        className: 'border-warning-600',
       },
       {
         color: 'success',
         variant: 'pill-outline',
-        className: ' border-success-600',
+        className: 'border-success-600',
       },
       {
         color: 'blue',
         variant: 'pill-outline',
-        className: ' border-blue-600',
+        className: 'border-blue-600',
       },
       {
         color: 'indigo',
         variant: 'pill-outline',
-        className: ' border-indigo-600',
+        className: 'border-indigo-600',
       },
       {
         color: 'purple',
         variant: 'pill-outline',
-        className: ' border-purple-600',
+        className: 'border-purple-600',
       },
       {
         color: 'pink',
         variant: 'pill-outline',
-        className: ' border-pink-600',
+        className: 'border-pink-600',
       },
       {
         color: 'orange',
         variant: 'pill-outline',
-        className: ' border-orange-600',
+        className: 'border-orange-600',
       },
     ],
   }

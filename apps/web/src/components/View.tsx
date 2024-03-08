@@ -15,14 +15,14 @@ export const View = ({ prop, value = '', direction = 'row', justify = 'evenly', 
   const flexDirection = direction === 'column' ? 'column' : 'row';
   const justifyContent = justify === 'start' ? 'flex-start' : 'space-evenly';
   return (
-    <div className="flex grow flex-col divide-y divide-divider border shadow-sm">
+    <div className="flex grow flex-col divide-y divide-border-secondary border shadow-sm">
       <div className="flex items-center space-x-2 bg-background p-2.5 text-foreground">
         {prop}
         {value && <Badge>{value}</Badge>}
       </div>
       <div
         style={{ flexDirection, justifyContent }}
-        className="bg-grid flex flex-wrap items-start justify-center gap-x-2 gap-y-2 bg-background p-2.5"
+        className="flex flex-wrap items-start justify-center gap-x-2 gap-y-2 bg-background p-2.5"
       >
         {children}
       </div>

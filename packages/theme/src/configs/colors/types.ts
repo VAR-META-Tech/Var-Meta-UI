@@ -17,6 +17,8 @@ export type ColorScheme =
 
 export type SemanticScheme =
   | Partial<{
+      tertiary?: string;
+      quaternary?: string;
       secondary: string;
       DEFAULT: string;
     }>
@@ -26,6 +28,7 @@ export type BaseColors = {
   background: SemanticScheme;
   foreground: SemanticScheme;
   divider: SemanticScheme;
+  active: SemanticScheme;
   disabled: SemanticScheme;
   overlay: SemanticScheme;
   border: SemanticScheme;

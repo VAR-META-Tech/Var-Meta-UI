@@ -6,9 +6,9 @@ import { cn } from '../../utils/cn';
 const helperTextVariants = cva(cn('block text-sm font-normal mt-1.5'), {
   variants: {
     variant: {
-      default: 'text-gray-600',
+      default: 'text-foreground-tertiary',
       destructive: 'text-error-500',
-      disabled: 'text-gray-600',
+      disabled: 'text-foreground-tertiary',
     },
   },
   defaultVariants: {

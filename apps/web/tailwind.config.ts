@@ -11,11 +11,7 @@ const config: Config = {
     './src/stories/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@var-ui/core/**/*.{js,ts,jsx,tsx}',
   ],
-  plugins: [
-    createThemes({
-      defaultTheme: 'dark',
-    }),
-  ],
+  plugins: [createThemes()],
 };
 
 export default withTV(config);

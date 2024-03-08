@@ -16,7 +16,7 @@ export const colors = {
     800: '#602cab',
     900: '#51268c',
     950: '#32165f',
-    DEFAULT: '#9e77ed',
+    DEFAULT: '#8347e0',
   },
   blue: {
     50: '#eff8ff',
@@ -30,7 +30,7 @@ export const colors = {
     800: '#1849a9',
     900: '#194185',
     950: '#102a56',
-    DEFAULT: '#2e90fa',
+    DEFAULT: '#1570ef',
   },
   cyan: {
     50: '#ecfdff',
@@ -44,7 +44,7 @@ export const colors = {
     800: '#155b75',
     900: '#164c63',
     950: '#0d2d3a',
-    DEFAULT: '#06aed4',
+    DEFAULT: '#088ab2',
   },
   fuchsia: {
     50: '#fdf4ff',
@@ -58,7 +58,7 @@ export const colors = {
     800: '#821890',
     900: '#6f1877',
     950: '#47104c',
-    DEFAULT: '#d444f1',
+    DEFAULT: '#ba24d5',
   },
   gray: {
     light: {
@@ -73,7 +73,7 @@ export const colors = {
       800: '#182230',
       900: '#101828',
       950: '#0c111d',
-      DEFAULT: '#667085',
+      DEFAULT: '#475467',
     },
     dark: {
       50: '#F5F5F6',
@@ -87,7 +87,7 @@ export const colors = {
       800: '#1F242F',
       900: '#161B26',
       950: '#0C111D',
-      DEFAULT: '#85888E',
+      DEFAULT: '#61646C',
     },
   },
   green: {
@@ -102,7 +102,7 @@ export const colors = {
     800: '#095c37',
     900: '#084c2e',
     950: '#052e1c',
-    DEFAULT: '#16b364',
+    DEFAULT: '#099250',
   },
   indigo: {
     50: '#eef4ff',
@@ -116,7 +116,7 @@ export const colors = {
     800: '#2d31a6',
     900: '#2d3282',
     950: '#1f235b',
-    DEFAULT: '#6172f3',
+    DEFAULT: '#444ce7',
   },
   moss: {
     50: '#f5fbee',
@@ -130,7 +130,7 @@ export const colors = {
     800: '#335015',
     900: '#2b4212',
     950: '#1a280b',
-    DEFAULT: '#669f2a',
+    DEFAULT: '#4f7a21',
   },
   orange: {
     50: '#fef6ee',
@@ -144,7 +144,7 @@ export const colors = {
     800: '#932f19',
     900: '#772917',
     950: '#511c10',
-    DEFAULT: '#ef6820',
+    DEFAULT: '#e04f16',
   },
   pink: {
     50: '#fdf2fa',
@@ -158,7 +158,7 @@ export const colors = {
     800: '#9e165f',
     900: '#851651',
     950: '#4e0d30',
-    DEFAULT: '#ee46bc',
+    DEFAULT: '#dd2590',
   },
   purple: {
     50: '#f4f3ff',
@@ -172,7 +172,7 @@ export const colors = {
     800: '#4a1fb8',
     900: '#3e1c96',
     950: '#27115f',
-    DEFAULT: '#7a5af8',
+    DEFAULT: '#6938ef',
   },
   rose: {
     50: '#fff1f3',
@@ -186,7 +186,7 @@ export const colors = {
     800: '#a11043',
     900: '#89123e',
     950: '#510b24',
-    DEFAULT: '#f63d68',
+    DEFAULT: '#e31b54',
   },
   teal: {
     50: '#f0fdf9',
@@ -200,7 +200,7 @@ export const colors = {
     800: '#125d56',
     900: '#134e48',
     950: '#0a2926',
-    DEFAULT: '#15b79e',
+    DEFAULT: '#0e9384',
   },
   violet: {
     50: '#f5f3ff',
@@ -214,7 +214,7 @@ export const colors = {
     800: '#5720b7',
     900: '#491c96',
     950: '#2e125e',
-    DEFAULT: '#875bf7',
+    DEFAULT: '#7839ee',
   },
   error: {
     50: '#fef3f2',
@@ -228,7 +228,7 @@ export const colors = {
     800: '#912018',
     900: '#7a271a',
     950: '#55160c',
-    DEFAULT: '#f04438',
+    DEFAULT: '#d92d20',
   },
   yellow: {
     50: '#fefbe8',
@@ -242,7 +242,7 @@ export const colors = {
     800: '#854a0e',
     900: '#713b12',
     950: '#542c0d',
-    DEFAULT: '#eaaa08',
+    DEFAULT: '#ca8504',
   },
   warning: {
     50: '#fffaeb',
@@ -256,7 +256,7 @@ export const colors = {
     800: '#93370d',
     900: '#7a2e0e',
     950: '#4e1d09',
-    DEFAULT: '#f79009',
+    DEFAULT: '#dc6803',
   },
   success: {
     50: '#ecfdf3',
@@ -270,6 +270,6 @@ export const colors = {
     800: '#085d3a',
     900: '#074d31',
     950: '#053321',
-    DEFAULT: '#17b26a',
+    DEFAULT: '#079455',
   },
 };

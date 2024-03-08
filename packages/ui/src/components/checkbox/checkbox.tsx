@@ -8,12 +8,12 @@ import { CheckboxIcon } from './checkbox-icon';
 
 const checkboxVariant = cva(
   [
-    'border-gray-300 focus-visible:outline-none focus-visible:shadow-brand-base',
+    'border-disabled focus-visible:outline-none focus-visible:shadow-brand-base',
     'data-[state=indeterminate]:bg-brand-600 data-[state=indeterminate]:border-brand-600 data-[state=indeterminate]:text-white',
     'data-[state=checked]:bg-brand-600 data-[state=checked]:border-brand-600 data-[state=checked]:text-white',
-    'shrink-0 border disabled:cursor-not-allowed disabled:bg-gray-50 disabled:border-gray-300 disabled:!text-gray-300 disabled:focus-visible:shadow-gray-base',
-    'disabled:data-[state=checked]:border-gray-300 disabled:data-[state=checked]:bg-gray-50',
-    'disabled:data-[state=indeterminate]:border-gray-300 disabled:data-[state=indeterminate]:bg-gray-50 ',
+    'shrink-0 border disabled:cursor-not-allowed disabled:bg-background-secondary disabled:border-disabled disabled:!text-disabled disabled:focus-visible:shadow-gray-base',
+    'disabled:data-[state=checked]:border-disabled disabled:data-[state=checked]:bg-background-secondary',
+    'disabled:data-[state=indeterminate]:border-disabled disabled:data-[state=indeterminate]:bg-background-secondary ',
   ],
   {
     variants: {
@@ -61,7 +61,10 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root
 
   return (
     <CheckboxPrimitive.Root checked={checked} ref={ref} className={cn(checkboxVariant({ size, className }))} {...etc}>
-      <CheckboxPrimitive.Indicator forceMount className={cn('flex items-center justify-center text-current group')}>
+      <CheckboxPrimitive.Indicator
+        forceMount
+        className={cn('flex -mt-px items-center justify-center text-current group')}
+      >
         {iconRender}
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>

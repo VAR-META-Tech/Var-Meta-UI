@@ -11,6 +11,7 @@ export const buttonVariants = cva(
         link: 'disabled:text-disabled',
       },
       color: {
+        default: '',
         primary: '',
         secondary: '',
         tertiary: '',
@@ -49,6 +50,12 @@ export const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      {
+        variant: 'solid',
+        color: 'default',
+        className:
+          'bg-background border text-foreground border-background hover:border-background-secondary hover:bg-background-secondary focus:shadow-brand-xs',
+      },
       {
         variant: 'solid',
         color: 'primary',
@@ -93,47 +100,59 @@ export const buttonVariants = cva(
       // --------------
       {
         variant: 'outline',
+        color: 'default',
+        className:
+          'bg-background border border-border hover:border-border-secondary hover:bg-background text-foreground shadow-xs focus:shadow-brand-xs ',
+      },
+      {
+        variant: 'outline',
         color: 'primary',
         className:
-          'bg-white border border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-700 shadow-xs focus:shadow-brand-xs ',
+          'bg-background border border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-700 shadow-xs focus:shadow-brand-xs ',
       },
       {
         variant: 'outline',
         color: 'secondary',
         className:
-          'bg-white border border-secondary-300 hover:border-secondary-300 hover:bg-secondary-50 text-secondary-700 shadow-xs focus:shadow-brand-xs ',
+          'bg-background border border-secondary-300 hover:border-secondary-300 hover:bg-secondary-50 text-secondary-700 shadow-xs focus:shadow-brand-xs ',
       },
       {
         variant: 'outline',
         color: 'tertiary',
         className:
-          'bg-white border border-tertiary-300 hover:border-tertiary-300 hover:bg-tertiary-50 text-tertiary-700 shadow-xs focus:shadow-brand-xs',
+          'bg-background border border-tertiary-300 hover:border-tertiary-300 hover:bg-tertiary-50 text-tertiary-700 shadow-xs focus:shadow-brand-xs',
       },
       {
         variant: 'outline',
         color: 'gray',
         className:
-          'bg-white border border-gray-300 hover:border-gray-300 hover:bg-gray-50 text-gray-700 shadow-xs focus:shadow-gray-xs',
+          'bg-background-secondary border border-border hover:bg-background text-foreground-secondary hover:text-foreground shadow-xs focus:shadow-gray-xs',
       },
       {
         variant: 'outline',
         color: 'error',
         className:
-          'bg-white border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
+          'bg-background border border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs ',
       },
       {
         variant: 'outline',
         color: 'warning',
         className:
-          'bg-white border border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-700 shadow-xs focus:shadow-warning-xs ',
+          'bg-background border border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-700 shadow-xs focus:shadow-warning-xs ',
       },
       {
         variant: 'outline',
         color: 'success',
         className:
-          'bg-white border border-success-300 hover:border-success-300 hover:bg-success-50 text-success-700 shadow-xs focus:shadow-success-xs ',
+          'bg-background border border-success-300 hover:border-success-300 hover:bg-success-50 text-success-700 shadow-xs focus:shadow-success-xs ',
       },
       // --------------
+      {
+        variant: 'ghost',
+        color: 'default',
+        className:
+          'text-foreground hover:text-foreground-secondary active:bg-transparent active:text-foreground hover:bg-background-secondary',
+      },
       {
         variant: 'ghost',
         color: 'primary',
@@ -154,7 +173,8 @@ export const buttonVariants = cva(
       {
         variant: 'ghost',
         color: 'gray',
-        className: 'text-gray-600 hover:text-gray-700 active:bg-transparent active:text-gray-600 hover:bg-gray-50',
+        className:
+          'text-gray-600 hover:text-foreground-secondary active:bg-transparent active:text-gray-600 hover:bg-gray-50',
       },
       {
         variant: 'ghost',
@@ -177,38 +197,43 @@ export const buttonVariants = cva(
       // --------------
       {
         variant: 'link',
+        color: 'default',
+        className: 'text-foreground active:text-foreground-secondary hover:text-foreground-secondary',
+      },
+      {
+        variant: 'link',
         color: 'primary',
-        className: 'text-brand-600 active:text-brand-600 hover:text-brand-700',
+        className: 'text-brand-600 active:text-brand-700 hover:text-brand-700',
       },
       {
         variant: 'link',
         color: 'secondary',
-        className: 'text-secondary-600 active:text-secondary-600 hover:text-secondary-700',
+        className: 'text-secondary-600 active:text-secondary-700 hover:text-secondary-700',
       },
       {
         variant: 'link',
         color: 'tertiary',
-        className: 'text-tertiary-600 active:text-tertiary-600 hover:text-tertiary-700',
+        className: 'text-tertiary-600 active:text-tertiary-700 hover:text-tertiary-700',
       },
       {
         variant: 'link',
         color: 'gray',
-        className: 'text-gray-600 active:text-gray-600 hover:text-gray-700',
+        className: 'text-foreground active:text-foreground-secondary hover:text-foreground-secondary',
       },
       {
         variant: 'link',
         color: 'error',
-        className: 'text-error-600 active:text-error-600 hover:text-error-700',
+        className: 'text-error-600 active:text-error-700 hover:text-error-700',
       },
       {
         variant: 'link',
         color: 'warning',
-        className: 'text-warning-600 active:text-warning-600 hover:text-warning-700',
+        className: 'text-warning-600 active:text-warning-700 hover:text-warning-700',
       },
       {
         variant: 'link',
         color: 'success',
-        className: 'text-success-600 active:text-success-600 hover:text-success-700',
+        className: 'text-success-600 active:text-success-700 hover:text-success-700',
       },
     ],
     defaultVariants: {

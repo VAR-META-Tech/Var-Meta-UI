@@ -69,7 +69,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
       <>
         <DropdownMenu {...args}>
           <DropdownMenuTrigger asChild>
-            <Button variant="link">
+            <Button variant="outline" color="gray">
               Account
               <ChevronDownIcon />
             </Button>
@@ -85,7 +85,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
 
         <DropdownMenu {...args}>
           <DropdownMenuTrigger asChild>
-            <Button variant="link">
+            <Button variant="outline" color="gray">
               Account with avatar
               <ChevronDownIcon />
             </Button>
@@ -99,8 +99,8 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
                   src="https://i.pravatar.cc/400?img=2"
                 />
                 <div>
-                  <div className="text-md font-medium text-gray-900">Jerome Krel</div>
-                  <div className="text-sm text-gray-600">jerome@AxLabs.com</div>
+                  <div className="text-md font-medium text-foreground">Jerome Krel</div>
+                  <div className="text-sm text-foreground-secondary">jerome@AxLabs.com</div>
                 </div>
               </div>
             </DropdownMenuHeader>

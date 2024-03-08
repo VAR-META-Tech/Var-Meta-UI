@@ -236,7 +236,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 'group flex justify-start flex-wrap items-center gap-2': true,
                 'focus-within:shadow-brand-xs': variant === 'default' || !variant,
                 'focus-within:shadow-error-xs': variant === 'destructive',
-                'shadow-xs cursor-not-allowed bg-gray-50 text-gray-500': props.disabled,
+                'shadow-xs cursor-not-allowed bg-background-secondary text-disabled': props.disabled,
                 'min-h-[40px] px-3 py-2': size === 'sm',
                 'min-h-[44px] px-3.5 py-2.5': size === 'md',
               })}
@@ -271,7 +271,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                     <button
                       onClick={handleClear}
                       className={cn(
-                        'invisible opacity-0 pointer-events-none z-10 w-6 h-6 hover:bg-gray-50 hover:text-gray-900 outline-none text-gray-400 flex items-center justify-center rounded-full relative transition-all ',
+                        'invisible opacity-0 pointer-events-none z-10 w-6 h-6 hover:bg-background-secondary hover:text-foreground-secondary outline-none text-foreground-secondary flex items-center justify-center rounded-full relative transition-all ',
                         {
                           'group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100':
                             selected?.length !== 0,
@@ -300,7 +300,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 data-state={isOpen ? 'open' : 'closed'}
                 className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1 bg-transparent shadow-none"
               >
-                <CommandList className="max-h-[var(--radix-popper-available-height)] rounded-sm bg-white shadow-md">
+                <CommandList className="max-h-[var(--radix-popper-available-height)] border border-border-secondary rounded-sm bg-background shadow-md">
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="p-1">
@@ -328,12 +328,12 @@ const AutocompleteComponent = <T extends boolean = false>(
                           }}
                           onSelect={() => handleSelectOption(option)}
                           className={cn('flex w-full items-center justify-between gap-2', {
-                            'bg-gray-50': isSelected,
+                            'bg-background-secondary': isSelected,
                             'cursor-not-allowed': props.disabled,
                           })}
                         >
                           {option.label}
-                          {isSelected ? <CheckIcon className="w-4" /> : null}
+                          {isSelected ? <CheckIcon className="w-4 text-brand-600" /> : null}
                         </CommandItem>
                       );
                     })}

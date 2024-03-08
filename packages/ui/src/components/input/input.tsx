@@ -3,14 +3,14 @@ import React, { type ReactNode } from 'react';
 
 import { cn } from '../../utils/cn';
 
-const inputVariants = cva('inline-flex gap-2 justify-between items-center relative border bg-white rounded-md', {
+const inputVariants = cva('inline-flex gap-2 justify-between items-center relative border bg-background rounded-md', {
   variants: {
     variant: {
-      default: 'border-gray-300 focus-within:shadow-brand-xs focus-within:border-brand-300',
-      destructive: 'border-error-300 bg-white focus-within:shadow-error-xs focus-within:border-error-300',
+      default: 'border-border focus-within:shadow-brand-xs focus-within:border-brand-300',
+      destructive: 'border-error-300 focus-within:shadow-error-xs focus-within:border-error-300',
     },
     disabled: {
-      true: 'cursor-not-allowed shadow-xs bg-gray-50 text-gray-500',
+      true: 'cursor-not-allowed shadow-xs bg-background-secondary text-disabled',
     },
     readOnly: {
       true: 'bg-readonly border-readonly-border cursor-default',
@@ -33,7 +33,7 @@ const inputVariants = cva('inline-flex gap-2 justify-between items-center relati
 const baseInputVariant = cva(
   [
     'block w-full flex-1 min-w-0 ',
-    'text-gray-900 placeholder:text-gray-500 bg-transparent',
+    'text-foreground placeholder:text-muted bg-transparent disabled:cursor-not-allowed',
     'focus-visible:outline-none outline-none',
   ],
   {

@@ -7,7 +7,7 @@ import { Label } from '../label';
 
 const textareaVariants = cva(
   cn(
-    'flex min-h-[128px] border text-gray-900 placeholder:text-gray-500 bg-white rounded-md',
+    'flex min-h-[128px] border text-foreground placeholder:text-gray-500 bg-white rounded-md',
     'focus-visible:outline-none  outline-none',
     'disabled:cursor-not-allowed disabled:border-gray-300 disabled:shadow-xs disabled:bg-gray-50 disabled:text-gray-500',
     'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default'

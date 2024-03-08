@@ -6,7 +6,16 @@ import React from 'react';
 import { EnhancedView, View, ViewGroup } from '@/components/View';
 
 const variants: ButtonProps['variant'][] = ['solid', 'ghost', 'link', 'outline'];
-const color: ButtonProps['color'][] = ['primary', 'secondary', 'tertiary', 'gray', 'error', 'success', 'warning'];
+const color: ButtonProps['color'][] = [
+  'default',
+  'primary',
+  'secondary',
+  'tertiary',
+  'gray',
+  'error',
+  'success',
+  'warning',
+];
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg', 'xl', '2xl'];
 const rounded: ButtonProps['rounded'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 

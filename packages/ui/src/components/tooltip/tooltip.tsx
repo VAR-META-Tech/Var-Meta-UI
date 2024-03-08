@@ -27,7 +27,7 @@ export const tooltipContentVariants = cva(
         outlined: 'border border-gray-200',
       },
       theme: {
-        light: 'bg-white text-gray-700',
+        light: 'bg-white text-foreground-secondary',
         dark: 'bg-gray-900 text-white',
       },
     },

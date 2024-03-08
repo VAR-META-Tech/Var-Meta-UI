@@ -6,7 +6,7 @@ import { useDOMRef } from '../../hooks';
 import { cn } from '../../utils/cn';
 import { Indicator, type IndicatorProps } from './indicator';
 
-const avatarVariants = cva('relative z-[1] flex shrink-0 overflow-hidden bg-gray-100 rounded-full', {
+const avatarVariants = cva('relative z-[1] flex shrink-0 overflow-hidden bg-background-tertiary rounded-full', {
   variants: {
     size: {
       xs: 'w-6 h-6',
@@ -73,19 +73,19 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
 
         <div
           className={cn(
-            'w-[calc(100%_+_1px)] h-[calc(100%_+_1px)] inset-center z-[1] pointer-events-none rounded-full border border-black/10'
+            'w-[calc(100%_+_1px)] h-[calc(100%_+_1px)] inset-center z-[1] pointer-events-none rounded-full border border-gray-300/10'
           )}
         />
 
         {outlined ? (
-          <div className="w-[calc(100%_+_3px)] h-[calc(100%_+_3px)] inset-center z-[1] pointer-events-none rounded-full border-2 border-white" />
+          <div className="w-[calc(100%_+_3px)] h-[calc(100%_+_3px)] inset-center z-[1] pointer-events-none rounded-full border-2 border-background" />
         ) : null}
         <div
           className={cn(
             'w-[calc(100%_+_5px)] h-[calc(100%_+_5px)] inset-center z-[1] rounded-full opacity-[14%] pointer-events-none',
-            'group-focus-within:border-4 group-focus-within:border-gray-400',
-            'group-focus:border-4 group-focus:border-gray-400',
-            'group-focus-visible:border-4 group-focus-visible:border-gray-400'
+            'group-focus-within:border-4 group-focus-within:border-muted',
+            'group-focus:border-4 group-focus:border-muted',
+            'group-focus-visible:border-4 group-focus-visible:border-muted'
           )}
         />
         {indicator !== 'none' && !!indicator ? (

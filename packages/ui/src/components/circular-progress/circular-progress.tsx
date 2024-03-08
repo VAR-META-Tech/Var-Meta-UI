@@ -19,7 +19,7 @@ const CircleTrack = React.forwardRef<SVGCircleElement, CircleProps>(({ r, thickn
       cx="50%"
       cy="50%"
       fill="transparent"
-      stroke="#EAECF0"
+      stroke="currentColor"
       strokeWidth={thickness}
       strokeLinecap="round"
       {...props}
@@ -62,7 +62,7 @@ export interface CircularProgressProps extends React.HTMLAttributes<HTMLDivEleme
   thickness?: number;
 }
 
-const labelVariant = cva('absolute inset-center text-gray-900 font-semibold', {
+const labelVariant = cva('absolute inset-center text-foreground font-semibold', {
   variants: {
     size: {
       xxs: 'text-sm ',
@@ -102,7 +102,7 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
       <div className={cn('relative w-fit', className)} ref={ref} {...props}>
         <svg width={size} height={size} fill="none">
           <g className="origin-center -rotate-90">
-            <CircleTrack r={r} thickness={`${thickness}px`} />
+            <CircleTrack r={r} thickness={`${thickness}px`} className="text-background-quaternary" />
             <CircleProgress r={r} value={value} thickness={`${thickness}px`} />
           </g>
         </svg>

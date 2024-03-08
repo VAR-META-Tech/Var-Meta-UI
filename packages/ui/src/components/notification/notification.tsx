@@ -59,7 +59,7 @@ const NotificationContent = React.forwardRef<HTMLDivElement, NotificationContent
   ({ className, title, description, ...props }, ref) => {
     return (
       <div className={cn('gap-1 flex flex-col', className)} ref={ref} {...props}>
-        <div className="text-sm font-semibold text-gray-900">{title}</div>
+        <div className="text-sm font-semibold text-foreground">{title}</div>
         <div className="text-sm text-gray-600">{description}</div>
       </div>
     );

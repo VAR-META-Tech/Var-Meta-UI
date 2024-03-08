@@ -97,7 +97,9 @@ const Progress = React.forwardRef<React.ElementRef<typeof ProgressPrimitive.Root
           )}
         </ProgressPrimitive.Root>
         {labelType === 'text' ? (
-          <div className={cn('flex justify-end text-sm font-medium text-right text-gray-700')}>{value}%</div>
+          <div className={cn('flex justify-end text-sm font-medium text-right text-foreground-secondary')}>
+            {value}%
+          </div>
         ) : null}
       </div>
     );

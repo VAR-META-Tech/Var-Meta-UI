@@ -50,7 +50,7 @@ const DefaultTemplate: StoryFn<AlertProps> = ({ withAction, ...args }: any) => {
       <Alert actionProps={withAction ? {} : undefined} {...args}>
         {withAction ? (
           <AlertAction>
-            <Button size="none" variant="link-gray">
+            <Button size="none" color="gray" variant="link">
               Dismiss
             </Button>
             <Button size="none" variant="link">

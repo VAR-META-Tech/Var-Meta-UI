@@ -105,12 +105,12 @@ const tabTriggerVariants = cva(
           'hover:bg-brand-50 hover:text-brand-700 ',
         ],
         gray: [
-          'data-[state=active]:bg-gray-50 data-[state=active]:text-gray-700 focus-visible:shadow-gray-base',
-          'hover:bg-gray-50 hover:text-gray-700',
+          'data-[state=active]:bg-gray-50 data-[state=active]:text-foreground-secondary focus-visible:shadow-gray-base',
+          'hover:bg-gray-50 hover:text-foreground-secondary',
         ],
         white: [
-          'data-[state=active]:bg-white data-[state=active]:text-gray-700 data-[state=active]:shadow-sm',
-          ' hover:shadow-sm hover:bg-white hover:text-gray-700',
+          'data-[state=active]:bg-white data-[state=active]:text-foreground-secondary data-[state=active]:shadow-sm',
+          ' hover:shadow-sm hover:bg-white hover:text-foreground-secondary',
         ],
         underline: [
           'border-b-2 border-transparent rounded-none',

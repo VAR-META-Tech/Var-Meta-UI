@@ -190,7 +190,7 @@ const DateInput = React.forwardRef<ElementRef<'div'>, DateInputProps>(
       <div
         ref={ref}
         className={cn(
-          'border-gray-300 text-gray-900 flex items-center rounded-sm border px-2 md:px-3.5 py-2.5 text-md h-11',
+          'border-border text-foreground flex items-center rounded-sm border px-2 md:px-3.5 py-2.5 text-md h-11',
           { 'w-full h-10': single },
           className
         )}
@@ -210,7 +210,7 @@ const DateInput = React.forwardRef<ElementRef<'div'>, DateInputProps>(
             }
           }}
           onBlur={handleBlur('day')}
-          className="w-6 border-none p-0 text-center outline-none"
+          className="w-6 border-none p-0 text-center outline-none bg-transparent"
           placeholder="D"
         />
         <span className="-mx-px opacity-20">/</span>
@@ -228,7 +228,7 @@ const DateInput = React.forwardRef<ElementRef<'div'>, DateInputProps>(
             }
           }}
           onBlur={handleBlur('month')}
-          className="w-6 border-none p-0 text-center outline-none"
+          className="w-6 border-none p-0 text-center outline-none bg-transparent"
           placeholder="M"
         />
 
@@ -247,7 +247,7 @@ const DateInput = React.forwardRef<ElementRef<'div'>, DateInputProps>(
             }
           }}
           onBlur={handleBlur('year')}
-          className="w-11 border-none p-0 text-center outline-none"
+          className="w-11 border-none p-0 text-center outline-none bg-transparent"
           placeholder="YYYY"
         />
       </div>

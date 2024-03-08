@@ -191,7 +191,7 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
   return (
     <div
       ref={ref}
-      className={cn('w-fit flex text-gray-700 relative  rounded-xl bg-white shadow-xl', className)}
+      className={cn('w-fit flex text-foreground-secondary relative  rounded-xl bg-white shadow-xl', className)}
       {...etc}
     >
       {!isSmallScreen && withPreset && (

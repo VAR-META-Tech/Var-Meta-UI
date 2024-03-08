@@ -16,7 +16,7 @@ export function PaginationItems({ dotsIcon, itemStyle = 'default', variant }: Pa
 
   if (itemStyle === 'minimal') {
     return (
-      <div className="text-gray-700 text-sm font-medium">
+      <div className="text-foreground-secondary text-sm font-medium">
         Page {ctx.active} of {ctx.total ?? 0}
       </div>
     );

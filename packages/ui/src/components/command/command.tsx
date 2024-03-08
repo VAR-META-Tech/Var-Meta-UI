@@ -13,7 +13,10 @@ const Command = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, Comm
   ({ className, ...props }, ref) => (
     <CommandPrimitive
       ref={ref}
-      className={cn('bg-white flex h-full w-full flex-col overflow-hidden rounded-md text-gray-700', className)}
+      className={cn(
+        'bg-white flex h-full w-full flex-col overflow-hidden rounded-md text-foreground-secondary',
+        className
+      )}
       {...props}
     />
   )
@@ -35,7 +38,7 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
 };
 
 const commandInputVariant = cva(
-  'flex h-full bg-transparent outline-none placeholder:text-gray-500 disabled:cursor-not-allowed disabled:text-gray-500',
+  'flex h-full bg-transparent outline-none placeholder:text-muted disabled:cursor-not-allowed disabled:text-disabled',
   {
     variants: {
       fullWidth: {
@@ -113,7 +116,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      'aria-selected:bg-gray-50 aria-selected:text-gray-700 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none',
+      'aria-selected:bg-background-secondary aria-selected:text-foreground-secondary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none',
       className
     )}
     {...props}

@@ -19,7 +19,7 @@ export const floatingTooltipContentVariants = cva(
   {
     variants: {
       theme: {
-        light: 'bg-white text-gray-700',
+        light: 'bg-white text-foreground-secondary',
         dark: 'bg-gray-900 text-white',
       },
     },

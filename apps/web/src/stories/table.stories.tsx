@@ -35,7 +35,7 @@ const DefaultTemplate: StoryFn<TableProps> = ({ header, ...args }) => {
       header={
         header ? (
           <div className="">
-            <div className="text-lg text-gray-900 font-semibold">Team members</div>
+            <div className="text-lg text-foreground font-semibold">Team members</div>
           </div>
         ) : null
       }

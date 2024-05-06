@@ -49,7 +49,7 @@ const tabListVariants = cva(
       variant: {
         primary: [],
         gray: [],
-        white: ['p-1 bg-gray-50 border border-gray-200'],
+        white: ['p-1 bg-gray-50 border border-border-secondary'],
         underline: [],
         'underline-filled': [],
         'vertical-line': [],
@@ -109,8 +109,8 @@ const tabTriggerVariants = cva(
           'hover:bg-gray-50 hover:text-foreground-secondary',
         ],
         white: [
-          'data-[state=active]:bg-white data-[state=active]:text-foreground-secondary data-[state=active]:shadow-sm',
-          ' hover:shadow-sm hover:bg-white hover:text-foreground-secondary',
+          'data-[state=active]:bg-white data-[state=active]:text-gray-600 data-[state=active]:shadow-sm',
+          ' hover:shadow-sm hover:bg-white hover:text-gray-600',
         ],
         underline: [
           'border-b-2 border-transparent rounded-none',

@@ -76,7 +76,7 @@ const CardPagination = React.forwardRef<ElementRef<'div'>, CardPaginationProps>(
     <PaginationRoot className={cn(paginationVariants({ shape, justify, className }))} ref={ref} total={total} {...etc}>
       <HStack
         className={cn({
-          'divide-x divide-gray-300 border border-gray-300 rounded-md [&>button:first-child]:rounded-l-md [&>button:last-child]:rounded-r-md':
+          'divide-x divide-border border border-border rounded-md [&>button:first-child]:rounded-l-md [&>button:last-child]:rounded-r-md':
             shape === 'button',
         })}
         spacing={shape === 'button' ? 0 : 2}

@@ -22,8 +22,13 @@ const meta: Meta = {
     fullWidth: {
       control: { type: 'boolean' },
     },
+    withScrollAction: {
+      control: { type: 'boolean' },
+    },
   },
-  args: {},
+  args: {
+    withScrollAction: true,
+  },
   parameters: {
     docs: {
       page: null,

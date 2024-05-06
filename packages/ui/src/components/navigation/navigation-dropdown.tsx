@@ -5,6 +5,7 @@ import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
 import { ChevronDownIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
+import { useNavigationContext } from './navigation-context';
 import { NavigationItem, type navigationItemVariants } from './navigation-item';
 
 export interface NavigationDropdownProps
@@ -17,11 +18,13 @@ export interface NavigationDropdownProps
 }
 
 const NavigationDropdown = forwardRef<ElementRef<'li'>, NavigationDropdownProps>(
-  ({ children, className, open, defaultOpen, onOpenChange, ...props }, ref) => {
+  ({ children, className, open, defaultOpen, onOpenChange, variant: variantProp, ...props }, ref) => {
+    const { variant } = useNavigationContext();
+
     return (
       <Collapsible open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
         <CollapsibleTrigger asChild>
-          <NavigationItem className={cn('group', className)} ref={ref} {...props}>
+          <NavigationItem className={cn('group', className)} ref={ref} variant={variantProp || variant} {...props}>
             <ChevronDownIcon className="transition-all group-aria-expanded:rotate-180" />
           </NavigationItem>
         </CollapsibleTrigger>

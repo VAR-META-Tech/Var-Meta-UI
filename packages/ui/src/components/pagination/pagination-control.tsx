@@ -9,20 +9,20 @@ const paginationControlVariants = cva(
   [
     'flex items-center justify-center',
     'min-w-[var(--pagination-control-size)] h-[var(--pagination-control-size)]',
-    'outline-none focus:shadow-gray focus:z-[1] hover:bg-gray-50',
-    'disabled:text-gray-400 disabled:opacity-50 disabled:cursor-not-allowed',
-    'text-gray-600 text-center text-sm font-medium gap-1.5',
+    'outline-none focus:shadow-gray focus:z-[1] hover:bg-background-tertiary ',
+    'disabled:text-disabled disabled:opacity-50 disabled:cursor-not-allowed',
+    'text-foreground text-center text-sm font-medium gap-1.5',
   ],
   {
     variants: {
       variant: {
         square: 'rounded-md bg-transparent',
         circle: 'rounded-full bg-transparent',
-        button: 'bg-white',
+        button: 'bg-background',
       },
       state: {
         default: '',
-        active: 'bg-gray-50',
+        active: 'bg-background-tertiary',
       },
       rounded: {
         default: '',
@@ -60,7 +60,7 @@ const PaginationControl = forwardRef<ElementRef<'button'>, PaginationControlProp
     <button
       className={cn(
         { 'px-2.5': withPadding },
-        { 'border border-gray-300': withBorder },
+        { 'border border-border': withBorder },
         paginationControlVariants({
           variant,
           rounded,

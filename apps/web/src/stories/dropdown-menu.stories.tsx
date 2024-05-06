@@ -99,7 +99,7 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
                   src="https://i.pravatar.cc/400?img=2"
                 />
                 <div>
-                  <div className="text-md font-medium text-foreground">Jerome Krel</div>
+                  <div className="text-md font-medium text-foreground">Henry Krel</div>
                   <div className="text-sm text-foreground-secondary">jerome@AxLabs.com</div>
                 </div>
               </div>

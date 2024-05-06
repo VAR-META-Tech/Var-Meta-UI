@@ -72,12 +72,12 @@ const options: AutocompleteProps['options'] = [
     ),
   },
   {
-    value: 'Jerome',
+    value: 'Henry',
     label: (
       <div className="flex gap-2">
         <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
-        <div className="font-medium text-foreground text-md">Jerome</div>
-        <div className="text-foreground-secondary text-md">@Jerome</div>
+        <div className="font-medium text-foreground text-md">Henry</div>
+        <div className="text-foreground-secondary text-md">@Henry</div>
       </div>
     ),
   },
@@ -92,22 +92,22 @@ const options: AutocompleteProps['options'] = [
     ),
   },
   {
-    value: 'Kent',
+    value: 'Josh William',
     label: (
       <div className="flex gap-2">
         <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=4" />
-        <div className="font-medium text-foreground text-md">Kent</div>
-        <div className="text-foreground-secondary text-md">kent</div>
+        <div className="font-medium text-foreground text-md">Josh William</div>
+        <div className="text-foreground-secondary text-md">@william</div>
       </div>
     ),
   },
   {
-    value: 'Gaba',
+    value: 'Jenifer',
     label: (
       <div className="flex gap-2">
         <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />
-        <div className="font-medium text-foreground text-md">Gaba Gaba</div>
-        <div className="text-foreground-secondary text-md">@gaba</div>
+        <div className="font-medium text-foreground text-md">Jenifer Change</div>
+        <div className="text-foreground-secondary text-md">@jenifer</div>
       </div>
     ),
   },

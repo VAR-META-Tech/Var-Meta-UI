@@ -6,7 +6,7 @@ import { cn } from '../../utils/cn';
 const dividerVariants = cva(
   [
     'flex whitespace-nowrap shrink-0 justify-center text-center',
-    'before:border-gray-200 after:border-gray-200',
+    'before:border-border-secondary after:border-border-secondary',
     'after:content-[""] before:content-[""] before:self-center after:self-center',
   ],
   {
@@ -45,7 +45,7 @@ const dividerVariants = cva(
   }
 );
 
-const dividerWithoutChildVariants = cva('border-gray-200', {
+const dividerWithoutChildVariants = cva('border-border-secondary', {
   variants: {
     orientation: {
       horizontal: 'border-t w-full',

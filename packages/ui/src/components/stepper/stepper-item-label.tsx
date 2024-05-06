@@ -12,10 +12,29 @@ export interface StepperItemLabelProps {
   descriptionClassName?: string;
 }
 
-const labelVariants = cva('text-foreground-secondary font-semibold', {
+const labelVariants = cva('text-foreground font-semibold', {
   variants: {
     active: {
       true: 'text-brand-700',
+      false: 'text-foreground',
+    },
+    size: {
+      none: 'text-sm',
+      sm: 'text-sm',
+      md: 'text-md',
+      lg: 'text-md',
+    },
+  },
+  defaultVariants: {
+    size: 'none',
+    active: false,
+  },
+});
+
+const descriptionVariants = cva('text-foreground-secondary', {
+  variants: {
+    active: {
+      true: 'text-brand-600',
       false: 'text-foreground-secondary',
     },
     size: {
@@ -31,26 +50,7 @@ const labelVariants = cva('text-foreground-secondary font-semibold', {
   },
 });
 
-const descriptionVariants = cva('text-gray-600', {
-  variants: {
-    active: {
-      true: 'text-brand-600',
-      false: 'text-gray-600',
-    },
-    size: {
-      none: 'text-sm',
-      sm: 'text-sm',
-      md: 'text-md',
-      lg: 'text-md',
-    },
-  },
-  defaultVariants: {
-    size: 'none',
-    active: false,
-  },
-});
-
-const optionalLabelVariants = cva('text-gray-600', {
+const optionalLabelVariants = cva('text-foreground-secondary', {
   variants: {
     size: {
       none: 'text-xs',

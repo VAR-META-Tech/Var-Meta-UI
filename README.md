@@ -1,4 +1,4 @@
-# Hashgraph UI Library
+# VAR UI Library
 
 Powered by:
 

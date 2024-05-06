@@ -5,7 +5,7 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { type TableContext, TableProvider } from './table-context';
 
-const tableVariants = cva('w-full caption-bottom text-sm text-gray-600', {
+const tableVariants = cva('w-full caption-bottom text-sm', {
   variants: {
     variant: {
       default: '',
@@ -37,12 +37,15 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
   ) => (
     <TableProvider value={{ variant, size, withHeader: !!header }}>
       <div
-        className={cn('relative bg-white border shadow-sm border-gray-200 rounded-xl w-full overflow-auto', className)}
+        className={cn(
+          'relative bg-background border shadow-sm border-border-secondary rounded-xl w-full overflow-auto',
+          className
+        )}
       >
         {header ? (
           <div
             className={cn(
-              'min-h-[69px] px-6 py-5 border-b flex items-center justify-between border-gray-200',
+              'min-h-[69px] px-6 py-5 border-b flex items-center justify-between border-border-secondary',
               headerClassName
             )}
           >

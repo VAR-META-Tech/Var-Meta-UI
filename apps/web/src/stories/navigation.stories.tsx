@@ -42,7 +42,7 @@ const links = [
   { label: 'User', active: false },
 ];
 
-const DefaultTemplate: StoryFn<NavigationItemProps & { orientation: any }> = ({ orientation, variant, ...args }) => {
+const DefaultTemplate: StoryFn<NavigationItemProps & { orientation: any }> = ({ orientation, variant }) => {
   return (
     <EnhancedView prop="Default">
       <nav
@@ -50,22 +50,22 @@ const DefaultTemplate: StoryFn<NavigationItemProps & { orientation: any }> = ({ 
           padding: '32px',
           width: '100%',
         }}
-        className={cn(' flex items-center', {
+        className={cn('flex items-center', {
           'bg-gray-950': variant === 'dark',
           'bg-brand-700': variant === 'brand',
-          'bg-white': variant === 'default',
+          'bg-background': variant === 'default',
         })}
       >
-        <Navigation orientation={orientation}>
-          <NavigationItem {...args} label="Home" />
+        <Navigation variant={variant} orientation={orientation}>
+          <NavigationItem label="Home" />
           {orientation === 'vertical' && (
             <NavigationDropdown icon={<BarChart01Icon className="w-6 h-6" />} label="Dropdown">
-              <NavigationItem {...args} variant={variant} label="Dropdown item 1" />
-              <NavigationItem {...args} variant={variant} label="Dropdown item 2" />
+              <NavigationItem label="Dropdown item 1" />
+              <NavigationItem label="Dropdown item 2" />
             </NavigationDropdown>
           )}
           {links.map((x) => (
-            <NavigationItem {...args} variant={variant} active={x.active} key={x.label} label={x.label} />
+            <NavigationItem variant={variant} active={x.active} key={x.label} label={x.label} />
           ))}
         </Navigation>
       </nav>

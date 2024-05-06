@@ -19,7 +19,7 @@ export const floatingTooltipContentVariants = cva(
   {
     variants: {
       theme: {
-        light: 'bg-white text-foreground-secondary',
+        light: 'bg-white text-gray-950',
         dark: 'bg-gray-900 text-white',
       },
     },
@@ -121,7 +121,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
             )}
             <div
               className={cn(
-                { 'border border-gray-200': outlined },
+                { 'border border-border-secondary': outlined },
                 floatingTooltipContentVariants({ theme, className })
               )}
             >

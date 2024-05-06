@@ -15,10 +15,10 @@ RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 const radioGroupVariant = cva(
   [
-    'border-gray-300 focus-visible:outline-none focus-visible:shadow-brand-base rounded-full',
+    'border-border focus-visible:outline-none focus-visible:shadow-brand-base rounded-full',
     'data-[state=checked]:bg-brand-600 data-[state=checked]:border-brand-600 data-[state=checked]:text-white',
-    'shrink-0 border disabled:cursor-not-allowed disabled:bg-gray-50 disabled:border-gray-300 disabled:!text-gray-300',
-    'disabled:data-[state=checked]:border-gray-300 disabled:data-[state=checked]:bg-gray-50 disabled:focus-visible:shadow-gray-base',
+    'shrink-0 border disabled:cursor-not-allowed disabled:bg-gray-50 disabled:border-border disabled:!text-disabled',
+    'disabled:data-[state=checked]:border-border disabled:data-[state=checked]:bg-gray-50 disabled:focus-visible:shadow-gray-base',
   ],
   {
     variants: {

@@ -50,7 +50,7 @@ const StepperItemConnector = React.memo(({ isCompletedStep, children, isLastStep
   return (
     <Divider
       data-complete={isCompletedStep}
-      className={cn('flex border-t-2 flex-1 self-auto data-[complete=true]:border-brand-600', {
+      className={cn('flex border-t-2 border-border-secondary flex-1 self-auto data-[complete=true]:border-brand-600', {
         [positions[size ?? 'none']]: centeredLabel,
       })}
       orientation="horizontal"

@@ -53,7 +53,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
         >
           <SliderPrimitive.Track
             className={cn([
-              'relative w-full overflow-hidden bg-gray-200 rounded-full grow',
+              'relative w-full overflow-hidden bg-background-quaternary rounded-full grow',
               {
                 'w-2 h-full': orientation === 'vertical',
                 'h-2 w-full': orientation === 'horizontal',
@@ -72,7 +72,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           </SliderPrimitive.Track>
           {value?.map((v, i) => (
             <Tooltip
-              className="border border-gray-200"
+              className="border border-border-secondary"
               open={!withTooltip ? false : true}
               key={i}
               title={<span className="text-xs font-semibold text-foreground">{formatLabel(v ?? 0)}</span>}

@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { assignRef } from '../../hooks/useMergedRef';
 import { cn } from '../../utils/cn';
-import { CheckIcon, ChevronDownIcon } from '../icons';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '../icons';
 
 const SelectProvider = SelectPrimitive.Root;
 
@@ -69,50 +69,83 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.T
 );
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
-const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = 'popper', ...props }, forwardedRef) => {
-  const selectRef = React.useRef<HTMLDivElement>(null);
+const SelectScrollUpButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollUpButton
+    ref={ref}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    {...props}
+  >
+    <ChevronUpIcon className="h-4 w-4" />
+  </SelectPrimitive.ScrollUpButton>
+));
+SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
-  React.useEffect(() => {
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      selectRef.current?.removeEventListener('touchend', (e) => e.cancelable && e.preventDefault());
-    };
-  }, []);
+const SelectScrollDownButton = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollDownButton
+    ref={ref}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    {...props}
+  >
+    <ChevronDownIcon className="h-4 w-4" />
+  </SelectPrimitive.ScrollDownButton>
+));
+SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
 
-  return (
-    <SelectPrimitive.Portal>
-      <SelectPrimitive.Content
-        ref={(ref) => {
-          if (!ref) return;
-          assignRef(forwardedRef, ref);
-          assignRef(selectRef, ref);
-          selectRef.current?.addEventListener('touchend', (e) => e.cancelable && e.preventDefault());
-        }}
-        className={cn(
-          'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border border-border-secondary text-foreground shadow-lg',
-          position === 'popper' &&
-            'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
-          className
-        )}
-        position={position}
-        {...props}
-      >
-        <SelectPrimitive.Viewport
+interface SelectContentProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> {
+  withScrollAction?: boolean;
+}
+
+const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Content>, SelectContentProps>(
+  ({ className, withScrollAction = true, children, position = 'popper', ...props }, forwardedRef) => {
+    const selectRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+      return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        selectRef.current?.removeEventListener('touchend', (e) => e.cancelable && e.preventDefault());
+      };
+    }, []);
+
+    return (
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content
+          ref={(ref) => {
+            if (!ref) return;
+            assignRef(forwardedRef, ref);
+            assignRef(selectRef, ref);
+            selectRef.current?.addEventListener('touchend', (e) => e.cancelable && e.preventDefault());
+          }}
           className={cn(
-            'p-1',
+            'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border border-border-secondary text-foreground shadow-lg',
             position === 'popper' &&
-              'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]'
+              'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+            className
           )}
+          position={position}
+          {...props}
         >
-          {children}
-        </SelectPrimitive.Viewport>
-      </SelectPrimitive.Content>
-    </SelectPrimitive.Portal>
-  );
-});
+          {withScrollAction ? <SelectScrollUpButton /> : null}
+          <SelectPrimitive.Viewport
+            className={cn(
+              'p-1',
+              position === 'popper' &&
+                'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]'
+            )}
+          >
+            {children}
+          </SelectPrimitive.Viewport>
+          {withScrollAction ? <SelectScrollDownButton /> : null}
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    );
+  }
+);
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel = React.forwardRef<
@@ -160,6 +193,8 @@ export {
   SelectItem,
   SelectLabel,
   SelectProvider,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
   SelectSeparator,
   SelectTrigger,
   SelectValue,

@@ -55,7 +55,7 @@ iconFileNames.forEach((iconFileName) => {
   iconImportLines.push(`import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`);
   iconExportLines.push(`${iconModuleName},`);
   iconObjectLines.push(`'${iconName}': ${iconModuleName},`);
-  iconComponentTypes.push(`export declare const ${iconModuleName}: HashgraphIcon`);
+  iconComponentTypes.push(`export declare const ${iconModuleName}: VarUIIcon`);
 });
 
 const ICONS_OBJECT = 'icons';
@@ -74,10 +74,10 @@ declare module '*.svg' {
 }
 
 export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-export declare type HashgraphIcon = IconSource & { __hashgraph__icon: true }
+export declare type VarUIIcon = IconSource & { __var_ui__icon: true }
 
-export declare function isHashgraphIcon(arg: unknown): arg is HashgraphIcon
-export declare function createHashgraphIcon(icon: IconSource): HashgraphIcon
+export declare function isVarUIIcon(arg: unknown): arg is VarUIIcon
+export declare function createVarUIIcon(icon: IconSource): VarUIIcon
 
 export declare type IconName = ${iconNames.join(' | ')}
 /**
@@ -85,7 +85,7 @@ export declare type IconName = ${iconNames.join(' | ')}
  * @example
  * import { AllIcon } from '@var-ui/icons'
  */
-export declare const icons: Record<IconName, HashgraphIcon>
+export declare const icons: Record<IconName, VarUIIcon>
 
 ${iconComponentTypes.join('\n')}
 `.trim();
@@ -150,7 +150,7 @@ function svgBuild(options = {}) {
     return tpl`
       ${imports}
 
-      import { createHashgraphIcon } from '${config.input.utils}'
+      import { createVarUIIcon } from '${config.input.utils}'
 
       function ${componentName}(${props}) {
         return (
@@ -158,7 +158,7 @@ function svgBuild(options = {}) {
         )
       }
 
-      export default createHashgraphIcon(${componentName})
+      export default createVarUIIcon(${componentName})
     `;
   }
 

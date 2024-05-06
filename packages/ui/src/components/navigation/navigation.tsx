@@ -4,12 +4,18 @@ import React, { type ElementRef, forwardRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
+import { NavigationProvider } from './navigation-context';
 
 const navigationVariants = cva('list-none w-full flex gap-1', {
   variants: {
     orientation: {
       horizontal: 'flex-row items-center',
       vertical: 'flex-col ',
+    },
+    variant: {
+      default: '',
+      brand: '',
+      dark: '',
     },
   },
   defaultVariants: {
@@ -21,14 +27,21 @@ export interface NavigationProps extends ElementProps<'ul'>, VariantProps<typeof
 }
 
 const Navigation = forwardRef<ElementRef<'ul'>, NavigationProps>(
-  ({ className, orientation, asChild, ...props }, ref) => {
+  ({ className, orientation, asChild, variant, ...props }, ref) => {
     return (
-      <Primitive.ul
-        asChild={asChild}
-        className={cn(navigationVariants({ orientation, className }))}
-        ref={ref}
-        {...props}
-      />
+      <NavigationProvider
+        value={{
+          variant,
+          orientation,
+        }}
+      >
+        <Primitive.ul
+          asChild={asChild}
+          className={cn(navigationVariants({ orientation, className }))}
+          ref={ref}
+          {...props}
+        />
+      </NavigationProvider>
     );
   }
 );

@@ -41,11 +41,11 @@ const DefaultTemplate: StoryFn<StepperProps> = ({ ...args }) => {
 
   return (
     <View prop="Default">
-      <div className="flex w-full flex-col gap-4 bg-white p-4">
+      <div className="flex w-full flex-col gap-4 bg-background p-4">
         <Stepper {...args} activeStep={activeStep}>
           {steps.map((step, index) => (
             <StepperItem index={index} key={index} label={step.label} description={step.description}>
-              <div className="h-40 w-full rounded-lg p-4 text-slate-900 bg-gray-50">
+              <div className="h-40 w-full rounded-lg p-4 bg-background-secondary">
                 <p>Step {index + 1} content</p>
               </div>
             </StepperItem>

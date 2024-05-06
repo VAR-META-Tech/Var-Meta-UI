@@ -24,10 +24,10 @@ export const tooltipContentVariants = cva(
     variants: {
       border: {
         default: '',
-        outlined: 'border border-gray-200',
+        outlined: 'border border-border-secondary',
       },
       theme: {
-        light: 'bg-white text-foreground-secondary',
+        light: 'bg-white text-gray-900',
         dark: 'bg-gray-900 text-white',
       },
     },

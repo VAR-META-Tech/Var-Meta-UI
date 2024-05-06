@@ -8,7 +8,7 @@ import { CloseIcon } from '../icons';
 import { Show } from '../utility';
 
 const tagVariants = cva(
-  'inline-flex text-center whitespace-nowrap font-medium items-center justify-center border border-gray-300 transition-colors focus:outline-none',
+  'inline-flex text-center whitespace-nowrap font-medium items-center justify-center border border-border transition-colors focus:outline-none',
   {
     variants: {
       variant: {

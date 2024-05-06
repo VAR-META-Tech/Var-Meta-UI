@@ -13,9 +13,9 @@ const TableHeader = React.forwardRef<ElementRef<'thead'>, Props>(({ className, .
     <thead
       ref={ref}
       className={cn(
-        '[&_tr]:border-b border-gray-200',
+        '[&_tr]:border-b border-border-secondary',
         {
-          'bg-gray-50': variant === 'default',
+          'bg-background-secondary': variant === 'default',
         },
         className
       )}

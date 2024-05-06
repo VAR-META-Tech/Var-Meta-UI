@@ -72,7 +72,7 @@ const DefaultTemplate: StoryFn<TooltipProps> = (args) => {
     <TooltipProvider>
       <EnhancedView prop="Default">
         <Tooltip side="bottom" align="start" {...args}>
-          <Button iconOnly variant="tertiary-gray">
+          <Button iconOnly variant="link">
             <HelpCircleIcon />
           </Button>
         </Tooltip>

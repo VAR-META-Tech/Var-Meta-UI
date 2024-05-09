@@ -6,7 +6,7 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { NavigationProvider } from './navigation-context';
 
-const navigationVariants = cva('list-none w-full flex gap-1', {
+const navigationVariants = cva('flex w-full list-none gap-1', {
   variants: {
     orientation: {
       horizontal: 'flex-row items-center',

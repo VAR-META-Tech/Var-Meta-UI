@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
 const buttonGroupVariants = cva(
-  'inline-flex [&>button]:rounded-none [&>button]:mx-[-0.5px] [&>button:first-child]:rounded-l-xs [&>button:last-child]:rounded-r-xs'
+  '[&>button:first-child]:rounded-l-xs [&>button:last-child]:rounded-r-xs inline-flex [&>button]:mx-[-0.5px] [&>button]:rounded-none'
 );
 
 export interface ButtonGroupProps

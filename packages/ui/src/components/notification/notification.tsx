@@ -59,15 +59,15 @@ const NotificationContent = React.forwardRef<HTMLDivElement, NotificationContent
   ({ className, title, description, ...props }, ref) => {
     return (
       <div className={cn('gap-1 flex flex-col', className)} ref={ref} {...props}>
-        <div className="text-sm font-semibold text-foreground">{title}</div>
-        <div className="text-sm text-foreground-secondary">{description}</div>
+        <div className="text-foreground text-sm font-semibold">{title}</div>
+        <div className="text-foreground-secondary text-sm">{description}</div>
       </div>
     );
   }
 );
 
 const notificationVariants = cva(
-  'flex relative p-4 gap-4 overflow-hidden rounded-xl border border-border shadow-lg bg-background w-full [@media(min-width:37.5rem)]:w-[370px] [@media(min-width:48rem)]:w-[400px]',
+  'border-border bg-background relative flex w-full gap-4 overflow-hidden rounded-xl border p-4 shadow-lg [@media(min-width:37.5rem)]:w-[370px] [@media(min-width:48rem)]:w-[400px]',
   {
     variants: {
       variant: {
@@ -120,20 +120,20 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
     switch (icon) {
       case 'success':
         return (
-          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="success">
+          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="success">
             <CheckCircleIcon />
           </FeaturedIcon>
         );
       case 'warning':
         return (
-          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="warning">
+          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="warning">
             <AlertCircleIcon />
           </FeaturedIcon>
         );
 
       case 'error':
         return (
-          <FeaturedIcon className="-mt-2.5 -ml-2.5" variant="outline" color="error">
+          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="error">
             <AlertCircleIcon />
           </FeaturedIcon>
         );
@@ -153,12 +153,12 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
 
       <Show when={variant === 'image'}>
         <div className="flex">
-          <div className="min-w-[5rem] max-w-[5rem] md:flex hidden h-full relative flex-col bg-gray-50">
+          <div className="relative hidden h-full min-w-[5rem] max-w-[5rem] flex-col bg-gray-50 md:flex">
             <img src={src} {...imgProps} className={cn('absolute w-full h-full object-cover', imgProps?.className)} />
           </div>
           <div className="flex flex-col gap-3 p-4 pl-5">
             <NotificationContent title={title} description={description} />
-            <div className="w-full min-h-[122px] max-h-[122px] relative md:hidden flex flex-col bg-gray-50">
+            <div className="relative flex max-h-[122px] min-h-[122px] w-full flex-col bg-gray-50 md:hidden">
               <img
                 src={src}
                 {...imgProps}

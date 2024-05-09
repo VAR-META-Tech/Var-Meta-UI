@@ -195,7 +195,7 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
       {...etc}
     >
       {!isSmallScreen && withPreset && (
-        <div className="w-[192px] hidden md:flex border-r border-gray-200 py-3 px-4 flex-col justify-start gap-1">
+        <div className="hidden w-[192px] flex-col justify-start gap-1 border-r border-gray-200 px-4 py-3 md:flex">
           {PRESETS.map((preset) => (
             <PresetButton
               onClick={setPreset}
@@ -208,10 +208,10 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
         </div>
       )}
 
-      <div className="w-[280px] block top-16 inset-x-center md:hidden">
+      <div className="inset-x-center top-16 block w-[280px] md:hidden">
         <div className="block">{renderInputGroup}</div>
         {withPreset ? (
-          <div className="flex justify-between mt-3 gap-2 overflow-auto">
+          <div className="mt-3 flex justify-between gap-2 overflow-auto">
             {MOBILE_PRESETS.map((preset) => (
               <PresetButton
                 onClick={setPreset}
@@ -227,7 +227,7 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
 
       <div className="flex flex-col ">
         <Calendar
-          className="md:px-6 border-gray-200 border-b"
+          className="border-b border-gray-200 md:px-6"
           classNames={{
             caption_between: 'bg-red-500',
           }}
@@ -258,9 +258,9 @@ export const DateRangePicker = forwardRef<ElementRef<'div'>, DateRangePickerProp
           defaultMonth={new Date(new Date().setMonth(new Date().getMonth() - (isSmallScreen ? 0 : 1)))}
           disablePast={false}
         />
-        <div className="flex p-4 justify-between">
-          <div className="md:block hidden">{renderInputGroup}</div>
-          <div className="flex md:w-[155px] w-full gap-3">
+        <div className="flex justify-between p-4">
+          <div className="hidden md:block">{renderInputGroup}</div>
+          <div className="flex w-full gap-3 md:w-[155px]">
             <Button fullWidth variant="link" onClick={handleCancel}>
               Cancel
             </Button>

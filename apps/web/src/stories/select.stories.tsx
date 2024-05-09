@@ -44,8 +44,8 @@ const options = [
     value: '1',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
-        <div className="font-medium text-foreground text-md">Phoenix Baker</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
         <div className="text-foreground-secondary text-md">@phoenix</div>
       </div>
     ),
@@ -54,8 +54,8 @@ const options = [
     value: '2',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
-        <div className="font-medium text-foreground text-md">Phoenix Baker</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
         <div className="text-foreground-secondary text-md">@phoenix</div>
       </div>
     ),
@@ -64,8 +64,8 @@ const options = [
     value: '3',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
-        <div className="font-medium text-foreground text-md">Phoenix Baker</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
         <div className="text-foreground-secondary text-md">@phoenix</div>
       </div>
     ),

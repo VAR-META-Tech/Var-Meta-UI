@@ -26,12 +26,12 @@ const meta: Meta = {
 export default meta;
 
 const links = [
-  { label: 'Home', icon: <HomeLineIcon className="w-6 h-6" />, active: false },
-  { label: 'Dashboard', icon: <BarChart01Icon className="w-6 h-6" />, active: true },
-  { label: 'Project', icon: <LayersThree01Icon className="w-6 h-6" />, active: false },
-  { label: 'Tasks', icon: <CheckDone01Icon className="w-6 h-6" />, active: false },
-  { label: 'Reporting', icon: <PieChart01Icon className="w-6 h-6" />, active: false },
-  { label: 'User', icon: <Users01Icon className="w-6 h-6" />, active: false },
+  { label: 'Home', icon: <HomeLineIcon className="h-6 w-6" />, active: false },
+  { label: 'Dashboard', icon: <BarChart01Icon className="h-6 w-6" />, active: true },
+  { label: 'Project', icon: <LayersThree01Icon className="h-6 w-6" />, active: false },
+  { label: 'Tasks', icon: <CheckDone01Icon className="h-6 w-6" />, active: false },
+  { label: 'Reporting', icon: <PieChart01Icon className="h-6 w-6" />, active: false },
+  { label: 'User', icon: <Users01Icon className="h-6 w-6" />, active: false },
 ];
 
 const DefaultTemplate: StoryFn<NavigationItemProps> = ({ variant, ...args }) => {

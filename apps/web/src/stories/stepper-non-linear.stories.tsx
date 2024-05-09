@@ -16,19 +16,19 @@ const steps = [
   {
     label: 'Your details',
     description: 'Please provide your name and email',
-    icon: <HomeLineIcon className="w-6 h-6" />,
+    icon: <HomeLineIcon className="h-6 w-6" />,
     active: false,
   },
   {
     label: 'Company details',
     description: 'A few details about your company',
-    icon: <BarChart01Icon className="w-6 h-6" />,
+    icon: <BarChart01Icon className="h-6 w-6" />,
     active: true,
   },
   {
     label: 'Invite your team',
     description: 'Start collaborating with your team',
-    icon: <LayersThree01Icon className="w-6 h-6" />,
+    icon: <LayersThree01Icon className="h-6 w-6" />,
     active: false,
   },
 ];
@@ -62,7 +62,7 @@ const DefaultTemplate: StoryFn<StepperProps> = ({ ...args }) => {
               label={step.label}
               description={step.description}
             >
-              <div className="h-40 w-full rounded-lg p-4 text-slate-900 bg-gray-50">
+              <div className="h-40 w-full rounded-lg bg-gray-50 p-4 text-slate-900">
                 <p>Step {index + 1} content</p>
               </div>
             </StepperItem>

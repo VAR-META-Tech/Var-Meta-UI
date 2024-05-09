@@ -9,7 +9,7 @@ export interface CheckboxIconProps extends ElementProps<'svg'> {
 export function CheckboxIcon(props: CheckboxIconProps) {
   const { checked, disableAnimation, ...otherProps } = props;
 
-  if (checked === 'indeterminate') return <MinusIcon className="w-3 h-w-3" {...otherProps} />;
+  if (checked === 'indeterminate') return <MinusIcon className="h-w-3 w-3" {...otherProps} />;
 
   return (
     <svg

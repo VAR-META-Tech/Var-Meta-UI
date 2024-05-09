@@ -38,7 +38,7 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
 };
 
 const commandInputVariant = cva(
-  'flex h-full bg-transparent outline-none placeholder:text-muted disabled:cursor-not-allowed disabled:text-disabled',
+  'placeholder:text-muted disabled:text-disabled flex h-full bg-transparent outline-none disabled:cursor-not-allowed',
   {
     variants: {
       fullWidth: {

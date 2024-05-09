@@ -41,7 +41,7 @@ export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((prop
             'justify-center items-center text-center': align === 'center',
           })}
         >
-          <div className="text-lg font-semibold text-foreground">{title}</div>
+          <div className="text-foreground text-lg font-semibold">{title}</div>
           <div className="text-sm text-gray-600">{description}</div>
         </div>
       </div>

@@ -15,12 +15,12 @@ import { cn } from '../../utils/cn';
 import { SlashIcon } from '../icons';
 
 const breadcrumbActiveItemVariant = cva(
-  'px-2 py-1 rounded-sm h-full flex items-center text-sm font-semibold transition-colors',
+  'flex h-full items-center rounded-sm px-2 py-1 text-sm font-semibold transition-colors',
   {
     variants: {
       variant: {
-        text: 'px-0 py-0 text-brand-700 ',
-        'btn-gray': 'bg-gray-50 text-foreground-secondary',
+        text: 'text-brand-700 p-0',
+        'btn-gray': 'text-foreground-secondary bg-gray-50',
         'btn-brand': 'bg-brand-50 text-brand-700',
       },
       disabled: {
@@ -28,7 +28,7 @@ const breadcrumbActiveItemVariant = cva(
         false: '',
       },
       iconOnly: {
-        true: 'aspect-square px-1 py-1',
+        true: 'aspect-square p-1',
         false: '',
       },
     },
@@ -40,13 +40,13 @@ const breadcrumbActiveItemVariant = cva(
 );
 
 const breadcrumbItemVariant = cva(
-  'px-2 py-1 rounded-sm h-full flex items-center text-sm font-medium transition-colors',
+  'flex h-full items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors',
   {
     variants: {
       variant: {
-        text: 'px-0 py-0 hover:text-brand-700 focus:text-brand-700 text-gray-500',
+        text: 'hover:text-brand-700 focus:text-brand-700 p-0 text-gray-500',
         'btn-gray':
-          'text-gray-500 hover:bg-gray-50 hover:text-foreground-secondary focus:bg-gray-50 focus:text-foreground-secondary',
+          'hover:text-foreground-secondary focus:text-foreground-secondary text-gray-500 hover:bg-gray-50 focus:bg-gray-50',
         'btn-brand':
           'text-foreground-secondary hover:bg-brand-50 hover:text-brand-700 focus:bg-brand-50 focus:text-brand-700',
       },
@@ -55,7 +55,7 @@ const breadcrumbItemVariant = cva(
         false: '',
       },
       iconOnly: {
-        true: 'aspect-square px-1 py-1',
+        true: 'aspect-square p-1',
         false: '',
       },
     },

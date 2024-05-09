@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 
-const dotVariants = cva('aspect-square block rounded-half p-1', {
+const dotVariants = cva('rounded-half block aspect-square p-1', {
   variants: {
     variant: {
       solid: '',
@@ -15,9 +15,9 @@ const dotVariants = cva('aspect-square block rounded-half p-1', {
       disabled: '',
     },
     size: {
-      sm: 'w-2 h-2 border-3',
-      md: 'w-2.5 h-2.5 border-4',
-      lg: 'w-3 h-3 border-5',
+      sm: 'border-3 h-2 w-2',
+      md: 'h-2.5 w-2.5 border-4',
+      lg: 'border-5 h-3 w-3',
     },
   },
   defaultVariants: {
@@ -33,12 +33,12 @@ const dotVariants = cva('aspect-square block rounded-half p-1', {
     {
       variant: 'solid',
       type: 'white',
-      className: 'bg-white border-0',
+      className: 'border-0 bg-white',
     },
     {
       variant: 'solid',
       type: 'disabled',
-      className: 'bg-gray-300 border-0',
+      className: 'border-0 bg-gray-300',
     },
     {
       variant: 'outline',

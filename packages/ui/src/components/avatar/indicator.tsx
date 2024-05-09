@@ -4,21 +4,21 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 import { VerifiedIcon } from '../icons';
 
-const dotVariants = cva('rounded-full block border border-background aspect-square', {
+const dotVariants = cva('border-background block aspect-square rounded-full border', {
   variants: {
     variant: {
       offline: 'bg-gray-300',
       online: 'bg-success-500',
     },
     size: {
-      xs: 'w-1.5 h-1.5',
-      sm: 'w-2 h-2',
-      md: 'w-2.5 h-2.5',
-      lg: 'w-3 h-3',
-      xl: 'w-3.5 h-3.5',
-      '2xl': 'w-4 h-4',
+      xs: 'h-1.5 w-1.5',
+      sm: 'h-2 w-2',
+      md: 'h-2.5 w-2.5',
+      lg: 'h-3 w-3',
+      xl: 'h-3.5 w-3.5',
+      '2xl': 'h-4 w-4',
       '3xl': 'w-4.5 h-4.5',
-      '4xl': 'w-5 h-5',
+      '4xl': 'h-5 w-5',
     },
   },
   defaultVariants: {
@@ -30,14 +30,14 @@ const dotVariants = cva('rounded-full block border border-background aspect-squa
 const verifiedVariants = cva('', {
   variants: {
     size: {
-      xs: 'w-2.5 h-2.5',
-      sm: 'w-3 h-3',
-      md: 'w-3.5 h-3.5',
-      lg: 'w-4 h-4',
+      xs: 'h-2.5 w-2.5',
+      sm: 'h-3 w-3',
+      md: 'h-3.5 w-3.5',
+      lg: 'h-4 w-4',
       xl: 'w-4.5 h-4.5',
-      '2xl': 'w-5 h-5',
-      '3xl': 'w-6 h-6',
-      '4xl': 'w-8 h-8',
+      '2xl': 'h-5 w-5',
+      '3xl': 'h-6 w-6',
+      '4xl': 'h-8 w-8',
     },
   },
   defaultVariants: {
@@ -46,18 +46,18 @@ const verifiedVariants = cva('', {
 });
 
 const iconVariants = cva(
-  'flex justify-center items-center rounded-full bg-background-quaternary border border-background aspect-square [&>*]:scale-90',
+  'bg-background-quaternary border-background flex aspect-square items-center justify-center rounded-full border [&>*]:scale-90',
   {
     variants: {
       size: {
-        xs: 'w-2 h-2',
-        sm: 'w-3 h-3',
-        md: 'w-3.5 h-3.5',
-        lg: 'w-4 h-4',
+        xs: 'h-2 w-2',
+        sm: 'h-3 w-3',
+        md: 'h-3.5 w-3.5',
+        lg: 'h-4 w-4',
         xl: 'w-4.5 h-4.5',
-        '2xl': 'w-5 h-5',
+        '2xl': 'h-5 w-5',
         '3xl': 'w-5.5 h-5.5',
-        '4xl': 'w-6 h-6',
+        '4xl': 'h-6 w-6',
       },
     },
     defaultVariants: {

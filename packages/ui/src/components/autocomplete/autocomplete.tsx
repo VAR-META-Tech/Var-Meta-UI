@@ -292,13 +292,13 @@ const AutocompleteComponent = <T extends boolean = false>(
                 data-state={isOpen ? 'open' : 'closed'}
                 className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1 bg-transparent shadow-none"
               >
-                <CommandList className="max-h-[var(--radix-popper-available-height)] border border-border-secondary rounded-sm bg-background shadow-md">
+                <CommandList className="border-border-secondary bg-background max-h-[var(--radix-popper-available-height)] rounded-sm border shadow-md">
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="p-1">
-                        <Skeleton className="w-full h-8" />
-                        <Skeleton className="w-full h-8" />
-                        <Skeleton className="w-full h-8" />
+                        <Skeleton className="h-8 w-full" />
+                        <Skeleton className="h-8 w-full" />
+                        <Skeleton className="h-8 w-full" />
                       </VStack>
                     </CommandPrimitive.Loading>
                   ) : (
@@ -325,7 +325,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                           })}
                         >
                           {option.label}
-                          {isSelected ? <CheckIcon className="w-4 text-brand-600" /> : null}
+                          {isSelected ? <CheckIcon className="text-brand-600 w-4" /> : null}
                         </CommandItem>
                       );
                     })}

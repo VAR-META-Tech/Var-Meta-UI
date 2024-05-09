@@ -16,19 +16,19 @@ const steps = [
   {
     label: 'Your details',
     description: 'Please provide your name and email',
-    icon: <HomeLineIcon className="w-6 h-6" />,
+    icon: <HomeLineIcon className="h-6 w-6" />,
     active: false,
   },
   {
     label: 'Company details',
     description: 'A few details about your company',
-    icon: <BarChart01Icon className="w-6 h-6" />,
+    icon: <BarChart01Icon className="h-6 w-6" />,
     active: true,
   },
   {
     label: 'Invite your team',
     description: 'Start collaborating ',
-    icon: <LayersThree01Icon className="w-6 h-6" />,
+    icon: <LayersThree01Icon className="h-6 w-6" />,
     active: false,
   },
 ];
@@ -41,11 +41,11 @@ const DefaultTemplate: StoryFn<StepperProps> = ({ ...args }) => {
 
   return (
     <View prop="Default">
-      <div className="flex w-full flex-col gap-4 bg-background p-4">
+      <div className="bg-background flex w-full flex-col gap-4 p-4">
         <Stepper {...args} activeStep={activeStep}>
           {steps.map((step, index) => (
             <StepperItem index={index} key={index} label={step.label} description={step.description}>
-              <div className="h-40 w-full rounded-lg p-4 bg-background-secondary">
+              <div className="bg-background-secondary h-40 w-full rounded-lg p-4">
                 <p>Step {index + 1} content</p>
               </div>
             </StepperItem>

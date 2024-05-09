@@ -5,19 +5,19 @@ import { cn } from '../../utils/cn';
 import { Show } from '../utility';
 
 const badgeVariants = cva(
-  'inline-flex text-center whitespace-nowrap font-medium items-center justify-center transition-colors focus:outline-none',
+  'inline-flex items-center justify-center whitespace-nowrap text-center font-medium transition-colors focus:outline-none',
   {
     variants: {
       variant: {
         'pill-color': 'rounded-2xl border',
         'pill-outline': 'rounded-2xl border-[1.5px]',
         'badge-color': 'rounded-sm border',
-        'badge-modern': 'rounded-sm border bg-background border-border !text-foreground-secondary',
+        'badge-modern': 'bg-background border-border !text-foreground-secondary rounded-sm border',
       },
       size: {
-        sm: 'text-xs py-0.75 gap-1 h-5.5',
-        md: 'text-xs py-0.5 gap-1 h-6',
-        lg: 'text-sm py-1 gap-1 h-7',
+        sm: 'py-0.75 h-5.5 gap-1 text-xs',
+        md: 'h-6 gap-1 py-0.5 text-xs',
+        lg: 'h-7 gap-1 py-1 text-sm',
       },
       icon: {
         default: '',
@@ -31,11 +31,11 @@ const badgeVariants = cva(
         error: 'text-error-700 [&>div[role="trailing"]]:text-error-600 [&>div[role="leading"]]:text-error-600',
         warning: 'text-warning-700 [&>div[role="trailing"]]:text-warning-600 [&>div[role="leading"]]:text-warning-600',
         success: 'text-success-700 [&>div[role="trailing"]]:text-success-600 [&>div[role="leading"]]:text-success-600',
-        blue: 'text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
-        indigo: 'text-blue-700 [&>div[role="trailing"]]:text-blue-600 [&>div[role="leading"]]:text-blue-600',
-        purple: 'text-purple-700 [&>div[role="trailing"]]:text-purple-600 [&>div[role="leading"]]:text-purple-600',
-        pink: 'text-pink-700 [&>div[role="trailing"]]:text-pink-600 [&>div[role="leading"]]:text-pink-600',
-        orange: 'text-orange-700 [&>div[role="trailing"]]:text-orange-600 [&>div[role="leading"]]:text-orange-600',
+        blue: 'text-blue-700 [&>div[role="leading"]]:text-blue-600 [&>div[role="trailing"]]:text-blue-600',
+        indigo: 'text-blue-700 [&>div[role="leading"]]:text-blue-600 [&>div[role="trailing"]]:text-blue-600',
+        purple: 'text-purple-700 [&>div[role="leading"]]:text-purple-600 [&>div[role="trailing"]]:text-purple-600',
+        pink: 'text-pink-700 [&>div[role="leading"]]:text-pink-600 [&>div[role="trailing"]]:text-pink-600',
+        orange: 'text-orange-700 [&>div[role="leading"]]:text-orange-600 [&>div[role="trailing"]]:text-orange-600',
       },
     },
     defaultVariants: {
@@ -58,7 +58,7 @@ const badgeVariants = cva(
       {
         size: 'sm',
         icon: 'trailing',
-        className: 'pr-2 pl-1.5',
+        className: 'pl-1.5 pr-2',
       },
 
       {
@@ -74,7 +74,7 @@ const badgeVariants = cva(
       {
         size: 'md',
         icon: 'trailing',
-        className: 'pr-2.5 pl-2',
+        className: 'pl-2 pr-2.5',
       },
 
       {
@@ -90,7 +90,7 @@ const badgeVariants = cva(
       {
         size: 'lg',
         icon: 'trailing',
-        className: 'pr-2.5 pl-3',
+        className: 'pl-3 pr-2.5',
       },
 
       // Color setting
@@ -122,27 +122,27 @@ const badgeVariants = cva(
       {
         color: 'blue',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-blue-50 border-blue-200',
+        className: 'border-blue-200 bg-blue-50',
       },
       {
         color: 'indigo',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-indigo-50 border-indigo-200',
+        className: 'border-indigo-200 bg-indigo-50',
       },
       {
         color: 'purple',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-purple-50 border-purple-200',
+        className: 'border-purple-200 bg-purple-50',
       },
       {
         color: 'pink',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-pink-50 border-pink-200',
+        className: 'border-pink-200 bg-pink-50',
       },
       {
         color: 'orange',
         variant: ['pill-color', 'badge-color'],
-        className: 'bg-orange-50 border-orange-200',
+        className: 'border-orange-200 bg-orange-50',
       },
 
       // Pill outline

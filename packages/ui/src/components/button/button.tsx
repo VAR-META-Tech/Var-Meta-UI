@@ -27,7 +27,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     asChild,
     loading,
     color,
-    loadingIcon = <Spinner className="w-5 h-5" />,
+    loadingIcon = <Spinner className="h-5 w-5" />,
     loadingPlacement = 'start',
     startIcon,
     endIcon,

@@ -36,7 +36,7 @@ export function createEdgeComponent({ icon: defaultIcon, name, action, type }: C
 export const PaginationNext = createEdgeComponent({
   icon: (
     <>
-      <span className="md:block hidden">Next</span>
+      <span className="hidden md:block">Next</span>
       <ArrowRightIcon />
     </>
   ),
@@ -49,7 +49,7 @@ export const PaginationPrevious = createEdgeComponent({
   icon: (
     <>
       <ArrowLeftIcon />
-      <span className="md:block hidden">Previous</span>
+      <span className="hidden md:block">Previous</span>
     </>
   ),
   name: 'PaginationPrevious',

@@ -8,10 +8,10 @@ import { usePaginationContext } from './pagination-context';
 const paginationControlVariants = cva(
   [
     'flex items-center justify-center',
-    'min-w-[var(--pagination-control-size)] h-[var(--pagination-control-size)]',
-    'outline-none focus:shadow-gray focus:z-[1] hover:bg-background-tertiary ',
-    'disabled:text-disabled disabled:opacity-50 disabled:cursor-not-allowed',
-    'text-foreground text-center text-sm font-medium gap-1.5',
+    'h-[var(--pagination-control-size)] min-w-[var(--pagination-control-size)]',
+    'focus:shadow-gray hover:bg-background-tertiary outline-none focus:z-[1] ',
+    'disabled:text-disabled disabled:cursor-not-allowed disabled:opacity-50',
+    'text-foreground gap-1.5 text-center text-sm font-medium',
   ],
   {
     variants: {

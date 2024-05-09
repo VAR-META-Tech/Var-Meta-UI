@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 
-const featuredIconVariants = cva('aspect-square relative flex items-center justify-center [&>svg]:z-20', {
+const featuredIconVariants = cva('relative flex aspect-square items-center justify-center [&>svg]:z-20', {
   variants: {
     variant: {
       light: 'rounded-full',
@@ -14,17 +14,17 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
       'mid-square': '',
       glass: [
         'text-white',
-        '[&>span]:absolute [&>span]:inset-0 [&>span]:w-full [&>span]:h-full [&>span:first-of-type]:z-10 ',
-        '[&>span:last-of-type]:rotate-[15deg]  [&>span:last-of-type]:left-[18%] [&>span:last-of-type]:top-[-20%]',
-        '[&>span:first-of-type]:bg-white/60 [&>span:first-of-type]:backdrop-blur-md [&>span:first-of-type]:border [&>span:first-of-type]:border-white/60',
+        '[&>span:first-of-type]:z-10 [&>span]:absolute [&>span]:inset-0 [&>span]:h-full [&>span]:w-full ',
+        '[&>span:last-of-type]:left-[18%]  [&>span:last-of-type]:top-[-20%] [&>span:last-of-type]:rotate-[15deg]',
+        '[&>span:first-of-type]:border [&>span:first-of-type]:border-white/60 [&>span:first-of-type]:bg-white/60 [&>span:first-of-type]:backdrop-blur-md',
       ],
       outline: [
-        '[&>span]:absolute [&>span]:inset-0 [&>span]:w-full [&>span]:border-2 [&>span]:h-full [&>span]:rounded-full',
+        '[&>span]:absolute [&>span]:inset-0 [&>span]:h-full [&>span]:w-full [&>span]:rounded-full [&>span]:border-2',
         '[&>span]:left-1/2 [&>span]:top-1/2 [&>span]:-translate-x-1/2 [&>span]:-translate-y-1/2',
         '[&>span:first-of-type]:scale-[.65] [&>span:first-of-type]:opacity-30',
         '[&>span:last-of-type]:scale-[.83] [&>span:last-of-type]:opacity-10',
       ],
-      modern: 'bg-background text-foreground-secondary shadow-xs border border-border-secondary',
+      modern: 'bg-background text-foreground-secondary shadow-xs border-border-secondary border',
     },
     color: {
       brand: '',
@@ -34,10 +34,10 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
       success: '',
     },
     size: {
-      sm: 'min-w-[2rem] w-8 h-8 [&>svg]:w-4 [&>svg]:h-4',
-      md: 'min-w-[2.5rem] w-10 h-10 [&>svg]:w-5 [&>svg]:h-5',
-      lg: 'min-w-[3rem] w-12 h-12 p-1.5 [&>svg]:w-6 [&>svg]:h-6',
-      xl: 'min-w-[3.5rem] w-14 h-14 p-1.5 [&>svg]:w-7 [&>svg]:h-7',
+      sm: 'h-8 w-8 min-w-[2rem] [&>svg]:h-4 [&>svg]:w-4',
+      md: 'h-10 w-10 min-w-[2.5rem] [&>svg]:h-5 [&>svg]:w-5',
+      lg: 'h-12 w-12 min-w-[3rem] p-1.5 [&>svg]:h-6 [&>svg]:w-6',
+      xl: 'h-14 w-14 min-w-[3.5rem] p-1.5 [&>svg]:h-7 [&>svg]:w-7',
     },
   },
   compoundVariants: [
@@ -112,7 +112,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
     {
       variant: ['light', 'light-outline', 'light-square'],
       color: 'gray',
-      className: 'text-gray-500 bg-gray-100',
+      className: 'bg-gray-100 text-gray-500',
     },
     {
       variant: ['light', 'light-outline', 'light-square'],
@@ -169,7 +169,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
     {
       variant: ['dark-outline', 'mid-square'],
       color: 'gray',
-      className: 'bg-gray-600 border-gray-700',
+      className: 'border-gray-700 bg-gray-600',
     },
     {
       variant: ['dark-outline', 'mid-square'],

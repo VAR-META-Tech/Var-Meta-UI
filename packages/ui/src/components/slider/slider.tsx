@@ -72,10 +72,10 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           </SliderPrimitive.Track>
           {value?.map((v, i) => (
             <Tooltip
-              className="border border-border-secondary"
+              className="border-border-secondary border"
               open={!withTooltip ? false : true}
               key={i}
-              title={<span className="text-xs font-semibold text-foreground">{formatLabel(v ?? 0)}</span>}
+              title={<span className="text-foreground text-xs font-semibold">{formatLabel(v ?? 0)}</span>}
             >
               <SliderPrimitive.Thumb
                 key={i}

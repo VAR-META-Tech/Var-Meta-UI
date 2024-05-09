@@ -21,7 +21,7 @@ const DefaultTemplate: StoryFn<BreadcrumbItemProps> = ({ withLine, ...args }: an
       <div className="bg-white p-4">
         <Breadcrumbs withLine={withLine}>
           <BreadcrumbItem {...args} iconOnly>
-            <HomeLineIcon className="w-5 h-5" />
+            <HomeLineIcon className="h-5 w-5" />
           </BreadcrumbItem>
           <BreadcrumbItem {...args}>Settings</BreadcrumbItem>
           <BreadcrumbItem disabled {...args}>

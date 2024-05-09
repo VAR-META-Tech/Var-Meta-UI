@@ -28,7 +28,7 @@ const NavigationDropdown = forwardRef<ElementRef<'li'>, NavigationDropdownProps>
             <ChevronDownIcon className="transition-all group-aria-expanded:rotate-180" />
           </NavigationItem>
         </CollapsibleTrigger>
-        <CollapsibleContent className="[&>*]:pl-12 mt-2">{children}</CollapsibleContent>
+        <CollapsibleContent className="mt-2 [&>*]:pl-12">{children}</CollapsibleContent>
       </Collapsible>
     );
   }

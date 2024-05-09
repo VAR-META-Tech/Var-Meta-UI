@@ -62,7 +62,7 @@ export interface CircularProgressProps extends React.HTMLAttributes<HTMLDivEleme
   thickness?: number;
 }
 
-const labelVariant = cva('absolute inset-center text-foreground font-semibold', {
+const labelVariant = cva('inset-center text-foreground absolute font-semibold', {
   variants: {
     size: {
       xxs: 'text-sm ',

@@ -7,13 +7,13 @@ import { cn } from '../../utils/cn';
 import { useNavigationContext } from './navigation-context';
 
 export const navigationItemVariants = cva(
-  'flex justify-between items-center gap-2 rounded-sm text-md font-semibold py-2 px-3 h-10 transition-colors cursor-pointer',
+  'text-md flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm px-3 py-2 font-semibold transition-colors',
   {
     variants: {
       variant: {
-        default: 'bg-background text-foreground-secondary hover:bg-gray-50 hover:text-gray-800 focus:shadow-gray-base',
-        brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 hover:text-white focus:shadow-brand-base',
-        dark: 'bg-gray-950 text-gray-100 hover:text-white hover:bg-gray-800 focus:shadow-gray-base',
+        default: 'bg-background text-foreground-secondary focus:shadow-gray-base hover:bg-gray-50 hover:text-gray-800',
+        brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 focus:shadow-brand-base hover:text-white',
+        dark: 'focus:shadow-gray-base bg-gray-950 text-gray-100 hover:bg-gray-800 hover:text-white',
       },
       active: {
         true: '',
@@ -27,12 +27,12 @@ export const navigationItemVariants = cva(
       {
         variant: 'default',
         active: true,
-        className: 'text-gray-800 bg-gray-50',
+        className: 'bg-gray-50 text-gray-800',
       },
       {
         variant: 'dark',
         active: true,
-        className: 'text-white bg-gray-800',
+        className: 'bg-gray-800 text-white',
       },
       {
         variant: 'brand',
@@ -60,7 +60,7 @@ const NavigationItem = forwardRef<ElementRef<'li'>, NavigationItemProps>(
         ref={ref}
         {...props}
       >
-        <div className="flex items-center flex-1 gap-3">
+        <div className="flex flex-1 items-center gap-3">
           {icon}
           {label}
         </div>

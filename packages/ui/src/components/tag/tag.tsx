@@ -8,7 +8,7 @@ import { CloseIcon } from '../icons';
 import { Show } from '../utility';
 
 const tagVariants = cva(
-  'inline-flex text-center whitespace-nowrap font-medium items-center justify-center border border-border transition-colors focus:outline-none',
+  'border-border inline-flex items-center justify-center whitespace-nowrap border text-center font-medium transition-colors focus:outline-none',
   {
     variants: {
       variant: {
@@ -20,9 +20,9 @@ const tagVariants = cva(
         none: 'rounded-none',
       },
       size: {
-        sm: 'text-xs px-2 py-0.75 h-6',
-        md: 'text-xs px-2.75 py-0.5 gap-0.75 h-6',
-        lg: 'text-sm px-2.5 py-1 gap-0.75 h-7',
+        sm: 'py-0.75 h-6 px-2 text-xs',
+        md: 'px-2.75 gap-0.75 h-6 py-0.5 text-xs',
+        lg: 'gap-0.75 h-7 px-2.5 py-1 text-sm',
       },
     },
     defaultVariants: {
@@ -46,7 +46,7 @@ const tagContentVariants = cva('flex items-center', {
   },
 });
 
-const countVariants = cva('flex text-center font-medium bg-gray-100 items-center rounded-xxs', {
+const countVariants = cva('rounded-xxs flex items-center bg-gray-100 text-center font-medium', {
   variants: {
     size: {
       sm: 'px-1 text-xs ',
@@ -118,7 +118,7 @@ const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps
       </div>
       <Show when={withCloseIcon}>
         <button onClick={onClose}>
-          {typeof closeIcon === 'boolean' ? <CloseIcon className="w-5 h-5 text-gray-400" /> : closeIcon}
+          {typeof closeIcon === 'boolean' ? <CloseIcon className="h-5 w-5 text-gray-400" /> : closeIcon}
         </button>
       </Show>
     </div>

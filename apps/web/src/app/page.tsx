@@ -19,9 +19,9 @@ const options: AutocompleteProps['options'] = [
     value: 'Phoenix Baker',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
-        <div className="font-medium text-foreground text-md">Phoenix Baker</div>
-        <div className="text-gray-600 text-md">@phoenix</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-md text-gray-600">@phoenix</div>
       </div>
     ),
   },
@@ -29,9 +29,9 @@ const options: AutocompleteProps['options'] = [
     value: 'Henry',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
-        <div className="font-medium text-foreground text-md">Henry</div>
-        <div className="text-gray-600 text-md">@Henry</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Henry</div>
+        <div className="text-md text-gray-600">@Henry</div>
       </div>
     ),
   },
@@ -39,9 +39,9 @@ const options: AutocompleteProps['options'] = [
     value: 'Kevin Baker',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
-        <div className="font-medium text-foreground text-md">Kevin Baker</div>
-        <div className="text-gray-600 text-md">@Kevin</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Kevin Baker</div>
+        <div className="text-md text-gray-600">@Kevin</div>
       </div>
     ),
   },
@@ -49,9 +49,9 @@ const options: AutocompleteProps['options'] = [
     value: 'Josh William',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=4" />
-        <div className="font-medium text-foreground text-md">Josh William</div>
-        <div className="text-gray-600 text-md">@William</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=4" />
+        <div className="text-foreground text-md font-medium">Josh William</div>
+        <div className="text-md text-gray-600">@William</div>
       </div>
     ),
   },
@@ -60,9 +60,9 @@ const options: AutocompleteProps['options'] = [
     value: 'Jenifer Chang',
     label: (
       <div className="flex gap-2">
-        <img className="w-6 h-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />
-        <div className="font-medium text-foreground text-md">Jenifer Chang</div>
-        <div className="text-gray-600 text-md">@Jenifer</div>
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />
+        <div className="text-foreground text-md font-medium">Jenifer Chang</div>
+        <div className="text-md text-gray-600">@Jenifer</div>
       </div>
     ),
   },
@@ -71,8 +71,8 @@ const options: AutocompleteProps['options'] = [
 export default function Page() {
   return (
     <>
-      <main className="flex flex-col items-center justify-center min-h-screen gap-2xl">
-        <div className="font-serif font-semibold text-4xl md:text-6xl">VAR UI</div>
+      <main className="gap-2xl flex min-h-screen flex-col items-center justify-center">
+        <div className="font-serif text-4xl font-semibold md:text-6xl">VAR UI</div>
 
         <HStack
           className="w-full"
@@ -97,7 +97,7 @@ export default function Page() {
               description="This blog post has been published. Team members will be able to edit this post and republish changes."
             />
 
-            <div className="px-4 flex flex-col gap-3">
+            <div className="flex flex-col gap-3 px-4">
               <Autocomplete placeholder="Placeholder" options={options} />
               <Select
                 fullWidth

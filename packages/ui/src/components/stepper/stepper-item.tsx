@@ -33,23 +33,23 @@ const stepperItemVariants = cva('relative flex flex-row items-start', {
 });
 
 const iconButtonVariants = cva(
-  'aspect-square z-10 text-sm flex items-center justify-center rounded-full data-[clickable=true]:cursor-pointer cursor-default',
+  'z-10 flex aspect-square cursor-default items-center justify-center rounded-full text-sm data-[clickable=true]:cursor-pointer',
   {
     variants: {
       variant: {
         default: [
-          'bg-background border-2 border-border-secondary text-background-quaternary',
-          'aria-[current=step]:bg-brand-600 aria-[current=step]:text-white aria-[current=step]:border-brand-600 aria-[current=step]:shadow-brand-base',
-          'data-[invalid=true]:bg-error-600 data-[invalid=true]:text-white data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base',
+          'bg-background border-border-secondary text-background-quaternary border-2',
+          'aria-[current=step]:bg-brand-600 aria-[current=step]:border-brand-600 aria-[current=step]:shadow-brand-base aria-[current=step]:text-white',
+          'data-[invalid=true]:bg-error-600 data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base data-[invalid=true]:text-white',
           'data-[complete=true]:bg-brand-600 data-[complete=true]:text-white',
         ],
         unstyled: '',
       },
       size: {
         none: '',
-        sm: 'w-6 h-6 ',
-        md: 'w-8 h-8',
-        lg: 'w-10 h-10',
+        sm: 'h-6 w-6 ',
+        md: 'h-8 w-8',
+        lg: 'h-10 w-10',
       },
     },
     defaultVariants: {

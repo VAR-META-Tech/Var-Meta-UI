@@ -6,12 +6,12 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 
 const toggleVariants = cva(
-  'peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none  data-[state=checked]:bg-brand-600 data-[state=unchecked]:bg-background-tertiary focus-visible:shadow-gray-secondary focus-visible:data-[state=checked]:shadow-brand-base disabled:cursor-not-allowed  disabled:data-[state=checked]:bg-background-tertiary',
+  'data-[state=checked]:bg-brand-600 data-[state=unchecked]:bg-background-tertiary focus-visible:shadow-gray-secondary focus-visible:data-[state=checked]:shadow-brand-base disabled:data-[state=checked]:bg-background-tertiary peer inline-flex shrink-0 cursor-pointer items-center  rounded-full border-2 border-transparent transition-colors focus-visible:outline-none  disabled:cursor-not-allowed',
   {
     variants: {
       size: {
-        sm: 'w-9 h-5',
-        md: 'w-11 h-6',
+        sm: 'h-5 w-9',
+        md: 'h-6 w-11',
       },
     },
     defaultVariants: {
@@ -26,7 +26,7 @@ const thumbVariant = cva(
     variants: {
       size: {
         sm: 'h-4 w-4 data-[state=checked]:translate-x-4',
-        md: 'w-5 h-5 data-[state=checked]:translate-x-5',
+        md: 'h-5 w-5 data-[state=checked]:translate-x-5',
       },
     },
     defaultVariants: {

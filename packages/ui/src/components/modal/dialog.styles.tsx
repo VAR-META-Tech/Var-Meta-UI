@@ -59,7 +59,7 @@ const DialogHeader = React.forwardRef<React.ElementRef<'div'>, DialogHeaderProps
     <div ref={ref} className={cn('px-4 pt-3 md:pt-6 md:px-6 relative', className)} {...props}>
       {children}
       {hideCloseButton ? null : (
-        <DialogPrimitive.DialogClose className="absolute top-4 right-4" asChild onClick={onClose}>
+        <DialogPrimitive.DialogClose className="absolute right-4 top-4" asChild onClick={onClose}>
           <ButtonClose size="lg" {...buttonCloseProps} />
         </DialogPrimitive.DialogClose>
       )}

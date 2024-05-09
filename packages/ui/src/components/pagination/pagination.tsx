@@ -7,7 +7,7 @@ import { PaginationFirst, PaginationLast, PaginationNext, PaginationPrevious } f
 import { PaginationItems } from './pagination-item';
 import { PaginationRoot, type PaginationRootProps } from './pagination-root';
 
-const minimalPaginationVariants = cva('gap-3 flex w-full items-center', {
+const minimalPaginationVariants = cva('flex w-full items-center gap-3', {
   variants: {
     shape: {
       square: '',

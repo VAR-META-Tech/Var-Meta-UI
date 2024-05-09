@@ -5,7 +5,7 @@ import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';
 
 const thVariant = cva(
-  ' px-6 py-3 text-left align-middle font-medium text-xs [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+  ' px-6 py-3 text-left align-middle text-xs font-medium [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
   {
     variants: {
       size: {

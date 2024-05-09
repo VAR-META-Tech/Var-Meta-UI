@@ -48,7 +48,7 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
       ref={ref}
       {...etc}
     >
-      <div className="w-full px-6 absolute top-16 left-0">
+      <div className="absolute left-0 top-16 w-full px-6">
         <div className="flex w-full gap-3">
           <DateInput single value={date} onChange={setDate} />
           <Button onClick={handleSetToday} className="min-w-[70px]" size="md" variant="link" color="default">
@@ -72,7 +72,7 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
         {...calendarProps}
         className={cn('px-6 py-5', calendarProps?.className)}
       />
-      <div className="flex w-full gap-3 p-4 border-t border-border-secondary">
+      <div className="border-border-secondary flex w-full gap-3 border-t p-4">
         <Button fullWidth variant="outline" color="gray" onClick={handleCancel}>
           Cancel
         </Button>

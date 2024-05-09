@@ -58,7 +58,7 @@ const DefaultTemplate: StoryFn<NavigationItemProps & { orientation: any }> = ({ 
         <Navigation variant={variant} orientation={orientation}>
           <NavigationItem label="Home" />
           {orientation === 'vertical' && (
-            <NavigationDropdown icon={<BarChart01Icon className="w-6 h-6" />} label="Dropdown">
+            <NavigationDropdown icon={<BarChart01Icon className="h-6 w-6" />} label="Dropdown">
               <NavigationItem label="Dropdown item 1" />
               <NavigationItem label="Dropdown item 2" />
             </NavigationDropdown>

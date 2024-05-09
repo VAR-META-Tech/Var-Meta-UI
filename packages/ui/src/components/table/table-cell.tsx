@@ -11,7 +11,7 @@ const tdVariant = cva(
       size: {
         sm: 'h-16',
         md: 'h-18',
-        lg: 'h-20 text-md',
+        lg: 'text-md h-20',
       },
     },
     defaultVariants: {

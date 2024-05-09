@@ -3,14 +3,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 
-const inputVariants = cva('inline-flex gap-2 justify-between items-center relative border bg-background rounded-md', {
+const inputVariants = cva('bg-background relative inline-flex items-center justify-between gap-2 rounded-md border', {
   variants: {
     variant: {
       default: 'border-border focus-within:shadow-brand-xs focus-within:border-brand-300',
       destructive: 'border-error-300 focus-within:shadow-error-xs focus-within:border-error-300',
     },
     disabled: {
-      true: 'cursor-not-allowed shadow-xs bg-background-secondary text-disabled',
+      true: 'shadow-xs bg-background-secondary text-disabled cursor-not-allowed',
     },
     readOnly: {
       true: 'bg-readonly border-readonly-border cursor-default',
@@ -32,9 +32,9 @@ const inputVariants = cva('inline-flex gap-2 justify-between items-center relati
 
 const baseInputVariant = cva(
   [
-    'block w-full flex-1 min-w-0 ',
+    'block w-full min-w-0 flex-1 ',
     'text-foreground placeholder:text-muted bg-transparent disabled:cursor-not-allowed',
-    'focus-visible:outline-none outline-none',
+    'outline-none focus-visible:outline-none',
   ],
   {
     variants: {},

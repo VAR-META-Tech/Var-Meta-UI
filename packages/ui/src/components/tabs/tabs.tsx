@@ -49,7 +49,7 @@ const tabListVariants = cva(
       variant: {
         primary: [],
         gray: [],
-        white: ['p-1 bg-gray-50 border border-border-secondary'],
+        white: ['border-border-secondary border bg-gray-50 p-1'],
         underline: [],
         'underline-filled': [],
         'vertical-line': [],
@@ -92,10 +92,10 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 
 const tabTriggerVariants = cva(
   [
-    'inline-flex w-full items-center justify-center transition-all gap-2',
+    'inline-flex w-full items-center justify-center gap-2 transition-all',
     'data-[orientation=vertical]:justify-start',
     'whitespace-nowrap rounded-sm text-sm font-semibold',
-    'disabled:pointer-events-none text-gray-500',
+    'text-gray-500 disabled:pointer-events-none',
   ],
   {
     variants: {
@@ -105,37 +105,37 @@ const tabTriggerVariants = cva(
           'hover:bg-brand-50 hover:text-brand-700 ',
         ],
         gray: [
-          'data-[state=active]:bg-gray-50 data-[state=active]:text-foreground-secondary focus-visible:shadow-gray-base',
-          'hover:bg-gray-50 hover:text-foreground-secondary',
+          'data-[state=active]:text-foreground-secondary focus-visible:shadow-gray-base data-[state=active]:bg-gray-50',
+          'hover:text-foreground-secondary hover:bg-gray-50',
         ],
         white: [
           'data-[state=active]:bg-white data-[state=active]:text-gray-600 data-[state=active]:shadow-sm',
-          ' hover:shadow-sm hover:bg-white hover:text-gray-600',
+          ' hover:bg-white hover:text-gray-600 hover:shadow-sm',
         ],
         underline: [
-          'border-b-2 border-transparent rounded-none',
+          'rounded-none border-b-2 border-transparent',
           ' data-[state=active]:border-brand-600 data-[state=active]:text-brand-600 ',
           'hover:border-brand-600 hover:text-brand-600',
         ],
         'underline-filled': [
-          'border-b-2 border-transparent rounded-none',
+          'rounded-none border-b-2 border-transparent',
           ' data-[state=active]:border-brand-600 data-[state=active]:bg-brand-50 data-[state=active]:text-brand-600 ',
           'hover:border-brand-600 hover:text-brand-600',
         ],
         'vertical-line': [
-          'border-l-2 border-transparent rounded-none',
+          'rounded-none border-l-2 border-transparent',
           ' data-[state=active]:border-brand-600 data-[state=active]:text-brand-600 ',
           'hover:border-brand-600 hover:text-brand-600',
         ],
         'vertical-line-filled': [
-          'border-l-2 border-transparent rounded-none',
+          'rounded-none border-l-2 border-transparent',
           ' data-[state=active]:border-brand-600 data-[state=active]:bg-brand-50 data-[state=active]:text-brand-600 ',
           'hover:border-brand-600 hover:text-brand-600',
         ],
       },
       size: {
         sm: 'h-9 px-3 py-2 text-sm ',
-        md: 'h-11 py-2 px-3 text-md',
+        md: 'text-md h-11 px-3 py-2',
       },
     },
     defaultVariants: {
@@ -146,12 +146,12 @@ const tabTriggerVariants = cva(
       {
         variant: 'underline',
         size: 'sm',
-        className: 'px-1 pt-0 pb-3 h-8',
+        className: 'h-8 px-1 pb-3 pt-0',
       },
       {
         variant: 'underline',
         size: 'md',
-        className: 'px-1 pt-0 pb-3 h-9',
+        className: 'h-9 px-1 pb-3 pt-0',
       },
     ],
   }

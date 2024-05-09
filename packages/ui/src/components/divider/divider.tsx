@@ -5,15 +5,15 @@ import { cn } from '../../utils/cn';
 
 const dividerVariants = cva(
   [
-    'flex whitespace-nowrap shrink-0 justify-center text-center',
+    'flex shrink-0 justify-center whitespace-nowrap text-center',
     'before:border-border-secondary after:border-border-secondary',
-    'after:content-[""] before:content-[""] before:self-center after:self-center',
+    'before:self-center before:content-[""] after:self-center after:content-[""]',
   ],
   {
     variants: {
       orientation: {
-        horizontal: 'before:border-t after:border-t w-full',
-        vertical: 'before:border-l after:border-l before:h-full after:h-full self-stretch flex-col h-full',
+        horizontal: 'w-full before:border-t after:border-t',
+        vertical: 'h-full flex-col self-stretch before:h-full before:border-l after:h-full after:border-l',
       },
       align: {
         left: '',
@@ -34,7 +34,7 @@ const dividerVariants = cva(
       {
         orientation: 'horizontal',
         align: 'right',
-        className: 'after:w-[10%] before:w-[90%]',
+        className: 'before:w-[90%] after:w-[10%]',
       },
       {
         orientation: 'horizontal',
@@ -48,8 +48,8 @@ const dividerVariants = cva(
 const dividerWithoutChildVariants = cva('border-border-secondary', {
   variants: {
     orientation: {
-      horizontal: 'border-t w-full',
-      vertical: 'border-l h-full',
+      horizontal: 'w-full border-t',
+      vertical: 'h-full border-l',
     },
   },
 });

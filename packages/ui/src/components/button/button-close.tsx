@@ -9,14 +9,14 @@ const buttonCloseVariants = cva(
     'rounded-xs text-foreground aspect-square bg-transparent outline-none transition-colors',
     'flex items-center justify-center',
     'hover:bg-background-secondary hover:text-foreground-secondary hover:outline-none',
-    'focus:bg-background-secondary focus:text-foreground focus:outline-none focus:shadow-gray-base',
+    'focus:bg-background-secondary focus:text-foreground focus:shadow-gray-base focus:outline-none',
   ],
   {
     variants: {
       size: {
-        sm: 'w-9 h-9 ',
-        md: 'w-10 h-10',
-        lg: 'w-11 h-11',
+        sm: 'h-9 w-9 ',
+        md: 'h-10 w-10',
+        lg: 'h-11 w-11',
       },
     },
     defaultVariants: {

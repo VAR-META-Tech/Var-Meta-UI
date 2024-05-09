@@ -20,7 +20,7 @@ const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', 
   variants: {
     variant: {
       default: '',
-      outline: 'border border-divider',
+      outline: 'border-divider border',
       solid: 'bg-background shadow-sm',
     },
     rounded: {
@@ -94,7 +94,7 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
 
 AccordionItem.displayName = 'AccordionItem';
 
-const accordionTriggerVariant = cva('flex flex-1 items-center text-foreground group gap-6 font-medium transition-all', {
+const accordionTriggerVariant = cva('text-foreground group flex flex-1 items-center gap-6 font-medium transition-all', {
   variants: {
     variant: {
       default: '',
@@ -102,12 +102,12 @@ const accordionTriggerVariant = cva('flex flex-1 items-center text-foreground gr
       solid: '',
     },
     size: {
-      sm: 'text-sm py-2 px-4',
-      md: 'text-md py-3 px-4',
-      lg: 'text-lg py-4 px-4',
+      sm: 'px-4 py-2 text-sm',
+      md: 'text-md px-4 py-3',
+      lg: 'p-4 text-lg',
     },
     singleIndicator: {
-      true: '[&_svg]:transition-all [&[data-state=open]_svg]:rotate-180',
+      true: '[&[data-state=open]_svg]:rotate-180 [&_svg]:transition-all',
     },
   },
   defaultVariants: {
@@ -142,8 +142,8 @@ const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimi
                 <div className="block w-6">{inactiveIcon}</div>
               ) : (
                 <>
-                  <div className="group-aria-expanded:hidden block w-6">{inactiveIcon}</div>
-                  <div className="group-aria-expanded:block hidden w-6">{activeIcon}</div>
+                  <div className="block w-6 group-aria-expanded:hidden">{inactiveIcon}</div>
+                  <div className="hidden w-6 group-aria-expanded:block">{activeIcon}</div>
                 </>
               )}
             </>
@@ -163,9 +163,9 @@ const accordionContentVariant = cva('', {
       solid: '',
     },
     size: {
-      sm: 'text-sm pb-4 px-4',
-      md: 'text-md pb-4 px-4',
-      lg: 'text-lg pb-4 px-4',
+      sm: 'px-4 pb-4 text-sm',
+      md: 'text-md px-4 pb-4',
+      lg: 'px-4 pb-4 text-lg',
     },
   },
   defaultVariants: {

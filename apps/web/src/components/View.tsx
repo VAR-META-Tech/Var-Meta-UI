@@ -14,14 +14,14 @@ export const View = ({ prop, value = '', direction = 'row', justify = 'evenly', 
   const flexDirection = direction === 'column' ? 'column' : 'row';
   const justifyContent = justify === 'start' ? 'flex-start' : 'space-evenly';
   return (
-    <div className="flex grow flex-col divide-y divide-border-secondary border shadow-sm">
-      <div className="flex items-center space-x-2 bg-background p-2.5 text-foreground">
+    <div className="divide-border-secondary flex grow flex-col divide-y border shadow-sm">
+      <div className="bg-background text-foreground flex items-center space-x-2 p-2.5">
         {prop}
         {value && <Badge>{value}</Badge>}
       </div>
       <div
         style={{ flexDirection, justifyContent }}
-        className="flex flex-wrap items-start justify-center gap-x-2 gap-y-2 bg-background p-2.5"
+        className="bg-background flex flex-wrap items-start justify-center gap-2 p-2.5"
       >
         {children}
       </div>
@@ -34,12 +34,12 @@ export const EnhancedView = ({ prop, value = '', ...props }: ViewProps) => {
   const { children, ...rest } = child!.props!;
 
   return (
-    <div className="flex flex-col divide-y divide-divider border border-border shadow-sm">
-      <div className="flex items-center space-x-2 bg-background p-2.5 text-foreground">
+    <div className="divide-divider border-border flex flex-col divide-y border shadow-sm">
+      <div className="bg-background text-foreground flex items-center space-x-2 p-2.5">
         {prop}
         {value && <Badge>{value}</Badge>}
       </div>
-      <div className="relative flex-1 space-x-1 bg-background p-2.5">{props.children}</div>
+      <div className="bg-background relative flex-1 space-x-1 p-2.5">{props.children}</div>
     </div>
   );
 };

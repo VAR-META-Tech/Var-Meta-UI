@@ -28,7 +28,7 @@ export interface HalfCircularProgressProps extends React.HTMLAttributes<HTMLDivE
   thickness?: number;
 }
 
-const labelVariant = cva('absolute inset-x-center bottom-0 text-foreground font-semibold', {
+const labelVariant = cva('inset-x-center text-foreground absolute bottom-0 font-semibold', {
   variants: {
     size: {
       xxs: 'text-sm ',

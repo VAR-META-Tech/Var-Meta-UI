@@ -68,9 +68,9 @@ const DefaultTemplate: StoryFn<VStackProps> = ({ ...args }) => {
   return (
     <View prop="Default">
       <VStack className="w-full" {...args}>
-        <div className="bg-red-300 w-10 h-10 rounded-sm flex justify-center items-center"> 1</div>
-        <div className="bg-blue-300 w-10 h-10 rounded-sm flex justify-center items-center"> 2</div>
-        <div className="bg-green-300 w-10 h-10 rounded-sm flex justify-center items-center"> 3</div>
+        <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-red-300"> 1</div>
+        <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-blue-300"> 2</div>
+        <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-green-300"> 3</div>
       </VStack>
     </View>
   );

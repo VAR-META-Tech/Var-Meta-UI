@@ -94,12 +94,12 @@ const DefaultTemplate: StoryFn<DropdownMenuContentProps> = ({ align, ...args }) 
             <DropdownMenuHeader>
               <div className="flex items-center gap-3">
                 <img
-                  className="border-black aspect-square h-10 w-10 rounded-full border"
+                  className="aspect-square h-10 w-10 rounded-full border border-black"
                   src="https://i.pravatar.cc/400?img=2"
                 />
                 <div>
-                  <div className="text-md font-medium text-foreground">Henry Krel</div>
-                  <div className="text-sm text-foreground-secondary">jerome@AxLabs.com</div>
+                  <div className="text-md text-foreground font-medium">Henry Krel</div>
+                  <div className="text-foreground-secondary text-sm">jerome@AxLabs.com</div>
                 </div>
               </div>
             </DropdownMenuHeader>

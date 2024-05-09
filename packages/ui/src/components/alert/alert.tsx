@@ -37,18 +37,18 @@ const AlertContent = React.forwardRef<HTMLDivElement, AlertContentProps>(
         ref={ref}
         {...props}
       >
-        <div className="text-sm font-semibold text-foreground">{title}</div>
-        <div className="text-sm text-foreground-secondary">{description}</div>
+        <div className="text-foreground text-sm font-semibold">{title}</div>
+        <div className="text-foreground-secondary text-sm">{description}</div>
       </div>
     );
   }
 );
 
-const alertVariants = cva('flex relative', {
+const alertVariants = cva('relative flex', {
   variants: {
     variant: {
-      floating: ['p-4 gap-4 rounded-xl border border-border shadow-xs bg-background w-full'],
-      fullWidth: ['gap-4 border-t md:border-t-0 md:border-b border-border bg-background w-full'],
+      floating: ['border-border shadow-xs bg-background w-full gap-4 rounded-xl border p-4'],
+      fullWidth: ['border-border bg-background w-full gap-4 border-t md:border-b md:border-t-0'],
     },
   },
   defaultVariants: {
@@ -130,7 +130,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
             })}
           >
             {renderIcon}
-            <div className="flex flex-col flex-1 gap-3">
+            <div className="flex flex-1 flex-col gap-3">
               <AlertContent variant={variant} title={title} description={description} />
               {children}
             </div>
@@ -145,7 +145,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
             }
           )}
         >
-          <div className="flex flex-col flex-1 gap-4 md:items-center md:flex-row">
+          <div className="flex flex-1 flex-col gap-4 md:flex-row md:items-center">
             <div className="hidden md:block">{renderIcon}</div>
             <AlertContent variant={variant} title={title} description={description} />
           </div>
@@ -153,7 +153,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
             {children}
             {!hideCloseIcon ? (
               <ButtonClose
-                className="absolute right-2 top-2 md:relative md:right-none md:top-none "
+                className="md:right-none md:top-none absolute right-2 top-2 md:relative "
                 onClick={onClose}
                 size="sm"
               />

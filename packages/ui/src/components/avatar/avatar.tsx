@@ -6,18 +6,18 @@ import { useDOMRef } from '../../hooks';
 import { cn } from '../../utils/cn';
 import { Indicator, type IndicatorProps } from './indicator';
 
-const avatarVariants = cva('relative z-[1] flex shrink-0 overflow-hidden bg-background-tertiary rounded-full', {
+const avatarVariants = cva('bg-background-tertiary relative z-[1] flex shrink-0 overflow-hidden rounded-full', {
   variants: {
     size: {
-      xs: 'w-6 h-6',
-      sm: 'w-8 h-8',
-      md: 'w-10 h-10',
-      lg: 'w-12 h-12',
-      xl: 'w-14 h-14',
-      '2xl': 'w-16 h-16',
+      xs: 'h-6 w-6',
+      sm: 'h-8 w-8',
+      md: 'h-10 w-10',
+      lg: 'h-12 w-12',
+      xl: 'h-14 w-14',
+      '2xl': 'h-16 w-16',
       '3xl': 'w-18 h-18 shadow-md',
-      '4xl': 'w-24 h-24 shadow-lg',
-      '5xl': 'w-40 h-40 shadow-lg',
+      '4xl': 'h-24 w-24 shadow-lg',
+      '5xl': 'h-40 w-40 shadow-lg',
     },
   },
   defaultVariants: {
@@ -78,7 +78,7 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
         />
 
         {outlined ? (
-          <div className="w-[calc(100%_+_3px)] h-[calc(100%_+_3px)] inset-center z-[1] pointer-events-none rounded-full border-2 border-background" />
+          <div className="inset-center border-background pointer-events-none z-[1] h-[calc(100%_+_3px)] w-[calc(100%_+_3px)] rounded-full border-2" />
         ) : null}
         <div
           className={cn(
@@ -90,7 +90,7 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
         />
         {indicator !== 'none' && !!indicator ? (
           <Indicator
-            className="absolute z-[2] bottom-[14%] transform scale-100 translate-x-1/2 translate-y-1/2 right-[14%]"
+            className="absolute bottom-[14%] right-[14%] z-[2] translate-x-1/2 translate-y-1/2 scale-100"
             type={indicator}
             size={mappingSize}
           />

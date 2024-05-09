@@ -8,4 +8,3 @@ export {
   SelectTrigger,
   SelectValue,
 } from './select';
-export { SelectField, type SelectFieldProps } from './select-field';

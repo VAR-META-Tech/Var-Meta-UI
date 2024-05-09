@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { type TextField, type TextFieldProps, Tooltip, TooltipProvider } from '@var-ui/core';
+import { Tooltip, TooltipProvider } from '@var-ui/core';
 import { icons } from '@var-ui/icons';
 import React from 'react';
 
@@ -22,7 +22,7 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<TextFieldProps> = () => {
+const DefaultTemplate: StoryFn<any> = () => {
   const renderIcons = () => {
     return (
       <TooltipProvider>
@@ -41,4 +41,4 @@ const DefaultTemplate: StoryFn<TextFieldProps> = () => {
   return <View prop="Default">{renderIcons()}</View>;
 };
 
-export const Default: StoryFn<typeof TextField> = DefaultTemplate.bind({});
+export const Default: StoryFn<any> = DefaultTemplate.bind({});

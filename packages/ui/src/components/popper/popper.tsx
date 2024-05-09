@@ -22,7 +22,7 @@ const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content
       <PopperPrimitive.Content
         ref={ref}
         className={cn(
-          'bg-white z-50 min-h-[40px] rounded-sm shadow-md',
+          'bg-background z-50 min-h-[40px] rounded-sm shadow-md',
           'max-h-[var(--radix-popper-available-height)] w-[var(--radix-popper-anchor-width)] origin-[var(--radix-popper-transform-origin)]',
           className
         )}

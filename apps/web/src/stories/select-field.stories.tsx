@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { SelectField, type SelectFieldProps } from '@var-ui/core';
+import { Form, type SelectFieldProps } from '@var-ui/core';
 import React from 'react';
 
 import { EnhancedView } from '@/components/View';
@@ -9,7 +9,7 @@ const sizes: SelectFieldProps['size'][] = ['sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Select/SelectField',
-  component: SelectField,
+  component: Form.Select,
   argTypes: {
     variant: {
       options: variants,
@@ -79,9 +79,9 @@ const options = [
 const DefaultTemplate: StoryFn<SelectFieldProps> = (args) => {
   return (
     <EnhancedView prop="Default" value={''}>
-      <SelectField {...args} placeholder="Select team member" options={options} />
+      <Form.Select {...args} placeholder="Select team member" options={options} />
     </EnhancedView>
   );
 };
 
-export const Default: StoryFn<typeof SelectField> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof Form.Select> = DefaultTemplate.bind({});

@@ -6,7 +6,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         solid: 'text-white shadow-xs disabled:bg-gray-100 disabled:border-gray-200 disabled:text-disabled',
-        outline: 'disabled:bg-white disabled:border-gray-200 disabled:text-disabled',
+        outline: 'disabled:bg-gray-10 disabled:border-gray-200 disabled:text-disabled',
         ghost: 'disabled:text-disabled disabled:hover:bg-transparent',
         link: 'disabled:text-disabled',
       },

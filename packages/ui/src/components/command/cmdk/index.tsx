@@ -1008,12 +1008,12 @@ function useValue(
     const value = (() => {
       for (const part of deps) {
         if (typeof part === 'string') {
-          return part.trim().toLowerCase();
+          return part.trim();
         }
 
         if (typeof part === 'object' && 'current' in part) {
           if (part.current) {
-            return part.current.textContent?.trim().toLowerCase();
+            return part.current.textContent?.trim();
           }
           return valueRef.current;
         }

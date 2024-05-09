@@ -18,10 +18,8 @@ import { cn } from '../../utils/cn';
 import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../command';
 import { Command as CommandPrimitive } from '../command/cmdk';
 import { commandScore } from '../command/cmdk/command-score';
-import { HelperText } from '../helper-text';
 import { CheckIcon, CloseIcon, SearchIcon } from '../icons';
 import { type InputProps, inputVariants } from '../input/input';
-import { Label } from '../label';
 import { PopperAnchor, PopperContent, PopperRoot } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';
@@ -52,8 +50,6 @@ export interface AutocompleteProps<T extends boolean = false>
   placeholder?: string;
   name?: string;
   multiple?: T;
-  label?: string;
-  helperText?: string;
 }
 
 const AutocompleteComponent = <T extends boolean = false>(
@@ -77,8 +73,6 @@ const AutocompleteComponent = <T extends boolean = false>(
     defaultValue = (props?.multiple ? [] : undefined) as any,
     onOpenChange,
     multiple,
-    label,
-    helperText,
     allowsCustomValue,
     fullWidth,
     ...etc
@@ -226,8 +220,6 @@ const AutocompleteComponent = <T extends boolean = false>(
 
   return (
     <div className={autocompleteVariants({ fullWidth })}>
-      {label && <Label>{label}</Label>}
-
       <CommandPrimitive disableDefaultSelectFirstItem={allowsCustomValue} filter={handleSearch} onKeyUp={handleKeyUp}>
         <PopperRoot>
           <PopperAnchor>
@@ -344,7 +336,6 @@ const AutocompleteComponent = <T extends boolean = false>(
           )}
         </PopperRoot>
       </CommandPrimitive>
-      {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
     </div>
   );
 };

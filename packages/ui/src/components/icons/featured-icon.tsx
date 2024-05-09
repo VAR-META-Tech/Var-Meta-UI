@@ -24,7 +24,7 @@ const featuredIconVariants = cva('aspect-square relative flex items-center justi
         '[&>span:first-of-type]:scale-[.65] [&>span:first-of-type]:opacity-30',
         '[&>span:last-of-type]:scale-[.83] [&>span:last-of-type]:opacity-10',
       ],
-      modern: 'bg-white text-foreground-secondary shadow-xs border border-border-secondary',
+      modern: 'bg-background text-foreground-secondary shadow-xs border border-border-secondary',
     },
     color: {
       brand: '',

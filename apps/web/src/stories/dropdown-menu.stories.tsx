@@ -3,6 +3,7 @@ import {
   Button,
   DropdownMenu,
   DropdownMenuContent,
+  type DropdownMenuContentProps,
   DropdownMenuGroup,
   DropdownMenuHeader,
   DropdownMenuItem,
@@ -10,8 +11,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-  type SelectField,
-  type SelectFieldProps,
 } from '@var-ui/core';
 import { ChevronDownIcon, CreditCard01Icon, Keyboard01Icon, Settings01Icon, User01Icon } from '@var-ui/icons';
 import React from 'react';
@@ -38,7 +37,7 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
+const DefaultTemplate: StoryFn<DropdownMenuContentProps> = ({ align, ...args }) => {
   const contentGroup = (
     <DropdownMenuGroup>
       <DropdownMenuItem>
@@ -115,4 +114,4 @@ const DefaultTemplate: StoryFn<SelectFieldProps> = ({ align, ...args }) => {
   );
 };
 
-export const Default: StoryFn<typeof SelectField> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof DropdownMenu> = DefaultTemplate.bind({});

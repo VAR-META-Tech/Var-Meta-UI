@@ -1,15 +1,14 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { ModalBody, type ModalHeaderProps } from '@var-ui/core';
 import {
-  Autocomplete,
   type AutocompleteProps,
   Button,
   FeaturedIcon,
+  Form,
   Modal,
   ModalAction,
   ModalHeader,
   type ModalProps,
-  SelectField,
   toast,
   VStack,
 } from '@var-ui/core';
@@ -138,8 +137,8 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
 
           <ModalBody>
             <VStack>
-              <Autocomplete label="Team" placeholder="Placeholder" options={options} />
-              <SelectField
+              <Form.Autocomplete label="Team" placeholder="Placeholder" options={options} />
+              <Form.Select
                 fullWidth
                 placeholder="Placeholder"
                 options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
@@ -148,7 +147,7 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
           </ModalBody>
 
           <ModalAction>
-            <Button variant="link" fullWidth>
+            <Button variant="outline" fullWidth>
               Discard
             </Button>
             <Button onClick={() => toast.error('error')} fullWidth>

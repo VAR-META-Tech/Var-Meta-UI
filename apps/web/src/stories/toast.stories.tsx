@@ -53,20 +53,20 @@ const DefaultTemplate: StoryFn<ToasterProps> = ({ title, withAction, description
     <>
       <EnhancedView prop="Default">
         <VStack className="w-fit" style={{ height: 700 }}>
-          <Button onClick={() => toast.success(title, { description, action })} variant="success">
+          <Button onClick={() => toast.success(title, { description, action })} color="success">
             Success toast
           </Button>
-          <Button onClick={() => toast.error(title, { description, action })} variant="error">
+          <Button onClick={() => toast.error(title, { description, action })} color="error">
             Error toast
           </Button>
-          <Button onClick={() => toast.warning(title, { description, action })} variant="warning">
+          <Button onClick={() => toast.warning(title, { description, action })} color="warning">
             Warning toast
           </Button>
-          <Button onClick={() => toast.avatar(title, { description, action, src })} variant="primary">
+          <Button onClick={() => toast.avatar(title, { description, action, src })} color="primary">
             Avatar toast
           </Button>
 
-          <Button onClick={() => toast.image(title, { description, action, src })} variant="link">
+          <Button onClick={() => toast.image(title, { description, action, src })} color="tertiary">
             Image toast
           </Button>
         </VStack>

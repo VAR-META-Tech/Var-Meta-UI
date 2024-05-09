@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { TextField, type TextFieldProps } from '@var-ui/core';
+import { Form, type TextFieldProps } from '@var-ui/core';
 import { HelpCircleIcon, Mail01Icon } from '@var-ui/icons';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const sizes: TextFieldProps['size'][] = ['sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Input/TextField',
-  component: TextField,
+  component: Form.Input,
   argTypes: {
     variant: {
       options: variants,
@@ -53,7 +53,7 @@ export default meta;
 const DefaultTemplate: StoryFn<TextFieldProps> = ({ suffix, prefix, ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <TextField
+      <Form.Input
         {...args}
         prefix={prefix ? <Mail01Icon /> : undefined}
         suffix={suffix ? <HelpCircleIcon /> : undefined}
@@ -63,4 +63,4 @@ const DefaultTemplate: StoryFn<TextFieldProps> = ({ suffix, prefix, ...args }) =
   );
 };
 
-export const Default: StoryFn<typeof TextField> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof Form.Input> = DefaultTemplate.bind({});

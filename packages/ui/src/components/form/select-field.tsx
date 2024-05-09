@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 
 import { HelperText } from '../helper-text';
 import { Label } from '../label';
-import { Select, type SelectProps } from './select';
+import { Select, type SelectProps } from '../select';
 export interface SelectFieldProps extends SelectProps {
   label?: string;
   helperText?: string;

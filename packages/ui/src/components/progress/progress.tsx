@@ -1,6 +1,6 @@
+import React, { useEffect } from 'react';
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
-import React, { useEffect } from 'react';
 
 import { usePopover } from '../../hooks';
 import { type ElementProps } from '../../types';

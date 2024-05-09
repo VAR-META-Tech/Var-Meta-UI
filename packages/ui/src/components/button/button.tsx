@@ -1,10 +1,10 @@
-import { Slot } from '@radix-ui/react-slot';
 import React, { type ReactNode } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { Spinner } from '../spinner';
-import { type ButtonVariants, buttonVariants } from './button.styles';
+import { buttonVariants, type ButtonVariants } from './button.styles';
 
 export interface ButtonProps extends ElementProps<'button', 'color'>, ButtonVariants {
   asChild?: boolean;

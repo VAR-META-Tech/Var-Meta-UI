@@ -1,4 +1,4 @@
-import React, { type ElementRef, forwardRef, type ReactElement, type Ref } from 'react';
+import React, { forwardRef, type ElementRef, type ReactElement, type Ref } from 'react';
 
 import { Autocomplete, type AutocompleteProps } from '../autocomplete';
 import { HelperText } from '../helper-text';

@@ -1,5 +1,5 @@
-import { cva, type VariantProps } from 'class-variance-authority';
 import React, { type ElementRef, type ReactNode } from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 import { HStack } from '../utility';

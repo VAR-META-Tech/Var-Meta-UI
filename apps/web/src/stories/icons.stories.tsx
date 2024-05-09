@@ -1,7 +1,7 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Tooltip, TooltipProvider } from '@var-ui/core';
 import { icons } from '@var-ui/icons';
-import React from 'react';
 
 import { View } from '@/components/View';
 

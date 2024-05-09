@@ -1,17 +1,17 @@
+import {
+  forwardRef,
+  useCallback,
+  useRef,
+  useState,
+  type ElementRef,
+  type KeyboardEvent,
+  type ReactElement,
+  type Ref,
+} from 'react';
 import { useMergeRefs } from '@floating-ui/react';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { cva } from 'class-variance-authority';
-import {
-  type ElementRef,
-  forwardRef,
-  type KeyboardEvent,
-  type ReactElement,
-  type Ref,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
 
 import { type Option, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
@@ -19,7 +19,7 @@ import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } fr
 import { Command as CommandPrimitive } from '../command/cmdk';
 import { commandScore } from '../command/cmdk/command-score';
 import { CheckIcon, CloseIcon, SearchIcon } from '../icons';
-import { type InputProps, inputVariants } from '../input/input';
+import { inputVariants, type InputProps } from '../input/input';
 import { PopperAnchor, PopperContent, PopperRoot } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';

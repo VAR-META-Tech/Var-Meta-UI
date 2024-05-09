@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { type ElementRef, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, type ElementRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';

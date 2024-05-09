@@ -1,5 +1,5 @@
+import { forwardRef, type ElementRef } from 'react';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
-import { type ElementRef, forwardRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';

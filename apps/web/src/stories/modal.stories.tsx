@@ -1,19 +1,20 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { ModalBody, type ModalHeaderProps } from '@var-ui/core';
 import {
-  type AutocompleteProps,
   Button,
   FeaturedIcon,
   Form,
   Modal,
   ModalAction,
+  ModalBody,
   ModalHeader,
-  type ModalProps,
   toast,
   VStack,
+  type AutocompleteProps,
+  type ModalHeaderProps,
+  type ModalProps,
 } from '@var-ui/core';
 import { AlertCircleIcon } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

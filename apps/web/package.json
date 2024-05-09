@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "format:write": "prettier --write \"./**/*.{ts,tsx}\" --cache",
+    "format:check": "prettier --check \"./**/*.{ts,tsx}\" --cache",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "

@@ -1,6 +1,5 @@
+import React, { useCallback, useId } from 'react';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import React from 'react';
-import { useCallback, useId } from 'react';
 
 import { type FCC } from '../../types';
 import { DialogProvider } from './dialog.context';

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { cn, Navigation, NavigationDropdown, NavigationItem, type NavigationItemProps } from '@var-ui/core';
 import {
@@ -8,7 +9,6 @@ import {
   PieChart01Icon,
   Users01Icon,
 } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

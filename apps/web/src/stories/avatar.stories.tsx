@@ -1,7 +1,7 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Avatar, type AvatarProps } from '@var-ui/core';
 import { Star06Icon } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

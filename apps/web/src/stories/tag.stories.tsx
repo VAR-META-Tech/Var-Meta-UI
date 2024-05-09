@@ -1,6 +1,6 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Tag, type TagProps } from '@var-ui/core';
-import React from 'react';
 
 import { View } from '@/components/View';
 

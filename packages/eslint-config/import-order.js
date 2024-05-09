@@ -23,7 +23,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
+      plugins: ['@typescript-eslint', 'unused-imports', 'simple-import-sort'],
       extends: ['next/core-web-vitals'],
       parserOptions: {
         project,
@@ -42,7 +42,11 @@ module.exports = {
         '@typescript-eslint/comma-dangle': 'off', // Avoid conflict rule between Eslint and Prettier
         '@typescript-eslint/consistent-type-imports': [
           'error',
-          { prefer: 'type-imports', disallowTypeAnnotations: true, fixStyle: 'inline-type-imports' },
+          {
+            prefer: 'type-imports',
+            disallowTypeAnnotations: true,
+            fixStyle: 'inline-type-imports',
+          },
         ], // Ensure `import type` is used when it's necessary
 
         'import/prefer-default-export': 'off', // Named export is easier to refactor automatically
@@ -50,6 +54,8 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-console': 'off',
         'import/no-cycle': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
         'no-restricted-exports': ['off', { restrictedNamedExports: ['default'] }],
         'new-cap': ['off', { newIsCap: true }],
         'no-plusplus': 'off',
@@ -68,6 +74,8 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': 'off',
         '@next/next/no-html-link-for-pages': 'off',
         'no-html-link-for-pages': 'off',
+        'simple-import-sort/imports': 'error', // Import configuration for `eslint-plugin-simple-import-sort`
+        'simple-import-sort/exports': 'error', // Export configuration for `eslint-plugin-simple-import-sort`,
         indent: 'off',
         '@typescript-eslint/indent': 'off',
         'jsx-a11y/alt-text': 'off',
@@ -76,7 +84,11 @@ module.exports = {
     },
   ],
   settings: {
-    'import/resolver': { typescript: { project } },
+    'import/resolver': {
+      typescript: {
+        project,
+      },
+    },
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };

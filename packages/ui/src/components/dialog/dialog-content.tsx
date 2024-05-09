@@ -1,9 +1,9 @@
+import * as React from 'react';
 import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
 import { FocusScope } from '@radix-ui/react-focus-scope';
 import { Presence } from '@radix-ui/react-presence';
 import type * as Radix from '@radix-ui/react-primitive';
 import { Slot } from '@radix-ui/react-slot';
-import * as React from 'react';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import { useFocusGuards, useMergedRef } from '../../hooks';

@@ -1,6 +1,6 @@
 // write unit test for avatar-group components
-import { render, type RenderResult } from '@testing-library/react';
 import React from 'react';
+import { render, type RenderResult } from '@testing-library/react';
 
 import { Avatar } from '../avatar';
 import { AvatarGroup } from '../avatar-group';

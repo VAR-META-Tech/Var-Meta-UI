@@ -1,5 +1,5 @@
+import { forwardRef, type ElementRef, type ReactNode } from 'react';
 import { type VariantProps } from 'class-variance-authority';
-import { type ElementRef, forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';

@@ -1,9 +1,10 @@
+import React from 'react';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
 import { Presence } from '@radix-ui/react-presence';
-import React from 'react';
 
 import { createSafeContext } from '../../utils/create-safe-context';
 import { useDialogContext } from './dialog.context';
+
 const PORTAL_NAME = 'DialogPortal';
 
 type PortalContextValue = { forceMount?: true };

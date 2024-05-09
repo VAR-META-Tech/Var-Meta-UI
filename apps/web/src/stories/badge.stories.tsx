@@ -1,7 +1,7 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Badge, type BadgeProps } from '@var-ui/core';
 import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

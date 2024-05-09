@@ -1,8 +1,9 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Slider, type SliderProps } from '@var-ui/core';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
+
 const orientations: SliderProps['orientation'][] = ['horizontal', 'vertical'];
 const meta: Meta = {
   title: 'Components/Slider',

@@ -1,7 +1,7 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Input, type InputProps } from '@var-ui/core';
 import { HelpCircleIcon, Mail01Icon } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

@@ -1,9 +1,9 @@
-import { cva } from 'class-variance-authority';
 import React, { forwardRef, type ReactNode } from 'react';
+import { cva } from 'class-variance-authority';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
-import { type TableContext, TableProvider } from './table-context';
+import { TableProvider, type TableContext } from './table-context';
 
 const tableVariants = cva('w-full caption-bottom text-sm', {
   variants: {

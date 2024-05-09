@@ -1,9 +1,9 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import {
   Button,
   DropdownMenu,
   DropdownMenuContent,
-  type DropdownMenuContentProps,
   DropdownMenuGroup,
   DropdownMenuHeader,
   DropdownMenuItem,
@@ -11,9 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
+  type DropdownMenuContentProps,
 } from '@var-ui/core';
 import { ChevronDownIcon, CreditCard01Icon, Keyboard01Icon, Settings01Icon, User01Icon } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

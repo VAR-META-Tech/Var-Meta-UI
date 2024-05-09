@@ -1,7 +1,7 @@
+import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import * as React from 'react';
 
 import { assignRef } from '../../hooks/useMergedRef';
 import { cn } from '../../utils/cn';

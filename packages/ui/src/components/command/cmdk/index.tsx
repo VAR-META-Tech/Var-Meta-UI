@@ -6,11 +6,11 @@
 // @ts-nocheck
 /* eslint-disable */
 
-import * as RadixDialog from '../../dialog';
 import * as React from 'react';
 
-import { commandScore } from './command-score';
 import { composeEventHandlers } from '../../../utils/compose-event-handler';
+import * as RadixDialog from '../../dialog';
+import { commandScore } from './command-score';
 
 type Children = { children?: React.ReactNode };
 type DivProps = React.HTMLAttributes<HTMLDivElement>;

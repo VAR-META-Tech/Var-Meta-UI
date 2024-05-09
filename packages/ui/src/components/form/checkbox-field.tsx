@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { Checkbox, type CheckboxProps } from '../checkbox';
 import { HelperText } from '../helper-text';
 import { Label } from '../label';
+
 export interface CheckboxFieldProps extends CheckboxProps {
   label?: string;
   helperText?: string;

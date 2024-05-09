@@ -1,5 +1,5 @@
+import { forwardRef, type ElementRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { type ElementRef, forwardRef } from 'react';
 
 import { cn } from '../../utils/cn';
 import { CloseIcon } from '../icons';

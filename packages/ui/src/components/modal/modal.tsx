@@ -1,4 +1,4 @@
-import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from 'react';
+import { forwardRef, type ComponentPropsWithoutRef, type ElementRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
@@ -8,9 +8,9 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  type DialogHeaderProps,
   DialogPortal,
   DialogTrigger,
+  type DialogHeaderProps,
 } from './dialog.styles';
 
 export interface ModalHeaderProps extends DialogHeaderProps {

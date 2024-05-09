@@ -1,4 +1,4 @@
-import React, { type ElementRef, forwardRef } from 'react';
+import React, { forwardRef, type ElementRef } from 'react';
 
 import { usePagination } from '../../hooks';
 import { type ElementProps } from '../../types';

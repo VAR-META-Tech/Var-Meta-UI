@@ -1,4 +1,4 @@
-import React, { type ElementRef, forwardRef, useMemo, useState } from 'react';
+import React, { forwardRef, useMemo, useState, type ElementRef } from 'react';
 import { Caption } from 'react-day-picker';
 
 import { useMediaQuery } from '../../hooks';

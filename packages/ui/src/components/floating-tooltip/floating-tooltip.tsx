@@ -1,13 +1,13 @@
-import { FloatingArrow, FloatingPortal } from '@floating-ui/react';
-import { cva, type VariantProps } from 'class-variance-authority';
 import type { ElementRef } from 'react';
 import React, { cloneElement, forwardRef } from 'react';
+import { FloatingArrow, FloatingPortal } from '@floating-ui/react';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import { useMergedRef } from '../../hooks';
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
 import { isElement } from '../../utils/is-element';
-import { type FloatingPosition, useFloatingTooltip } from './use-floating-tooltip';
+import { useFloatingTooltip, type FloatingPosition } from './use-floating-tooltip';
 
 export const floatingTooltipContentVariants = cva(
   [

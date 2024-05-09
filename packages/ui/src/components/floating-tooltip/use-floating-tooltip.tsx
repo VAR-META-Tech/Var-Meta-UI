@@ -1,8 +1,8 @@
 /* eslint-disable no-nested-ternary */
-import { arrow, getOverflowAncestors, shift, useFloating } from '@floating-ui/react';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import type React from 'react';
 import { useCallback, useEffect, useRef } from 'react';
+import { arrow, getOverflowAncestors, shift, useFloating } from '@floating-ui/react';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
 import { type VisibleState } from '../../types';
 

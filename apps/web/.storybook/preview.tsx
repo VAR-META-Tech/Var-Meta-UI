@@ -1,9 +1,10 @@
 import '../src/app/globals.css';
-import { Toaster } from '@var-ui/core';
-import { themes } from '@storybook/theming';
-import type { Preview } from '@storybook/react';
-import { useDarkMode } from 'storybook-dark-mode';
+
 import { DocsContainer as BaseContainer, DocsContainerProps as BaseContainerProps } from '@storybook/blocks';
+import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
+import { Toaster } from '@var-ui/core';
+import { useDarkMode } from 'storybook-dark-mode';
 
 const preview: Preview = {
   parameters: {

@@ -4,6 +4,7 @@ import { type Option } from '../../types';
 import { HelperText } from '../helper-text';
 import { Label } from '../label';
 import { RadioGroup, RadioGroupItem, type RadioGroupProps } from '../radio-group';
+
 export interface RadioGroupFieldProps extends RadioGroupProps {
   label?: string;
   helperText?: string;

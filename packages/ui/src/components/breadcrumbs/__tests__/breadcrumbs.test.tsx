@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import * as React from 'react';
+import { render } from '@testing-library/react';
 
 import { PlusCircleIcon } from '../../icons';
 import { BreadcrumbItem, Breadcrumbs } from '../index';

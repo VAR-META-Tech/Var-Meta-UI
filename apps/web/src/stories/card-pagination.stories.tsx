@@ -1,6 +1,6 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { CardPagination, type CardPaginationProps } from '@var-ui/core';
-import React from 'react';
 
 const meta: Meta = {
   title: 'Components/Pagination/CardPagination',

@@ -1,7 +1,6 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-
 import { fontSans, fontSerif } from '@/assets/fonts';
 
 import Provider from './provider';

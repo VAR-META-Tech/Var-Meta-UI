@@ -1,6 +1,6 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { VStack, type VStackProps } from '@var-ui/core';
-import React from 'react';
 
 import { View } from '@/components/View';
 

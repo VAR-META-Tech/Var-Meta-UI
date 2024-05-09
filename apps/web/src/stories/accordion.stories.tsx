@@ -1,8 +1,9 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { Accordion, AccordionContent, AccordionItem, type AccordionProps, AccordionTrigger } from '@var-ui/core';
 import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, type AccordionProps } from '@var-ui/core';
 
 import { EnhancedView } from '@/components/View';
+
 const sizes: AccordionProps['size'][] = ['sm', 'md', 'lg'];
 const variants: AccordionProps['variant'][] = ['default', 'outline', 'solid'];
 const roundeds: AccordionProps['rounded'][] = ['default', 'sm', 'md', 'lg'];

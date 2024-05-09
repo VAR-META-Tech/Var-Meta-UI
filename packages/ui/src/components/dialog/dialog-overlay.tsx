@@ -1,11 +1,11 @@
+import * as React from 'react';
 import { Presence } from '@radix-ui/react-presence';
 import type * as Radix from '@radix-ui/react-primitive';
 import { Primitive } from '@radix-ui/react-primitive';
-import * as React from 'react';
 
 import { composeEventHandlers } from '../../utils/compose-event-handler';
-import { getAriaLabelState, useDialogContext } from './dialog.context';
 import { usePortalContext } from './dialog-portal';
+import { getAriaLabelState, useDialogContext } from './dialog.context';
 
 type DialogOverlayImplElement = React.ElementRef<typeof Primitive.div>;
 type PrimitiveDivProps = Radix.ComponentPropsWithoutRef<typeof Primitive.div>;

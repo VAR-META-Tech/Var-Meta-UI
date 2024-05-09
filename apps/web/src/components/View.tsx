@@ -1,7 +1,6 @@
-/* eslint-disable unused-imports/no-unused-vars */
-import { cva } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 import * as React from 'react';
+import { cva } from 'class-variance-authority';
 
 interface ViewProps extends React.PropsWithChildren {
   prop?: any;

@@ -1,7 +1,7 @@
+import { forwardRef, useState, type ElementRef, type ReactNode } from 'react';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { type ElementRef, forwardRef, type ReactNode, useState } from 'react';
 
 import { useClickOutside } from '../../hooks/useClickOutSide';
 import { type ElementProps, type VisibleState } from '../../types';

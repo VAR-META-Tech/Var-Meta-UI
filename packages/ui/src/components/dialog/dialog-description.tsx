@@ -1,6 +1,6 @@
+import * as React from 'react';
 import type * as Radix from '@radix-ui/react-primitive';
 import { Primitive } from '@radix-ui/react-primitive';
-import * as React from 'react';
 
 import { useDialogContext } from './dialog.context';
 

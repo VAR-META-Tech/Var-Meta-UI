@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cn } from '../../utils/cn';
 import { Divider } from '../divider';
-import { type StepperContext, useStepperContext } from './stepper-context';
+import { useStepperContext, type StepperContext } from './stepper-context';
 
 export interface StepperItemConnectorProps extends React.HTMLAttributes<HTMLDivElement> {
   isCompletedStep: boolean;

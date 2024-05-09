@@ -1,7 +1,8 @@
+import { existsSync, promises as fs } from 'fs';
+import path from 'path';
 import { Command } from 'commander';
 import * as z from 'zod';
-import path from 'path';
-import { existsSync, promises as fs } from 'fs';
+
 import { logger } from '../utils/logger';
 
 const addOptionsSchema = z.object({

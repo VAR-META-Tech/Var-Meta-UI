@@ -1,5 +1,5 @@
-import { cva } from 'class-variance-authority';
 import React, { useMemo } from 'react';
+import { cva } from 'class-variance-authority';
 
 import { type ElementProps, type NumberExcluded } from '../../types';
 import { cn } from '../../utils/cn';

@@ -1,6 +1,6 @@
+import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { cva } from 'class-variance-authority';
-import * as React from 'react';
 
 import { cn } from '../../utils/cn';
 import { Badge, type BadgeProps } from '../badge';

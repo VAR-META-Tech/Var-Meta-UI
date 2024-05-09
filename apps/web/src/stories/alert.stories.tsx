@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { Alert, AlertAction, type AlertProps, Button } from '@var-ui/core';
 import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { Alert, AlertAction, Button, type AlertProps } from '@var-ui/core';
 
 import { View } from '@/components/View';
 

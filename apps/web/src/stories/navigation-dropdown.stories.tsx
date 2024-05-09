@@ -1,7 +1,13 @@
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { cn, Navigation, NavigationDropdown, NavigationItem } from '@var-ui/core';
-import { type NavigationItemProps } from '@var-ui/core';
-import { type NavigationDropdownProps } from '@var-ui/core';
+import {
+  cn,
+  Navigation,
+  NavigationDropdown,
+  NavigationItem,
+  type NavigationDropdownProps,
+  type NavigationItemProps,
+} from '@var-ui/core';
 import {
   BarChart01Icon,
   CheckDone01Icon,
@@ -10,7 +16,6 @@ import {
   PieChart01Icon,
   Users01Icon,
 } from '@var-ui/icons';
-import React from 'react';
 
 import { EnhancedView } from '@/components/View';
 

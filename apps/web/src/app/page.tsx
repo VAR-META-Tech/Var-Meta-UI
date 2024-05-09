@@ -3,7 +3,6 @@
 import {
   AlertCircleIcon,
   Autocomplete,
-  type AutocompleteProps,
   Button,
   FeaturedIcon,
   HStack,
@@ -12,6 +11,7 @@ import {
   ModalHeader,
   Select,
   toast,
+  type AutocompleteProps,
 } from '@var-ui/core';
 
 const options: AutocompleteProps['options'] = [

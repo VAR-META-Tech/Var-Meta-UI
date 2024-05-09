@@ -1,5 +1,5 @@
+import React, { useMemo, type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import React, { type ComponentPropsWithoutRef, type ReactNode, useMemo } from 'react';
 
 import { type ReactNodeExcluded } from '../../types';
 import { cn } from '../../utils/cn';

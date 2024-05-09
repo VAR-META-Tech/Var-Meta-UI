@@ -1,6 +1,6 @@
+import React, { forwardRef, type ElementRef, type ReactNode } from 'react';
 import { Primitive } from '@radix-ui/react-primitive';
 import { cva, type VariantProps } from 'class-variance-authority';
-import React, { type ElementRef, forwardRef, type ReactNode } from 'react';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';

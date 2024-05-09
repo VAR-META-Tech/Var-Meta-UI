@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import type React from 'react';
-import { type Ref } from 'react';
-import { useCallback } from 'react';
+import { useCallback, type Ref } from 'react';
 
 type PossibleRef<T> = Ref<T> | undefined;
 

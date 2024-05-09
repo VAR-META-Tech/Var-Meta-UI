@@ -1,7 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { FloatingTooltip } from '@var-ui/core';
-import { type FloatingTooltipProps } from '@var-ui/core';
 import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { FloatingTooltip, type FloatingTooltipProps } from '@var-ui/core';
 
 import { EnhancedView } from '@/components/View';
 

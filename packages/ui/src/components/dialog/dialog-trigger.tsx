@@ -1,5 +1,5 @@
-import { Primitive } from '@radix-ui/react-primitive';
 import React, { type ComponentPropsWithoutRef } from 'react';
+import { Primitive } from '@radix-ui/react-primitive';
 
 import { useMergedRef } from '../../hooks';
 import { composeEventHandlers } from '../../utils/compose-event-handler';

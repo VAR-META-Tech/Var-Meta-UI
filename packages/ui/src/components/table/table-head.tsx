@@ -1,5 +1,5 @@
-import { cva } from 'class-variance-authority';
 import React from 'react';
+import { cva } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';

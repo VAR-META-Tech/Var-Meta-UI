@@ -1,9 +1,8 @@
 'use client';
 
-import { type FCC } from '@var-ui/core';
-import { Toaster } from '@var-ui/core';
-import { ThemeProvider } from 'next-themes';
 import React from 'react';
+import { Toaster, type FCC } from '@var-ui/core';
+import { ThemeProvider } from 'next-themes';
 
 const Provider: FCC = ({ children }) => {
   return (

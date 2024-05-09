@@ -1,5 +1,5 @@
+import React, { forwardRef, type ElementRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import React, { type ElementRef, forwardRef } from 'react';
 
 import { cn } from '../../utils/cn';
 

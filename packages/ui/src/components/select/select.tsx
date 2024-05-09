@@ -1,6 +1,6 @@
+import React, { forwardRef } from 'react';
 import { type SelectProps as RadixSelectProps, type Trigger } from '@radix-ui/react-select';
 import { type VariantProps } from 'class-variance-authority';
-import React, { forwardRef } from 'react';
 
 import { type Option } from '../../types';
 import {
@@ -8,8 +8,8 @@ import {
   SelectItem,
   SelectProvider,
   SelectTrigger,
-  type selectTriggerVariants,
   SelectValue,
+  type selectTriggerVariants,
 } from './core-select';
 
 export interface SelectProps extends RadixSelectProps, VariantProps<typeof selectTriggerVariants> {

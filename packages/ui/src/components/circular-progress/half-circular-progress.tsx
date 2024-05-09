@@ -1,5 +1,5 @@
+import React, { forwardRef, useMemo, type ElementRef } from 'react';
 import { cva } from 'class-variance-authority';
-import React, { type ElementRef, forwardRef, useMemo } from 'react';
 
 import { type NumberExcluded } from '../../types';
 import { cn } from '../../utils/cn';

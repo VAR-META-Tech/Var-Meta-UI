@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm run build:storybook",
+  "buildCommand": "pnpm run build:packages & pnpm run build:storybook",
   "devCommand": "pnpm run dev:storybook",
   "installCommand": "pnpm install",
   "framework": null,

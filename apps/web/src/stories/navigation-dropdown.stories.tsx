@@ -31,9 +31,15 @@ const meta: Meta = {
         type: 'radio',
       },
     },
+    collapsed: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     variant: 'default',
+    collapsed: false,
   },
 };
 
@@ -54,7 +60,7 @@ const DefaultTemplate: StoryFn<NavigationDropdownProps> = ({ variant, ...args })
       <nav
         style={{
           padding: '32px',
-          width: '100%',
+          width: args.collapsed ? 'fit-content' : '100%',
         }}
         className={cn(' flex items-center', {
           'bg-gray-950': variant === 'dark',
@@ -64,7 +70,14 @@ const DefaultTemplate: StoryFn<NavigationDropdownProps> = ({ variant, ...args })
       >
         <Navigation orientation="vertical">
           {links.map((x) => (
-            <NavigationDropdown key={x.label} variant={variant} active={x.active} icon={x.icon} label={x.label}>
+            <NavigationDropdown
+              key={x.label}
+              variant={variant}
+              active={x.active}
+              icon={x.icon}
+              label={x.label}
+              {...args}
+            >
               <NavigationItem {...args} variant={variant} label="Dropdown item 1" />
               <NavigationItem {...args} variant={variant} label="Dropdown item 2" />
             </NavigationDropdown>

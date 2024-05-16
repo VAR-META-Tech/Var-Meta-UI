@@ -27,7 +27,7 @@ const meta: Meta = {
   },
   args: {
     variant: 'default',
-    orientation: 'horizontal',
+    orientation: 'vertical',
   },
 };
 

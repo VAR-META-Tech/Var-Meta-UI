@@ -15,20 +15,29 @@ export interface NavigationDropdownProps
   asChild?: boolean;
   label?: ReactNode;
   icon?: ReactNode;
+  collapsed?: boolean;
 }
 
 const NavigationDropdown = forwardRef<ElementRef<'li'>, NavigationDropdownProps>(
-  ({ children, className, open, defaultOpen, onOpenChange, variant: variantProp, ...props }, ref) => {
+  ({ children, className, open, defaultOpen, onOpenChange, variant: variantProp, collapsed, ...props }, ref) => {
     const { variant } = useNavigationContext();
 
     return (
       <Collapsible open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
         <CollapsibleTrigger asChild>
-          <NavigationItem className={cn('group', className)} ref={ref} variant={variantProp || variant} {...props}>
-            <ChevronDownIcon className="transition-all group-aria-expanded:rotate-180" />
+          <NavigationItem
+            className={cn('group', className)}
+            ref={ref}
+            variant={variantProp || variant}
+            collapsed={collapsed}
+            {...props}
+          >
+            <ChevronDownIcon className="-rotate-90 transition-all group-aria-expanded:rotate-0" />
           </NavigationItem>
         </CollapsibleTrigger>
-        <CollapsibleContent className="mt-2 [&>*]:pl-12">{children}</CollapsibleContent>
+        {collapsed ? null : (
+          <CollapsibleContent className="ml-6 mt-2 border-l border-gray-200 pl-6">{children}</CollapsibleContent>
+        )}
       </Collapsible>
     );
   }

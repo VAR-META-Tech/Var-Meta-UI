@@ -7,11 +7,11 @@ import { cn } from '../../utils/cn';
 import { useNavigationContext } from './navigation-context';
 
 export const navigationItemVariants = cva(
-  'text-md flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm px-3 py-2 font-semibold transition-colors',
+  'text-md flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm px-3 py-2 font-light transition-colors',
   {
     variants: {
       variant: {
-        default: 'bg-background text-foreground-secondary focus:shadow-gray-base hover:bg-gray-50 hover:text-gray-800',
+        default: 'bg-background focus:shadow-gray-base text-gray-500 hover:bg-gray-50 hover:text-gray-800',
         brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 focus:shadow-brand-base hover:text-white',
         dark: 'focus:shadow-gray-base bg-gray-950 text-gray-100 hover:bg-gray-800 hover:text-white',
       },
@@ -46,10 +46,11 @@ export interface NavigationItemProps extends ElementProps<'li'>, VariantProps<ty
   asChild?: boolean;
   label?: ReactNode;
   icon?: ReactNode;
+  collapsed?: boolean;
 }
 
 const NavigationItem = forwardRef<ElementRef<'li'>, NavigationItemProps>(
-  ({ className, label, icon, children, variant: variantProp, active, asChild, ...props }, ref) => {
+  ({ className, label, icon, children, variant: variantProp, active, asChild, collapsed, ...props }, ref) => {
     const { variant } = useNavigationContext();
 
     return (
@@ -60,11 +61,17 @@ const NavigationItem = forwardRef<ElementRef<'li'>, NavigationItemProps>(
         ref={ref}
         {...props}
       >
-        <div className="flex flex-1 items-center gap-3">
-          {icon}
-          {label}
-        </div>
-        {children}
+        {collapsed ? (
+          icon
+        ) : (
+          <>
+            <div className="flex flex-1 items-center gap-3">
+              {icon}
+              {label}
+            </div>
+            <div className="ml-2">{children}</div>
+          </>
+        )}
       </Primitive.li>
     );
   }

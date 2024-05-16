@@ -40,7 +40,7 @@ const DefaultTemplate: StoryFn<NavigationItemProps> = ({ variant, ...args }) => 
       <nav
         style={{
           padding: '32px',
-          width: '100%',
+          width: args.collapsed ? 'fit-content' : '100%',
         }}
         className={cn(' flex items-center', {
           'bg-gray-950': variant === 'dark',

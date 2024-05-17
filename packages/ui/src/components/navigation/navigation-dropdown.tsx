@@ -5,6 +5,7 @@ import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
 import { ChevronDownIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
+import { Show } from '../utility';
 import { useNavigationContext } from './navigation-context';
 import { NavigationItem, type navigationItemVariants } from './navigation-item';
 
@@ -35,9 +36,9 @@ const NavigationDropdown = forwardRef<ElementRef<'li'>, NavigationDropdownProps>
             <ChevronDownIcon className="-rotate-90 transition-all group-aria-expanded:rotate-0" />
           </NavigationItem>
         </CollapsibleTrigger>
-        {collapsed ? null : (
+        <Show when={!collapsed}>
           <CollapsibleContent className="ml-6 mt-2 border-l border-gray-200 pl-6">{children}</CollapsibleContent>
-        )}
+        </Show>
       </Collapsible>
     );
   }

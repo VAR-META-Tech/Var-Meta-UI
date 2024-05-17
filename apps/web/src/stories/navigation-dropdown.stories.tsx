@@ -79,7 +79,7 @@ const DefaultTemplate: StoryFn<NavigationDropdownProps> = ({ variant, ...args })
               {...args}
             >
               <NavigationItem {...args} variant={variant} label="Dropdown item 1" />
-              <NavigationItem {...args} variant={variant} label="Dropdown item 2" />
+              <NavigationItem {...args} variant={variant} label="Dropdown item 2" active={true} />
             </NavigationDropdown>
           ))}
         </Navigation>

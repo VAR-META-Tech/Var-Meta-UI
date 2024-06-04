@@ -80,7 +80,7 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
             {...etc}
           >
             <div ref={setContentRef}>{children}</div>
-            {arrow ? <PopperArrow className={cn('drop-shadow-lg -mt-px w-3 fill-current')} /> : null}
+            {arrow ? <PopperArrow className={cn('-mt-px w-3 fill-current drop-shadow-lg')} /> : null}
           </PopperContent>
         </Portal>
       )}

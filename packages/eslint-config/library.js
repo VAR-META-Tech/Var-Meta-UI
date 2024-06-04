@@ -10,7 +10,7 @@ const project = resolve(process.cwd(), 'tsconfig.json');
  */
 
 module.exports = {
-  extends: ['next/core-web-vitals', 'turbo', 'plugin:prettier/recommended', 'plugin:tailwindcss/recommended'],
+  extends: ['next/core-web-vitals', 'turbo', 'plugin:prettier/recommended'],
   parserOptions: {
     project,
   },
@@ -23,7 +23,7 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
+      plugins: ['@typescript-eslint', 'unused-imports'],
       extends: ['next/core-web-vitals'],
       parserOptions: {
         project,
@@ -31,7 +31,14 @@ module.exports = {
       rules: {
         'prettier/prettier': [
           'error',
-          { endOfLine: 'lf', tabWidth: 2, singleQuote: true, trailingComma: 'es5', semi: true, printWidth: 120 },
+          {
+            endOfLine: 'lf',
+            tabWidth: 2,
+            singleQuote: true,
+            trailingComma: 'es5',
+            semi: true,
+            printWidth: 120,
+          },
         ],
         'react/destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
         'jsx-a11y/anchor-is-valid': 'off', // Next.js use his own internal link system
@@ -42,7 +49,11 @@ module.exports = {
         '@typescript-eslint/comma-dangle': 'off', // Avoid conflict rule between Eslint and Prettier
         '@typescript-eslint/consistent-type-imports': [
           'error',
-          { prefer: 'type-imports', disallowTypeAnnotations: true, fixStyle: 'inline-type-imports' },
+          {
+            prefer: 'type-imports',
+            disallowTypeAnnotations: true,
+            fixStyle: 'inline-type-imports',
+          },
         ], // Ensure `import type` is used when it's necessary
 
         'import/prefer-default-export': 'off', // Named export is easier to refactor automatically
@@ -50,6 +61,8 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-console': 'off',
         'import/no-cycle': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
         'no-restricted-exports': ['off', { restrictedNamedExports: ['default'] }],
         'new-cap': ['off', { newIsCap: true }],
         'no-plusplus': 'off',
@@ -72,25 +85,11 @@ module.exports = {
         '@typescript-eslint/indent': 'off',
         'jsx-a11y/alt-text': 'off',
         'import/no-extraneous-dependencies': 'off',
-        'tailwindcss/no-custom-classname': 'off',
-        'tailwindcss/classnames-order': 'error',
       },
     },
   ],
   settings: {
     'import/resolver': { typescript: { project } },
-    tailwindcss: {
-      // These are the default values but feel free to customize
-      callees: ['classnames', 'clsx', 'cv', 'cva', 'tv'],
-      config: 'tailwind.config.js', // returned from `loadConfig()` utility if not provided
-      cssFiles: ['**/*.css', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
-      cssFilesRefreshRate: 5_000,
-      removeDuplicates: true,
-      skipClassAttribute: false,
-      whitelist: [],
-      tags: [], // can be set to e.g. ['tw'] for use in tw`bg-blue`
-      classRegex: '^class(Name)?$', // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
-    },
   },
   ignorePatterns: ['node_modules/', 'dist/'],
 };

@@ -122,7 +122,7 @@ const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.C
             selectRef.current?.addEventListener('touchend', (e) => e.cancelable && e.preventDefault());
           }}
           className={cn(
-            'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border border-border-secondary text-foreground shadow-lg',
+            'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-border-secondary text-foreground relative z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border shadow-lg',
             position === 'popper' &&
               'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
             className
@@ -163,7 +163,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'hover:bg-background-secondary data-[disabled]:pointer-events-none data-[state=checked]:bg-background-secondary data-[disabled]:opacity-50 relative flex w-full cursor-pointer select-none items-center rounded-sm py-2.5 pl-2 pr-9 text-base outline-none focus:bg-background-secondary',
+      'hover:bg-background-secondary data-[state=checked]:bg-background-secondary focus:bg-background-secondary relative flex w-full cursor-pointer select-none items-center rounded-sm py-2.5 pl-2 pr-9 text-base outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className
     )}
     {...props}

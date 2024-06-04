@@ -63,7 +63,7 @@ const Checkbox = React.forwardRef<React.ElementRef<typeof CheckboxPrimitive.Root
     <CheckboxPrimitive.Root checked={checked} ref={ref} className={cn(checkboxVariant({ size, className }))} {...etc}>
       <CheckboxPrimitive.Indicator
         forceMount
-        className={cn('flex -mt-px items-center justify-center text-current group')}
+        className={cn('group -mt-px flex items-center justify-center text-current')}
       >
         {iconRender}
       </CheckboxPrimitive.Indicator>

@@ -43,12 +43,16 @@ const meta: Meta = {
         type: 'select',
       },
     },
+    fullWidth: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
     helperText: 'This is a hint text to help user.',
     label: 'Label',
     showIcon: true,
     allowsCustomValue: true,
+    fullWidth: true,
   },
   parameters: {
     docs: {
@@ -116,7 +120,9 @@ const options: AutocompleteProps['options'] = [
 const DefaultTemplate: StoryFn<AutocompleteProps & { showIcon: boolean }> = ({ showIcon, ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <Autocomplete {...args} prefix={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />
+      <div className="max-w-sm">
+        <Autocomplete {...args} prefix={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />
+      </div>
     </EnhancedView>
   );
 };

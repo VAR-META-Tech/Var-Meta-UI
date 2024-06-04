@@ -38,14 +38,14 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
     <TableProvider value={{ variant, size, withHeader: !!header }}>
       <div
         className={cn(
-          'relative bg-background border shadow-sm border-border-secondary rounded-xl w-full overflow-auto',
+          'bg-background border-border-secondary relative w-full overflow-auto rounded-xl border shadow-sm',
           className
         )}
       >
         {header ? (
           <div
             className={cn(
-              'min-h-[69px] px-6 py-5 border-b flex items-center justify-between border-border-secondary',
+              'border-border-secondary flex min-h-[69px] items-center justify-between border-b px-6 py-5',
               headerClassName
             )}
           >

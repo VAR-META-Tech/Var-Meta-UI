@@ -115,7 +115,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
           )}
           {arrow && (
             <TooltipPrimitive.Arrow
-              className={cn('drop-shadow-lg -mt-px w-3', {
+              className={cn('-mt-px w-3 drop-shadow-lg', {
                 'fill-white': theme === 'light',
                 'fill-gray-900': theme === 'dark',
               })}

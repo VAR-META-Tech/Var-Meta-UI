@@ -147,8 +147,8 @@ const Breadcrumbs = React.forwardRef<ElementRef<'ol'>, BreadcrumbsProps>(
       <ol
         ref={ref}
         className={cn(
-          'flex items-center gap-1.5 md:gap-2 flex-wrap list-none',
-          { 'border-y border-border-secondary py-2': withLine },
+          'flex list-none flex-wrap items-center gap-1.5 md:gap-2',
+          { 'border-border-secondary border-y py-2': withLine },
           className
         )}
         {...props}

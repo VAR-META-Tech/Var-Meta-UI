@@ -43,8 +43,8 @@ const RadioGroupItem = React.forwardRef<React.ElementRef<typeof RadioGroupPrimit
       <RadioGroupPrimitive.Item ref={ref} className={cn(radioGroupVariant({ size }), className)} {...props}>
         <RadioGroupPrimitive.Indicator asChild>
           <span
-            className={cn('h-2 w-2 min-w-2 block mx-auto rounded-full bg-current', {
-              'w-1.5 h-1.5 min-w-1.5': size === 'sm',
+            className={cn('mx-auto block h-2 w-2 min-w-2 rounded-full bg-current', {
+              'h-1.5 w-1.5 min-w-1.5': size === 'sm',
             })}
           />
         </RadioGroupPrimitive.Indicator>

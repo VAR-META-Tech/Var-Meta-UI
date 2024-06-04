@@ -26,7 +26,7 @@ function Calendar({
       showOutsideDays={showOutsideDays}
       className={cn(
         {
-          'bg-background border border-border-secondary shadow-xl w-fit text-foreground-secondary rounded-xl px-6 py-5':
+          'bg-background border-border-secondary text-foreground-secondary w-fit rounded-xl border px-6 py-5 shadow-xl':
             !unstyled,
         },
         className
@@ -56,7 +56,7 @@ function Calendar({
           '[&:has([aria-selected])]:bg-background-secondary first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
         ),
         day: cn(
-          buttonVariants({ variant: 'link', color: 'default', size: 'md', rounded: 'full' }),
+          buttonVariants({ variant: 'link', color: 'default', size: 'md', radius: 'full' }),
           'h-10 w-10 p-0 font-normal aria-selected:opacity-100 hover:bg-background-secondary '
         ),
         day_selected: cn(

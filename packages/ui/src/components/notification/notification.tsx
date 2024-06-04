@@ -34,7 +34,7 @@ const NotificationAction = React.forwardRef<HTMLDivElement, NotificationActionPr
     ...etc
   } = props;
   return (
-    <div ref={ref} className={cn('flex gap-3 items-start', className)} {...etc}>
+    <div ref={ref} className={cn('flex items-start gap-3', className)} {...etc}>
       {!hideCancel ? (
         <Button onClick={onCancel} size="none" variant="link" color="gray" {...cancelBtnProps}>
           {cancelLabel}
@@ -58,7 +58,7 @@ export interface NotificationContentProps extends Pick<React.HTMLAttributes<HTML
 const NotificationContent = React.forwardRef<HTMLDivElement, NotificationContentProps>(
   ({ className, title, description, ...props }, ref) => {
     return (
-      <div className={cn('gap-1 flex flex-col', className)} ref={ref} {...props}>
+      <div className={cn('flex flex-col gap-1', className)} ref={ref} {...props}>
         <div className="text-foreground text-sm font-semibold">{title}</div>
         <div className="text-foreground-secondary text-sm">{description}</div>
       </div>
@@ -154,7 +154,7 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
       <Show when={variant === 'image'}>
         <div className="flex">
           <div className="relative hidden h-full min-w-[5rem] max-w-[5rem] flex-col bg-gray-50 md:flex">
-            <img src={src} {...imgProps} className={cn('absolute w-full h-full object-cover', imgProps?.className)} />
+            <img src={src} {...imgProps} className={cn('absolute h-full w-full object-cover', imgProps?.className)} />
           </div>
           <div className="flex flex-col gap-3 p-4 pl-5">
             <NotificationContent title={title} description={description} />
@@ -162,7 +162,7 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
               <img
                 src={src}
                 {...imgProps}
-                className={cn('absolute w-full h-full rounded-sm object-cover', imgProps?.className)}
+                className={cn('absolute h-full w-full rounded-sm object-cover', imgProps?.className)}
               />
             </div>
             {children}
@@ -185,7 +185,7 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
 
       <Show when={variant === 'icon' || variant === 'avatar'}>
         <div
-          className={cn('flex flex-col items-start md:-mb-2 justify-start gap-2 md:gap-4 md:flex-row', {
+          className={cn('flex flex-col items-start justify-start gap-2 md:-mb-2 md:flex-row md:gap-4', {
             'md:pb-2': !!description,
           })}
         >

@@ -113,7 +113,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
               <FloatingArrow
                 ref={arrowRef}
                 context={context}
-                className={cn('drop-shadow-lg -mt-px w-3', {
+                className={cn('-mt-px w-3 drop-shadow-lg', {
                   'fill-white': theme === 'light',
                   'fill-gray-900': theme === 'dark',
                 })}
@@ -121,7 +121,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
             )}
             <div
               className={cn(
-                { 'border border-border-secondary': outlined },
+                { 'border-border-secondary border': outlined },
                 floatingTooltipContentVariants({ theme, className })
               )}
             >

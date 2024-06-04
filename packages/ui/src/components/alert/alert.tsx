@@ -11,7 +11,7 @@ export interface AlertActionProps extends React.HTMLAttributes<HTMLDivElement> {
 const AlertAction = React.forwardRef<HTMLDivElement, AlertActionProps>((props, ref) => {
   const { className, children, ...etc } = props;
   return (
-    <div ref={ref} className={cn('flex gap-3 items-start', className)} {...etc}>
+    <div ref={ref} className={cn('flex items-start gap-3', className)} {...etc}>
       {children}
     </div>
   );
@@ -28,9 +28,9 @@ const AlertContent = React.forwardRef<HTMLDivElement, AlertContentProps>(
     return (
       <div
         className={cn(
-          'gap-1 flex flex-col',
+          'flex flex-col gap-1',
           {
-            'md:flex-row gap-1.5': variant === 'fullWidth',
+            'gap-1.5 md:flex-row': variant === 'fullWidth',
           },
           className
         )}
@@ -74,7 +74,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       case 'success':
         return (
           <FeaturedIcon
-            className={cn({ 'md:-mt-2.5 -ml-2.5': variant === 'floating' })}
+            className={cn({ '-ml-2.5 md:-mt-2.5': variant === 'floating' })}
             variant="outline"
             color="success"
           >
@@ -84,7 +84,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       case 'warning':
         return (
           <FeaturedIcon
-            className={cn({ 'md:-mt-2.5 -ml-2.5': variant === 'floating' })}
+            className={cn({ '-ml-2.5 md:-mt-2.5': variant === 'floating' })}
             variant="outline"
             color="warning"
           >
@@ -95,7 +95,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       case 'error':
         return (
           <FeaturedIcon
-            className={cn({ 'md:-mt-2.5 -ml-2.5': variant === 'floating' })}
+            className={cn({ '-ml-2.5 md:-mt-2.5': variant === 'floating' })}
             variant="outline"
             color="error"
           >
@@ -105,14 +105,14 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
 
       case 'gray':
         return (
-          <FeaturedIcon className={cn({ 'md:-mt-2.5 -ml-2.5': variant === 'floating' })} variant="outline" color="gray">
+          <FeaturedIcon className={cn({ '-ml-2.5 md:-mt-2.5': variant === 'floating' })} variant="outline" color="gray">
             <AlertCircleIcon />
           </FeaturedIcon>
         );
 
       default:
         return (
-          <FeaturedIcon className={cn({ 'md:-mt-2.5 -ml-2.5': variant === 'floating' })} variant="modern" color="gray">
+          <FeaturedIcon className={cn({ '-ml-2.5 md:-mt-2.5': variant === 'floating' })} variant="modern" color="gray">
             {icon}
           </FeaturedIcon>
         );
@@ -125,7 +125,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
         <>
           {!hideCloseIcon ? <ButtonClose onClick={onClose} size="sm" className="absolute right-2 top-2" /> : null}
           <div
-            className={cn('flex flex-col items-start justify-start gap-2 md:gap-4 md:flex-row', {
+            className={cn('flex flex-col items-start justify-start gap-2 md:flex-row md:gap-4', {
               'md:pr-8': !hideCloseIcon,
             })}
           >
@@ -139,9 +139,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       ) : (
         <div
           className={cn(
-            'flex flex-col items-start justify-start w-full gap-3 px-4 py-4 md:py-0 md:px-8 md:items-center md:justify-between md:flex-row',
+            'flex w-full flex-col items-start justify-start gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between md:px-8 md:py-0',
             {
-              'md:pr-0 pr-8': !hideCloseIcon,
+              'pr-8 md:pr-0': !hideCloseIcon,
             }
           )}
         >
@@ -153,7 +153,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
             {children}
             {!hideCloseIcon ? (
               <ButtonClose
-                className="md:right-none md:top-none absolute right-2 top-2 md:relative "
+                className="md:right-none md:top-none absolute right-2 top-2 md:relative"
                 onClick={onClose}
                 size="sm"
               />

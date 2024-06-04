@@ -60,7 +60,7 @@ const PaginationControl = forwardRef<ElementRef<'button'>, PaginationControlProp
     <button
       className={cn(
         { 'px-2.5': withPadding },
-        { 'border border-border': withBorder },
+        { 'border-border border': withBorder },
         paginationControlVariants({
           variant,
           rounded,

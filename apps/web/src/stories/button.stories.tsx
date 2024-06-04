@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Button, type ButtonProps } from '@var-ui/core';
-import { CircleIcon, SearchLgIcon } from '@var-ui/icons';
+import { CircleIcon, LogOut01Icon, SearchLgIcon } from '@var-ui/icons';
 
 import { EnhancedView, View, ViewGroup } from '@/components/View';
 
@@ -17,7 +17,7 @@ const color: ButtonProps['color'][] = [
   'warning',
 ];
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg', 'xl', '2xl'];
-const rounded: ButtonProps['rounded'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
+const radius: ButtonProps['radius'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 
 const meta: Meta = {
   title: 'Components/Button',
@@ -35,8 +35,8 @@ const meta: Meta = {
       options: sizes,
       control: { type: 'select' },
     },
-    rounded: {
-      options: rounded,
+    radius: {
+      options: radius,
       control: { type: 'select' },
     },
     disabled: {
@@ -49,6 +49,9 @@ const meta: Meta = {
       control: { type: 'boolean' },
     },
     iconOnly: {
+      control: { type: 'boolean' },
+    },
+    freeHeight: {
       control: { type: 'boolean' },
     },
   },
@@ -138,3 +141,22 @@ const IconsTemplate: StoryFn<ButtonProps> = (args) => {
 };
 
 export const WithIcon: StoryFn<typeof Button> = IconsTemplate.bind({});
+
+const FreeHeightTemplate: StoryFn<ButtonProps> = (args) => {
+  return (
+    <View prop="freeHeight" justify="start" value="true">
+      {variants.map((variant) =>
+        sizes.map((size) => (
+          <React.Fragment key={size + variant}>
+            <Button {...args} className="flex-col" freeHeight key={size} variant={variant} size={size}>
+              <LogOut01Icon />
+              Check In
+            </Button>
+          </React.Fragment>
+        ))
+      )}
+    </View>
+  );
+};
+
+export const WithFreeHeight: StoryFn<typeof Button> = FreeHeightTemplate.bind({});

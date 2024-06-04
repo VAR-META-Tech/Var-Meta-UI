@@ -31,14 +31,14 @@ export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((prop
       <div
         className={cn('flex flex-col gap-4', {
           'justify-start': align === 'left',
-          'justify-center items-center': align === 'center',
-          'justify-center flex-row': align === 'baseline',
+          'items-center justify-center': align === 'center',
+          'flex-row justify-center': align === 'baseline',
         })}
       >
         {icon ? <div>{icon}</div> : null}
         <div
           className={cn('flex flex-col gap-1', {
-            'justify-center items-center text-center': align === 'center',
+            'items-center justify-center text-center': align === 'center',
           })}
         >
           <div className="text-foreground text-lg font-semibold">{title}</div>
@@ -61,7 +61,7 @@ export const ModalAction = forwardRef<ElementRef<'div'>, ModalActionProps>(({ cl
 export interface ModalBodyProps extends ElementProps<'div'> {}
 
 export const ModalBody = forwardRef<ElementRef<'div'>, ModalBodyProps>(({ className, ...props }, ref) => (
-  <div className={cn('px-4 md:px-6 ', className)} {...props} ref={ref} />
+  <div className={cn('px-4 md:px-6', className)} {...props} ref={ref} />
 ));
 
 export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
@@ -84,7 +84,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
           ref={ref}
           className={cn(
             'min-h-[200px] p-0 shadow-lg',
-            { 'max-w-fit w-fit': fitContent, 'max-w-full min-h-screen rounded-none': fullScreen },
+            { 'w-fit max-w-fit': fitContent, 'min-h-screen max-w-full rounded-none': fullScreen },
             className
           )}
           {...modalContentProps}

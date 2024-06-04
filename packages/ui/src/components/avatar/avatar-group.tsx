@@ -64,7 +64,7 @@ const AvatarGroup = React.forwardRef<React.ElementRef<'div'>, AvatarGroupProps>(
         })}
 
       <Avatar
-        className={cn('text-gray-600 text-base', {
+        className={cn('text-base text-gray-600', {
           'text-xs': size === 'xs',
           'text-sm': size === 'sm',
         })}

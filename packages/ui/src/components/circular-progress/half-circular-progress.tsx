@@ -106,7 +106,7 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
             strokeLinecap="round"
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
-            className={cn('transition-all stroke-brand-600 duration-700 ease-in-out')}
+            className={cn('stroke-brand-600 transition-all duration-700 ease-in-out')}
           />
         </svg>
 

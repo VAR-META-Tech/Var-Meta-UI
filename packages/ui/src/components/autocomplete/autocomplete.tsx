@@ -225,10 +225,10 @@ const AutocompleteComponent = <T extends boolean = false>(
           <PopperAnchor>
             <div
               className={cn(inputVariants({ variant, className, size: 'none' }), {
-                'group flex justify-start flex-wrap items-center gap-2': true,
+                'group flex flex-wrap items-center justify-start gap-2': true,
                 'focus-within:shadow-brand-xs': variant === 'default' || !variant,
                 'focus-within:shadow-error-xs': variant === 'destructive',
-                'shadow-xs cursor-not-allowed bg-background-secondary text-disabled': props.disabled,
+                'shadow-xs bg-background-secondary text-disabled cursor-not-allowed': props.disabled,
                 'min-h-[40px] px-3 py-2': size === 'sm',
                 'min-h-[44px] px-3.5 py-2.5': size === 'md',
               })}
@@ -251,7 +251,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 onBlur={handleBlur}
                 onFocus={() => setOpen(true)}
                 prefix={<></>}
-                className={cn('h-full flex-1 peer')}
+                className={cn('peer h-full flex-1')}
                 fullWidth
                 wrapperClassName={cn('border-none p-0 flex-1 min-w-28')}
                 {...etc}
@@ -263,9 +263,9 @@ const AutocompleteComponent = <T extends boolean = false>(
                     <button
                       onClick={handleClear}
                       className={cn(
-                        'invisible opacity-0 pointer-events-none z-10 w-6 h-6 hover:bg-background-secondary hover:text-foreground-secondary outline-none text-foreground-secondary flex items-center justify-center rounded-full relative transition-all ',
+                        'hover:bg-background-secondary hover:text-foreground-secondary text-foreground-secondary pointer-events-none invisible relative z-10 flex h-6 w-6 items-center justify-center rounded-full opacity-0 outline-none transition-all',
                         {
-                          'group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100':
+                          'group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100':
                             selected?.length !== 0,
                         }
                       )}

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import {
+  Avatar,
   Button,
   Dropdown,
   DropdownMenu,
@@ -86,8 +87,8 @@ const DefaultTemplate: StoryFn<typeof Dropdown> = ({ ...args }) => {
         <Dropdown
           trigger={
             <Button variant="outline" color="gray">
-              Account
-              <ChevronDownIcon />
+              9 page
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
             </Button>
           }
           {...args}
@@ -101,9 +102,10 @@ const DefaultTemplate: StoryFn<typeof Dropdown> = ({ ...args }) => {
 
         <Dropdown
           trigger={
-            <Button variant="outline" color="gray">
-              Account with avatar
-              <ChevronDownIcon />
+            <Button className="gap-1 p-2" variant="outline" color="gray">
+              <Avatar size="xs" src="https://i.pravatar.cc/1080?img=10" />
+              Julian
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
             </Button>
           }
           {...args}
@@ -140,7 +142,7 @@ const StandaloneTemplate: StoryFn<typeof Dropdown> = ({ align, ...args }) => {
           <DropdownMenuTrigger asChild>
             <Button variant="outline" color="gray">
               Account
-              <ChevronDownIcon />
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align={align} className="w-56">
@@ -156,7 +158,7 @@ const StandaloneTemplate: StoryFn<typeof Dropdown> = ({ align, ...args }) => {
           <DropdownMenuTrigger asChild>
             <Button variant="outline" color="gray">
               Account with avatar
-              <ChevronDownIcon />
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
             </Button>
           </DropdownMenuTrigger>
 

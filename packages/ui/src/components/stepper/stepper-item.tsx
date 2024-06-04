@@ -197,7 +197,7 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
       onClick={() => handleClick(index)}
       aria-disabled={!hasVisited}
     >
-      <div className={cn('flex items-center flex-1', centeredLabel ? 'flex-col gap-3' : 'gap-4')}>
+      <div className={cn('flex flex-1 items-center', centeredLabel ? 'flex-col gap-3' : 'gap-4')}>
         <button
           aria-current={isCurrentStep ? 'step' : undefined}
           data-invalid={isCurrentStep && isError}

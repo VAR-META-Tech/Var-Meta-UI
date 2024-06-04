@@ -22,7 +22,7 @@ const ProgressIndicator = React.forwardRef<
 >(({ className, value, ...props }, ref) => {
   return (
     <ProgressPrimitive.Indicator
-      className={cn('h-full w-full relative rounded-full flex-1 bg-brand-600 transition-all', className)}
+      className={cn('bg-brand-600 relative h-full w-full flex-1 rounded-full transition-all', className)}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       ref={ref}
       {...props}
@@ -54,7 +54,7 @@ const FloatingProgressIndicator = React.forwardRef<
   return (
     <>
       <ProgressIndicator
-        className={cn('h-full w-full relative rounded-full flex-1 bg-brand-600 transition-all', className)}
+        className={cn('bg-brand-600 relative h-full w-full flex-1 rounded-full transition-all', className)}
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
         ref={ref}
         {...props}
@@ -77,8 +77,8 @@ const Progress = React.forwardRef<React.ElementRef<typeof ProgressPrimitive.Root
   ({ className, value, labelType = 'none', placement = 'right', ...props }, ref) => {
     return (
       <div
-        className={cn('relative w-full h-auto ', {
-          'flex flex-nowrap flex-row gap-3 items-center justify-start': placement === 'right' && labelType === 'text',
+        className={cn('relative h-auto w-full', {
+          'flex flex-row flex-nowrap items-center justify-start gap-3': placement === 'right' && labelType === 'text',
           'flex flex-col gap-2': placement === 'bottom' && labelType === 'text',
           'flex flex-col-reverse gap-2': placement === 'top' && labelType === 'text',
         })}
@@ -97,7 +97,7 @@ const Progress = React.forwardRef<React.ElementRef<typeof ProgressPrimitive.Root
           )}
         </ProgressPrimitive.Root>
         {labelType === 'text' ? (
-          <div className={cn('flex justify-end text-sm font-medium text-right text-foreground-secondary')}>
+          <div className={cn('text-foreground-secondary flex justify-end text-right text-sm font-medium')}>
             {value}%
           </div>
         ) : null}

@@ -87,7 +87,7 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
   ({ className, ...props }, ref) => {
     const { divider = false } = useAccordionContext();
     return (
-      <AccordionPrimitive.Item ref={ref} className={cn({ 'border-t border-divider': divider }, className)} {...props} />
+      <AccordionPrimitive.Item ref={ref} className={cn({ 'border-divider border-t': divider }, className)} {...props} />
     );
   }
 );
@@ -187,7 +187,7 @@ const AccordionContent = React.forwardRef<React.ElementRef<typeof AccordionPrimi
       <AccordionPrimitive.Content
         ref={ref}
         className={cn(
-          'overflow-hidden transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+          'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden transition-all',
           { [shiftClassName]: !hideIcon }
         )}
         {...props}

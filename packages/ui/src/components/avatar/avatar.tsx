@@ -76,12 +76,12 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
     return (
       <div
         ref={ref}
-        className={cn('relative group inline-flex align-middle shrink-0 rounded-full', className)}
+        className={cn('group relative inline-flex shrink-0 rounded-full align-middle', className)}
         style={style}
       >
         <AvatarPrimitive.Root className={avatarVariants({ size, radius, className: rootClassName })}>
-          <AvatarPrimitive.Image ref={imgRef} className={cn('aspect-square object-cover h-full w-full')} {...props} />
-          <AvatarPrimitive.Fallback className={cn('flex h-full w-full items-center justify-center rounded-full ')}>
+          <AvatarPrimitive.Image ref={imgRef} className={cn('aspect-square h-full w-full object-cover')} {...props} />
+          <AvatarPrimitive.Fallback className={cn('flex h-full w-full items-center justify-center rounded-full')}>
             {children}
           </AvatarPrimitive.Fallback>
         </AvatarPrimitive.Root>
@@ -90,7 +90,7 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
           className={radiusVariants({
             radius,
             className:
-              'w-[calc(100%_+_1px)] h-[calc(100%_+_1px)] inset-center z-[1] pointer-events-none border border-gray-300/10',
+              'inset-center pointer-events-none z-[1] h-[calc(100%_+_1px)] w-[calc(100%_+_1px)] border border-gray-300/10',
           })}
         />
 
@@ -107,10 +107,10 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
           className={radiusVariants({
             radius,
             className: cn(
-              'w-[calc(100%_+_5px)] h-[calc(100%_+_5px)] inset-center z-[1] opacity-[14%] pointer-events-none',
-              'group-focus-within:border-4 group-focus-within:border-muted',
-              'group-focus:border-4 group-focus:border-muted',
-              'group-focus-visible:border-4 group-focus-visible:border-muted'
+              'inset-center pointer-events-none z-[1] h-[calc(100%_+_5px)] w-[calc(100%_+_5px)] opacity-[14%]',
+              'group-focus-within:border-muted group-focus-within:border-4',
+              'group-focus:border-muted group-focus:border-4',
+              'group-focus-visible:border-muted group-focus-visible:border-4'
             ),
           })}
         />

@@ -43,9 +43,9 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           ref={ref}
           className={cn(
             [
-              'relative flex  touch-none select-none items-center',
-              'data-[orientation=vertical]:flex-col data-[orientation=vertical]:h-full',
-              'data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
+              'relative flex touch-none select-none items-center',
+              'data-[orientation=vertical]:h-full data-[orientation=vertical]:flex-col',
+              'data-[orientation=horizontal]:w-full data-[orientation=horizontal]:flex-row',
             ],
             className
           )}
@@ -53,16 +53,16 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
         >
           <SliderPrimitive.Track
             className={cn([
-              'relative w-full overflow-hidden bg-background-quaternary rounded-full grow',
+              'bg-background-quaternary relative w-full grow overflow-hidden rounded-full',
               {
-                'w-2 h-full': orientation === 'vertical',
+                'h-full w-2': orientation === 'vertical',
                 'h-2 w-full': orientation === 'horizontal',
               },
             ])}
           >
             <SliderPrimitive.Range
               className={cn([
-                'absolute h-full bg-brand-600',
+                'bg-brand-600 absolute h-full',
                 {
                   'w-full': orientation === 'vertical',
                   'h-full': orientation === 'horizontal',
@@ -80,14 +80,14 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
               <SliderPrimitive.Thumb
                 key={i}
                 className={cn([
-                  'block w-6 h-6 transition-colors border-2 shadow-md rounded-full border-brand-600 bg-white  ',
-                  'focus-visible:outline-none focus-visible:shadow-brand-sm disabled:pointer-events-none',
+                  'border-brand-600 block h-6 w-6 rounded-full border-2 bg-white shadow-md transition-colors',
+                  'focus-visible:shadow-brand-sm focus-visible:outline-none disabled:pointer-events-none',
                 ])}
               >
                 <div
-                  className={cn('absolute font-medium  text-foreground text-md', {
-                    'left-1/2 -translate-x-1/2 top-7': orientation === 'horizontal',
-                    'top-1/2 -translate-y-1/2 left-7': orientation === 'vertical',
+                  className={cn('text-foreground text-md absolute font-medium', {
+                    'left-1/2 top-7 -translate-x-1/2': orientation === 'horizontal',
+                    'left-7 top-1/2 -translate-y-1/2': orientation === 'vertical',
                     hidden: !withLabel,
                   })}
                 >

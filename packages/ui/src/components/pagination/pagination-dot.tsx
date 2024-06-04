@@ -17,11 +17,11 @@ export const PaginationDot = forwardRef<ElementRef<'div'>, PaginationDotProps>((
   return (
     <div
       className={cn(
-        'min-w-[var(--pagination-control-size)] h-[var(--pagination-control-size)]',
-        'flex items-center justify-center pointer-events-none',
+        'h-[var(--pagination-control-size)] min-w-[var(--pagination-control-size)]',
+        'pointer-events-none flex items-center justify-center',
         {
           'bg-background': variant === 'filled',
-          'text-disabled opacity-50 cursor-not-allowed': disabled,
+          'text-disabled cursor-not-allowed opacity-50': disabled,
         },
         className
       )}

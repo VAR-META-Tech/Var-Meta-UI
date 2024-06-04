@@ -1,5 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
+import { radiusVariant } from '../../utils/variant-common';
+
 export const buttonVariants = cva(
   'inline-flex min-h-0 cursor-pointer items-center justify-center text-base font-medium outline-none transition-all focus:outline-none disabled:cursor-not-allowed',
   {
@@ -28,17 +30,10 @@ export const buttonVariants = cva(
         xl: 'px-4.5 gap-sm h-12 py-3 text-base font-semibold',
         '2xl': 'h-15 px-5.5 gap-2.5 py-4 text-lg font-semibold',
       },
-      rounded: {
-        none: '',
-        default: 'rounded-xs',
-        sm: 'rounded-sm',
-        md: 'rounded-md',
-        lg: 'rounded-lg',
-        xl: 'rounded-xl',
-        '2xl': 'rounded-2xl',
-        '3xl': 'rounded-3xl',
-        full: 'rounded-full',
+      freeHeight: {
+        true: 'h-auto',
       },
+      radius: radiusVariant,
       fullWidth: {
         true: 'w-full',
       },
@@ -240,7 +235,7 @@ export const buttonVariants = cva(
       variant: 'solid',
       color: 'primary',
       size: 'md',
-      rounded: 'default',
+      radius: 'md',
       fullWidth: false,
       iconOnly: false,
       loading: false,

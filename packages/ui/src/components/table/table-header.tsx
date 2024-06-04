@@ -13,7 +13,7 @@ const TableHeader = React.forwardRef<ElementRef<'thead'>, Props>(({ className, .
     <thead
       ref={ref}
       className={cn(
-        '[&_tr]:border-b border-border-secondary',
+        'border-border-secondary [&_tr]:border-b',
         {
           'bg-background-secondary': variant === 'default',
         },

@@ -62,7 +62,7 @@ const DefaultTemplate: StoryFn<NavigationDropdownProps> = ({ variant, ...args })
           padding: '32px',
           width: args.collapsed ? 'fit-content' : '100%',
         }}
-        className={cn(' flex items-center', {
+        className={cn('flex items-center', {
           'bg-gray-950': variant === 'dark',
           'bg-brand-700': variant === 'brand',
           'bg-white': variant === 'default',

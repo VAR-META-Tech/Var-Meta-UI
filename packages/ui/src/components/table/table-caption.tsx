@@ -6,7 +6,7 @@ const TableCaption = React.forwardRef<HTMLTableCaptionElement, React.HTMLAttribu
   ({ className, ...props }, ref) => (
     <caption
       ref={ref}
-      className={cn('px-6 pt-3 pb-4 border-t border-border-secondary text-sm ', className)}
+      className={cn('border-border-secondary border-t px-6 pb-4 pt-3 text-sm', className)}
       {...props}
     />
   )

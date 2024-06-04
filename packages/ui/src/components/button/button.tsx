@@ -23,7 +23,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     fullWidth,
     size,
     iconOnly,
-    rounded,
+    radius,
     asChild,
     loading,
     color,
@@ -31,13 +31,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     loadingPlacement = 'start',
     startIcon,
     endIcon,
+    freeHeight,
     ...etc
   } = props;
 
   const Comp = asChild ? Slot : 'button';
   return (
     <Comp
-      className={cn(buttonVariants({ variant, iconOnly, color, loading, fullWidth, rounded, size }), {}, className)}
+      className={cn(
+        buttonVariants({ variant, iconOnly, color, loading, fullWidth, radius, size, freeHeight }),
+        className
+      )}
       ref={ref}
       disabled={loading || disabled}
       aria-disabled={loading || disabled}

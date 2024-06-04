@@ -42,7 +42,7 @@ const DatePicker = forwardRef<ElementRef<'div'>, DatePickerProps>((props, ref) =
   return (
     <div
       className={cn(
-        'w-fit relative flex flex-col text-foreground-secondary rounded-xl bg-background shadow-xl',
+        'text-foreground-secondary bg-background relative flex w-fit flex-col rounded-xl shadow-xl',
         className
       )}
       ref={ref}

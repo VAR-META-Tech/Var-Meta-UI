@@ -18,10 +18,10 @@ export const PresetButton = ({
   return (
     <button
       className={cn(
-        'md:w-full px-1.5 md:px-4 md:py-2 h-5 md:h-10 flex items-center justify-start transition-colors ',
-        'rounded-sm bg-transparent whitespace-nowrap text-brand-600 md:text-foreground-secondary cursor-pointer text-sm font-medium',
-        'hover:text-gray-800 hover:bg-gray-50',
-        isSelected && 'pointer-events-none md:text-gray-800 md:bg-gray-50'
+        'flex h-5 items-center justify-start px-1.5 transition-colors md:h-10 md:w-full md:px-4 md:py-2',
+        'text-brand-600 md:text-foreground-secondary cursor-pointer whitespace-nowrap rounded-sm bg-transparent text-sm font-medium',
+        'hover:bg-gray-50 hover:text-gray-800',
+        isSelected && 'pointer-events-none md:bg-gray-50 md:text-gray-800'
       )}
       onClick={handleClick}
     >

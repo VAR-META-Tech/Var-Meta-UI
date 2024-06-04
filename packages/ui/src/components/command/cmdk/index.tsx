@@ -491,8 +491,8 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
         index + change < 0
           ? items[items.length - 1]
           : index + change === items.length
-          ? items[0]
-          : items[index + change];
+            ? items[0]
+            : items[index + change];
     }
 
     if (newSelected) store.setState('value', newSelected.getAttribute(VALUE_ATTR));

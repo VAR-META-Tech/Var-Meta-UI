@@ -1,6 +1,7 @@
 import React, { type ReactElement } from 'react';
 
 import { cn } from '../../utils/cn';
+import { type RadiusVariantKey } from '../../utils/variant-common';
 import { Avatar, type AvatarProps } from './avatar';
 
 export interface AvatarGroupProps extends React.ComponentPropsWithoutRef<'div'> {
@@ -8,6 +9,7 @@ export interface AvatarGroupProps extends React.ComponentPropsWithoutRef<'div'> 
   total?: number;
   formatTotal?: (v: number) => React.ReactNode;
   size?: NonNullable<AvatarProps['size']>;
+  radius?: RadiusVariantKey;
 }
 
 const mappingSpacing: Record<NonNullable<AvatarProps['size']>, number> = {
@@ -23,7 +25,7 @@ const mappingSpacing: Record<NonNullable<AvatarProps['size']>, number> = {
 };
 
 const AvatarGroup = React.forwardRef<React.ElementRef<'div'>, AvatarGroupProps>((props, ref) => {
-  const { className, size = 'md', children: childrenProp, formatTotal, total, max = 5, ...etc } = props;
+  const { className, size = 'md', radius = 'sm', children: childrenProp, formatTotal, total, max = 5, ...etc } = props;
 
   const children = React.Children.toArray(childrenProp).filter((child) => {
     return React.isValidElement(child);
@@ -70,6 +72,7 @@ const AvatarGroup = React.forwardRef<React.ElementRef<'div'>, AvatarGroupProps>(
         style={{ marginLeft }}
         src=""
         size={size}
+        radius={radius}
       >
         {extraAvatarsElement}
       </Avatar>

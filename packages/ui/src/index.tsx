@@ -49,3 +49,4 @@ export * from './components/toggle';
 export * from './components/tooltip';
 export * from './components/transition';
 export * from './components/utility';
+export * from './components/typography';

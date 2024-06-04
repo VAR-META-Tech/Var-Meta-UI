@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 import { VerifiedIcon } from '../icons';
 
-const dotVariants = cva('border-background block aspect-square rounded-full border', {
+const dotVariants = tv({
+  base: 'border-background block aspect-square rounded-full border',
   variants: {
     variant: {
       offline: 'bg-gray-300',
@@ -27,7 +28,7 @@ const dotVariants = cva('border-background block aspect-square rounded-full bord
   },
 });
 
-const verifiedVariants = cva('', {
+const verifiedVariants = tv({
   variants: {
     size: {
       xs: 'h-2.5 w-2.5',
@@ -45,26 +46,24 @@ const verifiedVariants = cva('', {
   },
 });
 
-const iconVariants = cva(
-  'bg-background-quaternary border-background flex aspect-square items-center justify-center rounded-full border [&>*]:scale-90',
-  {
-    variants: {
-      size: {
-        xs: 'h-2 w-2',
-        sm: 'h-3 w-3',
-        md: 'h-3.5 w-3.5',
-        lg: 'h-4 w-4',
-        xl: 'w-4.5 h-4.5',
-        '2xl': 'h-5 w-5',
-        '3xl': 'w-5.5 h-5.5',
-        '4xl': 'h-6 w-6',
-      },
+const iconVariants = tv({
+  base: 'bg-background-quaternary border-background flex aspect-square items-center justify-center rounded-full border [&>*]:scale-90',
+  variants: {
+    size: {
+      xs: 'h-2 w-2',
+      sm: 'h-3 w-3',
+      md: 'h-3.5 w-3.5',
+      lg: 'h-4 w-4',
+      xl: 'w-4.5 h-4.5',
+      '2xl': 'h-5 w-5',
+      '3xl': 'w-5.5 h-5.5',
+      '4xl': 'h-6 w-6',
     },
-    defaultVariants: {
-      size: 'xs',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    size: 'xs',
+  },
+});
 
 export interface IndicatorProps extends React.ComponentPropsWithoutRef<'div'>, VariantProps<typeof verifiedVariants> {
   type?: 'online' | 'offline' | 'icon' | 'verified';

@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { useDOMRef } from '../../hooks';
 import { cn } from '../../utils/cn';
+import { radiusVariant } from '../../utils/variant-common';
 import { Indicator, type IndicatorProps } from './indicator';
 
-const avatarVariants = cva('bg-background-tertiary relative z-[1] flex shrink-0 overflow-hidden rounded-full', {
+const avatarVariants = tv({
+  base: 'bg-background-tertiary relative z-[1] flex shrink-0 overflow-hidden',
   variants: {
     size: {
       xs: 'h-6 w-6',
@@ -19,9 +21,21 @@ const avatarVariants = cva('bg-background-tertiary relative z-[1] flex shrink-0 
       '4xl': 'h-24 w-24 shadow-lg',
       '5xl': 'h-40 w-40 shadow-lg',
     },
+    radius: radiusVariant,
   },
   defaultVariants: {
     size: 'xs',
+    radius: 'xs',
+  },
+});
+
+const radiusVariants = tv({
+  base: '',
+  variants: {
+    radius: radiusVariant,
+  },
+  defaultVariants: {
+    radius: 'xs',
   },
 });
 
@@ -45,6 +59,7 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
       indicator = 'none',
       size = 'md',
       imgRef: imgRefProp,
+      radius,
       ...props
     },
     ref
@@ -64,7 +79,7 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
         className={cn('relative group inline-flex align-middle shrink-0 rounded-full', className)}
         style={style}
       >
-        <AvatarPrimitive.Root className={cn(avatarVariants({ size, className: rootClassName }))}>
+        <AvatarPrimitive.Root className={avatarVariants({ size, radius, className: rootClassName })}>
           <AvatarPrimitive.Image ref={imgRef} className={cn('aspect-square object-cover h-full w-full')} {...props} />
           <AvatarPrimitive.Fallback className={cn('flex h-full w-full items-center justify-center rounded-full ')}>
             {children}
@@ -72,21 +87,32 @@ const Avatar = React.forwardRef<React.ElementRef<'div'>, AvatarProps>(
         </AvatarPrimitive.Root>
 
         <div
-          className={cn(
-            'w-[calc(100%_+_1px)] h-[calc(100%_+_1px)] inset-center z-[1] pointer-events-none rounded-full border border-gray-300/10'
-          )}
+          className={radiusVariants({
+            radius,
+            className:
+              'w-[calc(100%_+_1px)] h-[calc(100%_+_1px)] inset-center z-[1] pointer-events-none border border-gray-300/10',
+          })}
         />
 
         {outlined ? (
-          <div className="inset-center border-background pointer-events-none z-[1] h-[calc(100%_+_3px)] w-[calc(100%_+_3px)] rounded-full border-2" />
+          <div
+            className={radiusVariants({
+              radius,
+              className:
+                'inset-center border-background pointer-events-none z-[1] h-[calc(100%_+_3px)] w-[calc(100%_+_3px)] border-2',
+            })}
+          />
         ) : null}
         <div
-          className={cn(
-            'w-[calc(100%_+_5px)] h-[calc(100%_+_5px)] inset-center z-[1] rounded-full opacity-[14%] pointer-events-none',
-            'group-focus-within:border-4 group-focus-within:border-muted',
-            'group-focus:border-4 group-focus:border-muted',
-            'group-focus-visible:border-4 group-focus-visible:border-muted'
-          )}
+          className={radiusVariants({
+            radius,
+            className: cn(
+              'w-[calc(100%_+_5px)] h-[calc(100%_+_5px)] inset-center z-[1] opacity-[14%] pointer-events-none',
+              'group-focus-within:border-4 group-focus-within:border-muted',
+              'group-focus:border-4 group-focus:border-muted',
+              'group-focus-visible:border-4 group-focus-visible:border-muted'
+            ),
+          })}
         />
         {indicator !== 'none' && !!indicator ? (
           <Indicator

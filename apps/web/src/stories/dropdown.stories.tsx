@@ -83,7 +83,7 @@ const contentGroup = (
 const DefaultTemplate: StoryFn<typeof Dropdown> = ({ ...args }) => {
   return (
     <EnhancedView direction="row" prop="Default" value={''}>
-      <>
+      <div className="flex w-full items-center justify-center gap-8">
         <Dropdown
           trigger={
             <Button variant="outline" color="gray">
@@ -127,7 +127,7 @@ const DefaultTemplate: StoryFn<typeof Dropdown> = ({ ...args }) => {
           <DropdownMenuSeparator />
           {contentGroup}
         </Dropdown>
-      </>
+      </div>
     </EnhancedView>
   );
 };

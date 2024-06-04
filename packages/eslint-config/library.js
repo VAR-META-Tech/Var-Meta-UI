@@ -62,7 +62,10 @@ module.exports = {
         'no-console': 'off',
         'import/no-cycle': 'off',
         'unused-imports/no-unused-imports': 'error',
-        'unused-imports/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        'unused-imports/no-unused-vars': [
+          'warn',
+          { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+        ],
         'no-restricted-exports': ['off', { restrictedNamedExports: ['default'] }],
         'new-cap': ['off', { newIsCap: true }],
         'no-plusplus': 'off',

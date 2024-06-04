@@ -40,9 +40,7 @@ export const EnhancedView = ({ prop, value = '', ...props }: ViewProps) => {
         {prop}
         {value && <Badge>{value}</Badge>}
       </div>
-      <div className="bg-background relative flex flex-1 items-center justify-center gap-4 space-x-1 p-2.5">
-        {props.children}
-      </div>
+      <div className="bg-background relative flex-1 space-x-1 p-2.5">{props.children}</div>
     </div>
   );
 };

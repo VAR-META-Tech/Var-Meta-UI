@@ -14,6 +14,7 @@ export const defaultLightColors: ThemeColors = {
     DEFAULT: colors.gray.light[900],
     secondary: colors.gray.light[700],
     tertiary: colors.gray.light[600],
+    quaternary: colors.gray.light[500],
   },
   border: {
     DEFAULT: colors.gray.light[300],
@@ -44,7 +45,8 @@ export const defaultDarkColors: ThemeColors = {
   foreground: {
     DEFAULT: colors.base.white,
     secondary: colors.gray.dark[300],
-    tertiary: colors.gray.light[400],
+    tertiary: colors.gray.dark[400],
+    quaternary: colors.gray.dark[500],
   },
   border: {
     DEFAULT: colors.gray.dark[700],

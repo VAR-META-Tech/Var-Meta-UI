@@ -1,11 +1,11 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 
-const buttonGroupVariants = cva(
-  '[&>button:first-child]:rounded-l-xs [&>button:last-child]:rounded-r-xs inline-flex [&>button]:mx-[-0.5px] [&>button]:rounded-none'
-);
+const buttonGroupVariants = tv({
+  base: '[&>button:first-child]:rounded-l-xs [&>button:last-child]:rounded-r-xs inline-flex [&>button]:mx-[-0.5px] [&>button]:rounded-none',
+});
 
 export interface ButtonGroupProps
   extends React.HTMLAttributes<HTMLDivElement>,

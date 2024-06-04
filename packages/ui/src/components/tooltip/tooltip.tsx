@@ -83,7 +83,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
       defaultOpen,
       onOpenChange,
       theme = 'light',
-      delayDuration = 300,
+      delayDuration = 200,
       disableHoverableContent,
       arrow,
       contentClassName,

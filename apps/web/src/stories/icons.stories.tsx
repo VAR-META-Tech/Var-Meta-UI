@@ -3,6 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Tooltip, TooltipProvider } from '@var-ui/core';
 import { icons } from '@var-ui/icons';
 
+import { useCopy } from '@/hooks/useCopy';
 import { View } from '@/components/View';
 
 const meta: Meta = {
@@ -23,6 +24,7 @@ const meta: Meta = {
 export default meta;
 
 const DefaultTemplate: StoryFn<any> = () => {
+  const [_, copy] = useCopy();
   const renderIcons = () => {
     return (
       <TooltipProvider>
@@ -30,7 +32,9 @@ const DefaultTemplate: StoryFn<any> = () => {
           {Object.keys(icons).map((iconName) => (
             <div className="w-fit" key={iconName}>
               <Tooltip title={iconName}>
-                <button>{React.createElement(icons[iconName])}</button>
+                <button onClick={() => copy(`import { ${icons[iconName]} } from '@var-ui/icons';`)}>
+                  {React.createElement(icons[iconName])}
+                </button>
               </Tooltip>
             </div>
           ))}

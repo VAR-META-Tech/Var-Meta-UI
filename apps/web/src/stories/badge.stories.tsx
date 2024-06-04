@@ -1,24 +1,11 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Badge, type BadgeProps } from '@var-ui/core';
-import { ArrowRightIcon, ArrowUpIcon, PlusIcon } from '@var-ui/icons';
 
 import { EnhancedView } from '@/components/View';
 
-const variants: BadgeProps['variant'][] = ['badge-color', 'badge-modern', 'pill-color', 'pill-outline'];
 const sizes: BadgeProps['size'][] = ['sm', 'md', 'lg'];
-const colors: BadgeProps['color'][] = [
-  'gray',
-  'brand',
-  'error',
-  'warning',
-  'success',
-  'blue',
-  'indigo',
-  'purple',
-  'pink',
-  'orange',
-];
+const variants: BadgeProps['variant'][] = ['gray', 'brand', 'error', 'warning', 'success'];
 
 const meta: Meta = {
   title: 'Components/Badge',
@@ -32,19 +19,6 @@ const meta: Meta = {
       options: sizes,
       control: { type: 'select' },
     },
-    color: {
-      options: colors,
-      control: { type: 'select' },
-    },
-    trailing: {
-      control: { type: 'boolean' },
-    },
-    leading: {
-      control: { type: 'boolean' },
-    },
-    iconOnly: {
-      control: { type: 'boolean' },
-    },
   },
   parameters: {
     docs: {
@@ -56,22 +30,10 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<BadgeProps> = ({ leading, iconOnly, trailing, ...args }) => {
+const DefaultTemplate: StoryFn<BadgeProps> = (args) => {
   return (
     <EnhancedView prop="Default">
-      {iconOnly ? (
-        <Badge iconOnly {...args}>
-          <PlusIcon />
-        </Badge>
-      ) : (
-        <Badge
-          leading={leading ? <ArrowUpIcon /> : undefined}
-          trailing={trailing ? <ArrowRightIcon /> : undefined}
-          {...args}
-        >
-          Label
-        </Badge>
-      )}
+      <Badge {...args}>Check-in successfully at: 08:25 22/05/2024!</Badge>
     </EnhancedView>
   );
 };

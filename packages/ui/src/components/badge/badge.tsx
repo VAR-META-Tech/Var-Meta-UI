@@ -10,7 +10,7 @@ const badgeVariants = tv({
   base: 'inline-flex items-center justify-center text-center font-medium transition-colors focus:outline-none',
   variants: {
     size: {
-      sm: 'px-2.5 py-3 text-xs',
+      sm: 'px-2.5 py-2 text-xs',
       md: 'px-3 py-2.5 text-xs',
       lg: 'px-4 py-3.5 text-base',
     },

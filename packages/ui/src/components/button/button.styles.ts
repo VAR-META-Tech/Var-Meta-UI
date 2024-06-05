@@ -24,7 +24,8 @@ export const buttonVariants = cva(
       },
       size: {
         none: 'gap-xs text-sm font-semibold',
-        sm: 'px-lg py-md gap-xs h-9 text-sm font-semibold',
+        xs: 'gap-xs p-2 h-8 text-sm font-semibold',
+        sm: 'gap-xs p-2 h-9 text-sm font-semibold',
         md: 'gap-xs h-10 px-3.5 py-2.5 text-sm font-semibold',
         lg: 'gap-sm h-11 px-4 py-2.5 text-base font-semibold',
         xl: 'px-4.5 gap-sm h-12 py-3 text-base font-semibold',

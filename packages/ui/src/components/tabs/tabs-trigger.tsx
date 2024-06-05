@@ -64,7 +64,6 @@ export const TabsTrigger = React.forwardRef<ElementRef<typeof TabsPrimitive.Trig
           <LazyMotion features={domMax}>
             <m.span
               className={cursorVariant({ variant, radius })}
-              data-slot="cursor"
               layoutDependency={false}
               layoutId="cursor"
               transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}

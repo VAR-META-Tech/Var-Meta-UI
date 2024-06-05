@@ -1,48 +1,109 @@
-import { forwardRef, type ElementRef, type ReactNode } from 'react';
+import { Children, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { type VariantProps } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
-import { ChevronDownIcon } from '../icons';
+import { withAttr } from '../../utils/withAttr';
+import { ChevronRightIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
-import { Show } from '../utility';
 import { useNavigationContext } from './navigation-context';
 import { NavigationItem, type navigationItemVariants } from './navigation-item';
 
+const navigationDropdownItemVariants = tv({
+  variants: {
+    variant: {
+      default: 'border-border-secondary ml-6 border-l pl-4',
+      brand: 'border-border-secondary ml-6 border-l pl-4',
+      dark: 'border-border-secondary ml-6 border-l pl-4',
+    },
+    active: {
+      true: 'border-brand-500',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
 export interface NavigationDropdownProps
-  extends ElementProps<'li'>,
+  extends ElementProps<'div'>,
     VariantProps<typeof navigationItemVariants>,
     VisibleState {
   asChild?: boolean;
   label?: ReactNode;
   icon?: ReactNode;
+  collapsedIcon?: ReactNode;
   collapsed?: boolean;
+  activeValue?: string;
 }
 
-const NavigationDropdown = forwardRef<ElementRef<'li'>, NavigationDropdownProps>(
-  ({ children, className, open, defaultOpen, onOpenChange, variant: variantProp, collapsed, ...props }, ref) => {
-    const { variant } = useNavigationContext();
+const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps>((props, ref) => {
+  const {
+    children,
+    className,
+    open: openProp,
+    defaultOpen,
+    onOpenChange,
+    variant: variantProp,
+    collapsed: collapsedProp,
+    collapsedIcon,
+    activeValue,
+    ...etc
+  } = props;
 
-    return (
-      <Collapsible open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
-        <CollapsibleTrigger asChild>
-          <NavigationItem
-            className={cn('group', className)}
-            ref={ref}
-            variant={variantProp || variant}
-            collapsed={collapsed}
-            {...props}
-          >
-            <ChevronDownIcon className="-rotate-90 transition-all group-aria-expanded:rotate-0" />
-          </NavigationItem>
-        </CollapsibleTrigger>
-        <Show when={!collapsed}>
-          <CollapsibleContent className="ml-6 mt-2 border-l border-gray-200 pl-6">{children}</CollapsibleContent>
-        </Show>
-      </Collapsible>
-    );
-  }
-);
+  const [open, setOpen] = useControllableState<boolean>({
+    prop: openProp,
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+  });
+
+  const { variant, collapsed: collapsedContext } = useNavigationContext();
+
+  const collapsed = collapsedProp || collapsedContext;
+
+  const expanded = open && !collapsed;
+
+  return (
+    <Collapsible open={expanded} defaultOpen={defaultOpen} onOpenChange={setOpen}>
+      <CollapsibleTrigger asChild>
+        <NavigationItem
+          role="nav-item"
+          data-expanded={withAttr(expanded)}
+          aria-expanded={withAttr(expanded)}
+          className={cn('group/nav-item', className)}
+          ref={ref}
+          variant={variantProp || variant}
+          {...etc}
+        >
+          {collapsedIcon ?? (
+            <ChevronRightIcon className="h-5 w-5 transition-transform duration-300 group-aria-expanded/nav-item:rotate-90" />
+          )}
+        </NavigationItem>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="mt-2">
+        {Children.map(children, (item, i) => {
+          if (isValidElement(item)) {
+            const value = item?.props?.value ?? item?.props?.children?.props?.value;
+            return (
+              <div
+                key={i}
+                className={navigationDropdownItemVariants({
+                  active: item?.props?.active || activeValue === value,
+                  variant: variantProp || variant,
+                })}
+              >
+                {item}
+              </div>
+            );
+          }
+          return item;
+        })}
+      </CollapsibleContent>
+    </Collapsible>
+  );
+});
 
 NavigationDropdown.displayName = 'NavigationDropdown';
 

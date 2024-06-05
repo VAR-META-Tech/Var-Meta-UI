@@ -1,11 +1,12 @@
-import React, { forwardRef, type ElementRef, type ElementType, type ReactNode } from 'react';
+import React, { forwardRef, type ElementRef, type ReactNode } from 'react';
+import { Primitive } from '@radix-ui/react-primitive';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { useNavigationContext } from './navigation-context';
 
-export const navigationItemVariants = cva(
+export const navigationLinkVariants = cva(
   'text-sm flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm  font-medium transition-colors',
   {
     variants: {
@@ -45,29 +46,26 @@ export const navigationItemVariants = cva(
     ],
   }
 );
-export interface NavigationItemProps extends ElementProps<'div'>, VariantProps<typeof navigationItemVariants> {
+export interface NavigationLinkProps extends ElementProps<'a'>, VariantProps<typeof navigationLinkVariants> {
+  asChild?: boolean;
   label?: ReactNode;
   icon?: ReactNode;
-  as?: ElementType;
 }
 
-const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
+const NavigationLink = forwardRef<ElementRef<'a'>, NavigationLinkProps>(
   (
-    { className, as, onClick, label, icon, children, variant: variantProp, active, collapsed: collapsedProp, ...props },
+    { className, label, icon, children, variant: variantProp, active, asChild, collapsed: collapsedProp, ...props },
     ref
   ) => {
     const { variant, collapsed: collapsedContext } = useNavigationContext();
 
     const collapsed = Boolean(collapsedProp || collapsedContext);
-
-    const Comp = as ? as : 'a';
-
     return (
-      <Comp
+      <Primitive.a
+        asChild={asChild}
         data-active={active}
         ref={ref}
-        className={cn(navigationItemVariants({ collapsed, variant: variantProp || variant, active, className }))}
-        onClick={onClick}
+        className={cn(navigationLinkVariants({ collapsed, variant: variantProp || variant, active, className }))}
         {...props}
       >
         {collapsed ? (
@@ -81,11 +79,11 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
             <div className="ml-2">{children}</div>
           </>
         )}
-      </Comp>
+      </Primitive.a>
     );
   }
 );
 
-NavigationItem.displayName = 'NavigationItem';
+NavigationLink.displayName = 'NavigationLink';
 
-export { NavigationItem };
+export { NavigationLink };

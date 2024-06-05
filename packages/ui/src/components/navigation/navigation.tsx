@@ -1,12 +1,13 @@
 import React, { forwardRef, type ElementRef } from 'react';
 import { Primitive } from '@radix-ui/react-primitive';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { NavigationProvider } from './navigation-context';
 
-const navigationVariants = cva('flex w-full list-none gap-1', {
+const navigationVariants = tv({
+  base: 'flex w-full list-none gap-1',
   variants: {
     orientation: {
       horizontal: 'flex-row items-center',
@@ -24,17 +25,13 @@ const navigationVariants = cva('flex w-full list-none gap-1', {
 });
 export interface NavigationProps extends ElementProps<'ul'>, VariantProps<typeof navigationVariants> {
   asChild?: boolean;
+  collapsed?: boolean;
 }
 
 const Navigation = forwardRef<ElementRef<'ul'>, NavigationProps>(
-  ({ className, orientation, asChild, variant, ...props }, ref) => {
+  ({ className, orientation, collapsed, asChild, variant, ...props }, ref) => {
     return (
-      <NavigationProvider
-        value={{
-          variant,
-          orientation,
-        }}
-      >
+      <NavigationProvider value={{ variant, collapsed, orientation }}>
         <Primitive.ul
           asChild={asChild}
           className={cn(navigationVariants({ orientation, className }))}

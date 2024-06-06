@@ -1,8 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Sidebar, type SidebarProps } from '@var-ui/core';
-import { UserRight01Icon, Users01Icon } from '@var-ui/icons';
+import { CalendarIcon, Sidebar, type SidebarProps } from '@var-ui/core';
+import {
+  Award01Icon,
+  CoinsStacked03Icon,
+  CurrencyDollarCircleIcon,
+  Diamond01Icon,
+  GraduationHat01Icon,
+  Lightbulb02Icon,
+  UserRight01Icon,
+  Users01Icon,
+  UsersPlusIcon,
+  UserUp02Icon,
+} from '@var-ui/icons';
 
 const meta: Meta = {
   title: 'Components/Layout',
@@ -44,34 +55,105 @@ const Logo = () => (
 
 const links = [
   {
-    icon: <Users01Icon className="h-5 w-5" />,
-    label: 'Staff List',
-    value: 'Staff List',
-    href: '/',
+    title: 'GENERAL',
+    routes: [
+      {
+        icon: <Users01Icon className="h-5 w-5" />,
+        label: 'Staff List',
+        value: 'Staff List',
+        href: '/',
+      },
+      {
+        icon: <UserRight01Icon className="h-5 w-5" />,
+        label: 'Request',
+        value: 'Request',
+        dropdowns: [
+          {
+            label: 'Work from home',
+            value: 'Work from home',
+            href: '/',
+          },
+          {
+            label: 'Day off',
+            value: 'Day off',
+            href: '/',
+          },
+          {
+            label: 'CI/CO',
+            value: 'CI/CO',
+            href: '/',
+          },
+          {
+            label: 'Overtime',
+            value: 'Overtime',
+            href: '/',
+          },
+        ],
+      },
+      {
+        icon: <Award01Icon className="h-5 w-5" />,
+        label: 'Ranking Chart',
+        value: 'Ranking Chart',
+        href: '/',
+      },
+    ],
   },
+
   {
-    icon: <UserRight01Icon className="h-5 w-5" />,
-    label: 'Request',
-    value: 'Request',
-    dropdowns: [
+    title: 'SALARY',
+    routes: [
       {
-        label: 'Work from home',
-        value: 'Work from home',
+        icon: <CalendarIcon className="h-5 w-5" />,
+        label: 'Time Keeping',
+        value: 'Time Keeping',
         href: '/',
       },
       {
-        label: 'Day off',
-        value: 'Day off',
+        icon: <CurrencyDollarCircleIcon className="h-5 w-5" />,
+        label: 'Payroll',
+        value: 'Payroll',
         href: '/',
       },
       {
-        label: 'CI/CO',
-        value: 'CI/CO',
+        icon: <UserUp02Icon className="h-5 w-5" />,
+        label: 'Check Point',
+        value: 'Check Point',
+        href: '/',
+      },
+    ],
+  },
+
+  {
+    title: 'MANAGEMENT',
+    routes: [
+      {
+        icon: <CoinsStacked03Icon className="h-5 w-5" />,
+        label: 'Resource Management',
+        value: 'Resource Management',
         href: '/',
       },
       {
-        label: 'Overtime',
-        value: 'Overtime',
+        icon: <Lightbulb02Icon className="h-5 w-5" />,
+        label: 'Initiative Management',
+        value: 'Initiative Management',
+        href: '/',
+      },
+      {
+        icon: <Diamond01Icon className="h-5 w-5" />,
+        label: 'Asset Management',
+        value: 'Asset Management',
+        href: '/',
+      },
+      {
+        icon: <UsersPlusIcon className="h-5 w-5" />,
+        label: 'Recruitment Management',
+        value: 'Recruitment Management',
+        href: '/',
+      },
+      {
+        icon: <GraduationHat01Icon className="h-5 w-5" />,
+        label: 'Skills Management',
+        value: 'Skills Management',
         href: '/',
       },
     ],
@@ -92,34 +174,35 @@ const DefaultTemplate: StoryFn<SidebarProps> = ({ ...args }) => {
         </Sidebar.Head>
 
         <Sidebar.Body>
-          <Sidebar.Body.Section>
-            <Sidebar.Body.Title>GENERAL</Sidebar.Body.Title>
-            <Sidebar.Body.List>
-              {links?.map((item) => {
-                if (item?.dropdowns) {
-                  return (
-                    <Sidebar.Body.List.Dropdown key={item.label} icon={item.icon} label={item.label}>
-                      {item.dropdowns.map((child) => (
-                        <Link passHref legacyBehavior href={child.href} key={child.value}>
-                          <Sidebar.Body.List.Item value={child.value} key={child.value} label={child.label} />
-                        </Link>
-                      ))}
-                    </Sidebar.Body.List.Dropdown>
-                  );
-                }
+          {links.map((link) => (
+            <Sidebar.Body.Section key={link.title}>
+              <Sidebar.Body.Title>{link.title}</Sidebar.Body.Title>
+              <Sidebar.Body.List>
+                {link.routes.map((item) => {
+                  if (item?.dropdowns) {
+                    return (
+                      <Sidebar.Body.List.Dropdown key={item.label} icon={item.icon} label={item.label}>
+                        {item.dropdowns.map((child) => (
+                          <Link passHref legacyBehavior href={child.href} key={child.value}>
+                            <Sidebar.Body.List.Item value={child.value} key={child.value} label={child.label} />
+                          </Link>
+                        ))}
+                      </Sidebar.Body.List.Dropdown>
+                    );
+                  }
 
-                return (
-                  <Link passHref legacyBehavior href={item.href} key={item.value}>
-                    <Sidebar.Body.List.Item value={item.value} key={item.value} icon={item.icon} label={item.label} />
-                  </Link>
-                );
-              })}
-            </Sidebar.Body.List>
-          </Sidebar.Body.Section>
-          <Sidebar.Body.Section>
-            <Sidebar.Body.Title>MANAGEMENT</Sidebar.Body.Title>
-          </Sidebar.Body.Section>
+                  return (
+                    <Link passHref legacyBehavior href={item.href} key={item.value}>
+                      <Sidebar.Body.List.Item value={item.value} key={item.value} icon={item.icon} label={item.label} />
+                    </Link>
+                  );
+                })}
+              </Sidebar.Body.List>
+            </Sidebar.Body.Section>
+          ))}
         </Sidebar.Body>
+
+        <Sidebar.Footer>Footer</Sidebar.Footer>
       </Sidebar>
 
       <main className="ml-20">Main Page</main>

@@ -1,16 +1,17 @@
 import React, { forwardRef, type ElementRef, type ElementType, type ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { domMax, LazyMotion, m } from 'framer-motion';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { useNavigationContext } from './navigation-context';
 
 export const navigationItemVariants = cva(
-  'text-sm flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm  font-medium transition-colors',
+  'text-sm relative flex h-10 cursor-pointer items-center justify-between gap-2 rounded-sm  font-medium transition-colors',
   {
     variants: {
       variant: {
-        default: 'focus:shadow-gray-base text-foreground-quaternary hover:bg-background-tertiary hover:text-foreground',
+        default: 'text-foreground-quaternary hover:bg-background-tertiary hover:text-foreground',
         brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 focus:shadow-brand-base hover:text-white',
         dark: 'focus:shadow-gray-base bg-gray-950 text-gray-100 hover:bg-gray-800 hover:text-white',
       },
@@ -49,11 +50,24 @@ export interface NavigationItemProps extends ElementProps<'div'>, VariantProps<t
   label?: ReactNode;
   icon?: ReactNode;
   as?: ElementType;
+  withActiveCursor?: boolean;
 }
 
 const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
   (
-    { className, as, onClick, label, icon, children, variant: variantProp, active, collapsed: collapsedProp, ...props },
+    {
+      className,
+      as,
+      onClick,
+      withActiveCursor,
+      label,
+      icon,
+      children,
+      variant: variantProp,
+      active,
+      collapsed: collapsedProp,
+      ...props
+    },
     ref
   ) => {
     const { variant, collapsed: collapsedContext } = useNavigationContext();
@@ -71,16 +85,27 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
         {...props}
       >
         {collapsed ? (
-          icon
+          <div className="min-w-5">{icon}</div>
         ) : (
           <>
             <div className="flex flex-1 items-center gap-3">
-              {icon}
-              {label}
+              <div className="min-w-5">{icon}</div>
+              <div className="flex-1 whitespace-nowrap">{label}</div>
             </div>
             <div className="ml-2">{children}</div>
           </>
         )}
+
+        {active && withActiveCursor ? (
+          <LazyMotion features={domMax}>
+            <m.span
+              className={cn('bg-brand-500 inset-y-center -left-4 h-5 w-1 rounded-r-sm')}
+              layoutDependency={false}
+              layoutId="nav-cursor"
+              transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}
+            />
+          </LazyMotion>
+        ) : null}
       </Comp>
     );
   }

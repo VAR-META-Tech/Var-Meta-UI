@@ -2,9 +2,10 @@ import { createSafeContext } from '../../utils/create-safe-context';
 
 export interface SidebarContext {
   toggleOpen: () => void;
-  setOpen: (open: boolean) => void;
   open?: boolean;
+  setOpen: (open: boolean) => void;
   isHover?: boolean;
+  setIsHover?: (isHover: boolean) => void;
   isExpanded: boolean;
   active?: string;
   setActive: (active: string) => void;

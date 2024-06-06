@@ -1,4 +1,4 @@
-import { Children, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
+import { Children, cloneElement, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { type VariantProps } from 'class-variance-authority';
 import { tv } from 'tailwind-variants';
@@ -94,7 +94,10 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
                   variant: variantProp || variant,
                 })}
               >
-                {item}
+                {cloneElement(item, {
+                  ...item.props,
+                  withActiveCursor: false,
+                })}
               </div>
             );
           }

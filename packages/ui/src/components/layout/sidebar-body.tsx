@@ -11,19 +11,17 @@ import {
 } from '../navigation';
 import { useSidebarContext } from './sidebar.context';
 
-const SidebarNavigation = forwardRef<ElementRef<'div'>, ElementProps<'div'>>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <div
-        className={cn('my-6 flex flex-col gap-y-4 overflow-y-auto overflow-x-hidden', className)}
-        {...props}
-        ref={ref}
-      >
-        {children}
-      </div>
-    );
-  }
-);
+const SidebarBodyRoot = forwardRef<ElementRef<'div'>, ElementProps<'div'>>(({ children, className, ...props }, ref) => {
+  return (
+    <div
+      className={cn('mb-2 mt-6 flex flex-col gap-y-4 overflow-y-auto overflow-x-hidden', className)}
+      {...props}
+      ref={ref}
+    >
+      {children}
+    </div>
+  );
+});
 
 const SidebarSection = forwardRef<ElementRef<'div'>, ElementProps<'div'>>(({ children, className, ...props }, ref) => {
   return (
@@ -87,6 +85,7 @@ const SidebarNavListItem = forwardRef<ElementRef<typeof NavigationItem>, Sidebar
           onClick?.(e);
           setActive(value);
         }}
+        withActiveCursor
         active={activeProp || active === value}
         ref={ref}
         {...props}
@@ -100,7 +99,7 @@ const List = Object.assign(SidebarNavList, {
   Item: SidebarNavListItem,
 });
 
-export const SidebarBody = Object.assign(SidebarNavigation, {
+export const SidebarBody = Object.assign(SidebarBodyRoot, {
   Section: SidebarSection,
   Title: SidebarNavTitle,
   List,

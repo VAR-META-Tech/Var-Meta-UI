@@ -11,6 +11,7 @@ interface PaginationContext {
   onPrevious: () => void;
   onFirst: () => void;
   onLast: () => void;
+  shape?: 'square' | 'circle' | 'button';
 }
 
 export const [PaginationProvider, usePaginationContext] = createSafeContext<PaginationContext>(

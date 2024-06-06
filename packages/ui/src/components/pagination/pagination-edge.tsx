@@ -1,7 +1,7 @@
 import React, { forwardRef, type ReactNode } from 'react';
 
 import { createPolymorphicComponent } from '../../utils/create-polymorphic-component';
-import { ArrowLeftIcon, ArrowRightIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from '../icons';
+import { ChevronLeftIcon, ChevronRightIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from '../icons';
 import { usePaginationContext } from './pagination-context';
 import { PaginationControl, type PaginationControlProps } from './pagination-control';
 
@@ -23,7 +23,13 @@ export function createEdgeComponent({ icon: defaultIcon, name, action, type }: C
     const disabled = type === 'next' ? ctx.active === ctx.total : ctx.active === 1;
 
     return (
-      <PaginationControl withPadding disabled={ctx.disabled || disabled} ref={ref} onClick={ctx[action]} {...others}>
+      <PaginationControl
+        withBorder={false}
+        disabled={ctx.disabled || disabled}
+        ref={ref}
+        onClick={ctx[action]}
+        {...others}
+      >
         {icon}
       </PaginationControl>
     );
@@ -34,38 +40,28 @@ export function createEdgeComponent({ icon: defaultIcon, name, action, type }: C
 }
 
 export const PaginationNext = createEdgeComponent({
-  icon: (
-    <>
-      <span className="hidden md:block">Next</span>
-      <ArrowRightIcon />
-    </>
-  ),
+  icon: <ChevronRightIcon className="h-5 w-5" />,
   name: 'PaginationNext',
   action: 'onNext',
   type: 'next',
 });
 
 export const PaginationPrevious = createEdgeComponent({
-  icon: (
-    <>
-      <ArrowLeftIcon />
-      <span className="hidden md:block">Previous</span>
-    </>
-  ),
+  icon: <ChevronLeftIcon className="h-5 w-5" />,
   name: 'PaginationPrevious',
   action: 'onPrevious',
   type: 'previous',
 });
 
 export const PaginationFirst = createEdgeComponent({
-  icon: <DoubleArrowRightIcon />,
+  icon: <DoubleArrowRightIcon className="h-5 w-5" />,
   name: 'PaginationFirst',
   action: 'onFirst',
   type: 'previous',
 });
 
 export const PaginationLast = createEdgeComponent({
-  icon: <DoubleArrowLeftIcon />,
+  icon: <DoubleArrowLeftIcon className="h-5 w-5" />,
   name: 'PaginationLast',
   action: 'onLast',
   type: 'next',

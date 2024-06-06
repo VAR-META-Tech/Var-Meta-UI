@@ -89,7 +89,7 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
         ) : (
           <>
             <div className="flex flex-1 items-center gap-3">
-              <div className="min-w-5">{icon}</div>
+              {icon}
               <div className="flex-1 whitespace-nowrap">{label}</div>
             </div>
             <div className="ml-2">{children}</div>

@@ -1,5 +1,5 @@
-export { CardPagination, type CardPaginationProps } from './card-pagination';
 export { Pagination, type PaginationProps } from './pagination';
+export { PaginationMain, type PaginationMainProps } from './pagination-main';
 export { PaginationControl, type PaginationControlProps } from './pagination-control';
 export { PaginationDot, type PaginationDotProps } from './pagination-dot';
 export {
@@ -10,4 +10,4 @@ export {
   PaginationPrevious,
 } from './pagination-edge';
 export { PaginationItems, type PaginationItemsProps } from './pagination-item';
-export { PaginationRoot, type PaginationRootProps } from './pagination-root';
+export { PaginationProvider, type PaginationProviderProps } from './pagination-provider';

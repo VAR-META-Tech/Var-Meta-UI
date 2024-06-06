@@ -213,7 +213,7 @@ const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
   return (
     <div className="bg-background-secondary border-border relative min-h-[50vh] border">
       <Layout>
-        <Sidebar className="border-border border" {...args}>
+        <Sidebar {...args}>
           <Sidebar.Head>
             <Sidebar.Head.Toggle />
 

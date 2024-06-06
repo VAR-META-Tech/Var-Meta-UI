@@ -38,7 +38,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
     <TableProvider value={{ variant, size, withHeader: !!header }}>
       <div
         className={cn(
-          'bg-background border-border-secondary relative w-full overflow-auto rounded-xl border shadow-sm',
+          'bg-background border-border-secondary relative w-full overflow-auto rounded-sm border shadow-sm',
           className
         )}
       >

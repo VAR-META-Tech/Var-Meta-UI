@@ -8,19 +8,10 @@ export interface PaginationItemsProps {
   /** Dots icon component */
   dotsIcon?: ReactNode;
   variant?: PaginationControlProps['variant'];
-  itemStyle?: 'default' | 'minimal';
 }
 
-export function PaginationItems({ dotsIcon, itemStyle = 'default', variant }: PaginationItemsProps) {
+export function PaginationItems({ dotsIcon, variant }: PaginationItemsProps) {
   const ctx = usePaginationContext();
-
-  if (itemStyle === 'minimal') {
-    return (
-      <div className="text-foreground-secondary text-sm font-medium">
-        Page {ctx.active} of {ctx.total ?? 0}
-      </div>
-    );
-  }
 
   const items = ctx.range.map((page, index) => {
     if (page === 'dots') {

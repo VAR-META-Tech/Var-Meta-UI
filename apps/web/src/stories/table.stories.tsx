@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import {
-  Pagination,
   Table,
   TableBody,
   TableCaption,
@@ -51,46 +50,44 @@ const DefaultTemplate: StoryFn<TableProps> = ({ header, ...args }) => {
       </TableHeader>
       <TableBody>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>INV001</TableCell>
           <TableCell>Paid</TableCell>
           <TableCell>Credit Card</TableCell>
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
       </TableBody>
 
-      <TableCaption>
-        <Pagination total={10} />
-      </TableCaption>
+      <TableCaption></TableCaption>
     </Table>
   );
 };

@@ -3,9 +3,9 @@ import React, { forwardRef, type ElementRef } from 'react';
 import { usePagination } from '../../hooks';
 import { type ElementProps } from '../../types';
 import { createEventHandler } from '../../utils/create-event-handler';
-import { PaginationProvider } from './pagination-context';
+import { PaginationProvider as BasePaginationProvider } from './pagination-context';
 
-export interface PaginationRootProps extends ElementProps<'div', 'value' | 'onChange'> {
+export interface PaginationProviderProps extends ElementProps<'div', 'value' | 'onChange'> {
   /** Total number of pages, must be an integer */
   total: number;
 
@@ -41,9 +41,12 @@ export interface PaginationRootProps extends ElementProps<'div', 'value' | 'onCh
 
   /** Additional props passed down to controls */
   getItemProps?: (page: number) => Record<string, any>;
+
+  /** Shape of pagination controls */
+  shape?: 'square' | 'circle' | 'button';
 }
 
-const PaginationRoot = forwardRef<ElementRef<'div'>, PaginationRootProps>((props, ref) => {
+const PaginationProvider = forwardRef<ElementRef<'div'>, PaginationProviderProps>((props, ref) => {
   const {
     total,
     value,
@@ -57,6 +60,7 @@ const PaginationRoot = forwardRef<ElementRef<'div'>, PaginationRootProps>((props
     onFirstPage,
     onLastPage,
     getItemProps,
+    shape = 'square',
     style,
     ...etc
   } = props;
@@ -76,13 +80,14 @@ const PaginationRoot = forwardRef<ElementRef<'div'>, PaginationRootProps>((props
   const handleLastPage = createEventHandler(onLastPage, last);
 
   return (
-    <PaginationProvider
+    <BasePaginationProvider
       value={{
         total,
         range,
         active,
         disabled,
         getItemProps,
+        shape,
         onChange: setPage,
         onNext: handleNextPage,
         onPrevious: handlePreviousPage,
@@ -93,17 +98,17 @@ const PaginationRoot = forwardRef<ElementRef<'div'>, PaginationRootProps>((props
       <div
         style={
           {
-            '--pagination-control-size': '40px',
+            '--pagination-control-size': '32px',
             ...style,
           } as React.CSSProperties
         }
         ref={ref}
         {...etc}
       />
-    </PaginationProvider>
+    </BasePaginationProvider>
   );
 });
 
-PaginationRoot.displayName = 'PaginationRoot';
+PaginationProvider.displayName = 'PaginationProvider';
 
-export { PaginationRoot };
+export { PaginationProvider };

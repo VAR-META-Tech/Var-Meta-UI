@@ -22,7 +22,10 @@ export type ElementProps<ElementType extends React.ElementType, PropsToOmit exte
 >;
 
 export interface VisibleState {
+  /** Controllable component open state */
   open?: boolean;
+  /** Controllable component open state */
   defaultOpen?: boolean;
+  /** Callback fired when open state changes */
   onOpenChange?: (open: boolean) => void;
 }

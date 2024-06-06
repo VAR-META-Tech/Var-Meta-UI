@@ -85,6 +85,7 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
       <CollapsibleContent className="mt-2">
         {Children.map(children, (item, i) => {
           if (isValidElement(item)) {
+            const isItemOnChild = !!item?.props?.children?.props?.value;
             const value = item?.props?.value ?? item?.props?.children?.props?.value;
             return (
               <div
@@ -96,7 +97,12 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
               >
                 {cloneElement(item, {
                   ...item.props,
-                  withActiveCursor: false,
+                  children: isItemOnChild
+                    ? cloneElement(item.props.children, {
+                        ...item.props.children.props,
+                        withActiveCursor: false,
+                      })
+                    : item.props.children,
                 })}
               </div>
             );

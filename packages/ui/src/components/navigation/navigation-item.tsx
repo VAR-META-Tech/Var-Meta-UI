@@ -20,7 +20,7 @@ export const navigationItemVariants = cva(
         false: '',
       },
       collapsed: {
-        true: 'p-2.5',
+        true: 'p-2.5 min-w-10',
         false: 'px-3 py-2',
       },
     },
@@ -85,7 +85,7 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
         {...props}
       >
         {collapsed ? (
-          <div className="min-w-5">{icon}</div>
+          <div className="aspect-square min-w-5">{icon}</div>
         ) : (
           <>
             <div className="flex flex-1 items-center gap-3">
@@ -99,7 +99,7 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
         {active && withActiveCursor ? (
           <LazyMotion features={domMax}>
             <m.span
-              className={cn('bg-brand-500 inset-y-center -left-4 h-5 w-1 rounded-r-sm')}
+              className={cn('bg-brand-500 absolute -left-5 top-2.5 h-5 w-1 rounded-r-sm')}
               layoutDependency={false}
               layoutId="nav-cursor"
               transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}

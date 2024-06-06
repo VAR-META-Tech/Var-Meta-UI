@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Meta, StoryFn } from '@storybook/react';
-import { CalendarIcon, Layout, Sidebar } from '@var-ui/core';
+import { CalendarIcon, Sidebar, SidebarProvider, type SidebarProps } from '@var-ui/core';
 import {
   Award01Icon,
   CoinsStacked03Icon,
@@ -16,8 +16,8 @@ import {
 } from '@var-ui/icons';
 
 const meta: Meta = {
-  title: 'Components/Layout',
-  component: Layout,
+  title: 'Components/Layout/Sidebar',
+  component: SidebarProvider,
   tags: ['autodocs'],
   argTypes: {
     expandOnHover: {
@@ -209,11 +209,11 @@ const links = [
   },
 ];
 
-const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
+const DefaultTemplate: StoryFn<SidebarProps> = ({ ...args }) => {
   return (
-    <div className="bg-background-secondary border-border relative min-h-[50vh] border">
-      <Layout>
-        <Sidebar className="border-border border" {...args}>
+    <div className="bg-background-secondary relative min-h-[50vh]">
+      <SidebarProvider {...args}>
+        <Sidebar>
           <Sidebar.Head>
             <Sidebar.Head.Toggle />
 
@@ -259,11 +259,9 @@ const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
 
           <Sidebar.Footer>Footer</Sidebar.Footer>
         </Sidebar>
-
-        <Layout.Content>Main Page</Layout.Content>
-      </Layout>
+      </SidebarProvider>
     </div>
   );
 };
 
-export const Default: StoryFn<typeof Layout> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof Sidebar> = DefaultTemplate.bind({});

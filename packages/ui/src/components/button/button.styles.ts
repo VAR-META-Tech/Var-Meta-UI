@@ -56,42 +56,42 @@ export const buttonVariants = cva(
         variant: 'solid',
         color: 'primary',
         className:
-          'bg-brand-600 border-brand-600 hover:border-brand-700 hover:bg-brand-700 focus:shadow-brand-xs border',
+          'bg-brand-500 border-brand-500 hover:border-brand-600 hover:bg-brand-600 focus:shadow-brand-xs border',
       },
       {
         variant: 'solid',
         color: 'secondary',
         className:
-          'bg-secondary-600 border-secondary-600 hover:border-secondary-700 hover:bg-secondary-700 focus:shadow-secondary-xs border',
+          'bg-secondary-500 border-secondary-500 hover:border-secondary-600 hover:bg-secondary-600 focus:shadow-secondary-xs border',
       },
       {
         variant: 'solid',
         color: 'tertiary',
         className:
-          'bg-tertiary-600 border-tertiary-600 hover:border-tertiary-700 hover:bg-tertiary-700 focus:shadow-gray-xs border',
+          'bg-tertiary-500 border-tertiary-500 hover:border-tertiary-600 hover:bg-tertiary-600 focus:shadow-gray-xs border',
       },
       {
         variant: 'solid',
         color: 'gray',
-        className: 'focus:shadow-gray-xs border border-gray-600 bg-gray-600 hover:border-gray-700 hover:bg-gray-700',
+        className: 'focus:shadow-gray-xs border border-gray-500 bg-gray-500 hover:border-gray-600 hover:bg-gray-600',
       },
       {
         variant: 'solid',
         color: 'error',
         className:
-          'bg-error-600 border-error-600 hover:border-error-700 hover:bg-error-700 focus:shadow-error-xs border',
+          'bg-error-500 border-error-500 hover:border-error-600 hover:bg-error-600 focus:shadow-error-xs border',
       },
       {
         variant: 'solid',
         color: 'warning',
         className:
-          'bg-warning-600 border-warning-600 hover:border-warning-700 hover:bg-warning-700 focus:shadow-warning-xs border',
+          'bg-warning-500 border-warning-500 hover:border-warning-600 hover:bg-warning-600 focus:shadow-warning-xs border',
       },
       {
         variant: 'solid',
         color: 'success',
         className:
-          'bg-success-600 border-success-600 hover:border-success-700 hover:bg-success-700 focus:shadow-success-xs border',
+          'bg-success-500 border-success-500 hover:border-success-600 hover:bg-success-600 focus:shadow-success-xs border',
       },
       // --------------
       {
@@ -104,19 +104,19 @@ export const buttonVariants = cva(
         variant: 'outline',
         color: 'primary',
         className:
-          'bg-background border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-700 shadow-xs focus:shadow-brand-xs border ',
+          'bg-background border-brand-300 hover:border-brand-300 hover:bg-brand-50 text-brand-600 shadow-xs focus:shadow-brand-xs border ',
       },
       {
         variant: 'outline',
         color: 'secondary',
         className:
-          'bg-background border-secondary-300 hover:border-secondary-300 hover:bg-secondary-50 text-secondary-700 shadow-xs focus:shadow-brand-xs border ',
+          'bg-background border-secondary-300 hover:border-secondary-300 hover:bg-secondary-50 text-secondary-600 shadow-xs focus:shadow-brand-xs border ',
       },
       {
         variant: 'outline',
         color: 'tertiary',
         className:
-          'bg-background border-tertiary-300 hover:border-tertiary-300 hover:bg-tertiary-50 text-tertiary-700 shadow-xs focus:shadow-brand-xs border',
+          'bg-background border-tertiary-300 hover:border-tertiary-300 hover:bg-tertiary-50 text-tertiary-600 shadow-xs focus:shadow-brand-xs border',
       },
       {
         variant: 'outline',
@@ -128,19 +128,19 @@ export const buttonVariants = cva(
         variant: 'outline',
         color: 'error',
         className:
-          'bg-background border-error-300 hover:border-error-300 hover:bg-error-50 text-error-700 shadow-xs focus:shadow-error-xs border ',
+          'bg-background border-error-300 hover:border-error-300 hover:bg-error-50 text-error-600 shadow-xs focus:shadow-error-xs border ',
       },
       {
         variant: 'outline',
         color: 'warning',
         className:
-          'bg-background border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-700 shadow-xs focus:shadow-warning-xs border ',
+          'bg-background border-warning-300 hover:border-warning-300 hover:bg-warning-50 text-warning-600 shadow-xs focus:shadow-warning-xs border ',
       },
       {
         variant: 'outline',
         color: 'success',
         className:
-          'bg-background border-success-300 hover:border-success-300 hover:bg-success-50 text-success-700 shadow-xs focus:shadow-success-xs border ',
+          'bg-background border-success-300 hover:border-success-300 hover:bg-success-50 text-success-600 shadow-xs focus:shadow-success-xs border ',
       },
       // --------------
       {
@@ -152,42 +152,42 @@ export const buttonVariants = cva(
       {
         variant: 'ghost',
         color: 'primary',
-        className: 'text-brand-600 hover:text-brand-700 active:text-brand-600 hover:bg-brand-50 active:bg-transparent',
+        className: 'text-brand-500 hover:text-brand-600 active:text-brand-500 hover:bg-brand-50 active:bg-transparent',
       },
       {
         variant: 'ghost',
         color: 'secondary',
         className:
-          'text-secondary-600 hover:text-secondary-700 active:text-secondary-600 hover:bg-secondary-50 active:bg-transparent',
+          'text-secondary-500 hover:text-secondary-600 active:text-secondary-500 hover:bg-secondary-50 active:bg-transparent',
       },
       {
         variant: 'ghost',
         color: 'tertiary',
         className:
-          'text-tertiary-600 hover:text-tertiary-700 active:text-tertiary-600 hover:bg-tertiary-50 active:bg-transparent',
+          'text-tertiary-500 hover:text-tertiary-600 active:text-tertiary-500 hover:bg-tertiary-50 active:bg-transparent',
       },
       {
         variant: 'ghost',
         color: 'gray',
         className:
-          'hover:text-foreground-secondary text-gray-600 hover:bg-gray-50 active:bg-transparent active:text-gray-600',
+          'hover:text-foreground-secondary text-gray-500 hover:bg-gray-50 active:bg-transparent active:text-gray-500',
       },
       {
         variant: 'ghost',
         color: 'error',
-        className: 'text-error-600 hover:text-error-700 active:text-error-600 hover:bg-error-50 active:bg-transparent',
+        className: 'text-error-500 hover:text-error-600 active:text-error-500 hover:bg-error-50 active:bg-transparent',
       },
       {
         variant: 'ghost',
         color: 'warning',
         className:
-          'text-warning-600 hover:text-warning-700 active:text-warning-600 hover:bg-warning-50 active:bg-transparent',
+          'text-warning-500 hover:text-warning-600 active:text-warning-500 hover:bg-warning-50 active:bg-transparent',
       },
       {
         variant: 'ghost',
         color: 'success',
         className:
-          'text-success-600 hover:text-success-700 active:text-success-600 hover:bg-success-50 active:bg-transparent',
+          'text-success-500 hover:text-success-600 active:text-success-500 hover:bg-success-50 active:bg-transparent',
       },
 
       // --------------
@@ -199,17 +199,17 @@ export const buttonVariants = cva(
       {
         variant: 'link',
         color: 'primary',
-        className: 'text-brand-600 active:text-brand-700 hover:text-brand-700',
+        className: 'text-brand-500 active:text-brand-600 hover:text-brand-600',
       },
       {
         variant: 'link',
         color: 'secondary',
-        className: 'text-secondary-600 active:text-secondary-700 hover:text-secondary-700',
+        className: 'text-secondary-500 active:text-secondary-600 hover:text-secondary-600',
       },
       {
         variant: 'link',
         color: 'tertiary',
-        className: 'text-tertiary-600 active:text-tertiary-700 hover:text-tertiary-700',
+        className: 'text-tertiary-500 active:text-tertiary-600 hover:text-tertiary-600',
       },
       {
         variant: 'link',
@@ -219,17 +219,17 @@ export const buttonVariants = cva(
       {
         variant: 'link',
         color: 'error',
-        className: 'text-error-600 active:text-error-700 hover:text-error-700',
+        className: 'text-error-500 active:text-error-600 hover:text-error-600',
       },
       {
         variant: 'link',
         color: 'warning',
-        className: 'text-warning-600 active:text-warning-700 hover:text-warning-700',
+        className: 'text-warning-500 active:text-warning-600 hover:text-warning-600',
       },
       {
         variant: 'link',
         color: 'success',
-        className: 'text-success-600 active:text-success-700 hover:text-success-700',
+        className: 'text-success-500 active:text-success-600 hover:text-success-600',
       },
     ],
     defaultVariants: {

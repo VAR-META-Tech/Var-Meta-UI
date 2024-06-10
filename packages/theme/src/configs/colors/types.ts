@@ -1,5 +1,6 @@
 export type ColorScheme =
   | Partial<{
+      25: string;
       50: string;
       100: string;
       200: string;

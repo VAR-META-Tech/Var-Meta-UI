@@ -6,7 +6,7 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 
 const toggleVariants = cva(
-  'data-[state=checked]:bg-brand-600 data-[state=unchecked]:bg-background-tertiary focus-visible:shadow-gray-secondary focus-visible:data-[state=checked]:shadow-brand-base disabled:data-[state=checked]:bg-background-tertiary peer inline-flex shrink-0 cursor-pointer items-center  rounded-full border-2 border-transparent transition-colors focus-visible:outline-none  disabled:cursor-not-allowed',
+  'data-[state=checked]:bg-brand-300 data-[state=unchecked]:bg-gray-200 focus-visible:shadow-gray-secondary focus-visible:data-[state=checked]:shadow-brand-base disabled:data-[state=checked]:bg-gray-200 peer inline-flex shrink-0 cursor-pointer items-center  rounded-full border-2 border-transparent transition-colors focus-visible:outline-none  disabled:cursor-not-allowed',
   {
     variants: {
       size: {

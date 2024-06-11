@@ -3,32 +3,29 @@ import { type CheckedState } from '@radix-ui/react-checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
+import { radiusVariant } from '../../utils/variant-common';
 import { Checkbox } from '../checkbox';
 import { CloseIcon } from '../icons';
 import { Show } from '../utility';
 
 const tagVariants = cva(
-  'border-border inline-flex items-center justify-center whitespace-nowrap border text-center font-medium transition-colors focus:outline-none',
+  'border-border-secondary inline-flex items-center justify-center whitespace-nowrap border text-center font-medium transition-colors focus:outline-none',
   {
     variants: {
       variant: {
-        default: 'text-foreground-secondary',
+        default: 'text-foreground',
       },
-      rounded: {
-        default: 'rounded-xs',
-        sm: 'rounded-sm',
-        none: 'rounded-none',
-      },
+      radius: radiusVariant,
       size: {
-        sm: 'py-0.75 h-6 px-2 text-xs',
-        md: 'px-2.75 gap-0.75 h-6 py-0.5 text-xs',
-        lg: 'gap-0.75 h-7 px-2.5 py-1 text-sm',
+        sm: 'py-0.75 gap-1 h-6 pl-1 pr-0.5 text-xs',
+        md: 'pr-0.5 pl-1.5 gap-1 h-6 py-0.5 text-xs',
+        lg: 'gap-1 h-7 pr-0.5 pl-2 py-1 text-sm',
       },
     },
     defaultVariants: {
       variant: 'default',
       size: 'md',
-      rounded: 'default',
+      radius: 'xs',
     },
   }
 );
@@ -46,7 +43,7 @@ const tagContentVariants = cva('flex items-center', {
   },
 });
 
-const countVariants = cva('rounded-xxs flex items-center bg-gray-100 text-center font-medium', {
+const countVariants = cva('rounded-xxs flex items-center bg-background-light text-center font-medium', {
   variants: {
     size: {
       sm: 'px-1 text-xs ',
@@ -78,7 +75,7 @@ const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps
     className,
     variant = 'default',
     size = 'md',
-    rounded,
+    radius,
     icon,
     count,
     onClose,
@@ -97,10 +94,10 @@ const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps
     <div
       ref={ref}
       className={cn(
-        tagVariants({ variant, rounded, size }),
+        tagVariants({ variant, radius, size }),
         {
-          'pl-1.25': withCheckBox,
-          'pr-1': withCloseIcon || count !== undefined,
+          'pl-0.5': withCheckBox,
+          'pr-0.5': withCloseIcon || count !== undefined,
         },
         className
       )}

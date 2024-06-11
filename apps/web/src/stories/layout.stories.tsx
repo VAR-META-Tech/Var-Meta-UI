@@ -211,7 +211,7 @@ const links = [
 
 const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
   return (
-    <div className="bg-background-secondary border-border relative min-h-[50vh] border">
+    <div className="bg-background border-border relative min-h-[50vh] border">
       <Layout>
         <Sidebar {...args}>
           <Sidebar.Head>

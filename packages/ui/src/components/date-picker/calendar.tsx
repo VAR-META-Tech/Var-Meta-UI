@@ -53,11 +53,11 @@ function Calendar({
         row: 'flex w-full mt-1 rounded-full overflow-hidden',
         cell: cn(
           'text-center rounded-full text-sm p-0 relative focus-within:relative focus-within:z-20 ',
-          '[&:has([aria-selected])]:bg-background-secondary first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
+          '[&:has([aria-selected])]:bg-background-light first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
         ),
         day: cn(
           buttonVariants({ variant: 'link', color: 'default', size: 'md', radius: 'full' }),
-          'h-10 w-10 p-0 font-normal aria-selected:opacity-100 hover:bg-background-secondary '
+          'h-10 w-10 p-0 font-normal aria-selected:opacity-100 hover:bg-background-light '
         ),
         day_selected: cn(
           'bg-brand-600 rounded-full hover:bg-brand-600 focus:bg-brand-600 hover:!text-white text-white'
@@ -67,9 +67,7 @@ function Calendar({
         }),
         day_outside: 'text-disabled opacity-40',
         day_disabled: 'text-disabled opacity-40',
-        day_range_middle: cn(
-          'aria-selected:bg-background-secondary rounded-none aria-selected:text-foreground-secondary '
-        ),
+        day_range_middle: cn('aria-selected:bg-background-light rounded-none aria-selected:text-foreground-secondary '),
         day_hidden: 'invisible',
         day_range_end: '!bg-brand-600',
         day_range_start: '!bg-brand-600',

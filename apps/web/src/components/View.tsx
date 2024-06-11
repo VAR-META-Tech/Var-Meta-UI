@@ -1,4 +1,3 @@
-/* eslint-disable unused-imports/no-unused-vars */
 import type { ReactNode } from 'react';
 import * as React from 'react';
 import { cva } from 'class-variance-authority';

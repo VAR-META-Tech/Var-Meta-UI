@@ -10,8 +10,8 @@ const thVariant = tv({
   variants: {
     size: {
       sm: 'p-2 text-sm',
-      md: 'p-3 text-sm',
-      lg: 'py-2.5 px-2 text-md',
+      md: 'p-3 min-h-11 text-sm',
+      lg: 'p-3.5 text-sm',
     },
   },
   defaultVariants: {

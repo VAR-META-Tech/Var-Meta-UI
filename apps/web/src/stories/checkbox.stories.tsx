@@ -5,7 +5,7 @@ import { Star01Icon } from '@var-ui/icons';
 
 import { EnhancedView, View } from '@/components/View';
 
-const sizes: CheckboxProps['size'][] = ['sm', 'md'];
+const sizes: CheckboxProps['size'][] = ['sm', 'md', 'tag-sm', 'tag-md', 'tag-lg'];
 const checkboxOptions: CheckboxProps['checked'][] = ['indeterminate', true, false, undefined];
 const meta: Meta = {
   title: 'Components/Checkbox',

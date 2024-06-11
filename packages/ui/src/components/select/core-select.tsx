@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { assignRef } from '../../hooks/useMergedRef';
 import { cn } from '../../utils/cn';
+import { radiusVariant } from '../../utils/variant-common';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '../icons';
 
 const SelectProvider = SelectPrimitive.Root;
@@ -22,31 +23,33 @@ const SelectValue = React.forwardRef<
   );
 });
 
-export const selectTriggerVariants = cva(
-  cn([
+export const selectTriggerVariants = tv({
+  base: [
     'flex items-center justify-between text-foreground data-[placeholder]:text-muted disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
-    'border outline-none bg-background rounded-md',
+    'border outline-none ',
     'focus:outline-none outline-none group',
-  ]),
-  {
-    variants: {
-      variant: {
-        default: 'border-border data-[state=open]:shadow-brand-xs data-[state=open]:border-brand-300',
-        destructive:
-          'border-error-300 bg-background data-[state=open]:shadow-error-xs data-[state=open]:border-error-300',
-      },
-      size: {
-        none: '',
-        sm: 'h-10 px-3 py-2',
-        md: 'h-11 px-3.5 py-2.5',
-      },
+  ],
+  variants: {
+    variant: {
+      default: 'bg-input border-input-border data-[state=open]:shadow-brand-xs data-[state=open]:border-brand-300',
+      background:
+        'bg-background border-input-border data-[state=open]:shadow-brand-xs data-[state=open]:border-brand-300',
+      destructive: 'border-error-300 bg-input data-[state=open]:shadow-error-xs data-[state=open]:border-error-300',
     },
-    defaultVariants: {
-      size: 'md',
-      variant: 'default',
+    size: {
+      none: 'min-h-0',
+      xs: 'h-8 px-3 py-1',
+      sm: 'h-10 px-3 py-2',
+      md: 'h-11 px-3.5 py-2.5',
     },
-  }
-);
+    radius: radiusVariant,
+  },
+  defaultVariants: {
+    size: 'md',
+    radius: 'xs',
+    variant: 'default',
+  },
+});
 export interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
     VariantProps<typeof selectTriggerVariants> {
@@ -163,7 +166,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'hover:bg-background-secondary data-[state=checked]:bg-background-secondary focus:bg-background-secondary relative flex w-full cursor-pointer select-none items-center rounded-sm py-2.5 pl-2 pr-9 text-base outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'hover:bg-background-light data-[state=checked]:bg-background-light focus:bg-background-light rounded-xs relative flex w-full cursor-pointer select-none items-center py-2.5 pl-2 pr-9 text-base outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className
     )}
     {...props}

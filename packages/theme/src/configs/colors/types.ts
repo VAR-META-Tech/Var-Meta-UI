@@ -25,9 +25,40 @@ export type SemanticScheme =
     }>
   | string;
 
+export type ComponentScheme = {
+  hover?: string;
+  focus?: string;
+  active?: string;
+  border?: string;
+  DEFAULT: string;
+};
+
+export type ComponentColors = {
+  button?: ComponentScheme;
+  input?: ComponentScheme;
+};
+
 export type BaseColors = {
-  background: SemanticScheme;
-  foreground: SemanticScheme;
+  background: {
+    DEFAULT?: string;
+    white?: string;
+    primary?: string;
+    secondary?: string;
+    light?: string;
+    disabled?: string;
+    tertiary?: string;
+    quaternary?: string;
+  };
+  foreground: {
+    DEFAULT?: string;
+    primary?: string;
+    button?: string;
+    secondary?: string;
+    disabled?: string;
+    error?: string;
+    success?: string;
+    warning?: string;
+  };
   divider: SemanticScheme;
   active: SemanticScheme;
   disabled: SemanticScheme;
@@ -36,7 +67,7 @@ export type BaseColors = {
   muted: SemanticScheme;
 };
 
-export type ThemeColors = BaseColors & {
+export interface ThemeColors extends BaseColors, ComponentColors {
   base: ColorScheme;
   brand: ColorScheme;
   secondary: ColorScheme;
@@ -45,4 +76,4 @@ export type ThemeColors = BaseColors & {
   error: ColorScheme;
   warning: ColorScheme;
   success: ColorScheme;
-};
+}

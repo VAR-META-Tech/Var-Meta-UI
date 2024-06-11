@@ -1,29 +1,27 @@
 import { forwardRef, type ElementRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 import { CloseIcon } from '../icons';
 
-const buttonCloseVariants = cva(
-  [
+const buttonCloseVariants = tv({
+  base: [
     'rounded-xs text-foreground aspect-square bg-transparent outline-none transition-colors',
     'flex items-center justify-center',
-    'hover:bg-background-secondary hover:text-foreground-secondary hover:outline-none',
-    'focus:bg-background-secondary focus:text-foreground focus:shadow-gray-base focus:outline-none',
+    'hover:bg-background-light hover:text-foreground-secondary hover:outline-none',
+    'focus:bg-background-light focus:text-foreground focus:shadow-gray-base focus:outline-none',
   ],
-  {
-    variants: {
-      size: {
-        sm: 'h-9 w-9 ',
-        md: 'h-10 w-10',
-        lg: 'h-11 w-11',
-      },
+  variants: {
+    size: {
+      sm: 'h-9 w-9 ',
+      md: 'h-10 w-10',
+      lg: 'h-11 w-11',
     },
-    defaultVariants: {
-      size: 'md',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
 
 export interface ButtonCloseProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, ''>,

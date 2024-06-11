@@ -26,7 +26,7 @@ const cursorVariant = tv({
   base: 'absolute inset-0 z-0',
   variants: {
     variant: {
-      solid: 'bg-white dark:bg-gray-600 shadow-sm',
+      solid: 'bg-background-quaternary shadow-sm',
       outline: 'bg-transparent border border-border',
     },
     radius: {

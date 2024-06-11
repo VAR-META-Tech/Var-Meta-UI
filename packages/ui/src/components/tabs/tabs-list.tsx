@@ -10,7 +10,7 @@ const tabsListVariant = tv({
   base: 'inline-flex gap-1 p-1 items-center justify-between w-full',
   variants: {
     variant: {
-      solid: 'bg-background-tertiary border border-border-secondary',
+      solid: 'bg-background-light dark:bg-gray-800',
       outline: 'bg-transparent border border-border-secondary',
     },
     radius: radiusVariant,

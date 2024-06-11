@@ -5,7 +5,7 @@ import { Autocomplete, type AutocompleteProps } from '@var-ui/core';
 import { EnhancedView } from '@/components/View';
 
 const variants: AutocompleteProps['variant'][] = ['default', 'destructive'];
-const sizes: AutocompleteProps['size'][] = ['sm', 'md'];
+const sizes: AutocompleteProps['size'][] = ['xs', 'sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Autocomplete',

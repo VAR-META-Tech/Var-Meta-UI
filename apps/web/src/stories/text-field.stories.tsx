@@ -6,7 +6,7 @@ import { HelpCircleIcon, Mail01Icon } from '@var-ui/icons';
 import { EnhancedView } from '@/components/View';
 
 const variants: TextFieldProps['variant'][] = ['default', 'destructive'];
-const sizes: TextFieldProps['size'][] = ['sm', 'md'];
+const sizes: TextFieldProps['size'][] = ['xs', 'sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Input/TextField',

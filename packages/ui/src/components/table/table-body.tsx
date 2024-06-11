@@ -13,7 +13,7 @@ const TableBody = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes
         className={cn(
           '[&_tr:last-child]:border-0',
           {
-            '[&_tr:nth-of-type(odd)]:bg-background-secondary': variant === 'striped',
+            '[&_tr:nth-of-type(odd)]:bg-background-light': variant === 'striped',
           },
           className
         )}

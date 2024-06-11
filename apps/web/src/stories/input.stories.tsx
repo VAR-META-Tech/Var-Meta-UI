@@ -6,7 +6,7 @@ import { HelpCircleIcon, Mail01Icon } from '@var-ui/icons';
 import { EnhancedView } from '@/components/View';
 
 const variants: InputProps['variant'][] = ['default', 'destructive'];
-const sizes: InputProps['size'][] = ['sm', 'md'];
+const sizes: InputProps['size'][] = ['xs', 'sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Input',

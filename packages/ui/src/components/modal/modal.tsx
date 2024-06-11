@@ -42,7 +42,7 @@ export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((prop
           })}
         >
           <div className="text-foreground text-lg font-semibold">{title}</div>
-          <div className="text-sm text-gray-600">{description}</div>
+          <div className="text-foreground-secondary text-sm">{description}</div>
         </div>
       </div>
       {children}

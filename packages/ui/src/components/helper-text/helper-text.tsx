@@ -1,12 +1,14 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 
-const helperTextVariants = cva(cn('block text-sm font-normal mt-1.5'), {
+const helperTextVariants = tv({
+  base: 'block text-sm font-normal mt-1.5',
   variants: {
     variant: {
       default: 'text-foreground-tertiary',
+      background: 'text-foreground-tertiary',
       destructive: 'text-error-500',
       disabled: 'text-foreground-tertiary',
     },

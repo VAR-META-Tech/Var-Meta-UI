@@ -1,45 +1,48 @@
 import React, { type ReactNode } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
+import { radiusVariant } from '../../utils/variant-common';
 
-const inputVariants = cva('bg-background relative inline-flex items-center justify-between gap-2 rounded-md border', {
+const inputVariants = tv({
+  base: ' relative inline-flex items-center justify-between gap-2 border',
   variants: {
     variant: {
-      default: 'border-border focus-within:shadow-brand-xs focus-within:border-brand-300',
-      destructive: 'border-error-300 focus-within:shadow-error-xs focus-within:border-error-300',
+      default: 'bg-input border-input-border focus-within:shadow-brand-xs focus-within:border-brand-300',
+      background: 'bg-background border-input-border focus-within:shadow-brand-xs focus-within:border-brand-300',
+      destructive: 'bg-input border-error-300 focus-within:shadow-error-xs focus-within:border-error-300',
     },
     disabled: {
-      true: 'shadow-xs bg-background-secondary text-disabled cursor-not-allowed',
+      true: 'shadow-xs bg-background-disabled text-disabled cursor-not-allowed',
     },
     readOnly: {
-      true: 'bg-readonly border-readonly-border cursor-default',
+      true: 'bg-input border-input-border cursor-default',
     },
     fullWidth: {
       true: 'w-full',
     },
     size: {
-      none: '',
+      none: 'min-h-0',
+      xs: 'h-8 px-3 py-1',
       sm: 'h-10 px-3 py-2',
       md: 'h-11 px-3.5 py-2.5',
     },
+    radius: radiusVariant,
   },
   defaultVariants: {
     size: 'md',
+    radius: 'xs',
     variant: 'default',
   },
 });
 
-const baseInputVariant = cva(
-  [
+const baseInputVariant = tv({
+  base: [
     'block w-full min-w-0 flex-1 ',
-    'text-foreground placeholder:text-muted bg-transparent disabled:cursor-not-allowed',
+    'text-foreground placeholder:text-foreground-secondary bg-transparent disabled:cursor-not-allowed',
     'outline-none focus-visible:outline-none',
   ],
-  {
-    variants: {},
-  }
-);
+});
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'>,
@@ -63,12 +66,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       fullWidth,
       size,
       suffix,
+      radius,
       ...props
     },
     ref
   ) => {
     return (
-      <div className={cn(inputVariants({ variant, fullWidth, disabled, readOnly, size, className }))}>
+      <div className={cn(inputVariants({ radius, variant, fullWidth, disabled, readOnly, size, className }))}>
         {prefix && <div className={prefixClassName}>{prefix}</div>}
         <input className={cn(baseInputVariant())} ref={ref} readOnly={readOnly} disabled={disabled} {...props} />
 

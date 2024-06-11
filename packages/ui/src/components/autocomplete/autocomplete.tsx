@@ -75,6 +75,7 @@ const AutocompleteComponent = <T extends boolean = false>(
     multiple,
     allowsCustomValue,
     fullWidth,
+    radius = 'xs',
     ...etc
   } = props;
 
@@ -224,13 +225,22 @@ const AutocompleteComponent = <T extends boolean = false>(
         <PopperRoot>
           <PopperAnchor>
             <div
-              className={cn(inputVariants({ variant, className, size: 'none' }), {
-                'group flex flex-wrap items-center justify-start gap-2': true,
-                'focus-within:shadow-brand-xs': variant === 'default' || !variant,
-                'focus-within:shadow-error-xs': variant === 'destructive',
-                'shadow-xs bg-background-secondary text-disabled cursor-not-allowed': props.disabled,
-                'min-h-[40px] px-3 py-2': size === 'sm',
-                'min-h-[44px] px-3.5 py-2.5': size === 'md',
+              className={inputVariants({
+                variant,
+                radius,
+                size: 'none',
+                className: cn(
+                  {
+                    'group flex flex-wrap items-center justify-start gap-2': true,
+                    'focus-within:shadow-brand-xs': variant === 'default' || !variant,
+                    'focus-within:shadow-error-xs': variant === 'destructive',
+                    'shadow-xs bg-background-disabled text-disabled cursor-not-allowed': props.disabled,
+                    'min-h-8 px-3 py-1': size === 'xs',
+                    'min-h-10 px-3 py-2': size === 'sm',
+                    'min-h-11 px-3.5 py-2.5': size === 'md',
+                  },
+                  className
+                ),
               })}
             >
               {prefix ?? <SearchIcon className="shrink-0" />}
@@ -263,7 +273,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                     <button
                       onClick={handleClear}
                       className={cn(
-                        'hover:bg-background-secondary hover:text-foreground-secondary text-foreground-secondary pointer-events-none invisible relative z-10 flex h-6 w-6 items-center justify-center rounded-full opacity-0 outline-none transition-all',
+                        'hover:bg-background-light hover:text-foreground-secondary text-foreground-secondary pointer-events-none invisible relative z-10 flex h-6 w-6 items-center justify-center rounded-full opacity-0 outline-none transition-all',
                         {
                           'group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100':
                             selected?.length !== 0,
@@ -320,12 +330,12 @@ const AutocompleteComponent = <T extends boolean = false>(
                           }}
                           onSelect={() => handleSelectOption(option)}
                           className={cn('flex w-full items-center justify-between gap-2', {
-                            'bg-background-secondary': isSelected,
+                            'bg-background-light': isSelected,
                             'cursor-not-allowed': props.disabled,
                           })}
                         >
                           {option.label}
-                          {isSelected ? <CheckIcon className="text-brand-600 w-4" /> : null}
+                          {isSelected ? <CheckIcon className="text-foreground w-4" /> : null}
                         </CommandItem>
                       );
                     })}

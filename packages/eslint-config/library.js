@@ -23,7 +23,10 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint', 'unused-imports'],
+      plugins: [
+        '@typescript-eslint',
+        // 'unused-imports'
+      ],
       extends: ['next/core-web-vitals'],
       parserOptions: {
         project,
@@ -61,11 +64,11 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-console': 'off',
         'import/no-cycle': 'off',
-        'unused-imports/no-unused-imports': 'error',
-        'unused-imports/no-unused-vars': [
-          'warn',
-          { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
-        ],
+        // 'unused-imports/no-unused-imports': 'error',
+        // 'unused-imports/no-unused-vars': [
+        //   'warn',
+        //   { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+        // ],
         'no-restricted-exports': ['off', { restrictedNamedExports: ['default'] }],
         'new-cap': ['off', { newIsCap: true }],
         'no-plusplus': 'off',

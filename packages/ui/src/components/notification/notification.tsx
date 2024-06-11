@@ -153,12 +153,12 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
 
       <Show when={variant === 'image'}>
         <div className="flex">
-          <div className="relative hidden h-full min-w-[5rem] max-w-[5rem] flex-col bg-gray-50 md:flex">
+          <div className="bg-background relative hidden h-full min-w-[5rem] max-w-[5rem] flex-col md:flex">
             <img src={src} {...imgProps} className={cn('absolute h-full w-full object-cover', imgProps?.className)} />
           </div>
           <div className="flex flex-col gap-3 p-4 pl-5">
             <NotificationContent title={title} description={description} />
-            <div className="relative flex max-h-[122px] min-h-[122px] w-full flex-col bg-gray-50 md:hidden">
+            <div className="bg-background relative flex max-h-[122px] min-h-[122px] w-full flex-col md:hidden">
               <img
                 src={src}
                 {...imgProps}

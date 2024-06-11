@@ -5,7 +5,7 @@ import { Select, type SelectProps } from '@var-ui/core';
 import { EnhancedView } from '@/components/View';
 
 const variants: SelectProps['variant'][] = ['default', 'destructive'];
-const sizes: SelectProps['size'][] = ['sm', 'md'];
+const sizes: SelectProps['size'][] = ['xs', 'sm', 'md'];
 
 const meta: Meta = {
   title: 'Components/Select',

@@ -1,59 +1,50 @@
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
-import { HelperText } from '../helper-text';
-import { Label } from '../label';
 
-const textareaVariants = cva(
-  cn(
+const textareaVariants = tv({
+  base: [
     'flex min-h-[128px] border text-foreground placeholder:text-gray-500 bg-background rounded-md',
     'focus-visible:outline-none  outline-none',
     'disabled:cursor-not-allowed disabled:border-disabled disabled:shadow-xs disabled:bg-gray-50 disabled:text-gray-500',
-    'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default'
-  ),
-  {
-    variants: {
-      variant: {
-        default: 'border-border focus-visible:shadow-brand-xs focus-visible:border-brand-300',
-        destructive: 'border-error-300 bg-background focus-visible:shadow-error-xs focus-visible:border-error-300',
-      },
-      size: {
-        none: '',
-        sm: 'h-10 px-3 py-2',
-        md: 'h-11 px-3.5 py-3',
-      },
+    'read-only:bg-readonly read-only:border-readonly-border read-only:cursor-default',
+  ],
+  variants: {
+    variant: {
+      default: 'bg-input border-input-border focus-within:shadow-brand-xs focus-within:border-brand-300',
+      background: 'bg-background border-input-border focus-within:shadow-brand-xs focus-within:border-brand-300',
+      destructive: 'bg-input border-error-300 focus-within:shadow-error-xs focus-within:border-error-300',
     },
-    defaultVariants: {
-      size: 'md',
-      variant: 'default',
+    size: {
+      none: '',
+      sm: 'h-10 px-3 py-2',
+      md: 'h-11 px-3.5 py-3',
     },
-  }
-);
+  },
+  defaultVariants: {
+    size: 'md',
+    variant: 'default',
+  },
+});
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     VariantProps<typeof textareaVariants> {
-  label?: string;
-  helperText?: string;
   fullWidth?: boolean;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ variant, rows = 6, label, helperText, className, fullWidth, ...props }, ref) => {
+  ({ variant, rows = 6, className, fullWidth, ...props }, ref) => {
     return (
-      <div>
-        {label && <Label>{label}</Label>}
-        <textarea
-          className={cn(textareaVariants({ variant, className }), {
-            'w-full': fullWidth,
-          })}
-          rows={rows}
-          ref={ref}
-          {...props}
-        />
-        {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
-      </div>
+      <textarea
+        className={cn(textareaVariants({ variant, className }), {
+          'w-full': fullWidth,
+        })}
+        rows={rows}
+        ref={ref}
+        {...props}
+      />
     );
   }
 );

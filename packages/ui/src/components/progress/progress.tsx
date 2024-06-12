@@ -22,7 +22,7 @@ const ProgressIndicator = React.forwardRef<
 >(({ className, value, ...props }, ref) => {
   return (
     <ProgressPrimitive.Indicator
-      className={cn('bg-brand-600 relative h-full w-full flex-1 rounded-full transition-all', className)}
+      className={cn('bg-button relative h-full w-full flex-1 rounded-full transition-all', className)}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       ref={ref}
       {...props}
@@ -54,7 +54,7 @@ const FloatingProgressIndicator = React.forwardRef<
   return (
     <>
       <ProgressIndicator
-        className={cn('bg-brand-600 relative h-full w-full flex-1 rounded-full transition-all', className)}
+        className={cn('bg-button relative h-full w-full flex-1 rounded-full transition-all', className)}
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
         ref={ref}
         {...props}
@@ -97,9 +97,7 @@ const Progress = React.forwardRef<React.ElementRef<typeof ProgressPrimitive.Root
           )}
         </ProgressPrimitive.Root>
         {labelType === 'text' ? (
-          <div className={cn('text-foreground-secondary flex justify-end text-right text-sm font-medium')}>
-            {value}%
-          </div>
+          <div className={cn('text-foreground flex justify-end text-right text-sm font-medium')}>{value}%</div>
         ) : null}
       </div>
     );

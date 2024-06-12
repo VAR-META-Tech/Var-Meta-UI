@@ -27,12 +27,13 @@ export const tooltipContentVariants = cva(
         outlined: 'border-border-secondary border',
       },
       theme: {
+        default: 'bg-background text-foreground',
         light: 'bg-white text-gray-900',
         dark: 'bg-gray-900 text-white',
       },
     },
     defaultVariants: {
-      theme: 'light',
+      theme: 'default',
       border: 'default',
     },
   }
@@ -82,7 +83,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
       open,
       defaultOpen,
       onOpenChange,
-      theme = 'light',
+      theme = 'default',
       delayDuration = 200,
       disableHoverableContent,
       arrow,
@@ -106,7 +107,11 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
             <div
               className={cn(
                 'mt-1 text-xs font-medium',
-                { 'text-gray-600': theme === 'light', 'text-gray-300': theme === 'dark' },
+                {
+                  'text-gray-600': theme === 'light',
+                  'text-gray-300': theme === 'dark',
+                  'text-foreground': theme === 'default',
+                },
                 contentClassName
               )}
             >
@@ -118,6 +123,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
               className={cn('-mt-px w-3 drop-shadow-lg', {
                 'fill-white': theme === 'light',
                 'fill-gray-900': theme === 'dark',
+                'fill-background': theme === 'default',
               })}
             />
           )}

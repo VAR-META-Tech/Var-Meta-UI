@@ -9,7 +9,7 @@ const paginationControlVariants = tv({
   base: [
     'flex items-center justify-center',
     'h-[var(--pagination-control-size)] w-[var(--pagination-control-size)]',
-    'focus:shadow-gray hover:bg-background-tertiary outline-none focus:z-[1] ',
+    'focus:shadow-gray transition-colors hover:bg-background-disabled outline-none focus:z-[1] ',
     'disabled:text-disabled disabled:cursor-not-allowed disabled:opacity-50',
     'text-foreground gap-1.5 text-center text-sm',
   ],
@@ -21,7 +21,7 @@ const paginationControlVariants = tv({
     },
     state: {
       default: '',
-      active: 'bg-background-tertiary',
+      active: 'bg-background-disabled',
     },
     rounded: {
       default: '',
@@ -54,7 +54,7 @@ const PaginationControl = forwardRef<ElementRef<'button'>, PaginationControlProp
   return (
     <button
       className={cn(
-        { 'border-border border': withBorder },
+        { 'border-border-secondary border': withBorder },
         paginationControlVariants({
           variant,
           rounded,

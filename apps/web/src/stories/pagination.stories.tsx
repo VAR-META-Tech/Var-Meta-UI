@@ -11,6 +11,7 @@ const meta: Meta = {
     total: 10,
     siblings: 1,
     boundaries: 1,
+    withEdges: false,
     withControls: true,
     shape: 'square',
   },

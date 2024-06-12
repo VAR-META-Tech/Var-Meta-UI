@@ -19,12 +19,13 @@ export const floatingTooltipContentVariants = cva(
   {
     variants: {
       theme: {
+        default: 'bg-background text-foreground',
         light: 'bg-white text-gray-950',
         dark: 'bg-gray-900 text-white',
       },
     },
     defaultVariants: {
-      theme: 'light',
+      theme: 'default',
     },
   }
 );
@@ -53,7 +54,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
       contentClassName,
       offset = 8,
       position = 'top',
-      theme = 'light',
+      theme = 'default',
       className,
       open,
       defaultOpen,
@@ -116,6 +117,7 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
                 className={cn('-mt-px w-3 drop-shadow-lg', {
                   'fill-white': theme === 'light',
                   'fill-gray-900': theme === 'dark',
+                  'fill-background': theme === 'default',
                 })}
               />
             )}
@@ -130,7 +132,11 @@ const FloatingTooltip = forwardRef<ElementRef<'div'>, FloatingTooltipProps>(
                 <div
                   className={cn(
                     'mt-1 text-xs font-medium',
-                    { 'text-gray-600': theme === 'light', 'text-gray-300': theme === 'dark' },
+                    {
+                      'text-gray-600': theme === 'light',
+                      'text-gray-300': theme === 'dark',
+                      'text-foreground': theme === 'default',
+                    },
                     contentClassName
                   )}
                 >

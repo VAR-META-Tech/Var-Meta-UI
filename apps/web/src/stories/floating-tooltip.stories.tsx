@@ -31,7 +31,7 @@ const meta: Meta = {
       control: { type: 'text' },
     },
     theme: {
-      options: ['light', 'dark'],
+      options: ['default', 'light', 'dark'],
       control: { type: 'select' },
     },
     arrow: {
@@ -52,7 +52,7 @@ const meta: Meta = {
     title: 'This is a tooltip',
     content:
       'FloatingTooltips are used to describe or identify an element. In most scenarios, tooltips help the user understand meaning, function or alt-text.',
-    theme: 'light',
+    theme: 'default',
     arrow: true,
     position: 'top',
   },
@@ -70,13 +70,7 @@ const DefaultTemplate: StoryFn<FloatingTooltipProps> = (args) => {
   return (
     <EnhancedView prop="Default">
       <FloatingTooltip {...args}>
-        <div
-          style={{
-            width: 300,
-            height: 300,
-            background: '#f5f5f5',
-          }}
-        />
+        <div className="bg-background-light h-[300px] w-[300px]" />
       </FloatingTooltip>
     </EnhancedView>
   );

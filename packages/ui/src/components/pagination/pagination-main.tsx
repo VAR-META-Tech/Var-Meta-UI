@@ -29,7 +29,7 @@ const paginationMainVariants = tv({
   },
 });
 
-export interface PaginationMainProps extends ElementProps<'div'>, VariantProps<typeof paginationMainVariants> {
+export interface PaginationButtonProps {
   /** Determines whether first/last controls should be rendered, false by default */
   withEdges?: boolean;
 
@@ -54,6 +54,11 @@ export interface PaginationMainProps extends ElementProps<'div'>, VariantProps<t
   /** Dots icon component */
   dotsIcon?: ReactNode;
 }
+
+export interface PaginationMainProps
+  extends ElementProps<'div'>,
+    VariantProps<typeof paginationMainVariants>,
+    PaginationButtonProps {}
 
 const PaginationMain = React.forwardRef<ElementRef<'div'>, PaginationMainProps>((props, ref) => {
   const {

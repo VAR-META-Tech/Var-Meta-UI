@@ -114,29 +114,16 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
 
   const renderIcon = useMemo(() => {
     if (variant === 'avatar') {
-      return <Avatar size="md" indicator="online" src={src} {...avatarProps} />;
+      return <Avatar size="md" radius="full" indicator="online" src={src} {...avatarProps} />;
     }
     if (variant !== 'icon') return null;
     switch (icon) {
       case 'success':
-        return (
-          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="success">
-            <CheckCircleIcon />
-          </FeaturedIcon>
-        );
+        return <CheckCircleIcon className="text-success-500 h-8 w-8" />;
       case 'warning':
-        return (
-          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="warning">
-            <AlertCircleIcon />
-          </FeaturedIcon>
-        );
-
+        return <AlertCircleIcon className="text-warning-500 h-8 w-8" />;
       case 'error':
-        return (
-          <FeaturedIcon className="-ml-2.5 -mt-2.5" variant="outline" color="error">
-            <AlertCircleIcon />
-          </FeaturedIcon>
-        );
+        return <AlertCircleIcon className="text-error-500 h-8 w-8" />;
 
       default:
         return (
@@ -185,7 +172,7 @@ const Notification = React.forwardRef<HTMLDivElement, NotificationProps>((props,
 
       <Show when={variant === 'icon' || variant === 'avatar'}>
         <div
-          className={cn('flex flex-col items-start justify-start gap-2 md:-mb-2 md:flex-row md:gap-4', {
+          className={cn('flex flex-col items-start justify-start gap-2 md:flex-row md:gap-4', {
             'md:pb-2': !!description,
           })}
         >

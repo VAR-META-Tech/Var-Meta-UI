@@ -5,7 +5,6 @@ export { cn } from './utils/cn';
 
 // components
 export * from './components/accordion';
-export * from './components/alert';
 export * from './components/autocomplete';
 export * from './components/avatar';
 export * from './components/badge';

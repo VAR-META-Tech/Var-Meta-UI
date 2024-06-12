@@ -94,7 +94,7 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
             d={backgroundArc}
             fill="none"
             stroke="currentColor"
-            className="text-background-quaternary"
+            className="text-background-light"
             strokeWidth={thickness}
             strokeLinecap="round"
           />
@@ -106,7 +106,7 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
             strokeLinecap="round"
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
-            className={cn('stroke-brand-600 transition-all duration-700 ease-in-out')}
+            className={cn('stroke-button transition-all duration-700 ease-in-out')}
           />
         </svg>
 

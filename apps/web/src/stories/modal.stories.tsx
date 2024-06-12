@@ -127,11 +127,6 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
         <Modal trigger={<Button>Show Modal</Button>} {...args}>
           <ModalHeader
             align={align}
-            icon={
-              <FeaturedIcon variant="outline" color="brand" size="md">
-                <AlertCircleIcon />
-              </FeaturedIcon>
-            }
             title="Blog post published"
             description="This blog post has been published. Team members will be able to edit this post and republish changes."
           />

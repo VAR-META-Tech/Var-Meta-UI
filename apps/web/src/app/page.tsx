@@ -1,10 +1,8 @@
 'use client';
 
 import {
-  AlertCircleIcon,
   Autocomplete,
   Button,
-  FeaturedIcon,
   HStack,
   Modal,
   ModalAction,
@@ -88,11 +86,6 @@ export default function Page() {
         <div className="flex gap-4">
           <Modal trigger={<Button>Show Modal</Button>}>
             <ModalHeader
-              icon={
-                <FeaturedIcon variant="outline" color="brand" size="md">
-                  <AlertCircleIcon />
-                </FeaturedIcon>
-              }
               title="Blog post published"
               description="This blog post has been published. Team members will be able to edit this post and republish changes."
             />

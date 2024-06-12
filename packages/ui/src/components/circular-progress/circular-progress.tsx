@@ -49,7 +49,7 @@ const CircleProgress = React.forwardRef<SVGCircleElement, CircleProps>(
         strokeWidth={thickness}
         strokeDasharray={strokeDasharray}
         strokeDashoffset={strokeDashoffset}
-        className={cn('stroke-brand-600 transition-all duration-700 ease-in-out', className)}
+        className={cn('stroke-button transition-all duration-700 ease-in-out', className)}
         {...props}
       />
     );
@@ -102,7 +102,7 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
       <div className={cn('relative w-fit', className)} ref={ref} {...props}>
         <svg width={size} height={size} fill="none">
           <g className="origin-center -rotate-90">
-            <CircleTrack r={r} thickness={`${thickness}px`} className="text-background-quaternary" />
+            <CircleTrack r={r} thickness={`${thickness}px`} className="text-background-light" />
             <CircleProgress r={r} value={value} thickness={`${thickness}px`} />
           </g>
         </svg>

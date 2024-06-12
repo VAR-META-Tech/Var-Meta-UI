@@ -27,7 +27,7 @@ const meta: Meta = {
       control: { type: 'select' },
     },
     theme: {
-      options: ['light', 'dark'],
+      options: ['default', 'light', 'dark'],
       control: { type: 'select' },
     },
     arrow: {
@@ -50,8 +50,8 @@ const meta: Meta = {
     title: 'This is a tooltip',
     content:
       'Tooltips are used to describe or identify an element. In most scenarios, tooltips help the user understand meaning, function or alt-text.',
-    delayDuration: 300,
-    theme: 'light',
+    delayDuration: 200,
+    theme: 'default',
     arrow: true,
     align: 'center',
     side: 'top',

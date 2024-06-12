@@ -17,7 +17,7 @@ const color: ButtonProps['color'][] = [
   'warning',
 ];
 const sizes: ButtonProps['size'][] = ['sm', 'md', 'lg', 'xl', '2xl'];
-const rounded: ButtonProps['rounded'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
+const radius: ButtonProps['radius'][] = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'];
 
 const meta: Meta = {
   title: 'Components/Button Group',
@@ -35,8 +35,8 @@ const meta: Meta = {
       options: sizes,
       control: { type: 'select' },
     },
-    rounded: {
-      options: rounded,
+    radius: {
+      options: radius,
       control: { type: 'select' },
     },
     disabled: {

@@ -11,6 +11,7 @@ export interface SidebarContext {
   active?: string;
   sidebarWidth?: number;
   setActive: (active: string) => void;
+  isMobile?: boolean;
 }
 
 export const [SidebarProvider, useSidebarContext] = createSafeContext<SidebarContext>(

@@ -79,19 +79,17 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
     <Dialog {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
-      <DialogPortal>
-        <DialogContent
-          ref={ref}
-          className={cn(
-            'min-h-[200px] p-0 shadow-lg',
-            { 'w-fit max-w-fit': fitContent, 'min-h-screen max-w-full rounded-none': fullScreen },
-            className
-          )}
-          {...modalContentProps}
-        >
-          {children}
-        </DialogContent>
-      </DialogPortal>
+      <DialogContent
+        ref={ref}
+        className={cn(
+          'min-h-[200px] p-0 shadow-lg',
+          { 'w-fit max-w-fit': fitContent, 'min-h-screen max-w-full rounded-none': fullScreen },
+          className
+        )}
+        {...modalContentProps}
+      >
+        {children}
+      </DialogContent>
     </Dialog>
   );
 });

@@ -41,8 +41,9 @@ const SidebarHeader = forwardRef<ElementRef<'div'>, SidebarHeaderProps>(
 );
 
 const SidebarToggle = forwardRef<ElementRef<typeof Button>, ButtonProps>(({ children, onClick, ...props }, ref) => {
-  const { open, toggleOpen } = useSidebarContext();
+  const { open, toggleOpen, isMobile } = useSidebarContext();
 
+  if (isMobile) return null;
   return (
     <Button
       onClick={composeEventHandlers(onClick, toggleOpen)}

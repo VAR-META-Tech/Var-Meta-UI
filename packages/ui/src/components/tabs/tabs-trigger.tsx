@@ -17,7 +17,7 @@ const tabsTriggerVariant = tv({
     },
     active: {
       true: 'text-foreground',
-      false: 'text-foreground-quaternary',
+      false: 'text-foreground-secondary',
     },
   },
 });

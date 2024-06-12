@@ -1,28 +1,27 @@
 import React, { useState, type CSSProperties, type PropsWithChildren } from 'react';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
+import { useMediaQuery } from '../../hooks';
 import { type VisibleState } from '../../types';
 import { SidebarProvider as BaseSidebarProvider } from './sidebar.context';
 
 export interface SidebarProviderProps extends VisibleState {
-  /** Expand sidebar on hover */
   expandOnHover?: boolean;
-  /** Sidebar width */
   sidebarWidth?: number;
-  /** Controllable Active item */
   active?: string;
-
-  /** Uncontrollable Default active item */
   defaultActive?: string;
-
-  /** Callback when active item changes */
   onActiveChange?: (active: string) => void;
+
+  /** Hide the sidebar when hit this breakpoint
+   * @default '48rem'
+   */
+  breakpoint?: string;
 }
 
 const SidebarProvider = (props: PropsWithChildren<SidebarProviderProps>) => {
   const {
     open: openProps,
-    defaultOpen,
+    defaultOpen = false,
     onOpenChange,
     children,
     active: activeProp,
@@ -30,7 +29,9 @@ const SidebarProvider = (props: PropsWithChildren<SidebarProviderProps>) => {
     onActiveChange,
     expandOnHover,
     sidebarWidth = 272,
+    breakpoint = '48rem',
   } = props;
+  const isMobile = useMediaQuery(`(max-width: ${breakpoint})`);
 
   const [isHover, setIsHover] = useState(false);
 
@@ -56,7 +57,8 @@ const SidebarProvider = (props: PropsWithChildren<SidebarProviderProps>) => {
     <BaseSidebarProvider
       value={{
         open,
-        isExpanded,
+        // * On mobile - default is expanded
+        isExpanded: isMobile ? true : isExpanded,
         active,
         setActive,
         toggleOpen,
@@ -65,6 +67,7 @@ const SidebarProvider = (props: PropsWithChildren<SidebarProviderProps>) => {
         expandOnHover,
         isHover,
         setOpen,
+        isMobile,
       }}
     >
       <div

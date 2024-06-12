@@ -15,7 +15,7 @@ export const defaultLightColors: ThemeColors = {
   foreground: {
     DEFAULT: colors.gray[900],
     primary: colors.gray[900],
-    button: colors.brand[25],
+    button: colors.gray[25],
     secondary: colors.gray[500],
     disabled: colors.gray[300],
     error: colors.error[500],
@@ -64,7 +64,7 @@ export const defaultDarkColors: ThemeColors = {
   foreground: {
     DEFAULT: colors.gray[25],
     primary: colors.gray[25],
-    button: colors.brand[100],
+    button: colors.gray[100],
     secondary: colors.gray[500],
     disabled: colors.gray[700],
     error: colors.error[300],

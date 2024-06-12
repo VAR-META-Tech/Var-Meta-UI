@@ -11,7 +11,7 @@ export const navigationItemVariants = cva(
   {
     variants: {
       variant: {
-        default: 'text-foreground-quaternary hover:bg-background-tertiary hover:text-foreground',
+        default: 'text-foreground-secondary hover:bg-background-light hover:text-button dark:hover:text-white',
         brand: 'bg-brand-700 text-brand-100 hover:bg-brand-600 focus:shadow-brand-base hover:text-white',
         dark: 'focus:shadow-gray-base bg-gray-950 text-gray-100 hover:bg-gray-800 hover:text-white',
       },
@@ -31,7 +31,7 @@ export const navigationItemVariants = cva(
       {
         variant: 'default',
         active: true,
-        className: 'bg-background-tertiary text-brand-500 hover:text-brand-500',
+        className: 'bg-background-light text-button dark:text-foreground-button dark:bg-button',
       },
       {
         variant: 'dark',
@@ -99,7 +99,7 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
         {active && withActiveCursor ? (
           <LazyMotion features={domMax}>
             <m.span
-              className={cn('bg-brand-500 absolute -left-5 top-2.5 h-5 w-1 rounded-r-sm')}
+              className={cn('bg-button absolute -left-5 top-2.5 h-5 w-1 rounded-r-sm')}
               layoutDependency={false}
               layoutId="nav-cursor"
               transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}

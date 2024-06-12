@@ -1,12 +1,13 @@
-import React, { forwardRef, type ElementRef } from 'react';
+import React, { forwardRef, useMemo, type ElementRef } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 
+import { useMediaQuery } from '../../hooks';
 import { type ElementProps, type VisibleState } from '../../types';
 import { withAttr } from '../../utils/withAttr';
 import { useSidebarContext } from './sidebar.context';
 
 const sidebarVariant = tv({
-  base: 'antialiased group transition-width ease-in-out duration-300 flex flex-col fixed top-0 left-0 h-full z-10 bg-background w-0 min-w-20',
+  base: 'antialiased group transition-width ease-in-out duration-300 flex flex-col fixed top-0 left-0 h-full z-50 bg-background w-0 min-w-20',
   variants: {
     variant: {
       outline: 'border-r border-border-secondary',
@@ -23,20 +24,30 @@ export interface SidebarProps extends ElementProps<'aside'>, VisibleState, Varia
 const SidebarRoot = forwardRef<ElementRef<'aside'>, SidebarProps>((props, ref) => {
   const { className, children, style: styleProp, variant, ...etc } = props;
 
-  const { open, expandOnHover, sidebarWidth, setIsHover, isExpanded } = useSidebarContext();
+  const { isMobile, open, expandOnHover, sidebarWidth = 272, setIsHover, isExpanded } = useSidebarContext();
 
   const handleMouseEnter = () => {
-    if (!expandOnHover) return;
+    if (!expandOnHover || isMobile) return;
     setIsHover(true);
   };
   const handleMouseLeave = () => {
-    if (!expandOnHover) return;
+    if (!expandOnHover || isMobile) return;
     setIsHover(false);
   };
 
+  const width = useMemo(() => {
+    if (isMobile) return sidebarWidth;
+    return isExpanded ? sidebarWidth : 0;
+  }, [isExpanded, isMobile, sidebarWidth]);
+
+  const left = useMemo(() => {
+    if (!isMobile) return undefined;
+    return Boolean(open) ? 0 : -(sidebarWidth + 40);
+  }, [isMobile, open, sidebarWidth]);
+
   return (
     <aside
-      style={{ width: isExpanded ? sidebarWidth : 0, ...styleProp }}
+      style={{ width, left, ...styleProp }}
       className={sidebarVariant({ variant, className })}
       role="sidebar"
       onMouseEnter={handleMouseEnter}

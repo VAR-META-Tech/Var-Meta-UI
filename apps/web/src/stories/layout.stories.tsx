@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Meta, StoryFn } from '@storybook/react';
-import { CalendarIcon, Layout, Sidebar } from '@var-ui/core';
+import { CalendarIcon, HStack, Layout, Sidebar } from '@var-ui/core';
 import {
   Award01Icon,
   CoinsStacked03Icon,
@@ -211,9 +211,10 @@ const links = [
 
 const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
   return (
-    <div className="bg-background border-border relative min-h-[50vh] border">
-      <Layout>
-        <Sidebar {...args}>
+    <div className="bg-background border-border relative min-h-[80vh] border">
+      <Layout {...args}>
+        <Sidebar.Overlay />
+        <Sidebar>
           <Sidebar.Head>
             <Sidebar.Head.Toggle />
 
@@ -260,7 +261,13 @@ const DefaultTemplate: StoryFn<typeof Layout> = ({ ...args }) => {
           <Sidebar.Footer>Footer</Sidebar.Footer>
         </Sidebar>
 
-        <Layout.Content>Main Page</Layout.Content>
+        <Layout.Content>
+          <HStack className="w-full p-4" pos="apart">
+            <p>Content</p>
+
+            <Layout.BurgerMenu />
+          </HStack>
+        </Layout.Content>
       </Layout>
     </div>
   );

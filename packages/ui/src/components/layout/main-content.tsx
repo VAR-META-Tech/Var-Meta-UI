@@ -1,12 +1,18 @@
-import { forwardRef, type ElementRef } from 'react';
+import { forwardRef, useMemo, type ElementRef } from 'react';
 
 import { type ElementProps } from '../../types';
 import { useSidebarContext } from './sidebar.context';
 
 const MainContent = forwardRef<ElementRef<'main'>, ElementProps<'main'>>(({ children, className, ...props }, ref) => {
-  const { isExpanded, sidebarWidth } = useSidebarContext();
+  const { isExpanded, sidebarWidth, isMobile } = useSidebarContext();
+
+  const marginLeft = useMemo(() => {
+    if (isMobile) return undefined;
+    return isExpanded ? sidebarWidth : 80;
+  }, [isExpanded, isMobile, sidebarWidth]);
+
   return (
-    <main style={{ marginLeft: isExpanded ? sidebarWidth : 80 }} className={className} {...props} ref={ref}>
+    <main style={{ marginLeft }} className={className} {...props} ref={ref}>
       {children}
     </main>
   );

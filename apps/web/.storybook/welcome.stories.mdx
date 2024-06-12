@@ -12,11 +12,66 @@ import { Meta, Story } from '@storybook/addon-docs';
 
 <br />
 
-<p className="!text-base !text-foreground max-w-xl [&>p]:text-foreground [&>p]:text-base">
+<p className="!text-foreground [&>p]:text-foreground max-w-xl !text-base [&>p]:text-base">
   Here you can find the guidelines, components APIs and examples to help you build your next project with VAR-UI.
 </p>
 <br />
 
-<div class="block text-xs [&>p]:text-default-400">
+## Install
+
+The UI came with diffences package namely `@var-ui/icon` and `@var-ui/core`
+
+```sh
+npm install @var-ui/core @var-ui/icon
+```
+
+```sh
+yarn add @var-ui/core @var-ui/icon
+```
+
+```sh
+pnpm i @var-ui/core @var-ui/icon
+```
+
+## Tailwind CSS Setup
+
+var-ui is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+[installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add
+the following code to your `tailwind.config.js` file:
+
+```ts
+// tailwind.config.ts
+import { createThemes } from '@var-ui/theme';
+import { withTV } from 'tailwind-variants/transformer';
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  darkMode: 'class',
+  content: [
+    './.storybook/welcome.stories.mdx',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@var-ui/core/**/*.{js,ts,jsx,tsx}',
+  ],
+  plugins: [createThemes()],
+};
+
+export default withTV(config);
+```
+
+## Use the Component
+
+Now, you can use the component you installed in your application:
+
+```jsx
+import * as React from 'react';
+import { Button } from '@var-ui/core';
+
+function App() {
+  return <Button>Press me</Button>;
+}
+```
+
+<div class="[&>p]:text-default-400 block text-xs">
   Last updated on <time datetime="2023-03-07">May 9, 2024</time>
 </div>

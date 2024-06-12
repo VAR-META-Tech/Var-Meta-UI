@@ -1,4 +1,4 @@
-import { createThemes } from '@var-ui/theme';
+import { createThemes } from '@var-meta-tech/theme';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {

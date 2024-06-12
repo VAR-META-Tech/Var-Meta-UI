@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Textarea, type TextareaProps } from '@var-ui/core';
+import { Textarea, type TextareaProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

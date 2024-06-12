@@ -1,5 +1,5 @@
 {
-  "name": "@var-ui/cli",
+  "name": "@var-meta-tech/cli",
   "version": "0.0.0",
   "description": "Add components to your apps.",
   "publishConfig": {

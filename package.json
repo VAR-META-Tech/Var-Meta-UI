@@ -3,7 +3,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:ui": "turbo --filter=ui build",
-    "build:icon": "turbo --filter=@var-ui/icons build",
+    "build:icon": "turbo --filter=@var-meta-tech/icons build",
     "build:packages": "turbo run build --filter='./packages/*'",
     "build:storybook": "pnpm run build:packages && pnpm --filter=web build-storybook",
     "build:web": "pnpm --filter=web build",

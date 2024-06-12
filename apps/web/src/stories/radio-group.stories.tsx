@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { RadioGroup, RadioGroupItem, type RadioGroupItemProps } from '@var-ui/core';
+import { RadioGroup, RadioGroupItem, type RadioGroupItemProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

@@ -1,13 +1,13 @@
-# `@var-ui/theme`
+# `@var-meta-tech/theme`
 
 ## Installation
 
 ```sh
-$ pnpm add @var-ui/theme
+$ pnpm add @var-meta-tech/theme
 # or
-$ yarn add @var-ui/theme
+$ yarn add @var-meta-tech/theme
 # or
-$ npm install @var-ui/theme
+$ npm install @var-meta-tech/theme
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @var-ui/theme
 Update your `tailwind.config.ts`
 
 ```ts
-import preset from '@var-ui/theme';
+import preset from '@var-meta-tech/theme';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 

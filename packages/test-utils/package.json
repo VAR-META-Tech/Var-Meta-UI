@@ -1,5 +1,5 @@
 {
-  "name": "@var-ui/test-utils",
+  "name": "@var-meta-tech/test-utils",
   "private": true,
   "version": "1.0.0",
   "description": "A set of utilities for react testing",

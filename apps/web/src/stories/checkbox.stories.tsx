@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Checkbox, type CheckboxProps } from '@var-ui/core';
-import { Star01Icon } from '@var-ui/icons';
+import { Star01Icon } from '@var-meta-tech/icons';
+import { Checkbox, type CheckboxProps } from '@var-meta-tech/ui';
 
 import { EnhancedView, View } from '@/components/View';
 

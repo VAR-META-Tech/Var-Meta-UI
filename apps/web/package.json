@@ -16,9 +16,9 @@
     "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "
   },
   "dependencies": {
-    "@var-ui/core": "workspace:*",
-    "@var-ui/icons": "workspace:^",
-    "@var-ui/theme": "workspace:*",
+    "@var-meta-tech/ui": "workspace:*",
+    "@var-meta-tech/icons": "workspace:^",
+    "@var-meta-tech/theme": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
     "next": "^14.0.3",
@@ -44,7 +44,7 @@
     "@types/node": "^18.11.17",
     "@types/react": "^18.2.5",
     "@types/react-dom": "^18.2.4",
-    "@var-ui/eslint-config": "workspace:*",
+    "@var-meta-tech/eslint-config": "workspace:*",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
     "storybook": "^7.5.3",

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, Tooltip, TooltipProvider, type TooltipProps } from '@var-ui/core';
-import { HelpCircleIcon } from '@var-ui/icons';
+import { HelpCircleIcon } from '@var-meta-tech/icons';
+import { Button, Tooltip, TooltipProvider, type TooltipProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

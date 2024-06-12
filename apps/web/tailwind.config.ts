@@ -1,4 +1,4 @@
-import { createThemes } from '@var-ui/theme';
+import { createThemes } from '@var-meta-tech/theme';
 import { withTV } from 'tailwind-variants/transformer';
 import type { Config } from 'tailwindcss';
 
@@ -9,7 +9,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/stories/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@var-ui/core/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@var-meta-tech/ui/**/*.{js,ts,jsx,tsx}',
   ],
   plugins: [createThemes()],
 };

@@ -1,11 +1,11 @@
-# `@var-ui/icon`
+# `@var-meta-tech/icon`
 
 ## Installation
 
 ```sh
-$ pnpm add @var-ui/icon
+$ pnpm add @var-meta-tech/icon
 # or
-$ yarn add @var-ui/icon
+$ yarn add @var-meta-tech/icon
 # or
-$ npm install @var-ui/icon
+$ npm install @var-meta-tech/icon
 ```

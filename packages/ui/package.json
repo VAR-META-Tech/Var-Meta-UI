@@ -1,5 +1,5 @@
 {
-  "name": "@var-ui/core",
+  "name": "@var-meta-tech/ui",
   "license": "MIT",
   "version": "1.0.4",
   "sideEffects": [
@@ -32,8 +32,8 @@
     "@types/node": "^20.9.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@var-ui/eslint-config": "workspace:*",
-    "@var-ui/test-utils": "workspace:^",
+    "@var-meta-tech/eslint-config": "workspace:*",
+    "@var-meta-tech/test-utils": "workspace:^",
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "typescript": "^5.2.2"
@@ -66,7 +66,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@radix-ui/react-use-controllable-state": "^1.0.1",
     "@storybook/react": "^7.5.3",
-    "@var-ui/theme": "workspace:*",
+    "@var-meta-tech/theme": "workspace:*",
     "autoprefixer": "^10.4.14",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

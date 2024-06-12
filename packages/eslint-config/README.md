@@ -1,4 +1,4 @@
-# `@var-ui/eslint-config`
+# `@var-meta-tech/eslint-config`
 
 A Collection of eslint configurations.
 
@@ -8,7 +8,7 @@ Here is an example `.eslintrc.js`.
 
 ```js
 module.exports = {
-  extends: ['@var-ui/eslint-config/frontend'],
+  extends: ['@var-meta-tech/eslint-config/frontend'],
 };
 ```
 
@@ -18,7 +18,7 @@ Here is an example `.eslintrc.js`.
 
 ```js
 module.exports = {
-  extends: ['@var-ui/eslint-config/backend'],
+  extends: ['@var-meta-tech/eslint-config/backend'],
 };
 ```
 

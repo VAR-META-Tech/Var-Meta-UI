@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Meta, StoryFn } from '@storybook/react';
-import { CalendarIcon, HStack, Layout, Sidebar } from '@var-ui/core';
 import {
   Award01Icon,
   CoinsStacked03Icon,
@@ -13,7 +12,8 @@ import {
   Users01Icon,
   UsersPlusIcon,
   UserUp02Icon,
-} from '@var-ui/icons';
+} from '@var-meta-tech/icons';
+import { CalendarIcon, HStack, Layout, Sidebar } from '@var-meta-tech/ui';
 
 const meta: Meta = {
   title: 'Components/Layout',

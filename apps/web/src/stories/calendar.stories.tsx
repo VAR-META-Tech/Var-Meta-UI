@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Calendar, type CalendarProps } from '@var-ui/core';
+import { Calendar, type CalendarProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

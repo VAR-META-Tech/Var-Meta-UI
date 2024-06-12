@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { BreadcrumbItem, Breadcrumbs, type BreadcrumbItemProps } from '@var-ui/core';
-import { HomeLineIcon } from '@var-ui/icons';
+import { HomeLineIcon } from '@var-meta-tech/icons';
+import { BreadcrumbItem, Breadcrumbs, type BreadcrumbItemProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

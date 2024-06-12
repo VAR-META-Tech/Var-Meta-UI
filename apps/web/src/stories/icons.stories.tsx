@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Tooltip, TooltipProvider } from '@var-ui/core';
-import { icons } from '@var-ui/icons';
+import { icons } from '@var-meta-tech/icons';
+import { Tooltip, TooltipProvider } from '@var-meta-tech/ui';
 
 import { useCopy } from '@/hooks/useCopy';
 import { View } from '@/components/View';
@@ -32,7 +32,7 @@ const DefaultTemplate: StoryFn<any> = () => {
           {Object.keys(icons).map((iconName) => (
             <div className="w-fit" key={iconName}>
               <Tooltip title={iconName}>
-                <button onClick={() => copy(`import { ${icons[iconName]} } from '@var-ui/icons';`)}>
+                <button onClick={() => copy(`import { ${icons[iconName]} } from '@var-meta-tech/icons';`)}>
                   {React.createElement(icons[iconName])}
                 </button>
               </Tooltip>

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
+import { ChevronDownIcon, CreditCard01Icon, Keyboard01Icon, Settings01Icon, User01Icon } from '@var-meta-tech/icons';
 import {
   Avatar,
   Button,
@@ -13,8 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@var-ui/core';
-import { ChevronDownIcon, CreditCard01Icon, Keyboard01Icon, Settings01Icon, User01Icon } from '@var-ui/icons';
+} from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, Stepper, StepperItem, useNonLinearStepper, type StepperProps } from '@var-ui/core';
-import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@var-ui/icons';
+import { BarChart01Icon, HomeLineIcon, LayersThree01Icon } from '@var-meta-tech/icons';
+import { Button, Stepper, StepperItem, useNonLinearStepper, type StepperProps } from '@var-meta-tech/ui';
 
 import { View } from '@/components/View';
 

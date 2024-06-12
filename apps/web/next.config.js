@@ -2,7 +2,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@var-ui/icon', '@var-ui/core'],
+    optimizePackageImports: ['@var-meta-tech/icon', '@var-meta-tech/ui'],
   },
 };
 

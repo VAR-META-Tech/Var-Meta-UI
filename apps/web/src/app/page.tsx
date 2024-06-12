@@ -10,7 +10,7 @@ import {
   Select,
   toast,
   type AutocompleteProps,
-} from '@var-ui/core';
+} from '@var-meta-tech/ui';
 
 const options: AutocompleteProps['options'] = [
   {

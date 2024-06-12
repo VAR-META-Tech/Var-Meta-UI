@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import * as path from 'path';
-
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import alias from '@rollup/plugin-alias';
 import { babel } from '@rollup/plugin-babel';
@@ -83,7 +82,7 @@ export declare type IconName = ${iconNames.join(' | ')}
 /**
  * @deprecated If you import this module, all icons are bundled, so please import and use the individual icons.
  * @example
- * import { AllIcon } from '@var-ui/icons'
+ * import { AllIcon } from '@var-meta-tech/icons'
  */
 export declare const icons: Record<IconName, VarUIIcon>
 

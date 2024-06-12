@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
+import { AlertCircleIcon } from '@var-meta-tech/icons';
 import {
   Button,
   FeaturedIcon,
@@ -13,8 +14,7 @@ import {
   type AutocompleteProps,
   type ModalHeaderProps,
   type ModalProps,
-} from '@var-ui/core';
-import { AlertCircleIcon } from '@var-ui/icons';
+} from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

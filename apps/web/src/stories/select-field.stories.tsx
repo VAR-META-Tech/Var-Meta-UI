@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Form, type SelectFieldProps } from '@var-ui/core';
+import { Form, type SelectFieldProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

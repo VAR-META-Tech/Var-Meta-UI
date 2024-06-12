@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Avatar, AvatarGroup, type AvatarGroupProps } from '@var-ui/core';
+import { Avatar, AvatarGroup, type AvatarGroupProps } from '@var-meta-tech/ui';
 
 import { EnhancedView } from '@/components/View';
 

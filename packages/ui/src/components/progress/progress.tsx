@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
 
@@ -45,9 +45,9 @@ const FloatingProgressIndicator = React.forwardRef<
     placement: placement === 'top' ? 'top-end' : 'bottom-end',
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     update();
-  }, [value, update]);
+  });
 
   const ref = useMergeRefs([indicatorRef, refs.setReference]);
 
@@ -63,7 +63,7 @@ const FloatingProgressIndicator = React.forwardRef<
       <FloatingPortal>
         <div
           style={floatingStyles}
-          className={cn(tooltipContentVariants({ theme: 'light', border: 'outlined' }))}
+          className={cn(tooltipContentVariants({ border: 'outlined' }))}
           ref={refs.setFloating}
         >
           {value}%

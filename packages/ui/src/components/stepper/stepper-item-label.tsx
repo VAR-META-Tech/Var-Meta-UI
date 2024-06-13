@@ -15,7 +15,7 @@ export interface StepperItemLabelProps {
 const labelVariants = cva('text-foreground font-semibold', {
   variants: {
     active: {
-      true: 'text-brand-700',
+      true: 'text-button',
       false: 'text-foreground',
     },
     size: {
@@ -34,7 +34,7 @@ const labelVariants = cva('text-foreground font-semibold', {
 const descriptionVariants = cva('text-foreground-secondary', {
   variants: {
     active: {
-      true: 'text-brand-600',
+      true: 'text-button',
       false: 'text-foreground-secondary',
     },
     size: {

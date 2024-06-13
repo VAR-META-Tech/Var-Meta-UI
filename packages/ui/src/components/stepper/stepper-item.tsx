@@ -2,7 +2,7 @@ import React, { type ElementRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
-import { CloseIcon, DotIcon, TickIcon } from '../icons';
+import { CheckIcon, CloseIcon, DotIcon, TickIcon } from '../icons';
 import { Spinner } from '../spinner';
 import { useStepperContext, type StepperContext } from './stepper-context';
 import { StepperItemConnector } from './stepper-item-connector';
@@ -38,10 +38,10 @@ const iconButtonVariants = cva(
     variants: {
       variant: {
         default: [
-          'bg-background border-border-secondary text-background-quaternary border-2',
-          'aria-[current=step]:bg-brand-600 aria-[current=step]:border-brand-600 aria-[current=step]:shadow-brand-base aria-[current=step]:text-white',
-          'data-[invalid=true]:bg-error-600 data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base data-[invalid=true]:text-white',
-          'data-[complete=true]:bg-brand-600 data-[complete=true]:text-white',
+          'bg-background border-border-secondary text-foreground-secondary border-2',
+          'aria-[current=step]:bg-button aria-[current=step]:border-button aria-[current=step]:shadow-brand-base aria-[current=step]:text-foreground-button',
+          'data-[invalid=true]:bg-error-600 data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base data-[invalid=true]:text-foreground-button',
+          'data-[complete=true]:bg-button data-[complete=true]:text-foreground-button',
         ],
         unstyled: '',
       },
@@ -151,7 +151,7 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
   const Icon = React.useMemo(() => CustomIcon ?? null, [CustomIcon]);
 
   const Success = React.useMemo(
-    () => CustomSuccessIcon ?? <TickIcon className={checkIconSize[size ?? 'none']} />,
+    () => CustomSuccessIcon ?? <CheckIcon className={checkIconSize[size ?? 'none']} />,
     [CustomSuccessIcon, size]
   );
 

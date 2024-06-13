@@ -53,7 +53,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
         >
           <SliderPrimitive.Track
             className={cn([
-              'bg-background-quaternary relative w-full grow overflow-hidden rounded-full',
+              'bg-background-light relative w-full grow overflow-hidden rounded-full',
               {
                 'h-full w-2': orientation === 'vertical',
                 'h-2 w-full': orientation === 'horizontal',
@@ -62,7 +62,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
           >
             <SliderPrimitive.Range
               className={cn([
-                'bg-brand-600 absolute h-full',
+                'bg-button absolute h-full',
                 {
                   'w-full': orientation === 'vertical',
                   'h-full': orientation === 'horizontal',
@@ -80,7 +80,7 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
               <SliderPrimitive.Thumb
                 key={i}
                 className={cn([
-                  'border-brand-600 block h-6 w-6 rounded-full border-2 bg-white shadow-md transition-colors',
+                  'border-button block h-6 w-6 rounded-full border-2 bg-white shadow-md transition-colors',
                   'focus-visible:shadow-brand-sm focus-visible:outline-none disabled:pointer-events-none',
                 ])}
               >

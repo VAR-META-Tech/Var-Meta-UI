@@ -7,10 +7,10 @@ const helperTextVariants = tv({
   base: 'block text-sm font-normal mt-1.5',
   variants: {
     variant: {
-      default: 'text-foreground-tertiary',
-      background: 'text-foreground-tertiary',
-      destructive: 'text-error-500',
-      disabled: 'text-foreground-tertiary',
+      default: 'text-foreground-secondary',
+      background: 'text-foreground-secondary',
+      destructive: 'text-foreground-error',
+      disabled: 'text-foreground-secondary',
     },
   },
   defaultVariants: {

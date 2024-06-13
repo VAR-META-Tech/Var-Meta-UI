@@ -18,7 +18,7 @@ export default meta;
 const DefaultTemplate: StoryFn<BreadcrumbItemProps> = ({ withLine, ...args }: any) => {
   return (
     <EnhancedView prop="Default">
-      <div className="bg-white p-4">
+      <div className="p-4">
         <Breadcrumbs withLine={withLine}>
           <BreadcrumbItem {...args} iconOnly>
             <HomeLineIcon className="h-5 w-5" />

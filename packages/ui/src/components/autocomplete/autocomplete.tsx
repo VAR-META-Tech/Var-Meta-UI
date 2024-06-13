@@ -305,7 +305,10 @@ const AutocompleteComponent = <T extends boolean = false>(
                 <CommandList className="border-border-secondary bg-background max-h-[var(--radix-popper-available-height)] rounded-sm border shadow-md">
                   {loading ? (
                     <CommandPrimitive.Loading>
-                      <VStack spacing={4} className="p-1">
+                      <VStack spacing={4} className="px-1 pt-1">
+                        <Skeleton className="h-8 w-full" />
+                        <Skeleton className="h-8 w-full" />
+                        <Skeleton className="h-8 w-full" />
                         <Skeleton className="h-8 w-full" />
                         <Skeleton className="h-8 w-full" />
                         <Skeleton className="h-8 w-full" />

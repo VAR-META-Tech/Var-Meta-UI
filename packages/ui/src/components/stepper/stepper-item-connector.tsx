@@ -35,7 +35,7 @@ const StepperItemConnector = React.memo(({ isCompletedStep, children, isLastStep
           'mt-1 flex h-auto min-h-[2rem] flex-1 self-stretch border-l-2',
           spacing[size ?? 'none'],
           isLastStep ? 'min-h-0 border-transparent' : '',
-          isCompletedStep ? 'border-brand-600' : ''
+          isCompletedStep ? 'border-button' : ''
         )}
       >
         {!isCompletedStep && <div className="my-4 block h-auto w-full">{children}</div>}
@@ -50,7 +50,7 @@ const StepperItemConnector = React.memo(({ isCompletedStep, children, isLastStep
   return (
     <Divider
       data-complete={isCompletedStep}
-      className={cn('border-border-secondary data-[complete=true]:border-brand-600 flex flex-1 self-auto border-t-2', {
+      className={cn('border-border-secondary data-[complete=true]:border-button flex flex-1 self-auto border-t-2', {
         [positions[size ?? 'none']]: centeredLabel,
       })}
       orientation="horizontal"

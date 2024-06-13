@@ -15,7 +15,7 @@ const badgeVariants = tv({
       lg: 'px-4 py-3.5 text-base',
     },
     variant: {
-      gray: 'text-foreground-secondary  border border-border-secondary bg-gray-50',
+      gray: 'text-foreground-secondary border border-border-secondary bg-gray-50',
       brand: 'text-brand-500 border border-brand-500 bg-brand-50 ',
       error: 'text-error-500 border border-error-500 bg-error-50 ',
       warning: 'text-warning-500 border border-warning-500 bg-warning-50 ',

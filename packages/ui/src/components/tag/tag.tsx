@@ -17,9 +17,9 @@ const tagVariants = cva(
       },
       radius: radiusVariant,
       size: {
-        sm: 'py-0.75 gap-1 h-6 pl-1 pr-0.5 text-xs',
-        md: 'pr-0.5 pl-1.5 gap-1 h-6 py-0.5 text-xs',
-        lg: 'gap-1 h-7 pr-0.5 pl-2 py-1 text-sm',
+        sm: 'py-0.75 gap-1 h-6 px-1 text-xs',
+        md: 'px-1.5 gap-1 h-6 py-0.5 text-xs',
+        lg: 'gap-1 h-7 px-2 py-1 text-sm',
       },
     },
     defaultVariants: {
@@ -96,8 +96,8 @@ const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps
       className={cn(
         tagVariants({ variant, radius, size }),
         {
-          'pl-0.5': withCheckBox,
-          'pr-0.5': withCloseIcon || count !== undefined,
+          'pl-1': withCheckBox,
+          'pr-1': withCloseIcon || withCount,
         },
         className
       )}

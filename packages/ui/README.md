@@ -4,6 +4,10 @@
 
 Here you can find the guidelines, components APIs and examples to help you build your next project with VAR-UI.
 
+## Documentation
+
+Visit [https://ui.var-meta.com](https://ui.var-meta.com) to view the full documentation.
+
 ## Install
 
 The UI came with different packages, namely `@var-meta/icons` and `@var-meta/ui`.

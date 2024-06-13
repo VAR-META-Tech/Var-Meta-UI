@@ -14,7 +14,7 @@ export * from './components/button-group';
 export * from './components/checkbox';
 export * from './components/circular-progress';
 export * from './components/command';
-export * from './components/date-picker';
+export * from './components/calendar';
 export * from './components/dialog';
 export * from './components/divider';
 export * from './components/dot';

@@ -1,101 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import {
-  Button,
-  CalendarIcon,
-  DatePicker,
-  Modal,
-  Popper,
-  useDisclosure,
-  type Calendar,
-  type DatePickerProps,
-} from '@var-meta/ui';
-import dayjs from 'dayjs';
+import { Button, DatePicker, Modal, ModalBody, ModalHeader } from '@var-meta/ui';
 
 import { View } from '@/components/View';
 
-const mode = ['single', 'multiple', 'range'];
-
 const meta: Meta = {
-  title: 'Components/DatePicker/DatePicker',
+  title: 'Components/Calendar/DatePicker',
   component: DatePicker,
   tags: ['autodocs'],
-  argTypes: {
-    mode: {
-      options: mode,
-      control: { type: 'select' },
-    },
-  },
+  argTypes: {},
   args: {},
 };
 
 export default meta;
 
-const DefaultTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<Date>();
+const DefaultTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
   return (
     <View prop="Default">
-      <DatePicker {...args} onCancel={close} value={value} onChange={(date) => setValue(date)} />
+      <DatePicker {...args} />
     </View>
   );
 };
 
-export const Default: StoryFn<typeof Calendar> = DefaultTemplate.bind({});
+export const Default: StoryFn<typeof DatePicker> = DefaultTemplate.bind({});
 
-const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<Date>();
-  const [isOpen, { close, setOpened }] = useDisclosure(false);
-
-  const handleChange = (date?: Date) => {
-    setValue(date);
-    close();
-  };
+const WithModalTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
   return (
-    <View prop="Default">
-      <Popper
-        onOpenChange={setOpened}
-        open={isOpen}
-        trigger={
-          <Button variant="link">
-            <CalendarIcon />
-            {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
-          </Button>
-        }
-      >
-        <DatePicker {...args} onCancel={close} value={value} onChange={handleChange} />
-      </Popper>
-    </View>
-  );
-};
-
-export const WithPopper: StoryFn<typeof Calendar> = WithPopperTemplate.bind({});
-
-const WithModalTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<Date>();
-  const [isOpen, { close, setOpened }] = useDisclosure(false);
-
-  const handleChange = (date?: Date) => {
-    setValue(date);
-    close();
-  };
-  return (
-    <View prop="Default">
-      <Modal
-        className="max-w-fit"
-        onOpenChange={setOpened}
-        open={isOpen}
-        fitContent
-        trigger={
-          <Button variant="link">
-            <CalendarIcon />
-            {value ? dayjs(value).format('MMM DD, YYYY') : 'Select date'}
-          </Button>
-        }
-      >
-        <DatePicker {...args} onCancel={close} value={value} onChange={handleChange} />
+    <View prop="WithModal">
+      <Modal trigger={<Button>Show Modal</Button>}>
+        <ModalHeader
+          title="Blog post published"
+          description="This blog post has been published. Team members will be able to edit this post and republish changes."
+        />
+        <ModalBody>
+          <DatePicker {...args} />
+        </ModalBody>
       </Modal>
     </View>
   );
 };
 
-export const WithModal: StoryFn<typeof Calendar> = WithModalTemplate.bind({});
+export const WithModal: StoryFn<typeof DatePicker> = WithModalTemplate.bind({});

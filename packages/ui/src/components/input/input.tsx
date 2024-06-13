@@ -5,7 +5,7 @@ import { cn } from '../../utils/cn';
 import { radiusVariant } from '../../utils/variant-common';
 
 const inputVariants = tv({
-  base: ' relative inline-flex items-center justify-between gap-2 border',
+  base: 'relative inline-flex items-center justify-between gap-2 border',
   variants: {
     variant: {
       default: 'bg-input border-input-border focus-within:shadow-brand-xs focus-within:border-brand-300',

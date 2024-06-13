@@ -6,34 +6,34 @@ Here you can find the guidelines, components APIs and examples to help you build
 
 ## Install
 
-The UI came with different packages, namely `@var-meta/icon` and `@var-meta/ui`.
+The UI came with different packages, namely `@var-meta/icons` and `@var-meta/ui`.
 
 ```sh
-npm install @var-meta/ui @var-meta/theme @var-meta/icon
+npm install @var-meta/ui @var-meta/theme @var-meta/icons
 ```
 
 ```sh
-yarn add @var-meta/ui @var-meta/theme @var-meta/icon
+yarn add @var-meta/ui @var-meta/theme @var-meta/icons
 ```
 
 ```sh
-pnpm i @var-meta/ui @var-meta/theme @var-meta/icon
+pnpm i @var-meta/ui @var-meta/theme @var-meta/icons
 ```
 
 ## Install
 
-The UI came with differences package namely `@var-meta/icon` and `@var-meta/ui`
+The UI came with differences package namely `@var-meta/icons` and `@var-meta/ui`
 
 ```sh
-npm install @var-meta/ui @var-meta/icon
+npm install @var-meta/ui @var-meta/icons
 ```
 
 ```sh
-yarn add @var-meta/ui @var-meta/icon
+yarn add @var-meta/ui @var-meta/icons
 ```
 
 ```sh
-pnpm i @var-meta/ui @var-meta/icon
+pnpm i @var-meta/ui @var-meta/icons
 ```
 
 ## Tailwind CSS Setup

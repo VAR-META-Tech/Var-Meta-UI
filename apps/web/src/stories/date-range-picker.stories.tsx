@@ -1,34 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import {
-  Button,
-  CalendarIcon,
-  DateRangePicker,
-  Modal,
-  Popper,
-  useDisclosure,
-  type Calendar,
-  type DatePickerProps,
-  type DateRange,
-  type DateRangePickerProps,
-} from '@var-meta/ui';
-import dayjs from 'dayjs';
+import { Button, DateRangePicker, Modal, ModalBody, ModalHeader, type DateRangePickerProps } from '@var-meta/ui';
 
 import { View } from '@/components/View';
 
 const meta: Meta = {
-  title: 'Components/DatePicker/DateRangePicker',
+  title: 'Components/Calendar/DateRangePicker',
   component: DateRangePicker,
   tags: ['autodocs'],
   argTypes: {},
-  args: {
-    withPreset: true,
-  },
+  args: {},
 };
 
 export default meta;
 
-const DefaultTemplate: StoryFn<DateRangePickerProps> = ({ ...args }) => {
+const DefaultTemplate: StoryFn<typeof DateRangePicker> = ({ ...args }) => {
   return (
     <View prop="Default">
       <DateRangePicker {...args} />
@@ -38,84 +24,30 @@ const DefaultTemplate: StoryFn<DateRangePickerProps> = ({ ...args }) => {
 
 export const Default: StoryFn<typeof DateRangePicker> = DefaultTemplate.bind({});
 
-const WithPopperTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<DateRange>({
-    from: new Date(new Date().setHours(0, 0, 0, 0)),
-    to: undefined,
-  });
-  const [isOpen, { close, setOpened }] = useDisclosure(false);
-
-  const handleChange = (date?: DateRange) => {
-    setValue(date);
-    close();
-  };
+const MultipleMonthsTemplate: StoryFn<typeof DateRangePicker> = ({ ...args }) => {
   return (
-    <View prop="Default">
-      <Popper
-        onOpenChange={setOpened}
-        open={isOpen}
-        trigger={
-          <Button variant="link">
-            <CalendarIcon />
-            {value?.to
-              ? `${dayjs(value.from).format('MMM DD, YYYY')} - ${dayjs(value.to).format('MMM DD, YYYY')}`
-              : 'Select date'}
-          </Button>
-        }
-      >
-        <DateRangePicker
-          {...args}
-          withPreset
-          onCancel={close}
-          from={value.from}
-          to={value.to}
-          onChange={handleChange}
-        />
-      </Popper>
+    <View prop="MultipleMonths">
+      <DateRangePicker calendarProps={{ visibleMonths: 2 }} {...args} />
     </View>
   );
 };
 
-export const WithPopper: StoryFn<typeof Calendar> = WithPopperTemplate.bind({});
+export const MultipleMonths: StoryFn<typeof DateRangePicker> = MultipleMonthsTemplate.bind({});
 
-const WithModalTemplate: StoryFn<DatePickerProps> = ({ ...args }) => {
-  const [value, setValue] = useState<DateRange>({
-    from: new Date(new Date().setHours(0, 0, 0, 0)),
-    to: undefined,
-  });
-  const [isOpen, { close, setOpened }] = useDisclosure(false);
-
-  const handleChange = (date?: DateRange) => {
-    setValue(date);
-    close();
-  };
+const WithModalTemplate: StoryFn<typeof DateRangePicker> = ({ ...args }) => {
   return (
-    <View prop="Default">
-      <Modal
-        className="max-w-fit"
-        onOpenChange={setOpened}
-        open={isOpen}
-        fitContent
-        trigger={
-          <Button variant="link">
-            <CalendarIcon />
-            {value?.to
-              ? `${dayjs(value.from).format('MMM DD, YYYY')} - ${dayjs(value.to).format('MMM DD, YYYY')}`
-              : 'Select date'}
-          </Button>
-        }
-      >
-        <DateRangePicker
-          {...args}
-          withPreset
-          onCancel={close}
-          from={value.from}
-          to={value.to}
-          onChange={handleChange}
+    <View prop="WithModal">
+      <Modal trigger={<Button>Show Modal</Button>}>
+        <ModalHeader
+          title="Blog post published"
+          description="This blog post has been published. Team members will be able to edit this post and republish changes."
         />
+        <ModalBody>
+          <DateRangePicker {...args} />
+        </ModalBody>
       </Modal>
     </View>
   );
 };
 
-export const WithModal: StoryFn<typeof Calendar> = WithModalTemplate.bind({});
+export const WithModal: StoryFn<typeof DateRangePicker> = WithModalTemplate.bind({});

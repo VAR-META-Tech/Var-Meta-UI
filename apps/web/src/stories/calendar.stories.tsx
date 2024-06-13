@@ -1,34 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Calendar, type CalendarProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 
-const mode = ['single', 'multiple', 'range'];
-
 const meta: Meta = {
-  title: 'Components/DatePicker/Calendar',
+  title: 'Components/Calendar/Calendar',
   component: Calendar,
   tags: ['autodocs'],
-  argTypes: {
-    mode: {
-      options: mode,
-      control: { type: 'select' },
-    },
-  },
+  argTypes: {},
   args: {},
 };
 
 export default meta;
 
-const DefaultTemplate: StoryFn<CalendarProps> = ({ mode = 'single', ...args }) => {
-  const [selected, setSelect] = useState<any>();
-
+const DefaultTemplate: StoryFn<CalendarProps> = (args) => {
   return (
     <EnhancedView prop="Default">
-      <Calendar selected={selected} onSelect={setSelect as any} mode={mode} {...args} />
+      <Calendar {...args} />
     </EnhancedView>
   );
 };
 
 export const Default: StoryFn<typeof Calendar> = DefaultTemplate.bind({});
+
+const WithPickerTemplate: StoryFn<CalendarProps> = (args) => {
+  return (
+    <EnhancedView prop="WithPicker">
+      <Calendar withPicker {...args} />
+    </EnhancedView>
+  );
+};
+
+export const WithPicker: StoryFn<typeof Calendar> = WithPickerTemplate.bind({});
+
+const MultipleMonthsTemplate: StoryFn<CalendarProps> = (args) => {
+  return (
+    <EnhancedView prop="MultipleMonths">
+      <Calendar visibleMonths={2} {...args} />
+    </EnhancedView>
+  );
+};
+
+export const MultipleMonths: StoryFn<typeof Calendar> = MultipleMonthsTemplate.bind({});

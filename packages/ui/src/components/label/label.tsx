@@ -1,16 +1,27 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
-import { cn } from '../../utils/cn';
 
-const labelVariants = cva(cn('text-foreground-secondary block text-sm min-h-[20px] font-medium mb-1.5'));
+const labelVariants = tv({
+  base: 'text-foreground-primary block font-medium mb-1',
+  variants: {
+    size: {
+      default: 'text-base',
+      sm: 'text-sm',
+      xs: 'text-xs',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+});
 
 export interface LabelProps extends ElementProps<'label'>, VariantProps<typeof labelVariants> {}
 
-const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, className, ...props }, ref) => {
+const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, size, className, ...props }, ref) => {
   return (
-    <label className={cn(labelVariants({ className }))} ref={ref} {...props}>
+    <label className={labelVariants({ size, className })} ref={ref} {...props}>
       {children}
     </label>
   );

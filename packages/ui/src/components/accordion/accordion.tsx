@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
+import { ChevronDownIcon, ChevronUpIcon } from '../icons';
 import { AccordionProvider, useAccordionContext, type AccordionContext } from './accordion-context';
 
 export interface AccordionSingleProps extends AccordionContext, AccordionPrimitive.AccordionSingleProps {}

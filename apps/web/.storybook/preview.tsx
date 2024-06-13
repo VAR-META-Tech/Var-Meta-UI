@@ -22,7 +22,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Foundations', 'Components'],
+        order: ['Welcome', 'Foundations', 'Components'],
       },
     },
     controls: {

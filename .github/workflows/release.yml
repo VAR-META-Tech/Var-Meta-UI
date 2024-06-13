@@ -4,6 +4,8 @@ on:
   release:
     types: [created]
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Release

@@ -56,7 +56,7 @@ export const SidebarOverlay = React.forwardRef<SidebarOverlayElement, SidebarOve
     return (
       <SidebarOverlayImpl
         className={cn(
-          'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-background/70 fixed inset-0 z-40 backdrop-blur-sm transition-all',
+          'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 fixed inset-0 z-40 backdrop-blur-sm transition-all',
           {
             'invisible opacity-0': !open,
             'visible opacity-100': open,

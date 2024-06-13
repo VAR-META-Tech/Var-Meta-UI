@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { CircularProgress, type CircularProgressProps } from '@var-meta-tech/ui';
+import { CircularProgress, type CircularProgressProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

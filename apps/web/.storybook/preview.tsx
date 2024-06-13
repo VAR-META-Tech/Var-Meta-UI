@@ -3,7 +3,7 @@ import '../src/app/globals.css';
 import { DocsContainer as BaseContainer, DocsContainerProps as BaseContainerProps } from '@storybook/blocks';
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import { Toaster } from '@var-meta-tech/ui';
+import { Toaster } from '@var-meta/ui';
 import { useDarkMode } from 'storybook-dark-mode';
 
 const preview: Preview = {

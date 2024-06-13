@@ -11,7 +11,7 @@ import {
   type DatePickerProps,
   type DateRange,
   type DateRangePickerProps,
-} from '@var-meta-tech/ui';
+} from '@var-meta/ui';
 import dayjs from 'dayjs';
 
 import { View } from '@/components/View';

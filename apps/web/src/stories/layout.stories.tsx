@@ -12,8 +12,8 @@ import {
   Users01Icon,
   UsersPlusIcon,
   UserUp02Icon,
-} from '@var-meta-tech/icons';
-import { CalendarIcon, HStack, Layout, Sidebar } from '@var-meta-tech/ui';
+} from '@var-meta/icons';
+import { CalendarIcon, HStack, Layout, Sidebar } from '@var-meta/ui';
 
 const meta: Meta = {
   title: 'Components/Layout',

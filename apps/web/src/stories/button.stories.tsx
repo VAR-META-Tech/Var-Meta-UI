@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { CircleIcon, LogOut01Icon, SearchLgIcon } from '@var-meta-tech/icons';
-import { Button, type ButtonProps } from '@var-meta-tech/ui';
+import { CircleIcon, LogOut01Icon, SearchLgIcon } from '@var-meta/icons';
+import { Button, type ButtonProps } from '@var-meta/ui';
 
 import { EnhancedView, View, ViewGroup } from '@/components/View';
 

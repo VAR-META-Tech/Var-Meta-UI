@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { AlertCircleIcon } from '@var-meta-tech/icons';
-import { FeaturedIcon, type FeaturedIconProps } from '@var-meta-tech/ui';
+import { AlertCircleIcon } from '@var-meta/icons';
+import { FeaturedIcon, type FeaturedIconProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

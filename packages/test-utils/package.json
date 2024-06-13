@@ -1,7 +1,7 @@
 {
-  "name": "@var-meta-tech/test-utils",
+  "name": "@var-meta/test-utils",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A set of utilities for react testing",
   "main": "src/index.ts",
   "sideEffects": false,

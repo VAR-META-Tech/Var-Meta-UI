@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Star06Icon } from '@var-meta-tech/icons';
-import { Indicator, type IndicatorProps } from '@var-meta-tech/ui';
+import { Star06Icon } from '@var-meta/icons';
+import { Indicator, type IndicatorProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

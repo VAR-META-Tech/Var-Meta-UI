@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, toast, Toaster, VStack, type Modal, type ToasterProps } from '@var-meta-tech/ui';
+import { Button, toast, Toaster, VStack, type Modal, type ToasterProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

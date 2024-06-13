@@ -7,7 +7,7 @@ import {
   LayersThree01Icon,
   PieChart01Icon,
   Users01Icon,
-} from '@var-meta-tech/icons';
+} from '@var-meta/icons';
 import {
   cn,
   Navigation,
@@ -15,7 +15,7 @@ import {
   NavigationItem,
   type NavigationDropdownProps,
   type NavigationItemProps,
-} from '@var-meta-tech/ui';
+} from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, type AccordionProps } from '@var-meta-tech/ui';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, type AccordionProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

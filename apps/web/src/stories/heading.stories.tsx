@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Heading, type HeadingProps } from '@var-meta-tech/ui';
+import { Heading, type HeadingProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

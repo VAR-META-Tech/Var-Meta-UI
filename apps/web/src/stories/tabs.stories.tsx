@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Tabs, TabsContent, TabsList, TabsTrigger, type TabsProps } from '@var-meta-tech/ui';
+import { Tabs, TabsContent, TabsList, TabsTrigger, type TabsProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

@@ -13,7 +13,7 @@ import {
   DrawerTrigger,
   type DrawerContentProps,
   type DrawerProps,
-} from '@var-meta-tech/ui';
+} from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

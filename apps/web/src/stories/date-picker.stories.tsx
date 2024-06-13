@@ -9,7 +9,7 @@ import {
   useDisclosure,
   type Calendar,
   type DatePickerProps,
-} from '@var-meta-tech/ui';
+} from '@var-meta/ui';
 import dayjs from 'dayjs';
 
 import { View } from '@/components/View';

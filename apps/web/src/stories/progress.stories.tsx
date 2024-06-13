@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Progress, type ProgressProps } from '@var-meta-tech/ui';
+import { Progress, type ProgressProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 

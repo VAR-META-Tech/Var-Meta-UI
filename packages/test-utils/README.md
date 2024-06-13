@@ -1,4 +1,4 @@
-# @var-meta-tech/test-utils
+# @var-meta/test-utils
 
 A Quick description of the component
 

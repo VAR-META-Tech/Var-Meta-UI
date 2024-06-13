@@ -1,6 +1,6 @@
 {
-  "name": "@var-meta-tech/theme",
-  "version": "1.0.3",
+  "name": "@var-meta/theme",
+  "version": "0.0.1",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -44,7 +44,7 @@
     "typescript": "^5.2.2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "dependencies": {
     "color": "^4.2.3",

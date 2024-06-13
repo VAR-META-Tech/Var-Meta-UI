@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Notification, type NotificationProps } from '@var-meta-tech/ui';
+import { Notification, type NotificationProps } from '@var-meta/ui';
 
 import { EnhancedView, View } from '@/components/View';
 

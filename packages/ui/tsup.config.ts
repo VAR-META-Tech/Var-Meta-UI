@@ -40,6 +40,7 @@ export default defineConfig((options: Options) => ({
   minify: true,
   clean: !options.watch,
   external: ['react'],
+  sourcemap: true,
   async onSuccess() {
     await cleanFile();
   },

@@ -13,31 +13,15 @@ Visit [https://ui.var-meta.com](https://ui.var-meta.com) to view the full docume
 The UI came with different packages, namely `@var-meta/icons` and `@var-meta/ui`.
 
 ```sh
-npm install @var-meta/ui @var-meta/theme @var-meta/icons
+npm install @var-meta/ui @var-meta/theme @var-meta/icons tailwind-variants
 ```
 
 ```sh
-yarn add @var-meta/ui @var-meta/theme @var-meta/icons
+yarn add @var-meta/ui @var-meta/theme @var-meta/icons tailwind-variants
 ```
 
 ```sh
-pnpm i @var-meta/ui @var-meta/theme @var-meta/icons
-```
-
-## Install
-
-The UI came with differences package namely `@var-meta/icons` and `@var-meta/ui`
-
-```sh
-npm install @var-meta/ui @var-meta/icons
-```
-
-```sh
-yarn add @var-meta/ui @var-meta/icons
-```
-
-```sh
-pnpm i @var-meta/ui @var-meta/icons
+pnpm i @var-meta/ui @var-meta/theme @var-meta/icons tailwind-variants
 ```
 
 ## Tailwind CSS Setup

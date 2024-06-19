@@ -8,6 +8,7 @@ import {
   ModalAction,
   ModalHeader,
   Select,
+  Text,
   toast,
   type AutocompleteProps,
 } from '@var-meta/ui';
@@ -70,7 +71,7 @@ export default function Page() {
   return (
     <>
       <main className="gap-2xl flex min-h-screen flex-col items-center justify-center">
-        <div className="font-serif text-4xl font-semibold md:text-6xl">VAR UI</div>
+        <Text weight="bold">VAR UI</Text>
 
         <HStack
           className="w-full"

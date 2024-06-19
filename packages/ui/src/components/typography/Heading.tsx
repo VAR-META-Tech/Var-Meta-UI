@@ -52,10 +52,10 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement>, Vari
 }
 
 const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
-  ({ className, align, asChild = false, children, ...props }, ref) => {
+  ({ className, align, weight, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'div';
     return (
-      <Comp className={headingVariants({ align, className })} ref={ref} {...props}>
+      <Comp className={headingVariants({ align, weight, size, className })} ref={ref} {...props}>
         {children}
       </Comp>
     );

@@ -36,10 +36,7 @@ export default meta;
 const DefaultTemplate: StoryFn<CheckboxProps> = (args) => {
   return (
     <EnhancedView prop="Default">
-      <label htmlFor="checkbox" className="flex items-center space-x-2">
-        <Checkbox id="checkbox" {...args} />
-        <span className="text-sm">Please accept the conditions</span>
-      </label>
+      <Checkbox id="checkbox" {...args} />
     </EnhancedView>
   );
 };
@@ -49,10 +46,7 @@ export const Default: StoryFn<typeof Checkbox> = DefaultTemplate.bind({});
 const CheckBoxIconTemplate: StoryFn<CheckboxProps> = (args) => {
   return (
     <View prop="Default">
-      <label htmlFor="checkbox-icon" className="flex items-center space-x-2">
-        <Checkbox id="checkbox-icon" icon={<Star01Icon />} {...args} />
-        <span className="text-sm">Please check to see the icon</span>
-      </label>
+      <Checkbox id="checkbox-icon" icon={<Star01Icon />} {...args} />
     </View>
   );
 };

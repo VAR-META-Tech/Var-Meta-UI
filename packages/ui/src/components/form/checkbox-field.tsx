@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { Checkbox, type CheckboxProps } from '../checkbox';
 import { HelperText } from '../helper-text';
-import { Label } from '../label';
+import { labelVariants } from '../label/label';
 
 export interface CheckboxFieldProps extends CheckboxProps {
   label?: string;
@@ -14,8 +14,10 @@ const CheckboxField = forwardRef<React.ElementRef<typeof Checkbox>, CheckboxFiel
   ({ label, helperText, variant = 'default', ...props }, ref) => {
     return (
       <div>
-        {label && <Label>{label}</Label>}
-        <Checkbox ref={ref} {...props} />
+        <label htmlFor="checkbox" className="flex items-center">
+          <Checkbox ref={ref} {...props} />
+          {label ? <span className={labelVariants({ spacer: 'none', className: 'ml-2' })}>{label}</span> : null}
+        </label>
         {helperText && <HelperText variant={props.disabled ? 'disabled' : variant}>{helperText}</HelperText>}
       </div>
     );

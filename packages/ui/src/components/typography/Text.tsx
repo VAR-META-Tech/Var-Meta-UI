@@ -48,10 +48,10 @@ export interface TextProps extends React.HTMLAttributes<HTMLDivElement>, Variant
 }
 
 const Text = React.forwardRef<HTMLDivElement, TextProps>(
-  ({ className, align, asChild = false, children, ...props }, ref) => {
+  ({ className, align, size, weight, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'div';
     return (
-      <Comp className={textVariants({ align, className })} ref={ref} {...props}>
+      <Comp className={textVariants({ size, weight, align, className })} ref={ref} {...props}>
         {children}
       </Comp>
     );

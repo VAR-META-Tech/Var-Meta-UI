@@ -35,6 +35,9 @@ const meta: Meta = {
     disabled: {
       control: { type: 'boolean' },
     },
+    fullWidth: {
+      true: 'w-full',
+    },
   },
   args: {
     helperText: 'This is a hint text to help user.',

@@ -32,6 +32,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
     startIcon,
     endIcon,
     freeHeight,
+    type = 'button',
     ...etc
   } = props;
 

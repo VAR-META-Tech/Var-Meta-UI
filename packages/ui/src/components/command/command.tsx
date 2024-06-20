@@ -42,6 +42,7 @@ const commandInputVariant = tv({
   variants: {
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
   },
 });

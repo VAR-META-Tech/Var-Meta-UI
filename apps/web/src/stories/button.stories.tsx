@@ -54,6 +54,9 @@ const meta: Meta = {
     freeHeight: {
       control: { type: 'boolean' },
     },
+    fullWidth: {
+      control: { type: 'boolean' },
+    },
   },
   parameters: {
     docs: {

@@ -114,7 +114,7 @@ const Tag = React.forwardRef<React.ElementRef<'div'>, TagProps>((props: TagProps
         </Show>
       </div>
       <Show when={withCloseIcon}>
-        <button onClick={onClose}>
+        <button type="button" onClick={onClose}>
           {typeof closeIcon === 'boolean' ? <CloseIcon className="h-5 w-5 text-gray-400" /> : closeIcon}
         </button>
       </Show>

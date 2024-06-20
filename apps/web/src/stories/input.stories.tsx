@@ -29,6 +29,9 @@ const meta: Meta = {
     disabled: {
       control: { type: 'boolean' },
     },
+    fullWidth: {
+      control: { type: 'boolean' },
+    },
   },
   parameters: {
     docs: {

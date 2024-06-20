@@ -12,6 +12,7 @@ const BurgerMenu = forwardRef<ElementRef<'button'>, ElementProps<'button'>>(
     if (!isMobile) return null;
     return (
       <button
+        type="button"
         onClick={composeEventHandlers(toggleOpen, onClick)}
         className={cn('relative h-8 w-8', className)}
         {...props}

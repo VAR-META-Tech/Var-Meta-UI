@@ -120,9 +120,7 @@ const options: AutocompleteProps['options'] = [
 const DefaultTemplate: StoryFn<AutocompleteProps & { showIcon: boolean }> = ({ showIcon, ...args }) => {
   return (
     <EnhancedView prop="Default">
-      <div className="max-w-sm">
-        <Autocomplete {...args} prefix={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />
-      </div>
+      <Autocomplete {...args} prefix={showIcon ? undefined : <></>} placeholder="Placeholder" options={options} />
     </EnhancedView>
   );
 };

@@ -9,7 +9,7 @@ export interface CalendarButtonProps extends ElementProps<'button'> {
 
 const CalendarButton = ({ icon = <CalendarIcon />, ...props }: CalendarButtonProps) => {
   return (
-    <button className="flex items-center justify-center" {...props}>
+    <button className="flex items-center justify-center" type="button" {...props}>
       {icon}
     </button>
   );

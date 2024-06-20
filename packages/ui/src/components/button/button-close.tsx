@@ -31,7 +31,7 @@ export const ButtonClose = forwardRef<ElementRef<'button'>, ButtonCloseProps>((p
   const { className, size, ...etc } = props;
 
   return (
-    <button className={cn(buttonCloseVariants({ size, className }))} {...etc} ref={ref}>
+    <button type="button" className={cn(buttonCloseVariants({ size, className }))} {...etc} ref={ref}>
       <CloseIcon
         className={cn('h-5 w-5', {
           'h-6 w-6': size === 'lg',

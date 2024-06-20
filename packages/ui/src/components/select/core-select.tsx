@@ -44,6 +44,7 @@ export const selectTriggerVariants = tv({
     radius: radiusVariant,
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
   },
   defaultVariants: {

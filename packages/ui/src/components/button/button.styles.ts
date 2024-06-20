@@ -37,6 +37,7 @@ export const buttonVariants = tv({
     radius: radiusVariant,
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
     iconOnly: {
       true: 'aspect-square p-0',

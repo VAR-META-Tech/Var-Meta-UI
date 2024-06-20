@@ -31,6 +31,7 @@ const autocompleteVariants = tv({
   variants: {
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
   },
   defaultVariants: {
@@ -274,6 +275,7 @@ const AutocompleteComponent = <T extends boolean = false>(
                 <div className="flex items-center">
                   {clearable ? (
                     <button
+                      type="button"
                       onClick={handleClear}
                       className={cn(
                         'hover:bg-background-light hover:text-foreground-secondary text-foreground-secondary pointer-events-none invisible relative z-10 flex h-6 w-6 items-center justify-center rounded-full opacity-0 outline-none transition-all',

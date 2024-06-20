@@ -198,6 +198,7 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
     >
       <div className={cn('flex flex-1 items-center', centeredLabel ? 'flex-col gap-3' : 'gap-4')}>
         <button
+          type="button"
           aria-current={isCurrentStep ? 'step' : undefined}
           data-invalid={isCurrentStep && isError}
           data-complete={isCompletedStep}

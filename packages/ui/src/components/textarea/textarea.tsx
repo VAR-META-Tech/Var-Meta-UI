@@ -23,6 +23,7 @@ const textareaVariants = tv({
     },
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
   },
   defaultVariants: {
@@ -39,7 +40,7 @@ export interface TextareaProps
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ variant, rows = 6, className, fullWidth, ...props }, ref) => {
     return (
-      <textarea className={textareaVariants({ variant, className, fullWidth })} rows={rows} ref={ref} {...props} />
+      <textarea className={textareaVariants({ variant, fullWidth, className })} rows={rows} ref={ref} {...props} />
     );
   }
 );

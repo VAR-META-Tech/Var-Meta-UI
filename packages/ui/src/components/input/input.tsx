@@ -20,6 +20,7 @@ const inputVariants = tv({
     },
     fullWidth: {
       true: 'w-full',
+      false: 'w-auto',
     },
     size: {
       none: 'min-h-0',

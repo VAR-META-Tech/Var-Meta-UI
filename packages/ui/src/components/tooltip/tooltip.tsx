@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
@@ -13,31 +13,29 @@ const TooltipPortal = TooltipPrimitive.Portal;
 
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
-export const tooltipContentVariants = cva(
-  [
+export const tooltipContentVariants = tv({
+  base: [
     'max-w-xxs flex flex-col items-start self-stretch rounded-md px-3 py-2',
     'z-50 overflow-hidden text-xs font-semibold shadow-lg',
     'animate-in fade-in-0 zoom-in-95',
     'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   ],
-  {
-    variants: {
-      border: {
-        default: '',
-        outlined: 'border-border-secondary border',
-      },
-      theme: {
-        default: 'bg-background text-foreground',
-        light: 'bg-white text-gray-900',
-        dark: 'bg-gray-900 text-white',
-      },
+  variants: {
+    border: {
+      default: '',
+      outlined: 'border-border-secondary border',
     },
-    defaultVariants: {
-      theme: 'default',
-      border: 'default',
+    theme: {
+      default: 'bg-background text-foreground',
+      light: 'bg-white text-gray-900',
+      dark: 'bg-gray-900 text-white',
     },
-  }
-);
+  },
+  defaultVariants: {
+    theme: 'default',
+    border: 'default',
+  },
+});
 
 export interface TooltipContentProps
   extends Omit<React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>, 'title' | 'content'>,

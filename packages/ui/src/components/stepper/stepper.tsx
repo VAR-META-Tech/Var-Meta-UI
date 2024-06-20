@@ -14,7 +14,7 @@ export interface StepperProps extends ElementProps<'div'> {
   errorIcon?: React.ReactElement;
   children?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg' | 'none';
-  iconVariant?: 'default' | 'unstyled' | null;
+  iconVariant?: 'default' | 'unstyled';
   showIndex?: boolean;
   nonLinear?: boolean;
 }

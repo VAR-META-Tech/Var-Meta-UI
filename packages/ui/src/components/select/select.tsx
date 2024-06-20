@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { type SelectProps as RadixSelectProps, type Trigger } from '@radix-ui/react-select';
-import { type VariantProps } from 'class-variance-authority';
+import { type VariantProps } from 'tailwind-variants';
 
 import { type Option } from '../../types';
 import {

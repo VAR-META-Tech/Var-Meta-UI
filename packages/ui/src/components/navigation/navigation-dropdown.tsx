@@ -1,7 +1,6 @@
 import { Children, cloneElement, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { type VariantProps } from 'class-variance-authority';
-import { tv } from 'tailwind-variants';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';

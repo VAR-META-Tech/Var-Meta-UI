@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, type ElementRef } from 'react';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { type NumberExcluded } from '../../types';
 import { cn } from '../../utils/cn';
@@ -28,7 +28,8 @@ export interface HalfCircularProgressProps extends React.HTMLAttributes<HTMLDivE
   thickness?: number;
 }
 
-const labelVariant = cva('inset-x-center text-foreground absolute bottom-0 font-semibold', {
+const labelVariant = tv({
+  base: 'inset-x-center text-foreground absolute bottom-0 font-semibold',
   variants: {
     size: {
       xxs: 'text-sm ',
@@ -111,9 +112,7 @@ const HalfCircularProgress = forwardRef<ElementRef<'div'>, HalfCircularProgressP
         </svg>
 
         {children}
-        <div className={cn(labelVariant({ size: typeof sizeProp === 'number' ? 'md' : sizeProp }))}>
-          {normalizedValue}%
-        </div>
+        <div className={labelVariant({ size: typeof sizeProp === 'number' ? 'md' : sizeProp })}>{normalizedValue}%</div>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
-import type { VariantProps } from 'class-variance-authority';
-import { tv } from 'tailwind-variants';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { assignRef } from '../../hooks/useMergedRef';
 import { cn } from '../../utils/cn';
@@ -43,24 +42,26 @@ export const selectTriggerVariants = tv({
       md: 'h-11 px-3.5 py-2.5',
     },
     radius: radiusVariant,
+    fullWidth: {
+      true: 'w-full',
+    },
   },
   defaultVariants: {
     size: 'md',
     radius: 'xs',
     variant: 'default',
+    fullWidth: true,
   },
 });
 export interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
-    VariantProps<typeof selectTriggerVariants> {
-  fullWidth?: boolean;
-}
+    VariantProps<typeof selectTriggerVariants> {}
 
 const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
   ({ className, variant, size, fullWidth, children, ...props }, ref) => (
     <SelectPrimitive.Trigger
       ref={ref}
-      className={cn(fullWidth && 'w-full', selectTriggerVariants({ variant, size, className }))}
+      className={selectTriggerVariants({ fullWidth, variant, size, className })}
       {...props}
     >
       {children}

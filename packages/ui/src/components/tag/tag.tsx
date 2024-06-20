@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { type CheckedState } from '@radix-ui/react-checkbox';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 import { radiusVariant } from '../../utils/variant-common';
@@ -8,29 +8,28 @@ import { Checkbox } from '../checkbox';
 import { CloseIcon } from '../icons';
 import { Show } from '../utility';
 
-const tagVariants = cva(
-  'border-border-secondary inline-flex items-center justify-center whitespace-nowrap border text-center font-medium transition-colors focus:outline-none',
-  {
-    variants: {
-      variant: {
-        default: 'text-foreground',
-      },
-      radius: radiusVariant,
-      size: {
-        sm: 'py-0.75 gap-1 h-6 px-1 text-xs',
-        md: 'px-1.5 gap-1 h-6 py-0.5 text-xs',
-        lg: 'gap-1 h-7 px-2 py-1 text-sm',
-      },
+const tagVariants = tv({
+  base: 'border-border-secondary inline-flex items-center justify-center whitespace-nowrap border text-center font-medium transition-colors focus:outline-none',
+  variants: {
+    variant: {
+      default: 'text-foreground',
     },
-    defaultVariants: {
-      variant: 'default',
-      size: 'md',
-      radius: 'xs',
+    radius: radiusVariant,
+    size: {
+      sm: 'py-0.75 gap-1 h-6 px-1 text-xs',
+      md: 'px-1.5 gap-1 h-6 py-0.5 text-xs',
+      lg: 'gap-1 h-7 px-2 py-1 text-sm',
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'md',
+    radius: 'xs',
+  },
+});
 
-const tagContentVariants = cva('flex items-center', {
+const tagContentVariants = tv({
+  base: 'flex items-center',
   variants: {
     size: {
       sm: 'gap-1',
@@ -43,7 +42,8 @@ const tagContentVariants = cva('flex items-center', {
   },
 });
 
-const countVariants = cva('rounded-xxs flex items-center bg-background-light text-center font-medium', {
+const countVariants = tv({
+  base: 'rounded-xxs flex items-center bg-background-light text-center font-medium',
   variants: {
     size: {
       sm: 'px-1 text-xs ',

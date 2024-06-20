@@ -11,7 +11,7 @@ import {
 import { useMergeRefs } from '@floating-ui/react';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { type Option, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
@@ -26,13 +26,16 @@ import { Tag } from '../tag';
 import { Show, VStack } from '../utility';
 
 type TValue<T extends boolean> = T extends true ? string[] : string;
-const autocompleteVariants = cva('inline-flex flex-col', {
+const autocompleteVariants = tv({
+  base: 'inline-flex flex-col',
   variants: {
     fullWidth: {
       true: 'w-full',
     },
   },
-  defaultVariants: {},
+  defaultVariants: {
+    fullWidth: true,
+  },
 });
 
 export interface AutocompleteProps<T extends boolean = false>

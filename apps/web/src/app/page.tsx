@@ -1,17 +1,6 @@
 'use client';
 
-import {
-  Autocomplete,
-  Button,
-  HStack,
-  Modal,
-  ModalAction,
-  ModalHeader,
-  Select,
-  Text,
-  toast,
-  type AutocompleteProps,
-} from '@var-meta/ui';
+import { Autocomplete, Button, HStack, Modal, Select, Text, toast, type AutocompleteProps } from '@var-meta/ui';
 
 const options: AutocompleteProps['options'] = [
   {
@@ -86,7 +75,7 @@ export default function Page() {
         </HStack>
         <div className="flex gap-4">
           <Modal trigger={<Button>Show Modal</Button>}>
-            <ModalHeader
+            <Modal.Header
               title="Blog post published"
               description="This blog post has been published. Team members will be able to edit this post and republish changes."
             />
@@ -99,14 +88,14 @@ export default function Page() {
                 options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
               />
             </div>
-            <ModalAction>
+            <Modal.Action>
               <Button onClick={() => toast.error('discard')} variant="outline" color="gray" fullWidth>
                 Discard
               </Button>
               <Button onClick={() => toast.error('error')} fullWidth>
                 Save changes
               </Button>
-            </ModalAction>
+            </Modal.Action>
           </Modal>
         </div>
       </main>

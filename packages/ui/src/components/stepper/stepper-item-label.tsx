@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 import { useStepperContext } from './stepper-context';
@@ -12,7 +12,8 @@ export interface StepperItemLabelProps {
   descriptionClassName?: string;
 }
 
-const labelVariants = cva('text-foreground font-semibold', {
+const labelVariants = tv({
+  base: 'text-foreground font-semibold',
   variants: {
     active: {
       true: 'text-button',
@@ -31,7 +32,8 @@ const labelVariants = cva('text-foreground font-semibold', {
   },
 });
 
-const descriptionVariants = cva('text-foreground-secondary', {
+const descriptionVariants = tv({
+  base: 'text-foreground-secondary',
   variants: {
     active: {
       true: 'text-button',
@@ -50,7 +52,8 @@ const descriptionVariants = cva('text-foreground-secondary', {
   },
 });
 
-const optionalLabelVariants = cva('text-foreground-secondary', {
+const optionalLabelVariants = tv({
+  base: 'text-foreground-secondary',
   variants: {
     size: {
       none: 'text-xs',

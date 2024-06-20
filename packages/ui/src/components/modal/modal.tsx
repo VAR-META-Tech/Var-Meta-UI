@@ -2,16 +2,19 @@ import { forwardRef, type ComponentPropsWithoutRef, type ElementRef } from 'reac
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
+import { useDialogContext } from '../dialog/dialog.context';
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogPortal,
   DialogTrigger,
   type DialogHeaderProps,
 } from './dialog.styles';
+
+const ModalTrigger = DialogTrigger;
+const ModalClose = DialogClose;
 
 export interface ModalHeaderProps extends DialogHeaderProps {
   align?: 'left' | 'center' | 'baseline';
@@ -20,16 +23,13 @@ export interface ModalHeaderProps extends DialogHeaderProps {
   description?: React.ReactNode;
 }
 
-export const ModalTrigger = DialogTrigger;
-export const ModalClose = DialogClose;
-
-export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((props, ref) => {
+const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((props, ref) => {
   const { title, children, icon, description, align = 'left', ...etc } = props;
 
   return (
     <DialogHeader ref={ref} {...etc}>
       <div
-        className={cn('flex flex-col gap-4', {
+        className={cn('flex flex-col gap-4 pb-3', {
           'justify-start': align === 'left',
           'items-center justify-center': align === 'center',
           'flex-row justify-center': align === 'baseline',
@@ -50,18 +50,35 @@ export const ModalHeader = forwardRef<ElementRef<'div'>, ModalHeaderProps>((prop
   );
 });
 
+export interface ModalBodyProps extends DialogHeaderProps {}
+
+const ModalBody = forwardRef<ElementRef<'div'>, ModalBodyProps>((props, ref) => {
+  const { children, className, ...etc } = props;
+  const { scrollBehavior } = useDialogContext();
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'relative flex flex-1 flex-col px-6 py-3',
+        {
+          'overflow-y-auto': scrollBehavior === 'inside',
+        },
+        className
+      )}
+      {...etc}
+    >
+      {children}
+    </div>
+  );
+});
+
 export interface ModalActionProps extends React.HTMLAttributes<HTMLDivElement> {
   separator?: boolean;
 }
 
-export const ModalAction = forwardRef<ElementRef<'div'>, ModalActionProps>(({ className, ...props }, ref) => (
+const ModalAction = forwardRef<ElementRef<'div'>, ModalActionProps>(({ className, ...props }, ref) => (
   <DialogFooter className={className} {...props} ref={ref} />
-));
-
-export interface ModalBodyProps extends ElementProps<'div'> {}
-
-export const ModalBody = forwardRef<ElementRef<'div'>, ModalBodyProps>(({ className, ...props }, ref) => (
-  <div className={cn('px-4 md:px-6', className)} {...props} ref={ref} />
 ));
 
 export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
@@ -72,20 +89,17 @@ export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   modalContentProps?: ElementProps<typeof DialogContent, 'className'>;
 }
 
-export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
+const ModalRoot = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
   const { children, className, fitContent, fullScreen, modalContentProps, trigger, ...etc } = props;
 
   return (
     <Dialog {...etc}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-
       <DialogContent
         ref={ref}
-        className={cn(
-          'min-h-[200px] p-0 shadow-lg',
-          { 'w-fit max-w-fit': fitContent, 'min-h-screen max-w-full rounded-none': fullScreen },
-          className
-        )}
+        fitContent={fitContent}
+        fullScreen={fullScreen}
+        className={className}
         {...modalContentProps}
       >
         {children}
@@ -94,4 +108,12 @@ export const Modal = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((p
   );
 });
 
-Modal.displayName = 'Modal';
+ModalRoot.displayName = 'Modal';
+
+export const Modal = Object.assign(ModalRoot, {
+  Header: ModalHeader,
+  Body: ModalBody,
+  Action: ModalAction,
+  Trigger: ModalTrigger,
+  Close: ModalClose,
+});

@@ -25,6 +25,14 @@ const meta: Meta = {
     withScrollAction: {
       control: { type: 'boolean' },
     },
+    defaultOpen: {
+      description: 'The initial open state of the menu.',
+      control: { type: 'boolean' },
+    },
+    open: {
+      description: 'The open state of the menu.',
+      control: { type: 'boolean' },
+    },
   },
   args: {
     withScrollAction: true,

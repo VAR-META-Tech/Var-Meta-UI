@@ -1,9 +1,7 @@
 import React, { useMemo, type ElementRef, type ReactNode } from 'react';
-import { type VariantProps } from 'class-variance-authority';
-import { tv } from 'tailwind-variants';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
-import { cn } from '../../utils/cn';
 import { HStack } from '../utility';
 import { usePaginationContext } from './pagination-context';
 import { PaginationFirst, PaginationLast, PaginationNext, PaginationPrevious } from './pagination-edge';
@@ -98,7 +96,7 @@ const PaginationMain = React.forwardRef<ElementRef<'div'>, PaginationMainProps>(
   }, [getControlProps, lastIcon, nextIcon, shape, withControls, withEdges]);
 
   return (
-    <div className={cn(paginationMainVariants({ shape, justify, className }))} ref={ref} {...etc}>
+    <div className={paginationMainVariants({ shape, justify, className })} ref={ref} {...etc}>
       {justify === 'start' ? (
         <HStack spacing={8}>
           {renderControlLeft}

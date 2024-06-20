@@ -8,64 +8,59 @@ import React, {
   type ReactNode,
 } from 'react';
 import { Primitive } from '@radix-ui/react-primitive';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { SlashIcon } from '../icons';
 
-const breadcrumbActiveItemVariant = cva(
-  'flex h-full items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors',
-  {
-    variants: {
-      variant: {
-        text: 'text-button p-0',
-        'btn-gray': 'text-foreground-secondary bg-gray-50',
-        'btn-brand': 'bg-brand-50 text-button',
-      },
-      disabled: {
-        true: 'pointer-events-none',
-        false: '',
-      },
-      iconOnly: {
-        true: 'aspect-square p-1',
-        false: '',
-      },
+const breadcrumbActiveItemVariant = tv({
+  base: 'flex h-full items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors',
+  variants: {
+    variant: {
+      text: 'text-button p-0',
+      'btn-gray': 'text-foreground-secondary bg-gray-50',
+      'btn-brand': 'bg-brand-50 text-button',
     },
-    defaultVariants: {
-      variant: 'text',
-      disabled: false,
+    disabled: {
+      true: 'pointer-events-none',
+      false: '',
     },
-  }
-);
+    iconOnly: {
+      true: 'aspect-square p-1',
+      false: '',
+    },
+  },
+  defaultVariants: {
+    variant: 'text',
+    disabled: false,
+  },
+});
 
-const breadcrumbItemVariant = cva(
-  'flex h-full items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors',
-  {
-    variants: {
-      variant: {
-        text: 'hover:text-button focus:text-button p-0 text-gray-500',
-        'btn-gray':
-          'hover:text-foreground-secondary focus:text-foreground-secondary text-gray-500 hover:bg-gray-50 focus:bg-gray-50',
-        'btn-brand':
-          'text-foreground-secondary hover:bg-brand-50 hover:text-button focus:bg-brand-50 focus:text-button',
-      },
-      disabled: {
-        true: 'pointer-events-none',
-        false: '',
-      },
-      iconOnly: {
-        true: 'aspect-square p-1',
-        false: '',
-      },
+const breadcrumbItemVariant = tv({
+  base: 'flex h-full items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors',
+  variants: {
+    variant: {
+      text: 'hover:text-button focus:text-button p-0 text-gray-500',
+      'btn-gray':
+        'hover:text-foreground-secondary focus:text-foreground-secondary text-gray-500 hover:bg-gray-50 focus:bg-gray-50',
+      'btn-brand': 'text-foreground-secondary hover:bg-brand-50 hover:text-button focus:bg-brand-50 focus:text-button',
     },
-    defaultVariants: {
-      variant: 'text',
-      disabled: false,
-      iconOnly: false,
+    disabled: {
+      true: 'pointer-events-none',
+      false: '',
     },
-  }
-);
+    iconOnly: {
+      true: 'aspect-square p-1',
+      false: '',
+    },
+  },
+  defaultVariants: {
+    variant: 'text',
+    disabled: false,
+    iconOnly: false,
+  },
+});
 
 export interface BreadcrumbItemProps extends ElementProps<'li'>, VariantProps<typeof breadcrumbItemVariant> {
   separator?: ReactNode;
@@ -96,11 +91,11 @@ const BreadcrumbItem = React.forwardRef<ElementRef<'li'>, BreadcrumbItemProps>(
         <Primitive.li
           asChild={asChild}
           ref={ref}
-          className={cn(
+          className={
             active
               ? breadcrumbActiveItemVariant({ variant, iconOnly, disabled, className })
               : breadcrumbItemVariant({ variant, disabled, iconOnly, className })
-          )}
+          }
           {...props}
         />
         {!isLast && !hideSeparator ? <li className="text-gray-300">{separator}</li> : null}

@@ -1,9 +1,8 @@
 import React, { forwardRef, type ElementRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { cn } from '../../utils/cn';
-
-const featuredIconVariants = cva('relative flex aspect-square items-center justify-center [&>svg]:z-20', {
+const featuredIconVariants = tv({
+  base: 'relative flex aspect-square items-center justify-center [&>svg]:z-20',
   variants: {
     variant: {
       light: 'rounded-full',
@@ -281,7 +280,7 @@ const FeaturedIcon = forwardRef<ElementRef<'div'>, FeaturedIconProps>((props, re
 
   if (variant === 'glass' || variant === 'outline') {
     return (
-      <div className={cn(featuredIconVariants({ size, variant, color, className }))} ref={ref} {...etc}>
+      <div className={featuredIconVariants({ size, variant, color, className })} ref={ref} {...etc}>
         <span />
         <span />
         {children}
@@ -291,7 +290,7 @@ const FeaturedIcon = forwardRef<ElementRef<'div'>, FeaturedIconProps>((props, re
 
   return (
     <>
-      <div className={cn(featuredIconVariants({ size, variant, color, className }))} ref={ref} {...etc}>
+      <div className={featuredIconVariants({ size, variant, color, className })} ref={ref} {...etc}>
         {children}
       </div>
     </>

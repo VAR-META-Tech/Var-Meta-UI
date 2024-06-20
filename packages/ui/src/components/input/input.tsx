@@ -33,6 +33,7 @@ const inputVariants = tv({
     size: 'md',
     radius: 'xs',
     variant: 'default',
+    fullWidth: true,
   },
 });
 

@@ -1,9 +1,10 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 
-const dotVariants = cva('rounded-half block aspect-square p-1', {
+const dotVariants = tv({
+  base: 'rounded-half block aspect-square p-1',
   variants: {
     variant: {
       solid: '',

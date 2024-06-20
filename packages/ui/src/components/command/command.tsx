@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
 import type { DialogProps } from '../dialog';
@@ -37,16 +37,14 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
   );
 };
 
-const commandInputVariant = cva(
-  'placeholder:text-muted disabled:text-disabled flex h-full bg-transparent outline-none disabled:cursor-not-allowed',
-  {
-    variants: {
-      fullWidth: {
-        true: 'w-full',
-      },
+const commandInputVariant = tv({
+  base: 'placeholder:text-muted disabled:text-disabled flex h-full bg-transparent outline-none disabled:cursor-not-allowed',
+  variants: {
+    fullWidth: {
+      true: 'w-full',
     },
-  }
-);
+  },
+});
 export interface CommandInputProps
   extends Omit<React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>, 'prefix'>,
     VariantProps<typeof commandInputVariant> {

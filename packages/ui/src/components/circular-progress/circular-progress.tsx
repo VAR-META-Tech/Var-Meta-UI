@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { type ElementProps, type NumberExcluded } from '../../types';
 import { cn } from '../../utils/cn';
@@ -62,7 +62,8 @@ export interface CircularProgressProps extends React.HTMLAttributes<HTMLDivEleme
   thickness?: number;
 }
 
-const labelVariant = cva('inset-center text-foreground absolute font-semibold', {
+const labelVariant = tv({
+  base: 'inset-center text-foreground absolute font-semibold',
   variants: {
     size: {
       xxs: 'text-sm ',
@@ -108,7 +109,7 @@ const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>
         </svg>
 
         {children}
-        <div className={cn(labelVariant({ size: typeof sizeProp === 'number' ? 'md' : sizeProp }))}>{value}%</div>
+        <div className={labelVariant({ size: typeof sizeProp === 'number' ? 'md' : sizeProp })}>{value}%</div>
       </div>
     );
   }

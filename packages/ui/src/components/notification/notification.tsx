@@ -1,5 +1,5 @@
 import React, { useMemo, type ComponentPropsWithoutRef, type ReactNode } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ReactNodeExcluded } from '../../types';
 import { cn } from '../../utils/cn';
@@ -66,23 +66,21 @@ const NotificationContent = React.forwardRef<HTMLDivElement, NotificationContent
   }
 );
 
-const notificationVariants = cva(
-  'border-border bg-background relative flex w-full gap-4 overflow-hidden rounded-xl border p-4 shadow-lg [@media(min-width:37.5rem)]:w-[370px] [@media(min-width:48rem)]:w-[400px]',
-  {
-    variants: {
-      variant: {
-        none: '',
-        icon: '',
-        image: 'p-0',
-        avatar: '',
-      },
+const notificationVariants = tv({
+  base: 'border-border bg-background relative flex w-full gap-4 overflow-hidden rounded-xl border p-4 shadow-lg [@media(min-width:37.5rem)]:w-[370px] [@media(min-width:48rem)]:w-[400px]',
+  variants: {
+    variant: {
+      none: '',
+      icon: '',
+      image: 'p-0',
+      avatar: '',
     },
-    defaultVariants: {
-      variant: 'icon',
-    },
-    compoundVariants: [],
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'icon',
+  },
+  compoundVariants: [],
+});
 
 export interface NotificationProps extends NotificationContentProps, VariantProps<typeof notificationVariants> {
   hideCloseIcon?: boolean;

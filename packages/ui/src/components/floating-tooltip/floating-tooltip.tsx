@@ -1,7 +1,7 @@
 import type { ElementRef } from 'react';
 import React, { cloneElement, forwardRef } from 'react';
 import { FloatingArrow, FloatingPortal } from '@floating-ui/react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { useMergedRef } from '../../hooks';
 import { type ElementProps, type VisibleState } from '../../types';
@@ -9,26 +9,24 @@ import { cn } from '../../utils/cn';
 import { isElement } from '../../utils/is-element';
 import { useFloatingTooltip, type FloatingPosition } from './use-floating-tooltip';
 
-export const floatingTooltipContentVariants = cva(
-  [
+export const floatingTooltipContentVariants = tv({
+  base: [
     'max-w-xxs flex flex-col items-start self-stretch rounded-md px-3 py-2',
     'z-50 overflow-hidden text-xs font-semibold shadow-lg',
     'animate-in fade-in-0 zoom-in-95',
     'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   ],
-  {
-    variants: {
-      theme: {
-        default: 'bg-background text-foreground',
-        light: 'bg-white text-gray-950',
-        dark: 'bg-gray-900 text-white',
-      },
+  variants: {
+    theme: {
+      default: 'bg-background text-foreground',
+      light: 'bg-white text-gray-950',
+      dark: 'bg-gray-900 text-white',
     },
-    defaultVariants: {
-      theme: 'default',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    theme: 'default',
+  },
+});
 
 export interface FloatingTooltipProps
   extends ElementProps<'div', 'content' | 'title'>,

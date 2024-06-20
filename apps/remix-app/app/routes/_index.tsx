@@ -41,7 +41,6 @@ export default function Index() {
           </a>
         </li>
       </ul>
-
       <Button>ALO</Button>
     </div>
   );

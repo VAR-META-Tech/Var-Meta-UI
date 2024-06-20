@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import * as React from 'react';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 interface ViewProps extends React.PropsWithChildren {
   prop?: any;
@@ -63,7 +63,8 @@ export const ViewGroup = ({
   children: ReactNode;
   direction?: 'column' | 'row';
 }) => {
-  const viewClasses = cva(['flex', 'justify-evenly'], {
+  const viewClasses = tv({
+    base: ['flex', 'justify-evenly'],
     variants: {
       direction: {
         row: ['flex-row', 'space-x-5'],

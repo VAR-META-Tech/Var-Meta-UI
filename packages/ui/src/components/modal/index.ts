@@ -1,10 +1,1 @@
-export {
-  Modal,
-  ModalAction,
-  type ModalActionProps,
-  ModalBody,
-  type ModalBodyProps,
-  ModalHeader,
-  type ModalHeaderProps,
-  type ModalProps,
-} from './modal';
+export { Modal, type ModalActionProps, type ModalBodyProps, type ModalHeaderProps, type ModalProps } from './modal';

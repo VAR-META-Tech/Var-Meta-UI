@@ -1,6 +1,5 @@
 import React, { forwardRef, type ElementRef } from 'react';
-import { type VariantProps } from 'class-variance-authority';
-import { tv } from 'tailwind-variants';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';

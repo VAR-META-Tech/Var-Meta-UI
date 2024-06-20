@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, DatePicker, Modal, ModalBody, ModalHeader } from '@var-meta/ui';
+import { Button, DatePicker, Modal } from '@var-meta/ui';
 
 import { View } from '@/components/View';
 
@@ -28,13 +28,13 @@ const WithModalTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
   return (
     <View prop="WithModal">
       <Modal trigger={<Button>Show Modal</Button>}>
-        <ModalHeader
+        <Modal.Header
           title="Blog post published"
           description="This blog post has been published. Team members will be able to edit this post and republish changes."
         />
-        <ModalBody>
+        <Modal.Body>
           <DatePicker {...args} />
-        </ModalBody>
+        </Modal.Body>
       </Modal>
     </View>
   );

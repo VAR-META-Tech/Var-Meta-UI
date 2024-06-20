@@ -1,11 +1,12 @@
 import React, { forwardRef, type ReactNode } from 'react';
-import { cva } from 'class-variance-authority';
+import { tv } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { TableProvider, type TableContext } from './table-context';
 
-const tableVariants = cva('w-full caption-bottom text-sm', {
+const tableVariants = tv({
+  base: 'w-full caption-bottom text-sm',
   variants: {
     variant: {
       default: '',

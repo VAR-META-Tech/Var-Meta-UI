@@ -21,30 +21,25 @@ const textareaVariants = tv({
       sm: 'h-10 px-3 py-2',
       md: 'h-11 px-3.5 py-3',
     },
+    fullWidth: {
+      true: 'w-full',
+    },
   },
   defaultVariants: {
     size: 'md',
     variant: 'default',
+    fullWidth: true,
   },
 });
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    VariantProps<typeof textareaVariants> {
-  fullWidth?: boolean;
-}
+    VariantProps<typeof textareaVariants> {}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ variant, rows = 6, className, fullWidth, ...props }, ref) => {
     return (
-      <textarea
-        className={cn(textareaVariants({ variant, className }), {
-          'w-full': fullWidth,
-        })}
-        rows={rows}
-        ref={ref}
-        {...props}
-      />
+      <textarea className={textareaVariants({ variant, className, fullWidth })} rows={rows} ref={ref} {...props} />
     );
   }
 );

@@ -1,14 +1,15 @@
 import React, { type ElementRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { cn } from '../../utils/cn';
-import { CheckIcon, CloseIcon, DotIcon, TickIcon } from '../icons';
+import { CheckIcon, CloseIcon, DotIcon } from '../icons';
 import { Spinner } from '../spinner';
 import { useStepperContext, type StepperContext } from './stepper-context';
 import { StepperItemConnector } from './stepper-item-connector';
 import { StepperItemLabel, type StepperItemLabelProps } from './stepper-item-label';
 
-const stepperItemVariants = cva('relative flex flex-row items-start', {
+const stepperItemVariants = tv({
+  base: 'relative flex flex-row items-start',
   variants: {
     isLastStep: {
       true: 'flex-1 justify-end',
@@ -32,32 +33,30 @@ const stepperItemVariants = cva('relative flex flex-row items-start', {
   ],
 });
 
-const iconButtonVariants = cva(
-  'z-10 flex aspect-square cursor-default items-center justify-center rounded-full text-sm data-[clickable=true]:cursor-pointer',
-  {
-    variants: {
-      variant: {
-        default: [
-          'bg-background border-border-secondary text-foreground-secondary border-2',
-          'aria-[current=step]:bg-button aria-[current=step]:border-button aria-[current=step]:shadow-brand-base aria-[current=step]:text-foreground-button',
-          'data-[invalid=true]:bg-error-600 data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base data-[invalid=true]:text-foreground-button',
-          'data-[complete=true]:bg-button data-[complete=true]:text-foreground-button',
-        ],
-        unstyled: '',
-      },
-      size: {
-        none: '',
-        sm: 'h-6 w-6 ',
-        md: 'h-8 w-8',
-        lg: 'h-10 w-10',
-      },
+const iconButtonVariants = tv({
+  base: 'z-10 flex aspect-square cursor-default items-center justify-center rounded-full text-sm data-[clickable=true]:cursor-pointer',
+  variants: {
+    variant: {
+      default: [
+        'bg-background border-border-secondary text-foreground-secondary border-2',
+        'aria-[current=step]:bg-button aria-[current=step]:border-button aria-[current=step]:shadow-brand-base aria-[current=step]:text-foreground-button',
+        'data-[invalid=true]:bg-error-600 data-[invalid=true]:border-error-600 data-[invalid=true]:shadow-error-base data-[invalid=true]:text-foreground-button',
+        'data-[complete=true]:bg-button data-[complete=true]:text-foreground-button',
+      ],
+      unstyled: '',
     },
-    defaultVariants: {
-      variant: 'default',
-      size: 'none',
+    size: {
+      none: '',
+      sm: 'h-6 w-6 ',
+      md: 'h-8 w-8',
+      lg: 'h-10 w-10',
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'none',
+  },
+});
 
 export interface StepperConfig extends StepperItemLabelProps {
   icon?: React.ReactElement;
@@ -204,10 +203,11 @@ export const StepperItem = React.forwardRef<ElementRef<'div'>, StepperItemProps>
           data-complete={isCompletedStep}
           data-clickable={isClickable}
           disabled={!hasVisited}
-          className={cn(
-            iconButtonVariants({ size: iconVariant === 'unstyled' ? 'none' : size, variant: iconVariant }),
-            classNames?.button
-          )}
+          className={iconButtonVariants({
+            size: iconVariant === 'unstyled' ? 'none' : size,
+            variant: iconVariant,
+            className: classNames?.button,
+          })}
         >
           {RenderIcon}
         </button>

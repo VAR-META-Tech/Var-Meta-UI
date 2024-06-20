@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
@@ -16,19 +16,17 @@ const DrawerClose = DrawerPrimitive.Close;
 
 const DrawerPortal = DrawerPrimitive.Portal;
 
-const drawerOverlayVariants = cva(
-  'bg-overlay/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0  data-[state=open]:fade-in-0 fixed inset-0 z-50',
-  {
-    variants: {
-      blur: {
-        true: 'backdrop-blur-sm',
-      },
+const drawerOverlayVariants = tv({
+  base: 'bg-overlay/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0  data-[state=open]:fade-in-0 fixed inset-0 z-50',
+  variants: {
+    blur: {
+      true: 'backdrop-blur-sm',
     },
-    defaultVariants: {
-      blur: true,
-    },
-  }
-);
+  },
+  defaultVariants: {
+    blur: true,
+  },
+});
 
 interface DrawerOverlayProps
   extends ElementProps<typeof DrawerPrimitive.Overlay>,
@@ -41,24 +39,22 @@ const DrawerOverlay = React.forwardRef<React.ElementRef<typeof DrawerPrimitive.O
 );
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
-const drawerVariants = cva(
-  'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
-  {
-    variants: {
-      side: {
-        top: 'border-border-secondary data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 border-b',
-        bottom:
-          'border-border-secondary data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 border-t',
-        left: 'border-border-secondary data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-full max-w-[375px] border-r',
-        right:
-          'border-border-secondary data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-full max-w-[375px] border-l',
-      },
+const drawerVariants = tv({
+  base: 'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
+  variants: {
+    side: {
+      top: 'border-border-secondary data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 border-b',
+      bottom:
+        'border-border-secondary data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 border-t',
+      left: 'border-border-secondary data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-full max-w-[375px] border-r',
+      right:
+        'border-border-secondary data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-full max-w-[375px] border-l',
     },
-    defaultVariants: {
-      side: 'right',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    side: 'right',
+  },
+});
 
 export interface DrawerContentProps
   extends ElementProps<typeof DrawerPrimitive.Content>,
@@ -72,7 +68,7 @@ const DrawerContent = React.forwardRef<React.ElementRef<typeof DrawerPrimitive.C
   ({ side = 'right', blur = true, hideCloseIcon, hideOverlay, className, children, ...props }, ref) => (
     <DrawerPortal>
       {hideOverlay ? null : <DrawerOverlay blur={blur} />}
-      <DrawerPrimitive.Content ref={ref} className={cn(drawerVariants({ side }), className)} {...props}>
+      <DrawerPrimitive.Content ref={ref} className={drawerVariants({ side, className })} {...props}>
         {children}
         {hideCloseIcon ? null : (
           <DrawerPrimitive.Close className="absolute right-2 top-3" asChild>

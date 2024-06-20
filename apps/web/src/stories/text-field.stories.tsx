@@ -50,7 +50,7 @@ const meta: Meta = {
 
 export default meta;
 
-const DefaultTemplate: StoryFn<TextFieldProps> = ({ suffix, prefix, ...args }) => {
+const DefaultTemplate: StoryFn<typeof Form.Input> = ({ suffix, prefix, ...args }) => {
   return (
     <EnhancedView prop="Default">
       <Form.Input

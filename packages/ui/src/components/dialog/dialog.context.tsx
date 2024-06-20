@@ -10,6 +10,7 @@ export interface DialogContext {
   open: boolean;
   onOpenChange(open: boolean): void;
   dismissable?: boolean;
+  scrollBehavior?: 'inside' | 'outside';
 }
 
 export const [DialogProvider, useDialogContext] = createSafeContext<DialogContext>(

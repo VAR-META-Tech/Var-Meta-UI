@@ -6,9 +6,6 @@ import {
   FeaturedIcon,
   Form,
   Modal,
-  ModalAction,
-  ModalBody,
-  ModalHeader,
   toast,
   VStack,
   type AutocompleteProps,
@@ -54,6 +51,12 @@ const meta: Meta = {
         type: 'radio',
       },
     },
+    scrollBehavior: {
+      options: ['inside', 'outside'],
+      control: {
+        type: 'radio',
+      },
+    },
     dismissable: {
       options: [true, false, undefined],
       control: {
@@ -61,10 +64,12 @@ const meta: Meta = {
       },
     },
   },
-  args: {},
+  args: {
+    title: 'Blog post published',
+    description:
+      'This blog post has been published. Team members will be able to edit this post and republish changes.',
+  },
 };
-
-export default meta;
 
 const options: AutocompleteProps['options'] = [
   {
@@ -120,18 +125,25 @@ const options: AutocompleteProps['options'] = [
   },
 ];
 
-const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
+export default meta;
+
+const DefaultTemplate: StoryFn<ModalProps> = ({ align, title, description, ...args }: any) => {
   return (
     <EnhancedView prop="Default">
       <div className="flex gap-4">
-        <Modal trigger={<Button>Show Modal</Button>} {...args}>
-          <ModalHeader
+        <Modal className="" trigger={<Button>Show Modal</Button>} {...args}>
+          <Modal.Header
             align={align}
-            title="Blog post published"
-            description="This blog post has been published. Team members will be able to edit this post and republish changes."
+            icon={
+              <FeaturedIcon variant="outline" color="brand" size="md">
+                <AlertCircleIcon />
+              </FeaturedIcon>
+            }
+            title={title}
+            description={description}
           />
 
-          <ModalBody>
+          <Modal.Body>
             <VStack>
               <Form.Autocomplete label="Team" placeholder="Placeholder" options={options} />
               <Form.Select
@@ -140,16 +152,50 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, ...args }: any) => {
                 options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
               />
             </VStack>
-          </ModalBody>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+              venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+              hendrerit risus, sed porttitor quam. Magna exercitation reprehenderit magna aute tempor cupidatat
+              consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+              officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
+              laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit venenatis. Pellentesque
+              sit amet hendrerit risus, sed porttitor quam. Magna exercitation reprehenderit magna aute tempor cupidatat
+              consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+              officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
+              laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam. Mollit dolor eiusmod
+              sunt ex incididunt cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod.
+              Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
+              deserunt nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus
+              non risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Magna
+              exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor adipisicing. Mollit dolor
+              eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor
+              eiusmod. Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et.
+              Culpa deserunt nostrud ad veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+              risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Magna
+              exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor adipisicing. Mollit dolor
+              eiusmod sunt ex incididunt cillum quis. Velit duis sit officia eiusmod Lorem aliqua enim laboris do dolor
+              eiusmod. Et mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et.
+              Culpa deserunt nostrud ad veniam. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+              officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
+              laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit venenatis. Pellentesque
+              sit amet hendrerit risus, sed porttitor quam. Magna exercitation reprehenderit magna aute tempor cupidatat
+              consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
+              officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
+              laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
+            </div>
+          </Modal.Body>
 
-          <ModalAction>
+          <Modal.Action>
             <Button variant="outline" color="default" fullWidth>
               Discard
             </Button>
             <Button onClick={() => toast.error('error')} fullWidth>
               Save changes
             </Button>
-          </ModalAction>
+          </Modal.Action>
         </Modal>
       </div>
     </EnhancedView>

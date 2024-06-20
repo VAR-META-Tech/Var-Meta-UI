@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
@@ -16,7 +16,8 @@ const iconSize: Record<string, string> = {
   lg: 'w-6 h-6',
 };
 
-const accordionVariant = cva('flex flex-col [&>div:first-of-type]:border-none', {
+const accordionVariant = tv({
+  base: 'flex flex-col [&>div:first-of-type]:border-none',
   variants: {
     variant: {
       default: '',
@@ -94,7 +95,8 @@ const AccordionItem = React.forwardRef<React.ElementRef<typeof AccordionPrimitiv
 
 AccordionItem.displayName = 'AccordionItem';
 
-const accordionTriggerVariant = cva('text-foreground group flex flex-1 items-center gap-6 font-medium transition-all', {
+const accordionTriggerVariant = tv({
+  base: 'text-foreground group flex flex-1 items-center gap-6 font-medium transition-all',
   variants: {
     variant: {
       default: '',
@@ -155,7 +157,8 @@ const AccordionTrigger = React.forwardRef<React.ElementRef<typeof AccordionPrimi
 );
 AccordionPrimitive.AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
-const accordionContentVariant = cva('', {
+const accordionContentVariant = tv({
+  base: '',
   variants: {
     variant: {
       default: '',

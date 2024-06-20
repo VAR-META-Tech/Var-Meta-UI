@@ -17,9 +17,8 @@
   },
   "dependencies": {
     "@var-meta/ui": "workspace:*",
-    "@var-meta/icons": "workspace:^",
+    "@var-meta/icons": "workspace:*",
     "@var-meta/theme": "workspace:*",
-    "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
     "next": "^14.0.3",
     "next-themes": "^0.2.1",

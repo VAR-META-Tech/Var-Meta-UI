@@ -46,6 +46,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => 
       ref={ref}
       disabled={loading || disabled}
       aria-disabled={loading || disabled}
+      type={type}
       {...etc}
     >
       {startIcon && !loading && startIcon}

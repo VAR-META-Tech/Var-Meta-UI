@@ -3,6 +3,7 @@ import { withTV } from 'tailwind-variants/transformer';
 import type { Config } from 'tailwindcss';
 
 const config = {
+  darkMode: 'class',
   content: ['./app/**/*.{js,jsx,ts,tsx}', './node_modules/@var-meta/ui/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {},

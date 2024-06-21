@@ -190,7 +190,7 @@ importers:
   apps/web:
     dependencies:
       '@var-meta/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/icons
       '@var-meta/theme':
         specifier: workspace:*

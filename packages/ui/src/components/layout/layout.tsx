@@ -7,6 +7,10 @@ import { SidebarProvider as BaseSidebarProvider } from './sidebar.context';
 
 export interface LayoutProps extends VisibleState {
   expandOnHover?: boolean;
+  /**
+   * Width of the sidebar
+   * @default 272
+   */
   sidebarWidth?: number;
   active?: string;
   defaultActive?: string;

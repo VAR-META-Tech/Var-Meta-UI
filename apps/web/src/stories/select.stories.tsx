@@ -33,6 +33,9 @@ const meta: Meta = {
       description: 'The open state of the menu.',
       control: { type: 'boolean' },
     },
+    disabled: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
     withScrollAction: true,

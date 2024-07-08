@@ -86,11 +86,17 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
           <div className="aspect-square min-w-5">{icon}</div>
         ) : (
           <>
-            <div className="flex flex-1 items-center gap-3">
+            <div
+              className={cn('flex flex-1 items-center gap-3', {
+                'w-[calc(100%-28px)]': !!children,
+              })}
+            >
               {icon}
-              <div className="flex-1 whitespace-nowrap">{label}</div>
+              <div className="flex-1 truncate whitespace-nowrap" title={String(label)}>
+                {label}
+              </div>
             </div>
-            <div className="ml-2">{children}</div>
+            {children && <>{children}</>}
           </>
         )}
 

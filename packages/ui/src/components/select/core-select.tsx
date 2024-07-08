@@ -24,9 +24,10 @@ const SelectValue = React.forwardRef<
 
 export const selectTriggerVariants = tv({
   base: [
-    'flex items-center justify-between text-foreground data-[placeholder]:text-muted disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+    'flex items-center justify-between text-foreground data-[placeholder]:text-muted [&>span]:line-clamp-1',
     'border outline-none ',
     'focus:outline-none outline-none group',
+    'disabled:cursor-not-allowed disabled:shadow-xs disabled:bg-background-disabled disabled:text-disabled',
   ],
   variants: {
     variant: {

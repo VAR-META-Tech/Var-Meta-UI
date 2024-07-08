@@ -197,7 +197,28 @@ const links = [
         icon: <UsersPlusIcon className="h-5 w-5" />,
         label: 'Recruitment Management',
         value: 'Recruitment Management',
-        href: '/',
+        dropdowns: [
+          {
+            label: 'Work from home',
+            value: 'Work from home',
+            href: '/',
+          },
+          {
+            label: 'Day off',
+            value: 'Day off',
+            href: '/',
+          },
+          {
+            label: 'CI/CO',
+            value: 'CI/CO',
+            href: '/',
+          },
+          {
+            label: 'Overtime',
+            value: 'Overtime',
+            href: '/',
+          },
+        ],
       },
       {
         icon: <GraduationHat01Icon className="h-5 w-5" />,

@@ -77,7 +77,7 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
           {...etc}
         >
           {collapsedIcon ?? (
-            <ChevronRightIcon className="h-5 w-5 transition-transform duration-300 group-aria-expanded/nav-item:rotate-90" />
+            <ChevronRightIcon className="h-5 w-5 min-w-5 transition-transform duration-300 group-aria-expanded/nav-item:rotate-90" />
           )}
         </NavigationItem>
       </CollapsibleTrigger>

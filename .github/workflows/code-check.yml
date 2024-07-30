@@ -56,3 +56,7 @@ jobs:
       # Check types
       - name: Check types
         run: pnpm check-types
+
+      # Test apps
+      - name: Test apps
+        run: pnpm test

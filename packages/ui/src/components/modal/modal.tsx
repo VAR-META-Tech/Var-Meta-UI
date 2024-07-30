@@ -54,20 +54,9 @@ export interface ModalBodyProps extends DialogHeaderProps {}
 
 const ModalBody = forwardRef<ElementRef<'div'>, ModalBodyProps>((props, ref) => {
   const { children, className, ...etc } = props;
-  const { scrollBehavior } = useDialogContext();
 
   return (
-    <div
-      ref={ref}
-      className={cn(
-        'relative flex flex-1 flex-col px-6 py-3',
-        {
-          'overflow-y-auto': scrollBehavior === 'inside',
-        },
-        className
-      )}
-      {...etc}
-    >
+    <div ref={ref} className={cn('relative flex flex-1 flex-col overflow-y-auto px-6 py-3', className)} {...etc}>
       {children}
     </div>
   );
@@ -87,10 +76,22 @@ export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   fitContent?: boolean;
   fullScreen?: boolean;
   modalContentProps?: ElementProps<typeof DialogContent, 'className'>;
+  scrollBehavior?: 'default' | 'inside' | 'outside';
+  placement?: 'default' | 'top' | 'bottom' | 'center' | 'top-center' | 'bottom-center';
 }
 
 const ModalRoot = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((props, ref) => {
-  const { children, className, fitContent, fullScreen, modalContentProps, trigger, ...etc } = props;
+  const {
+    children,
+    className,
+    fitContent,
+    scrollBehavior = 'inside',
+    placement = 'default',
+    fullScreen,
+    modalContentProps,
+    trigger,
+    ...etc
+  } = props;
 
   return (
     <Dialog {...etc}>
@@ -100,6 +101,8 @@ const ModalRoot = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((prop
         fitContent={fitContent}
         fullScreen={fullScreen}
         className={className}
+        scrollBehavior={scrollBehavior}
+        placement={placement}
         {...modalContentProps}
       >
         {children}

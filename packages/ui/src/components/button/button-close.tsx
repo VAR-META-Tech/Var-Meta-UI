@@ -6,16 +6,16 @@ import { CloseIcon } from '../icons';
 
 const buttonCloseVariants = tv({
   base: [
-    'rounded-xs text-foreground aspect-square bg-transparent outline-none transition-colors',
+    'rounded-xl text-foreground aspect-square bg-transparent outline-none transition-colors',
     'flex items-center justify-center',
     'hover:bg-background-light hover:text-foreground-secondary hover:outline-none',
     'focus:bg-background-light focus:text-foreground focus:shadow-gray-base focus:outline-none',
   ],
   variants: {
     size: {
-      sm: 'h-9 w-9 ',
-      md: 'h-10 w-10',
-      lg: 'h-11 w-11',
+      sm: 'h-8 w-8 ',
+      md: 'h-9 w-9',
+      lg: 'h-10 w-10',
     },
   },
   defaultVariants: {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Form, type SelectFieldProps } from '@var-meta/ui';
+import { Button, Form, type SelectFieldProps } from '@var-meta/ui';
 
 import { EnhancedView } from '@/components/View';
 
@@ -20,6 +20,10 @@ const meta: Meta = {
       control: { type: 'select' },
     },
     fullWidth: {
+      control: { type: 'boolean' },
+    },
+    clearable: {
+      description: 'Only available when using controlled component.',
       control: { type: 'boolean' },
     },
     label: {
@@ -77,9 +81,19 @@ const options = [
 ];
 
 const DefaultTemplate: StoryFn<SelectFieldProps> = (args) => {
+  const [value, setValue] = useState('');
+
   return (
-    <EnhancedView prop="Default" value={''}>
-      <Form.Select {...args} placeholder="Select team member" options={options} />
+    <EnhancedView prop="Default">
+      <div>
+        <Form.Select
+          {...args}
+          value={value}
+          onValueChange={setValue}
+          placeholder="Select team member"
+          options={options}
+        />
+      </div>
     </EnhancedView>
   );
 };

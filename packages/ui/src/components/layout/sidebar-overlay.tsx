@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Portal as PortalPrimitive, type PortalProps } from '@radix-ui/react-portal';
+import { type PortalProps } from '@radix-ui/react-portal';
 import { Presence } from '@radix-ui/react-presence';
 import type * as Radix from '@radix-ui/react-primitive';
 import { Primitive } from '@radix-ui/react-primitive';
+import { RemoveScroll } from 'react-remove-scroll';
 
 import { cn } from '../../utils/cn';
 import { composeEventHandlers } from '../../utils/compose-event-handler';
@@ -54,18 +55,20 @@ export const SidebarOverlay = React.forwardRef<SidebarOverlayElement, SidebarOve
     if (!isMobile) return null;
 
     return (
-      <SidebarOverlayImpl
-        className={cn(
-          'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 fixed inset-0 z-40 backdrop-blur-sm transition-all',
-          {
-            'invisible opacity-0': !open,
-            'visible opacity-100': open,
-          },
-          className
-        )}
-        {...etc}
-        ref={forwardedRef}
-      />
+      <Presence present={Boolean(forceMount || open)}>
+        <SidebarOverlayImpl
+          className={cn(
+            'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 fixed inset-0 z-40 backdrop-blur-sm transition-all',
+            {
+              'invisible opacity-0': !open,
+              'visible opacity-100': open,
+            },
+            className
+          )}
+          {...etc}
+          ref={forwardedRef}
+        />
+      </Presence>
     );
   }
 );

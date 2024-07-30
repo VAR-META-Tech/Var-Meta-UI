@@ -2,10 +2,18 @@ import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Pagination } from '@var-meta/ui';
 
+const shape = ['square', 'circle', 'button'];
+
 const meta: Meta = {
   title: 'Components/Pagination',
   component: Pagination,
   tags: ['autodocs'],
+  argTypes: {
+    shape: {
+      options: shape,
+      control: { type: 'radio' },
+    },
+  },
   args: {
     defaultValue: 1,
     total: 10,

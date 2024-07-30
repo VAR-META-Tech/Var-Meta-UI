@@ -16,6 +16,7 @@ import {
 import { EnhancedView } from '@/components/View';
 
 const aligns: ModalHeaderProps['align'][] = ['left', 'center', 'baseline'];
+const placement: ModalProps['placement'][] = ['top', 'bottom', 'center', 'default', 'bottom-center', 'top-center'];
 
 const meta: Meta = {
   title: 'Components/Modal',
@@ -39,6 +40,12 @@ const meta: Meta = {
         type: 'radio',
       },
     },
+    placement: {
+      options: placement,
+      control: {
+        type: 'radio',
+      },
+    },
     fullScreen: {
       options: [true, false, undefined],
       control: {
@@ -53,6 +60,7 @@ const meta: Meta = {
     },
     scrollBehavior: {
       options: ['inside', 'outside'],
+      description: 'when using scroll outside, consider using placement top so the content will always visible',
       control: {
         type: 'radio',
       },
@@ -185,6 +193,36 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, title, description, ...ar
               consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
               officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi consectetur esse
               laborum eiusmod pariatur proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
+            </div>
+          </Modal.Body>
+
+          <Modal.Action>
+            <Button variant="outline" color="default" fullWidth>
+              Discard
+            </Button>
+            <Button onClick={() => toast.error('error')} fullWidth>
+              Save changes
+            </Button>
+          </Modal.Action>
+        </Modal>
+
+        <Modal className="" trigger={<Button>Show Modal Less Content</Button>} {...args}>
+          <Modal.Header
+            align={align}
+            icon={
+              <FeaturedIcon variant="outline" color="brand" size="md">
+                <AlertCircleIcon />
+              </FeaturedIcon>
+            }
+            title={title}
+            description={description}
+          />
+
+          <Modal.Body>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+              venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
             </div>
           </Modal.Body>
 

@@ -26,22 +26,34 @@ const tableVariants = tv({
 
 export interface TableProps extends ElementProps<'table'>, TableContext {
   tableClassName?: string;
+  wrapperClassName?: string;
+  footerClassName?: string;
   headerClassName?: string;
   layout?: 'auto' | 'fixed';
   header?: ReactNode;
+  footer?: ReactNode;
 }
 
 const Table = forwardRef<HTMLTableElement, TableProps>(
   (
-    { variant = 'default', header, layout = 'auto', size = 'md', className, headerClassName, tableClassName, ...props },
+    {
+      variant = 'default',
+      header,
+      footer,
+      layout = 'auto',
+      size = 'md',
+      className,
+      headerClassName,
+      wrapperClassName,
+      tableClassName,
+      footerClassName,
+      ...props
+    },
     ref
   ) => (
     <TableProvider value={{ variant, size, withHeader: !!header }}>
       <div
-        className={cn(
-          'bg-background border-border-secondary relative w-full overflow-auto rounded-sm border shadow-sm',
-          className
-        )}
+        className={cn('bg-background border-border-secondary relative w-full rounded-sm border shadow-sm', className)}
       >
         {header ? (
           <div
@@ -53,11 +65,18 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
             {header}
           </div>
         ) : null}
-        <table
-          ref={ref}
-          className={cn(tableVariants({ variant, size, layout, className: tableClassName }))}
-          {...props}
-        />
+
+        <div className={cn('w-full overflow-auto', wrapperClassName)}>
+          <table
+            ref={ref}
+            className={cn(tableVariants({ variant, size, layout, className: tableClassName }))}
+            {...props}
+          />
+        </div>
+
+        {footer ? (
+          <div className={cn('border-t border-gray-200 px-6 pb-4 pt-3 text-sm', footerClassName)}>{footer}</div>
+        ) : null}
       </div>
     </TableProvider>
   )

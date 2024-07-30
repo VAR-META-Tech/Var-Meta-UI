@@ -1,15 +1,6 @@
 import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  type TableProps,
-} from '@var-meta/ui';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, type TableProps } from '@var-meta/ui';
 
 const meta: Meta = {
   title: 'Components/Table',
@@ -38,6 +29,7 @@ const DefaultTemplate: StoryFn<TableProps> = ({ header, ...args }) => {
           </div>
         ) : null
       }
+      footer={<div>Footer</div>}
       {...args}
     >
       <TableHeader>
@@ -86,8 +78,6 @@ const DefaultTemplate: StoryFn<TableProps> = ({ header, ...args }) => {
           <TableCell className="text-right">$250.00</TableCell>
         </TableRow>
       </TableBody>
-
-      <TableCaption></TableCaption>
     </Table>
   );
 };

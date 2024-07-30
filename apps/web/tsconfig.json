@@ -8,11 +8,11 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
       /*
        * This is hack for hot reload. Remove when packages/ui is published
        */
-      // "@var-meta/ui": ["../../packages/ui/src/index.tsx"]
+      "@var-meta/ui": ["../../packages/ui/src/index.tsx"]
     },
     "noEmit": true
   },

@@ -11,11 +11,10 @@ export interface DialogProps {
   defaultOpen?: boolean;
   onOpenChange?(open: boolean): void;
   modal?: boolean;
-  scrollBehavior?: 'inside' | 'outside';
 }
 
 export const Dialog: FCC<DialogProps> = (props) => {
-  const { children, defaultOpen, onOpenChange, open: openProp, dismissable = true, scrollBehavior = 'outside' } = props;
+  const { children, defaultOpen, onOpenChange, open: openProp, dismissable = true } = props;
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const contentRef = React.useRef<HTMLDivElement>(null);
 
@@ -37,7 +36,6 @@ export const Dialog: FCC<DialogProps> = (props) => {
         onOpenChange: setOpen,
         open: open,
         toggleOpen: useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
-        scrollBehavior,
       }}
     >
       {children}

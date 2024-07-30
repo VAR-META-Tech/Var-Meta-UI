@@ -4,9 +4,7 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { useTableContext } from './table-context';
 
-interface Props extends ElementProps<'thead'> {}
-
-const TableHeader = React.forwardRef<ElementRef<'thead'>, Props>(({ className, ...props }, ref) => {
+const TableHeader = React.forwardRef<ElementRef<'thead'>, ElementProps<'thead'>>(({ className, ...props }, ref) => {
   const { variant } = useTableContext();
 
   return (

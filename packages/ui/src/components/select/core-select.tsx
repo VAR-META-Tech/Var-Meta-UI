@@ -5,7 +5,7 @@ import { tv, type VariantProps } from 'tailwind-variants';
 import { assignRef } from '../../hooks/useMergedRef';
 import { cn } from '../../utils/cn';
 import { radiusVariant } from '../../utils/variant-common';
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '../icons';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon, CloseIcon } from '../icons';
 
 const SelectProvider = SelectPrimitive.Root;
 

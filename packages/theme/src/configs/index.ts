@@ -7,3 +7,4 @@ export { defaultFont } from './font';
 export { defaultAnimation, defaultKeyFrame } from './animation';
 export { defaultContainer, defaultScreen } from './screen';
 export { baseStyles } from './base-styles';
+export { defaultZIndex } from './zIndex';

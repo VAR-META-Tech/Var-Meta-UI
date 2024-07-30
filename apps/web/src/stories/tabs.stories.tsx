@@ -7,9 +7,15 @@ import { EnhancedView } from '@/components/View';
 const meta: Meta = {
   title: 'Components/Tabs',
   component: Tabs,
-  argTypes: {},
+  argTypes: {
+    orientation: {
+      options: ['horizontal', 'vertical'],
+      control: { type: 'select' },
+    },
+  },
   args: {
     size: 'sm',
+    orientation: 'horizontal',
   },
   parameters: {
     docs: {

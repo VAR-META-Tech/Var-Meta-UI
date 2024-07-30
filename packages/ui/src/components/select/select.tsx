@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import { type SelectProps as RadixSelectProps, type Trigger } from '@radix-ui/react-select';
 import { type VariantProps } from 'tailwind-variants';
 
@@ -18,10 +18,24 @@ export interface SelectProps extends RadixSelectProps, VariantProps<typeof selec
   fullWidth?: boolean;
   align?: 'center' | 'start' | 'end' | undefined;
   withScrollAction?: boolean;
+
+  /**
+   * *Should return empty string when select the same value.
+   */
+  clearable?: boolean;
 }
 
 const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
-  ({ options, withScrollAction = true, placeholder, align, fullWidth, variant, size, ...props }, ref) => {
+  ({ options, withScrollAction = true, clearable, placeholder, align, fullWidth, variant, size, ...props }, ref) => {
+    const handleClearIfNeeded = useCallback(
+      (selectedValue: string) => {
+        if (clearable && props?.value === selectedValue && props?.onValueChange) {
+          props.onValueChange('');
+        }
+      },
+      [clearable, props]
+    );
+
     return (
       <SelectProvider {...props}>
         <SelectTrigger ref={ref} variant={variant} size={size} fullWidth={fullWidth}>
@@ -29,7 +43,7 @@ const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
         </SelectTrigger>
         <SelectContent withScrollAction={withScrollAction} align={align} className="max-h-[320px] overflow-auto">
           {options.map((x) => (
-            <SelectItem key={x.value} value={x.value}>
+            <SelectItem onPointerUp={() => handleClearIfNeeded(x.value)} key={x.value} value={x.value}>
               {x.label}
             </SelectItem>
           ))}

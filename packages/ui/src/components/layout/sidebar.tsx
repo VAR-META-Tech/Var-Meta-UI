@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo, type ElementRef } from 'react';
+import { RemoveScroll } from 'react-remove-scroll';
 import { tv, type VariantProps } from 'tailwind-variants';
 
-import { useMediaQuery } from '../../hooks';
 import { type ElementProps, type VisibleState } from '../../types';
 import { withAttr } from '../../utils/withAttr';
 import { useSidebarContext } from './sidebar.context';
@@ -46,20 +46,22 @@ const SidebarRoot = forwardRef<ElementRef<'aside'>, SidebarProps>((props, ref) =
   }, [isMobile, open, sidebarWidth]);
 
   return (
-    <aside
-      style={{ width, left, ...styleProp }}
-      className={sidebarVariant({ variant, className })}
-      role="sidebar"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      data-expanded={withAttr(isExpanded)}
-      data-opened={withAttr(open)}
-      aria-expanded={withAttr(isExpanded)}
-      ref={ref}
-      {...etc}
-    >
-      {children}
-    </aside>
+    <RemoveScroll enabled={isMobile && open} allowPinchZoom>
+      <aside
+        style={{ width, left, ...styleProp }}
+        className={sidebarVariant({ variant, className })}
+        role="sidebar"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        data-expanded={withAttr(isExpanded)}
+        data-opened={withAttr(open)}
+        aria-expanded={withAttr(isExpanded)}
+        ref={ref}
+        {...etc}
+      >
+        {children}
+      </aside>
+    </RemoveScroll>
   );
 });
 

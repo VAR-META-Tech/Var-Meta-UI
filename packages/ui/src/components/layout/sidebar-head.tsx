@@ -5,7 +5,7 @@ import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
 import { withAttr } from '../../utils/withAttr';
 import { Button, type ButtonProps } from '../button';
-import { ChevronLeftIcon } from '../icons';
+import { ChevronRightIcon } from '../icons';
 import { useSidebarContext } from './sidebar.context';
 
 export interface SidebarHeaderProps extends ElementProps<'div'> {
@@ -63,7 +63,7 @@ const SidebarToggle = forwardRef<ElementRef<typeof Button>, ButtonProps>(({ chil
       {children ? (
         children
       ) : (
-        <ChevronLeftIcon
+        <ChevronRightIcon
           aria-expanded={withAttr(open)}
           className="h-4 w-4 transition-transform duration-300 aria-expanded:rotate-180"
         />

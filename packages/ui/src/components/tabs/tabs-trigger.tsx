@@ -1,10 +1,12 @@
 import React, { type ElementRef } from 'react';
+import { size } from '@floating-ui/react-dom';
 import { composeEventHandlers } from '@radix-ui/primitive';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { domMax, LazyMotion, m } from 'framer-motion';
 import { tv } from 'tailwind-variants';
 
 import { type ElementProps } from '../../types';
+import { cn } from '../../utils/cn';
 import { useTabsContext } from './tabs.context';
 
 const tabsTriggerVariant = tv({
@@ -15,11 +17,47 @@ const tabsTriggerVariant = tv({
       md: 'text-sm',
       lg: 'text-md',
     },
+    orientation: {
+      vertical: '',
+      horizontal: '',
+    },
     active: {
       true: 'text-foreground',
       false: 'text-foreground-secondary',
     },
   },
+  compoundVariants: [
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      className: 'h-8',
+    },
+    {
+      orientation: 'vertical',
+      size: 'md',
+      className: 'h-9',
+    },
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      className: 'h-10',
+    },
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      className: '',
+    },
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      className: '',
+    },
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      className: '',
+    },
+  ],
 });
 
 const cursorVariant = tv({
@@ -44,11 +82,13 @@ const cursorVariant = tv({
   },
 });
 
-export interface TabsTriggerProps extends ElementProps<typeof TabsPrimitive.Trigger> {}
+export interface TabsTriggerProps extends ElementProps<typeof TabsPrimitive.Trigger> {
+  triggerClassName?: string;
+}
 
 export const TabsTrigger = React.forwardRef<ElementRef<typeof TabsPrimitive.Trigger>, TabsTriggerProps>(
-  ({ className, children, onClick, ...props }, ref) => {
-    const { value, size, variant, radius, setValue } = useTabsContext();
+  ({ className, triggerClassName, children, onClick, ...props }, ref) => {
+    const { value, size, variant, radius, orientation, setValue } = useTabsContext();
 
     const isSelected = props.value === value;
 
@@ -56,10 +96,10 @@ export const TabsTrigger = React.forwardRef<ElementRef<typeof TabsPrimitive.Trig
       <TabsPrimitive.Trigger
         onClick={composeEventHandlers(onClick, () => setValue(props.value))}
         ref={ref}
-        className={tabsTriggerVariant({ size, active: isSelected, className })}
+        className={tabsTriggerVariant({ size, orientation, active: isSelected, className: triggerClassName })}
         {...props}
       >
-        <div className="relative z-10">{children}</div>
+        <div className={cn('relative z-10', className)}>{children}</div>
         {isSelected ? (
           <LazyMotion features={domMax}>
             <m.span

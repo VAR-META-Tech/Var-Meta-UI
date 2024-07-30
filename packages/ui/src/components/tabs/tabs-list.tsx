@@ -15,9 +15,9 @@ const tabsListVariant = tv({
     },
     radius: radiusVariant,
     size: {
-      sm: 'h-10',
-      md: 'h-11',
-      lg: 'h-12',
+      sm: '',
+      md: '',
+      lg: '',
     },
     orientation: {
       vertical: 'flex-col',
@@ -30,6 +30,38 @@ const tabsListVariant = tv({
     size: 'md',
     orientation: 'horizontal',
   },
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      className: 'h-10',
+    },
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      className: 'h-11',
+    },
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      className: 'h-12',
+    },
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      className: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'md',
+      className: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      className: '',
+    },
+  ],
 });
 
 export interface TabsListProps extends ElementProps<typeof TabsPrimitive.List> {}

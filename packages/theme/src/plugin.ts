@@ -1,25 +1,26 @@
+import Color from 'color';
+import deepMerge from 'deepmerge';
+import flatten from 'flat';
 import get from 'lodash.get';
 import plugin from 'tailwindcss/plugin.js';
-import { ConfigTheme, ConfigThemes, DefaultThemeType, PluginConfig } from './types';
-import deepMerge from 'deepmerge';
-import { utilities, animateExtendedTheme, addAnimateUtilities } from './utilities';
-import flatten from 'flat';
+
 import {
-  defaultDarkColors,
-  defaultLightColors,
-  defaultFont,
-  defaultWidth,
-  defaultSpacing,
-  defaultRadius,
-  defaultShadow,
-  defaultKeyFrame,
+  baseStyles,
   defaultAnimation,
   defaultContainer,
+  defaultDarkColors,
+  defaultFont,
+  defaultKeyFrame,
+  defaultLightColors,
+  defaultRadius,
   defaultScreen,
-  baseStyles,
+  defaultShadow,
+  defaultSpacing,
+  defaultWidth,
+  defaultZIndex,
 } from './configs';
-
-import Color from 'color';
+import { ConfigTheme, ConfigThemes, DefaultThemeType, PluginConfig } from './types';
+import { addAnimateUtilities, animateExtendedTheme, utilities } from './utilities';
 
 const DEFAULT_PREFIX = 'var';
 
@@ -161,6 +162,7 @@ const corePlugin = (themes: ConfigThemes | {} = {}, defaultTheme: DefaultThemeTy
             borderColor: {
               DEFAULT: `hsl(var(--${prefix}-border))`,
             },
+            zIndex: defaultZIndex,
           },
           animateExtendedTheme
         ),

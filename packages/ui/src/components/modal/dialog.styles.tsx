@@ -20,7 +20,7 @@ const DialogOverlay = React.forwardRef<React.ElementRef<typeof DialogPrimitive.O
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 fixed inset-0 z-40 backdrop-blur-sm',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 z-90 fixed inset-0 backdrop-blur-sm',
         className
       )}
       {...props}
@@ -32,15 +32,18 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 interface DialogContentProps extends DialogPrimitive.DialogContentProps {
   fitContent?: boolean;
   fullScreen?: boolean;
+  scrollBehavior?: 'default' | 'inside' | 'outside';
+  placement?: 'default' | 'top' | 'bottom' | 'center' | 'top-center' | 'bottom-center';
 }
 
 const dialogContentVariants = tv({
-  base: 'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] duration-200 sm:mx-6 sm:my-16 border border-border bg-background w-full max-w-[400px] h-fit  min-h-[200px] p-0 shadow-lg rounded-lg md:w-full flex flex-col box-border z-50',
+  base: 'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] duration-200 sm:mx-6 sm:my-16 border border-border bg-background w-full max-w-[400px] h-fit  min-h-[200px] p-0 shadow-lg rounded-lg md:w-full flex flex-col box-border z-100',
   variants: {
     fitContent: {
       true: 'max-w-fit w-fit',
     },
     scrollBehavior: {
+      default: 'overflow-y-hidden',
       inside: 'max-h-[calc(100%_-_8rem)] overflow-auto',
       outside: '',
     },
@@ -50,9 +53,28 @@ const dialogContentVariants = tv({
   },
 });
 
+const dialogWrapperVariants = tv({
+  base: 'h-[100dvh] fixed inset-0 flex justify-center w-screen z-100',
+  variants: {
+    scrollBehavior: {
+      default: 'overflow-y-hidden',
+      inside: 'overflow-y-hidden',
+      outside: 'overflow-auto',
+    },
+    placement: {
+      default: 'items-end sm:items-center',
+      center: 'items-center sm:items-center',
+      top: 'items-start sm:items-start',
+      'top-center': 'items-start sm:items-center',
+      bottom: 'items-end sm:items-end',
+      'bottom-center': 'items-end sm:items-center',
+    },
+  },
+});
+
 const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, DialogContentProps>(
-  ({ className, onClick, fitContent, fullScreen, children, ...props }, ref) => {
-    const { onOpenChange, dismissable, scrollBehavior } = useDialogContext();
+  ({ className, onClick, fitContent, fullScreen, children, scrollBehavior, placement, ...props }, ref) => {
+    const { onOpenChange, dismissable } = useDialogContext();
 
     return (
       <DialogPrimitive.DialogPortal>
@@ -62,13 +84,11 @@ const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.C
             if (e.target === e.currentTarget && dismissable) onOpenChange(false);
           })}
           ref={ref}
-          className={cn('fixed inset-0 z-50 flex h-[100dvh] w-screen justify-center', {
-            'items-start overflow-auto': scrollBehavior === 'outside',
-            'items-center': scrollBehavior === 'inside',
-          })}
+          className={dialogWrapperVariants({ scrollBehavior, placement })}
+          role="wrapper"
           {...props}
         >
-          <section className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}>
+          <section role="body" className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}>
             {children}
           </section>
         </DialogPrimitive.Content>
@@ -101,7 +121,11 @@ DialogHeader.displayName = 'DialogHeader';
 
 const DialogFooter = React.forwardRef<React.ElementRef<'div'>, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('flex flex-col-reverse gap-3 p-6 sm:flex-row sm:justify-end', className)} {...props} />
+    <div
+      ref={ref}
+      className={cn('flex w-full flex-col-reverse gap-3 p-6 sm:flex-row sm:justify-end', className)}
+      {...props}
+    />
   )
 );
 DialogFooter.displayName = 'DialogFooter';

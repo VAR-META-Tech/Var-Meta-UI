@@ -5,112 +5,54 @@ on:
     branches: ['*']
 
 jobs:
-  lint:
+  code-check:
     runs-on: ubuntu-latest
-    name: pnpm lint
+    name: Code check
     steps:
+      # Checkout the repository
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
+      # Set up Node.js environment
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18 # Specify the Node.js version
 
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
-        id: pnpm-install
+      # Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
         with:
-          version: 8.6.1
+          version: 9.0.4
           run_install: false
 
+      # Get pnpm store directory
       - name: Get pnpm store directory
         id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-      - name: Install dependencies
-        run: pnpm install
+        run: echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - run: pnpm lint
-
-  format:
-    runs-on: ubuntu-latest
-    name: pnpm format:check
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8.6.1
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      # Cache pnpm store
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      # Install dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
-      - run: pnpm format:check
+      # Run linter
+      - name: Run linter
+        run: pnpm lint
 
-  tsc:
-    runs-on: ubuntu-latest
-    name: pnpm check-types
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      # Check code formatting
+      - name: Check code formatting
+        run: pnpm format:check
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - uses: pnpm/action-setup@v2.2.4
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8.6.1
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-      - name: Install dependencies
-        run: pnpm install
-
-      - run: pnpm check-types
+      # Check types
+      - name: Check types
+        run: pnpm check-types

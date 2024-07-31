@@ -1,5 +1,6 @@
 'use client';
 
+import { title } from 'process';
 import Link from 'next/link';
 import {
   Award01Icon,
@@ -14,9 +15,12 @@ import {
   UserUp02Icon,
 } from '@var-meta/icons';
 import {
+  AlertCircleIcon,
   Autocomplete,
   Button,
   CalendarIcon,
+  FeaturedIcon,
+  Form,
   HStack,
   Layout,
   Modal,
@@ -24,6 +28,7 @@ import {
   Sidebar,
   Text,
   toast,
+  VStack,
   type AutocompleteProps,
 } from '@var-meta/ui';
 
@@ -327,12 +332,47 @@ export default function Page() {
                     />
                   </Modal.Body>
                   <Modal.Action>
-                    <Button onClick={() => toast.error('discard')} variant="outline" color="gray" fullWidth>
-                      Discard
-                    </Button>
-                    <Button onClick={() => toast.error('error')} fullWidth>
-                      Save changes
-                    </Button>
+                    <div className="flex gap-4">
+                      <Modal className="" trigger={<Button>Show Modal</Button>}>
+                        <Modal.Body>
+                          <VStack>
+                            <Form.Autocomplete label="Team" placeholder="Placeholder" options={options} />
+                            <Form.Select
+                              fullWidth
+                              placeholder="Placeholder"
+                              options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
+                            />
+                          </VStack>
+                          <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
+                            hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+                            venenatis. Pellentesque sit amet hendr
+                          </div>
+                        </Modal.Body>
+
+                        <Modal.Action>
+                          <Modal className="" trigger={<Button>Show Modal Less Content</Button>}>
+                            <Modal.Body>
+                              <div>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus
+                                hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem
+                                ipsum dolor sit amet, consectetur adipiscing elit.
+                              </div>
+                            </Modal.Body>
+
+                            <Modal.Action>
+                              <Button variant="outline" color="default" fullWidth>
+                                Discard
+                              </Button>
+                              <Button onClick={() => toast.error('error')} fullWidth>
+                                Save changes
+                              </Button>
+                            </Modal.Action>
+                          </Modal>
+                        </Modal.Action>
+                      </Modal>
+                    </div>
                   </Modal.Action>
                 </Modal>
               </div>

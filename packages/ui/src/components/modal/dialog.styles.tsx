@@ -13,14 +13,18 @@ const DialogCloseTrigger = DialogPrimitive.Close;
 const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
 
-interface DialogOverlayProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> {}
+export interface DialogOverlayProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> {
+  isBlur?: boolean;
+  hideBackground?: boolean;
+}
 
 const DialogOverlay = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Overlay>, DialogOverlayProps>(
-  ({ className, ...props }, ref) => (
+  ({ className, hideBackground, isBlur, ...props }, ref) => (
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 z-90 fixed inset-0 backdrop-blur-sm',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 z-90 fixed inset-0',
+        { 'backdrop-blur-sm': isBlur },
         className
       )}
       {...props}
@@ -32,6 +36,7 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 interface DialogContentProps extends DialogPrimitive.DialogContentProps {
   fitContent?: boolean;
   fullScreen?: boolean;
+  overlayProps?: DialogOverlayProps;
   scrollBehavior?: 'default' | 'inside' | 'outside';
   placement?: 'default' | 'top' | 'bottom' | 'center' | 'top-center' | 'bottom-center';
 }
@@ -73,25 +78,33 @@ const dialogWrapperVariants = tv({
 });
 
 const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Content>, DialogContentProps>(
-  ({ className, onClick, fitContent, fullScreen, children, scrollBehavior, placement, ...props }, ref) => {
+  (
+    { className, onClick, fitContent, fullScreen, overlayProps = {}, children, scrollBehavior, placement, ...props },
+    ref
+  ) => {
     const { onOpenChange, dismissable } = useDialogContext();
 
     return (
       <DialogPrimitive.DialogPortal>
-        <DialogOverlay />
-        <DialogPrimitive.Content
-          onClick={composeEventHandlers(onClick, function (e) {
-            if (e.target === e.currentTarget && dismissable) onOpenChange(false);
-          })}
-          ref={ref}
-          className={dialogWrapperVariants({ scrollBehavior, placement })}
-          role="wrapper"
-          {...props}
-        >
-          <section role="body" className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}>
-            {children}
-          </section>
-        </DialogPrimitive.Content>
+        <div role="presentation" className="z-100 fixed inset-0">
+          <DialogOverlay {...overlayProps} />
+          <DialogPrimitive.Content
+            onClick={composeEventHandlers(onClick, function (e) {
+              if (e.target === e.currentTarget && dismissable) onOpenChange(false);
+            })}
+            ref={ref}
+            className={dialogWrapperVariants({ scrollBehavior, placement })}
+            role="wrapper"
+            {...props}
+          >
+            <section
+              role="body"
+              className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}
+            >
+              {children}
+            </section>
+          </DialogPrimitive.Content>
+        </div>
       </DialogPrimitive.DialogPortal>
     );
   }

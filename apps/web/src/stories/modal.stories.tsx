@@ -241,3 +241,75 @@ const DefaultTemplate: StoryFn<ModalProps> = ({ align, title, description, ...ar
 };
 
 export const Default: StoryFn<ModalProps> = DefaultTemplate.bind({});
+
+const ModalInModalTemplate: StoryFn<ModalProps> = ({ align, title, description, ...args }: any) => {
+  return (
+    <EnhancedView prop="Modal In Modal">
+      <div className="flex gap-4">
+        <Modal className="" trigger={<Button>Show Modal</Button>} {...args}>
+          <Modal.Header
+            align={align}
+            icon={
+              <FeaturedIcon variant="outline" color="brand" size="md">
+                <AlertCircleIcon />
+              </FeaturedIcon>
+            }
+            title={title}
+            description={description}
+          />
+
+          <Modal.Body>
+            <VStack>
+              <Form.Autocomplete label="Team" placeholder="Placeholder" options={options} />
+              <Form.Select
+                fullWidth
+                placeholder="Placeholder"
+                options={Array.from({ length: 100 }, (_, i) => ({ value: `${i}`, label: `Option ${i}` }))}
+              />
+            </VStack>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+              venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit venenatis. Pellentesque sit amet
+              hendr
+            </div>
+          </Modal.Body>
+
+          <Modal.Action>
+            <Modal className="" trigger={<Button>Show Modal Less Content</Button>} {...args}>
+              <Modal.Header
+                align={align}
+                icon={
+                  <FeaturedIcon variant="outline" color="brand" size="md">
+                    <AlertCircleIcon />
+                  </FeaturedIcon>
+                }
+                title={title}
+                description={description}
+              />
+
+              <Modal.Body>
+                <div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non risus hendrerit
+                  venenatis. Pellentesque sit amet hendrerit risus, sed porttitor quam. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit.
+                </div>
+              </Modal.Body>
+
+              <Modal.Action>
+                <Button variant="outline" color="default" fullWidth>
+                  Discard
+                </Button>
+                <Button onClick={() => toast.error('error')} fullWidth>
+                  Save changes
+                </Button>
+              </Modal.Action>
+            </Modal>
+          </Modal.Action>
+        </Modal>
+      </div>
+    </EnhancedView>
+  );
+};
+
+export const ModalInModal: StoryFn<ModalProps> = ModalInModalTemplate.bind({});

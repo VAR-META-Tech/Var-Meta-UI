@@ -2,7 +2,6 @@ import { forwardRef, type ComponentPropsWithoutRef, type ElementRef } from 'reac
 
 import { type ElementProps } from '../../types';
 import { cn } from '../../utils/cn';
-import { useDialogContext } from '../dialog/dialog.context';
 import {
   Dialog,
   DialogClose,
@@ -11,6 +10,7 @@ import {
   DialogHeader,
   DialogTrigger,
   type DialogHeaderProps,
+  type DialogOverlayProps,
 } from './dialog.styles';
 
 const ModalTrigger = DialogTrigger;
@@ -76,6 +76,7 @@ export interface ModalProps extends ComponentPropsWithoutRef<typeof Dialog> {
   fitContent?: boolean;
   fullScreen?: boolean;
   modalContentProps?: ElementProps<typeof DialogContent, 'className'>;
+  overlayProps?: DialogOverlayProps;
   scrollBehavior?: 'default' | 'inside' | 'outside';
   placement?: 'default' | 'top' | 'bottom' | 'center' | 'top-center' | 'bottom-center';
 }
@@ -89,6 +90,7 @@ const ModalRoot = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((prop
     placement = 'default',
     fullScreen,
     modalContentProps,
+    overlayProps,
     trigger,
     ...etc
   } = props;
@@ -103,6 +105,7 @@ const ModalRoot = forwardRef<ElementRef<typeof DialogContent>, ModalProps>((prop
         className={className}
         scrollBehavior={scrollBehavior}
         placement={placement}
+        overlayProps={overlayProps}
         {...modalContentProps}
       >
         {children}

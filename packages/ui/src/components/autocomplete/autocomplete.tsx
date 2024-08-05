@@ -20,7 +20,7 @@ import { Command as CommandPrimitive } from '../command/cmdk';
 import { commandScore } from '../command/cmdk/command-score';
 import { CheckIcon, CloseIcon, SearchIcon } from '../icons';
 import { inputVariants, type InputProps } from '../input/input';
-import { PopperAnchor, PopperContent, PopperRoot } from '../popper';
+import { PopperAnchor, PopperContent, PopperRoot, type PopperContentProps } from '../popper';
 import { Skeleton } from '../skeleton';
 import { Tag } from '../tag';
 import { Show, VStack } from '../utility';
@@ -54,6 +54,8 @@ export interface AutocompleteProps<T extends boolean = false>
   placeholder?: string;
   name?: string;
   multiple?: T;
+  popperProps?: PopperContentProps;
+  listOptionClassName?: string;
 }
 
 const AutocompleteComponent = <T extends boolean = false>(
@@ -80,6 +82,8 @@ const AutocompleteComponent = <T extends boolean = false>(
     allowsCustomValue,
     fullWidth,
     radius = 'xs',
+    popperProps,
+    listOptionClassName,
     ...etc
   } = props;
 
@@ -306,8 +310,14 @@ const AutocompleteComponent = <T extends boolean = false>(
               <PopperContent
                 data-state={isOpen ? 'open' : 'closed'}
                 className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 mt-1 bg-transparent shadow-none"
+                {...popperProps}
               >
-                <CommandList className="border-border-secondary bg-background max-h-[var(--radix-popper-available-height)] rounded-sm border shadow-md">
+                <CommandList
+                  className={cn(
+                    'border-border-secondary bg-background rounded-sm border shadow-md',
+                    listOptionClassName
+                  )}
+                >
                   {loading ? (
                     <CommandPrimitive.Loading>
                       <VStack spacing={4} className="px-1 pt-1">

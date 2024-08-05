@@ -3,6 +3,7 @@ import { type SelectProps as RadixSelectProps, type Trigger } from '@radix-ui/re
 import { type VariantProps } from 'tailwind-variants';
 
 import { type Option } from '../../types';
+import { cn } from '../../utils/cn';
 import {
   SelectContent,
   SelectItem,
@@ -23,10 +24,27 @@ export interface SelectProps extends RadixSelectProps, VariantProps<typeof selec
    * *Should return empty string when select the same value.
    */
   clearable?: boolean;
+  withScrollbar?: boolean;
+  contentClassName?: string;
 }
 
 const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
-  ({ options, withScrollAction = true, clearable, placeholder, align, fullWidth, variant, size, ...props }, ref) => {
+  (
+    {
+      options,
+      withScrollAction = true,
+      withScrollbar = true,
+      clearable,
+      placeholder,
+      align,
+      fullWidth,
+      variant,
+      size,
+      contentClassName,
+      ...props
+    },
+    ref
+  ) => {
     const handleClearIfNeeded = useCallback(
       (selectedValue: string) => {
         if (clearable && props?.value === selectedValue && props?.onValueChange) {
@@ -41,7 +59,12 @@ const Select = forwardRef<React.ElementRef<typeof Trigger>, SelectProps>(
         <SelectTrigger ref={ref} variant={variant} size={size} fullWidth={fullWidth}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent withScrollAction={withScrollAction} align={align} className="max-h-[320px] overflow-auto">
+        <SelectContent
+          withScrollbar={withScrollbar}
+          withScrollAction={withScrollAction}
+          align={align}
+          className={cn('max-h-[320px] overflow-auto', contentClassName)}
+        >
           {options.map((x) => (
             <SelectItem onPointerUp={() => handleClearIfNeeded(x.value)} key={x.value} value={x.value}>
               {x.label}

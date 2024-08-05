@@ -1,4 +1,5 @@
-import { forwardRef, useState, type ElementRef, type ReactNode } from 'react';
+import { cloneElement, forwardRef, useState, type ElementRef, type ReactNode } from 'react';
+import { composeEventHandlers } from '@radix-ui/primitive';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { Portal } from '@radix-ui/react-portal';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
@@ -14,28 +15,26 @@ const PopperArrow = PopperPrimitive.Arrow;
 export interface PopperRootProps extends ElementProps<typeof PopperRoot> {}
 export interface PopperArrowProps extends ElementProps<typeof PopperArrow> {}
 export interface PopperAnchorProps extends ElementProps<typeof PopperAnchor> {}
-export interface PopperContentProps extends ElementProps<typeof PopperPrimitive.Content> {}
-
-const PopperContent = forwardRef<
-  React.ElementRef<typeof PopperPrimitive.Content>,
-  PopperContentProps & {
-    unstyled?: boolean;
-    fitContent?: boolean;
+export interface PopperContentProps extends ElementProps<typeof PopperPrimitive.Content> {
+  unstyled?: boolean;
+  fitContent?: boolean;
+}
+const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content>, PopperContentProps>(
+  ({ className, unstyled, fitContent, ...props }, ref) => {
+    return (
+      <PopperPrimitive.Content
+        ref={ref}
+        className={cn(
+          unstyled ? ' ' : 'bg-background z-50 min-h-[40px] rounded-sm shadow-md',
+          fitContent ? 'w-fit' : 'w-[var(--radix-popper-anchor-width)]',
+          'max-h-[var(--radix-popper-available-height)] origin-[var(--radix-popper-transform-origin)]',
+          className
+        )}
+        {...props}
+      />
+    );
   }
->(({ className, unstyled, fitContent, ...props }, ref) => {
-  return (
-    <PopperPrimitive.Content
-      ref={ref}
-      className={cn(
-        unstyled ? ' ' : 'bg-background z-50 min-h-[40px] rounded-sm shadow-md',
-        fitContent ? 'w-fit' : 'w-[var(--radix-popper-anchor-width)]',
-        'max-h-[var(--radix-popper-available-height)] origin-[var(--radix-popper-transform-origin)]',
-        className
-      )}
-      {...props}
-    />
-  );
-});
+);
 
 export interface PopperProps extends PopperContentProps, VisibleState {
   trigger?: ReactNode;
@@ -61,7 +60,7 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
     ...etc
   } = props;
 
-  const [open, setOpen] = useControllableState({
+  const [opened, setOpen] = useControllableState({
     prop: openProp,
     defaultProp: defaultOpen,
     onChange: onOpenChange,
@@ -72,13 +71,21 @@ const Popper = forwardRef<ElementRef<typeof PopperContent>, PopperProps>((props,
   const close = () => {
     setOpen(false);
   };
+
+  const open = () => {
+    setOpen(true);
+  };
+
   useClickOutside(close, null, [contentRef, anchorRef] as any);
   return (
     <PopperRoot>
-      <PopperAnchor ref={setAnchorRef} asChild onClick={() => setOpen(true)}>
-        {trigger}
+      <PopperAnchor ref={setAnchorRef} asChild>
+        {cloneElement(trigger as any, {
+          onClick: composeEventHandlers(open, (trigger as any)?.props?.onClick),
+          'aria-expanded': opened,
+        })}
       </PopperAnchor>
-      {open && (
+      {opened && (
         <Portal asChild>
           <PopperContent
             sideOffset={sideOffset}

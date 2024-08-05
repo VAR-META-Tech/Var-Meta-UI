@@ -81,6 +81,66 @@ const options = [
       </div>
     ),
   },
+  {
+    value: '4',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: '5',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: '6',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: '7',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: '8',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: '9',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
 ];
 
 const DefaultTemplate: StoryFn<SelectProps> = (args) => {

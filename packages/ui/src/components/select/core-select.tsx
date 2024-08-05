@@ -105,18 +105,27 @@ SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayNam
 
 interface SelectContentProps extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> {
   withScrollAction?: boolean;
+  withScrollbar?: boolean;
 }
 
 const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Content>, SelectContentProps>(
-  ({ className, withScrollAction = true, children, position = 'popper', ...props }, forwardedRef) => {
+  ({ className, withScrollAction = true, withScrollbar, children, position = 'popper', ...props }, forwardedRef) => {
     const selectRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
+      if (withScrollbar) {
+        setTimeout(() => {
+          const style = selectRef.current?.querySelector('style');
+          if (!style) return;
+          style.innerHTML = '';
+        }, 1500);
+      }
+
       return () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         selectRef.current?.removeEventListener('touchend', (e) => e.cancelable && e.preventDefault());
       };
-    }, []);
+    }, [withScrollbar]);
 
     return (
       <SelectPrimitive.Portal>

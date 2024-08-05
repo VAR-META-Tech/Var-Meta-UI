@@ -66,7 +66,7 @@ export default meta;
 
 const options: AutocompleteProps['options'] = [
   {
-    value: 'Phoenix Baker',
+    value: 'Phoenix Baker 1',
     label: (
       <div className="flex gap-2">
         <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
@@ -107,6 +107,106 @@ const options: AutocompleteProps['options'] = [
   },
   {
     value: 'Jenifer',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />
+        <div className="text-foreground text-md font-medium">Jenifer Change</div>
+        <div className="text-foreground-secondary text-md">@jenifer</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Phoenix Baker',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Henry B',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Henry</div>
+        <div className="text-foreground-secondary text-md">@Henry</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Kevin Baker B',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Kevin Baker</div>
+        <div className="text-foreground-secondary text-md">@kevin</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Josh William B',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=4" />
+        <div className="text-foreground text-md font-medium">Josh William</div>
+        <div className="text-foreground-secondary text-md">@william</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Jenifer B',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />
+        <div className="text-foreground text-md font-medium">Jenifer Change</div>
+        <div className="text-foreground-secondary text-md">@jenifer</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Phoenix Baker B',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=1" />
+        <div className="text-foreground text-md font-medium">Phoenix Baker</div>
+        <div className="text-foreground-secondary text-md">@phoenix</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Henry C',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=2" />
+        <div className="text-foreground text-md font-medium">Henry</div>
+        <div className="text-foreground-secondary text-md">@Henry</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Kevin Baker C',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=3" />
+        <div className="text-foreground text-md font-medium">Kevin Baker</div>
+        <div className="text-foreground-secondary text-md">@kevin</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Josh William C',
+    label: (
+      <div className="flex gap-2">
+        <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=4" />
+        <div className="text-foreground text-md font-medium">Josh William</div>
+        <div className="text-foreground-secondary text-md">@william</div>
+      </div>
+    ),
+  },
+  {
+    value: 'Jenifer C',
     label: (
       <div className="flex gap-2">
         <img className="h-6 w-6 rounded-full" src="https://i.pravatar.cc/500?img=5" />

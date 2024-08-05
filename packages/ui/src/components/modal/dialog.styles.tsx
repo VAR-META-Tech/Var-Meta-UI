@@ -23,7 +23,7 @@ const DialogOverlay = React.forwardRef<React.ElementRef<typeof DialogPrimitive.O
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 z-90 fixed inset-0',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-overlay/70 z-100 fixed inset-0',
         { 'backdrop-blur-sm': isBlur },
         className
       )}
@@ -86,25 +86,20 @@ const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.C
 
     return (
       <DialogPrimitive.DialogPortal>
-        <div role="presentation" className="z-100 fixed inset-0">
-          <DialogOverlay {...overlayProps} />
-          <DialogPrimitive.Content
-            onClick={composeEventHandlers(onClick, function (e) {
-              if (e.target === e.currentTarget && dismissable) onOpenChange(false);
-            })}
-            ref={ref}
-            className={dialogWrapperVariants({ scrollBehavior, placement })}
-            role="wrapper"
-            {...props}
-          >
-            <section
-              role="body"
-              className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}
-            >
-              {children}
-            </section>
-          </DialogPrimitive.Content>
-        </div>
+        <DialogOverlay {...overlayProps} />
+        <DialogPrimitive.Content
+          onClick={composeEventHandlers(onClick, function (e) {
+            if (e.target === e.currentTarget && dismissable) onOpenChange(false);
+          })}
+          ref={ref}
+          className={dialogWrapperVariants({ scrollBehavior, placement })}
+          role="wrapper"
+          {...props}
+        >
+          <section role="body" className={dialogContentVariants({ scrollBehavior, fitContent, fullScreen, className })}>
+            {children}
+          </section>
+        </DialogPrimitive.Content>
       </DialogPrimitive.DialogPortal>
     );
   }

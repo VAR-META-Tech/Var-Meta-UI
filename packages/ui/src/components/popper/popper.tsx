@@ -25,7 +25,7 @@ const PopperContent = forwardRef<React.ElementRef<typeof PopperPrimitive.Content
       <PopperPrimitive.Content
         ref={ref}
         className={cn(
-          unstyled ? ' ' : 'bg-background z-50 min-h-[40px] rounded-sm shadow-md',
+          unstyled ? ' ' : 'bg-background z-100 min-h-[40px] rounded-sm shadow-md',
           fitContent ? 'w-fit' : 'w-[var(--radix-popper-anchor-width)]',
           'max-h-[var(--radix-popper-available-height)] origin-[var(--radix-popper-transform-origin)]',
           className

@@ -41,7 +41,7 @@ const Calendar = forwardRef<ElementRef<typeof CalendarKit.Calendar>, CalendarPro
         'data-[hover=true]:bg-background-light data-[selected=true]:bg-button data-[selected=true]:data-[hover=true]:bg-button data-[hover=true]:text-foreground data-[selected=true]:data-[hover=true]:text-foreground-button data-[selected=true]:text-foreground-button data-[selected=true]:shadow-none',
 
         // Click state
-        'scale-100 data-[pressed=true]:scale-90 data-[pressed=true]:bg-button data-[pressed=true]:text-foreground',
+        'scale-100 data-[pressed=true]:scale-90 data-[pressed=true]:bg-button data-[pressed=true]:text-foreground-button',
       ]),
       // Styles for month/year picker
       picker: {
@@ -105,7 +105,7 @@ const RangeCalendar = forwardRef<ElementRef<typeof CalendarKit.RangeCalendar>, R
         'data-[hover=true]:bg-background-light data-[hover=true]:text-foreground data-[selected=true]:data-[hover=true]:text-foreground-button',
 
         // Click state
-        'scale-100 data-[pressed=true]:scale-90 data-[pressed=true]:bg-button data-[pressed=true]:text-foreground',
+        'scale-100 data-[pressed=true]:scale-90 data-[pressed=true]:bg-button data-[pressed=true]:text-foreground-button',
 
         // Range state using pseudo elements
         "before:absolute before:inset-0 before:z-[-2] before:rounded-none before:content-['']",
@@ -127,8 +127,8 @@ const RangeCalendar = forwardRef<ElementRef<typeof CalendarKit.RangeCalendar>, R
         'data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:rounded-full',
         'data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:after:bg-button',
         'data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:after:bg-button',
-        'data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-foreground',
-        'data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-foreground',
+        'data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-foreground-button',
+        'data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-foreground-button',
       ]),
     }}
     visibleMonths={1}

@@ -10,4 +10,11 @@ export {
   type DateRangeInputProps,
 } from './calendar-input';
 
-export { type CalendarProps, type RangeCalendarProps } from 'react-calendar-kit';
+export type {
+  CalendarProps,
+  RangeCalendarProps,
+  RangeValue,
+  DateValue,
+  TimeValue,
+  DateRange,
+} from 'react-calendar-kit';

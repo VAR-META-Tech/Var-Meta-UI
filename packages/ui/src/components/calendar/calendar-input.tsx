@@ -51,6 +51,7 @@ export interface DateRangeInputProps extends CalendarKitDateRangeInputProps, Var
   labelStyleProps?: VariantProps<typeof labelVariants>;
   segmentClassName?: string;
   segmentWrapperClassName?: string;
+  rangeGroupClassName?: string;
 }
 
 const DateRangeInput = forwardRef<ElementRef<typeof CalendarKitDateRangeInput>, DateRangeInputProps>((props, ref) => {
@@ -58,6 +59,8 @@ const DateRangeInput = forwardRef<ElementRef<typeof CalendarKitDateRangeInput>, 
     labelStyleProps = {},
     segmentClassName,
     segmentWrapperClassName,
+    rangeGroupClassName,
+    className,
     disabled = false,
     readOnly = false,
     variant = 'default',
@@ -72,8 +75,8 @@ const DateRangeInput = forwardRef<ElementRef<typeof CalendarKitDateRangeInput>, 
       ref={ref}
       classNames={{
         root: fullWidth ? 'w-full' : 'w-fit',
-        rangeGroup: 'flex items-center',
-        group: dateInputVariants({ radius, variant, fullWidth, disabled, readOnly, size }),
+        rangeGroup: cn('flex items-center', rangeGroupClassName),
+        group: dateInputVariants({ radius, variant, fullWidth, disabled, readOnly, size, className }),
         separator: 'mx-1.5',
         label: labelVariants({ ...labelStyleProps }),
         segmentWrapper: cn('flex gap-0.5 items-center w-fit', segmentWrapperClassName),

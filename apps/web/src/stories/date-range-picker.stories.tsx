@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 import { Button, DateRangePicker, Modal } from '@var-meta/ui';
 
@@ -27,7 +27,7 @@ export const Default: StoryFn<typeof DateRangePicker> = DefaultTemplate.bind({})
 const MultipleMonthsTemplate: StoryFn<typeof DateRangePicker> = ({ ...args }) => {
   return (
     <View prop="MultipleMonths">
-      <DateRangePicker calendarProps={{ visibleMonths: 2 }} {...args} />
+      <DateRangePicker onChange={(e) => console.log(e)} calendarProps={{ visibleMonths: 2 }} {...args} />
     </View>
   );
 };

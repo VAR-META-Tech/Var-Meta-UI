@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as SliderPrimitive from '@radix-ui/react-slider';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 
 import { cn } from '../../utils/cn';
 import { Tooltip, TooltipProvider } from '../tooltip';
@@ -21,25 +22,23 @@ const Slider = React.forwardRef<React.ElementRef<typeof SliderPrimitive.Root>, S
       min,
       max,
       formatLabel = (v) => `${v}%`,
+      defaultValue,
+      value: valueProp,
       ...props
     },
     ref
   ) => {
-    const initialValue = props.value || props.defaultValue || [min, max];
-    const [value, setValue] = React.useState(initialValue);
-
-    const handleValueChange = (newValues: number[]) => {
-      setValue(newValues);
-      if (onValueChange) {
-        onValueChange(newValues);
-      }
-    };
+    const [value, setValue] = useControllableState({
+      defaultProp: defaultValue,
+      prop: valueProp,
+      onChange: onValueChange,
+    });
 
     return (
       <TooltipProvider>
         <SliderPrimitive.Root
           orientation={orientation}
-          onValueChange={handleValueChange}
+          onValueChange={setValue}
           ref={ref}
           className={cn(
             [

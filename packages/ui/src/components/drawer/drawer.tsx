@@ -17,7 +17,7 @@ const DrawerClose = DrawerPrimitive.Close;
 const DrawerPortal = DrawerPrimitive.Portal;
 
 const drawerOverlayVariants = tv({
-  base: 'bg-overlay/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0  data-[state=open]:fade-in-0 fixed inset-0 z-50',
+  base: 'bg-overlay/70 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0  data-[state=open]:fade-in-0 fixed inset-0 z-100',
   variants: {
     blur: {
       true: 'backdrop-blur-sm',
@@ -40,7 +40,7 @@ const DrawerOverlay = React.forwardRef<React.ElementRef<typeof DrawerPrimitive.O
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
 const drawerVariants = tv({
-  base: 'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 gap-4 p-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
+  base: 'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-100 gap-4 p-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
   variants: {
     side: {
       top: 'border-border-secondary data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 border-b',

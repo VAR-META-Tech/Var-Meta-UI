@@ -2,7 +2,7 @@ import React, { forwardRef, type ElementRef } from 'react';
 import { useDateRangePicker, type UseDateRangePickerProps } from 'react-calendar-kit';
 
 import { useMergedRef } from '../../hooks';
-import { PopperFreeSolo } from '../popper';
+import { PopperFreeSolo, type PopperProps } from '../popper';
 import CalendarButton, { type CalendarButtonProps } from './calendar-button';
 import { DateRangeInput, type DateRangeInputProps } from './calendar-input';
 import { RangeCalendar } from './calendar-primitives';
@@ -10,9 +10,10 @@ import { RangeCalendar } from './calendar-primitives';
 export interface DateRangePickerProps extends UseDateRangePickerProps {
   triggerProps?: CalendarButtonProps;
   inputProps?: Partial<DateRangeInputProps>;
+  popperProps?: PopperProps;
 }
 const DateRangePicker = forwardRef<ElementRef<typeof DateRangeInput>, DateRangePickerProps>(
-  ({ triggerProps, inputProps, ...props }, forwardedRef) => {
+  ({ triggerProps, inputProps, popperProps, ...props }, forwardedRef) => {
     const { ref, state, getCalendarProps, getDateRangeProps, getDialogProps, getTriggerProps } =
       useDateRangePicker(props);
     const inputRef = useMergedRef(forwardedRef, ref);
@@ -32,6 +33,7 @@ const DateRangePicker = forwardRef<ElementRef<typeof DateRangeInput>, DateRangeP
             endContent={<CalendarButton {...triggerProps} {...getTriggerProps} />}
           />
         }
+        {...popperProps}
       >
         <div {...getDialogProps}>
           <RangeCalendar {...getCalendarProps} />

@@ -10,6 +10,8 @@ export {
   type DateRangeInputProps,
 } from './calendar-input';
 
+export { LocaleProvider } from 'react-calendar-kit';
+
 export type {
   CalendarProps,
   RangeCalendarProps,

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button, DatePicker, Modal } from '@var-meta/ui';
+import { Button, DatePicker, LocaleProvider, Modal, type DateValue } from '@var-meta/ui';
 
 import { View } from '@/components/View';
 
@@ -10,6 +10,13 @@ const meta: Meta = {
   tags: ['autodocs'],
   argTypes: {},
   args: {},
+  decorators: [
+    (Story) => (
+      <LocaleProvider locale="en-US">
+        <Story />
+      </LocaleProvider>
+    ),
+  ],
 };
 
 export default meta;
@@ -33,6 +40,17 @@ const WithTimeFieldTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
 };
 
 export const WithTimeField: StoryFn<typeof DatePicker> = WithTimeFieldTemplate.bind({});
+
+const WithControlledTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
+  const [value, setValue] = useState<DateValue>();
+  return (
+    <View prop="WithControlled">
+      <DatePicker value={value} onChange={setValue} {...args} />
+    </View>
+  );
+};
+
+export const WithControlled: StoryFn<typeof DatePicker> = WithControlledTemplate.bind({});
 
 const WithModalTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
   return (

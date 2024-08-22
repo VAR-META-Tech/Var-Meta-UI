@@ -16,9 +16,10 @@
     "clean": "rimraf .turbo && rimraf .next out && rimraf storybook-static && rimraf node_modules "
   },
   "dependencies": {
-    "@var-meta/ui": "workspace:*",
+    "@internationalized/date": "^3.5.5",
     "@var-meta/icons": "workspace:^",
     "@var-meta/theme": "workspace:*",
+    "@var-meta/ui": "workspace:*",
     "dayjs": "^1.11.10",
     "next": "^14.0.3",
     "next-themes": "^0.2.1",

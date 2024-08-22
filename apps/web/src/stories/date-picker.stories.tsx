@@ -24,6 +24,16 @@ const DefaultTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
 
 export const Default: StoryFn<typeof DatePicker> = DefaultTemplate.bind({});
 
+const WithTimeFieldTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
+  return (
+    <View prop="WithTimeField">
+      <DatePicker granularity="minute" withTimeInput {...args} />
+    </View>
+  );
+};
+
+export const WithTimeField: StoryFn<typeof DatePicker> = WithTimeFieldTemplate.bind({});
+
 const WithModalTemplate: StoryFn<typeof DatePicker> = ({ ...args }) => {
   return (
     <View prop="WithModal">

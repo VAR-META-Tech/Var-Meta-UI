@@ -49,6 +49,7 @@ export interface NavigationItemProps extends ElementProps<'div'>, VariantProps<t
   icon?: ReactNode;
   as?: ElementType;
   withActiveCursor?: boolean;
+  forceCollapse?: boolean;
 }
 
 const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
@@ -64,13 +65,14 @@ const NavigationItem = forwardRef<ElementRef<'div'>, NavigationItemProps>(
       variant: variantProp,
       active,
       collapsed: collapsedProp,
+      forceCollapse = undefined,
       ...props
     },
     ref
   ) => {
     const { variant, collapsed: collapsedContext } = useNavigationContext();
 
-    const collapsed = Boolean(collapsedProp || collapsedContext);
+    const collapsed = forceCollapse !== undefined ? forceCollapse : Boolean(collapsedProp || collapsedContext);
 
     const Comp = as ? as : 'a';
 

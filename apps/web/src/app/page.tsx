@@ -1,6 +1,5 @@
 'use client';
 
-import { title } from 'process';
 import Link from 'next/link';
 import {
   Award01Icon,
@@ -132,12 +131,12 @@ const links = [
           {
             label: 'Work from home',
             value: 'Work from home',
-            href: '/',
+            href: '/wfh',
           },
           {
             label: 'Day off',
             value: 'Day off',
-            href: '/',
+            href: '/do',
           },
           {
             label: 'CI/CO',
@@ -213,17 +212,17 @@ const links = [
           {
             label: 'Work from home',
             value: 'Work from home',
-            href: '/',
+            href: '/wfh',
           },
           {
             label: 'Day off',
             value: 'Day off',
-            href: '/',
+            href: '/do',
           },
           {
             label: 'CI/CO',
             value: 'CI/CO',
-            href: '/',
+            href: '/ci-co',
           },
           {
             label: 'Overtime',
@@ -304,7 +303,6 @@ export default function Page() {
 
             <div className="gap-2xl container flex min-h-screen flex-col items-center justify-center">
               <Text weight="bold">VAR UI</Text>
-
               <HStack
                 className="w-full"
                 pos={{

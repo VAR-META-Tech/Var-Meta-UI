@@ -7,7 +7,7 @@ import { TabsProvider, type TabsContext } from './tabs.context';
 
 export interface TabsProps
   extends ElementProps<typeof TabsPrimitive.Root>,
-    Pick<TabsContext, 'variant' | 'radius' | 'size' | 'orientation'> {}
+    Pick<TabsContext, 'variant' | 'radius' | 'size' | 'orientation' | 'layoutId'> {}
 
 export const Tabs = forwardRef<ElementRef<typeof TabsPrimitive.Root>, TabsProps>((props, ref) => {
   const {
@@ -18,6 +18,7 @@ export const Tabs = forwardRef<ElementRef<typeof TabsPrimitive.Root>, TabsProps>
     value,
     defaultValue,
     onValueChange,
+    layoutId = 'cursor',
     ...etc
   } = props;
 
@@ -30,8 +31,8 @@ export const Tabs = forwardRef<ElementRef<typeof TabsPrimitive.Root>, TabsProps>
   return (
     <TabsProvider
       value={useMemo(
-        () => ({ value: selectedItem, setValue: setSelectedItem, size, radius, variant, orientation }),
-        [selectedItem, setSelectedItem, size, radius, variant, orientation]
+        () => ({ value: selectedItem, setValue: setSelectedItem, size, radius, variant, orientation, layoutId }),
+        [selectedItem, setSelectedItem, size, radius, variant, orientation, layoutId]
       )}
     >
       <TabsPrimitive.Root

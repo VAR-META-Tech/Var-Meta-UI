@@ -52,8 +52,8 @@ const Calendar = forwardRef<ElementRef<typeof CalendarKit.Calendar>, CalendarPro
         ]),
 
         button: cn([
-          'flex items-center justify-between gap-2 rounded-full !bg-background-light px-4 py-2 ',
-          '!duration-250 group scale-100 shadow-sm outline-none transition-transform data-[pressed=true]:scale-90',
+          'flex items-center justify-between gap-2 rounded-full !bg-transparent border border-border-secondary px-4 py-2 ',
+          '!duration-250 group scale-100 outline-none transition-transform data-[pressed=true]:scale-90',
         ]),
         buttonIcon: 'group-data-[expanded=true]:rotate-180 transition-transform duration-250',
         highlight:
@@ -133,7 +133,6 @@ const RangeCalendar = forwardRef<ElementRef<typeof CalendarKit.RangeCalendar>, R
     }}
     visibleMonths={1}
     weekdayStyle="short"
-    {...props}
   />
 ));
 

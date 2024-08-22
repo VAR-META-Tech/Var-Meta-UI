@@ -28,6 +28,11 @@ const meta: Meta<typeof Dropdown> = {
       options: ['start', 'center', 'end'],
       control: { type: 'select' },
     },
+    side: {
+      description: 'The placement side of the menu relative to the trigger.',
+      options: ['top', 'right', 'bottom', 'left'],
+      control: { type: 'select' },
+    },
     alignOffset: {
       description: 'The distance from the edge of the trigger to the edge of the menu',
       defaultValue: 4,

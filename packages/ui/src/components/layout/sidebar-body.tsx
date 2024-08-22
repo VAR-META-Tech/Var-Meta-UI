@@ -66,9 +66,9 @@ export interface SidebarNavListDropdownProps extends NavigationDropdownProps {}
 
 const SidebarNavListDropdown = forwardRef<ElementRef<typeof NavigationDropdown>, SidebarNavListDropdownProps>(
   (props, ref) => {
-    const { active } = useSidebarContext();
+    const { active, isExpanded } = useSidebarContext();
 
-    return <NavigationDropdown ref={ref} activeValue={active} {...props} />;
+    return <NavigationDropdown type={isExpanded ? 'default' : 'floating'} ref={ref} activeValue={active} {...props} />;
   }
 );
 
@@ -77,7 +77,7 @@ export interface SidebarNavListItemProps extends NavigationItemProps {
 }
 
 const SidebarNavListItem = forwardRef<ElementRef<typeof NavigationItem>, SidebarNavListItemProps>(
-  ({ active: activeProp, value, onClick, ...props }, ref) => {
+  ({ active: activeProp, value, withActiveCursor = true, onClick, ...props }, ref) => {
     const { active, setActive } = useSidebarContext();
     return (
       <NavigationItem
@@ -85,7 +85,7 @@ const SidebarNavListItem = forwardRef<ElementRef<typeof NavigationItem>, Sidebar
           onClick?.(e);
           setActive(value);
         }}
-        withActiveCursor
+        withActiveCursor={withActiveCursor}
         active={activeProp || active === value}
         ref={ref}
         {...props}

@@ -184,18 +184,26 @@ DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 export interface DropdownProps extends DropdownMenuProps {
   trigger: React.ReactNode;
   contentProps?: DropdownMenuContentProps;
+  side?: DropdownMenuContentProps['side'];
   align?: DropdownMenuContentProps['align'];
   alignOffset?: DropdownMenuContentProps['alignOffset'];
   sideOffset?: DropdownMenuContentProps['sideOffset'];
 }
 
 const Dropdown = React.forwardRef<React.ElementRef<typeof DropdownMenuContent>, DropdownProps>((props, ref) => {
-  const { trigger, align, alignOffset, sideOffset = 4, contentProps, children, ...etc } = props;
+  const { trigger, align, side, alignOffset, sideOffset = 4, contentProps, children, ...etc } = props;
 
   return (
     <DropdownMenu {...etc}>
       <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
-      <DropdownMenuContent ref={ref} align={align} alignOffset={alignOffset} sideOffset={sideOffset} {...contentProps}>
+      <DropdownMenuContent
+        ref={ref}
+        align={align}
+        alignOffset={alignOffset}
+        sideOffset={sideOffset}
+        side={side}
+        {...contentProps}
+      >
         {children}
       </DropdownMenuContent>
     </DropdownMenu>

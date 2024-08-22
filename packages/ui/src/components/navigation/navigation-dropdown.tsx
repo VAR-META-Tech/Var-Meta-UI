@@ -1,10 +1,12 @@
 import { Children, cloneElement, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
+import { DropdownMenuGroup } from '@radix-ui/react-dropdown-menu';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
 import { withAttr } from '../../utils/withAttr';
+import { Dropdown, DropdownMenuItem } from '../dropdown-menu';
 import { ChevronRightIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
 import { useNavigationContext } from './navigation-context';
@@ -36,6 +38,7 @@ export interface NavigationDropdownProps
   collapsedIcon?: ReactNode;
   collapsed?: boolean;
   activeValue?: string;
+  type?: 'default' | 'floating';
 }
 
 const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps>((props, ref) => {
@@ -49,6 +52,7 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
     collapsed: collapsedProp,
     collapsedIcon,
     activeValue,
+    type,
     ...etc
   } = props;
 
@@ -63,6 +67,51 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
   const collapsed = collapsedProp || collapsedContext;
 
   const expanded = open && !collapsed;
+
+  if (type === 'floating') {
+    return (
+      <Dropdown
+        side="right"
+        align="start"
+        sideOffset={24}
+        trigger={
+          <NavigationItem
+            role="nav-item"
+            data-expanded={withAttr(expanded)}
+            aria-expanded={withAttr(expanded)}
+            className={cn('group/nav-item', className)}
+            ref={ref}
+            variant={variantProp || variant}
+            {...etc}
+          />
+        }
+      >
+        <DropdownMenuGroup>
+          {Children.map(children, (item, i) => {
+            if (isValidElement(item)) {
+              const isItemOnChild = !!item?.props?.children?.props?.value;
+              return (
+                <div key={i}>
+                  {cloneElement(item, {
+                    ...item.props,
+                    children: isItemOnChild
+                      ? cloneElement(item.props.children, {
+                          ...item.props.children.props,
+                          collapsed: false,
+                          withActiveCursor: false,
+                          forceCollapse: false,
+                        })
+                      : item.props.children,
+                  })}
+                </div>
+              );
+            }
+            return item;
+          })}
+        </DropdownMenuGroup>
+      </Dropdown>
+    );
+  }
 
   return (
     <Collapsible open={expanded} defaultOpen={defaultOpen} onOpenChange={setOpen}>

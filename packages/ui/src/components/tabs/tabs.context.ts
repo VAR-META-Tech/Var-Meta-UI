@@ -8,6 +8,9 @@ export interface TabsContext {
   variant?: 'solid' | 'outline';
   radius?: RadiusVariantKey;
   size?: 'sm' | 'md' | 'lg';
+
+  // Framer animated layout id
+  layoutId?: string;
 }
 
 export const [TabsProvider, useTabsContext] = createSafeContext<TabsContext>('Tabs component was not found in tree');

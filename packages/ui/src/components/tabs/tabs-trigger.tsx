@@ -1,4 +1,4 @@
-import React, { type ElementRef } from 'react';
+import React, { useId, type ElementRef } from 'react';
 import { size } from '@floating-ui/react-dom';
 import { composeEventHandlers } from '@radix-ui/primitive';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
@@ -88,7 +88,7 @@ export interface TabsTriggerProps extends ElementProps<typeof TabsPrimitive.Trig
 
 export const TabsTrigger = React.forwardRef<ElementRef<typeof TabsPrimitive.Trigger>, TabsTriggerProps>(
   ({ className, triggerClassName, children, onClick, ...props }, ref) => {
-    const { value, size, variant, radius, orientation, setValue } = useTabsContext();
+    const { value, layoutId = 'cursor', size, variant, radius, orientation, setValue } = useTabsContext();
 
     const isSelected = props.value === value;
 
@@ -105,7 +105,7 @@ export const TabsTrigger = React.forwardRef<ElementRef<typeof TabsPrimitive.Trig
             <m.span
               className={cursorVariant({ variant, radius })}
               layoutDependency={false}
-              layoutId="cursor"
+              layoutId={layoutId}
               transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}
             />
           </LazyMotion>

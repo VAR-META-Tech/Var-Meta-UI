@@ -130,9 +130,35 @@ const RangeCalendar = forwardRef<ElementRef<typeof CalendarKit.RangeCalendar>, R
         'data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-foreground-button',
         'data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:text-foreground-button',
       ]),
+
+      // Styles for month/year picker
+      picker: {
+        root: cn([
+          '!duration-250 absolute inset-x-0 top-0 z-20 flex w-full justify-center rounded-lg bg-background transition-opacity',
+          // Opened state
+          'pointer-events-none opacity-0 data-[expanded=true]:pointer-events-auto data-[expanded=true]:opacity-100',
+        ]),
+
+        button: cn([
+          'flex items-center justify-between gap-2 rounded-full !bg-transparent border border-border-secondary px-4 py-2 ',
+          '!duration-250 group scale-100 outline-none transition-transform data-[pressed=true]:scale-90',
+        ]),
+        buttonIcon: 'group-data-[expanded=true]:rotate-180 transition-transform duration-250',
+        highlight:
+          'h-10 border-y border-border-secondary absolute w-[calc(100%_-_16px)] z-0 top-1/2 -translate-y-1/2 pointer-events-none',
+        list: cn([
+          'scrollbar-hide flex snap-y snap-mandatory flex-col items-center overflow-y-scroll px-4 ',
+          '[--scroll-shadow-size:100px] [mask-image:linear-gradient(#000,#000,transparent_0,#000_var(--scroll-shadow-size),#000_calc(100%_-_var(--scroll-shadow-size)),transparent)]',
+        ]),
+        item: cn([
+          'text-foreground z-20 flex h-10 min-h-10 w-full snap-center items-center text-base transition-opacity',
+          'data-[focus-visible=true]:outline-focus outline-none data-[focus-visible=true]:z-20 data-[pressed=true]:opacity-50 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 ',
+        ]),
+      },
     }}
     visibleMonths={1}
     weekdayStyle="short"
+    {...props}
   />
 ));
 

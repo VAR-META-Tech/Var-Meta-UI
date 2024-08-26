@@ -568,8 +568,8 @@ importers:
         specifier: ^8.4.27
         version: 8.4.31
       react-calendar-kit:
-        specifier: ^1.0.5
-        version: 1.0.5(@internationalized/date@3.5.5)(@react-aria/i18n@3.12.2(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^1.0.6
+        version: 1.0.6(@internationalized/date@3.5.5)(@react-aria/i18n@3.12.2(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.7
         version: 2.5.7(@types/react@18.2.38)(react@18.2.0)
@@ -10513,9 +10513,9 @@ packages:
       { integrity: sha512-qqJBtEyVgS0ZmPGdCFPWJ3FreoqvG4MVQln/kCgF7Olq95IbOp0/BWyMwbdtn4VTvkM8Y7khCQ2Xgk/tcrCXig== }
     engines: { node: '>= 0.8' }
 
-  react-calendar-kit@1.0.5:
+  react-calendar-kit@1.0.6:
     resolution:
-      { integrity: sha512-fYzSfqcpqWkfxko0IraxJEbdOkHSxg2uQfa9EHmiVCp4VcS/rk5YW3hhVUy7iM9Px3b9EASvGXaNsBUrTF+qrw== }
+      { integrity: sha512-MizNKLTYK4crZIxxnRqxOzIxis1tom2eA06hm057OUDegO3YhjZhDGIlSOsWKedHu2X4jhfC0FFCJKlMfXfJDg== }
     peerDependencies:
       '@internationalized/date': ^3.5.5
       '@react-aria/i18n': ^3.12.2
@@ -23024,7 +23024,7 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-calendar-kit@1.0.5(@internationalized/date@3.5.5)(@react-aria/i18n@3.12.2(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  react-calendar-kit@1.0.6(@internationalized/date@3.5.5)(@react-aria/i18n@3.12.2(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@internationalized/date': 3.5.5
       '@react-aria/button': 3.9.5(react@18.2.0)

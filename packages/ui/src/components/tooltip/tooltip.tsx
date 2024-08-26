@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type VisibleState } from '../../types';
@@ -78,7 +79,7 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
       title,
       content,
       children,
-      open,
+      open: openProp,
       defaultOpen,
       onOpenChange,
       theme = 'default',
@@ -89,46 +90,72 @@ const Tooltip = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Conten
       ...contentProps
     },
     ref
-  ) => (
-    <TooltipRoot
-      open={open}
-      defaultOpen={defaultOpen}
-      onOpenChange={onOpenChange}
-      delayDuration={delayDuration}
-      disableHoverableContent={disableHoverableContent}
-    >
-      <TooltipTrigger asChild>{children}</TooltipTrigger>
-      <TooltipPortal>
-        <TooltipContent theme={theme} ref={ref} {...contentProps}>
-          {title}
-          {content && (
-            <div
-              className={cn(
-                'mt-1 text-xs font-medium',
-                {
-                  'text-gray-600': theme === 'light',
-                  'text-gray-300': theme === 'dark',
-                  'text-foreground': theme === 'default',
-                },
-                contentClassName
-              )}
-            >
-              {content}
-            </div>
-          )}
-          {arrow && (
-            <TooltipPrimitive.Arrow
-              className={cn('-mt-px w-3 drop-shadow-lg', {
-                'fill-white': theme === 'light',
-                'fill-gray-900': theme === 'dark',
-                'fill-background': theme === 'default',
-              })}
-            />
-          )}
-        </TooltipContent>
-      </TooltipPortal>
-    </TooltipRoot>
-  )
+  ) => {
+    const openByClickRef = React.useRef(false);
+    const [open = false, setOpen] = useControllableState({
+      prop: openProp,
+      defaultProp: defaultOpen,
+      onChange: onOpenChange,
+    });
+
+    const handleOpenByClick = () => {
+      setOpen(true);
+      openByClickRef.current = true;
+      setTimeout(() => {
+        openByClickRef.current = false;
+      }, delayDuration);
+    };
+
+    const handleOpenChange = (isOpen?: boolean) => {
+      if (openByClickRef.current) {
+        openByClickRef.current = false;
+        return;
+      }
+      setOpen(isOpen);
+    };
+
+    return (
+      <TooltipRoot
+        open={open}
+        onOpenChange={handleOpenChange}
+        delayDuration={delayDuration}
+        disableHoverableContent={disableHoverableContent}
+      >
+        <TooltipTrigger onClick={handleOpenByClick} asChild>
+          {children}
+        </TooltipTrigger>
+        <TooltipPortal>
+          <TooltipContent theme={theme} ref={ref} {...contentProps}>
+            {title}
+            {content && (
+              <div
+                className={cn(
+                  'mt-1 text-xs font-medium',
+                  {
+                    'text-gray-600': theme === 'light',
+                    'text-gray-300': theme === 'dark',
+                    'text-foreground': theme === 'default',
+                  },
+                  contentClassName
+                )}
+              >
+                {content}
+              </div>
+            )}
+            {arrow && (
+              <TooltipPrimitive.Arrow
+                className={cn('-mt-px w-3 drop-shadow-lg', {
+                  'fill-white': theme === 'light',
+                  'fill-gray-900': theme === 'dark',
+                  'fill-background': theme === 'default',
+                })}
+              />
+            )}
+          </TooltipContent>
+        </TooltipPortal>
+      </TooltipRoot>
+    );
+  }
 );
 Tooltip.displayName = 'Tooltip';
 

@@ -64,7 +64,7 @@ const DateRangeInput = forwardRef<ElementRef<typeof CalendarKitDateRangeInput>, 
     disabled = false,
     readOnly = false,
     variant = 'default',
-    fullWidth,
+    fullWidth = true,
     size,
     radius,
     ...etc
@@ -75,7 +75,7 @@ const DateRangeInput = forwardRef<ElementRef<typeof CalendarKitDateRangeInput>, 
       ref={ref}
       classNames={{
         root: fullWidth ? 'w-full' : 'w-fit',
-        rangeGroup: cn('flex items-center', rangeGroupClassName),
+        rangeGroup: cn('flex items-center w-full overflow-auto', rangeGroupClassName),
         group: dateInputVariants({ radius, variant, fullWidth, disabled, readOnly, size, className }),
         separator: 'mx-1.5',
         label: labelVariants({ ...labelStyleProps }),
@@ -104,7 +104,7 @@ const DateInput = forwardRef<ElementRef<typeof CalendarKitDateInput>, DateInputP
     disabled = false,
     readOnly = false,
     variant = 'default',
-    fullWidth,
+    fullWidth = true,
     size,
     radius,
     ...etc
@@ -141,7 +141,7 @@ const TimeInput = forwardRef<ElementRef<typeof CalendarKitTimeInput>, TimeInputP
     disabled = false,
     readOnly = false,
     variant = 'default',
-    fullWidth,
+    fullWidth = true,
     size,
     radius,
     ...etc

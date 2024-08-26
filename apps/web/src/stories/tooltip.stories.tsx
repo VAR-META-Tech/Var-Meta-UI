@@ -81,3 +81,19 @@ const DefaultTemplate: StoryFn<TooltipProps> = (args) => {
 };
 
 export const Default: StoryFn<typeof Tooltip> = DefaultTemplate.bind({});
+
+const WithClickableTemplate: StoryFn<TooltipProps> = (args) => {
+  return (
+    <TooltipProvider>
+      <EnhancedView prop="WithClickable">
+        <Tooltip side="bottom" align="start" {...args}>
+          <Button iconOnly variant="link">
+            <HelpCircleIcon />
+          </Button>
+        </Tooltip>
+      </EnhancedView>
+    </TooltipProvider>
+  );
+};
+
+export const WithClickable: StoryFn<typeof Tooltip> = WithClickableTemplate.bind({});

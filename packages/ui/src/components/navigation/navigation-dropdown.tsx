@@ -1,12 +1,12 @@
 import { Children, cloneElement, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
-import { DropdownMenuGroup } from '@radix-ui/react-dropdown-menu';
+import { DropdownMenuGroup, DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 import { type ElementProps, type VisibleState } from '../../types';
 import { cn } from '../../utils/cn';
 import { withAttr } from '../../utils/withAttr';
-import { Dropdown, DropdownMenuItem } from '../dropdown-menu';
+import { Dropdown } from '../dropdown-menu';
 import { ChevronRightIcon } from '../icons';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../transition';
 import { useNavigationContext } from './navigation-context';
@@ -74,6 +74,8 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
         side="right"
         align="start"
         sideOffset={24}
+        onOpenChange={setOpen}
+        open={open}
         trigger={
           <NavigationItem
             role="nav-item"
@@ -91,7 +93,11 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
             if (isValidElement(item)) {
               const isItemOnChild = !!item?.props?.children?.props?.value;
               return (
-                <div key={i}>
+                <DropdownMenuItem
+                  onClick={() => setOpen(false)}
+                  className="border-none bg-transparent shadow-none outline-none"
+                  key={i}
+                >
                   {cloneElement(item, {
                     ...item.props,
                     children: isItemOnChild
@@ -103,7 +109,7 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
                         })
                       : item.props.children,
                   })}
-                </div>
+                </DropdownMenuItem>
               );
             }
             return item;

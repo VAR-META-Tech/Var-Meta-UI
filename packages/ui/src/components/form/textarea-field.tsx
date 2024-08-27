@@ -10,7 +10,7 @@ export interface TextareaFieldProps extends TextareaProps {
 }
 
 const TextareaField = React.forwardRef<HTMLTextAreaElement, TextareaFieldProps>(
-  ({ variant, label, helperText, className, ...props }, ref) => {
+  ({ variant, label, helperText, ...props }, ref) => {
     return (
       <div>
         {label && <Label>{label}</Label>}

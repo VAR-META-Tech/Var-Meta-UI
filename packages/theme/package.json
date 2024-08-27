@@ -1,6 +1,6 @@
 {
   "name": "@var-meta/theme",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "license": "MIT",
   "sideEffects": false,
   "exports": {

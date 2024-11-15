@@ -1,4 +1,4 @@
-import { Children, cloneElement, forwardRef, isValidElement, type ElementRef, type ReactNode } from 'react';
+import { Children, cloneElement, forwardRef, isValidElement, useEffect, type ElementRef, type ReactNode } from 'react';
 import { DropdownMenuGroup, DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { tv, type VariantProps } from 'tailwind-variants';
@@ -67,6 +67,11 @@ const NavigationDropdown = forwardRef<ElementRef<'div'>, NavigationDropdownProps
   const collapsed = collapsedProp || collapsedContext;
 
   const expanded = open && !collapsed;
+
+  useEffect(() => {
+    setOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [collapsed]);
 
   if (type === 'floating') {
     return (

@@ -42,7 +42,10 @@ interface DialogContentProps extends DialogPrimitive.DialogContentProps {
 }
 
 const dialogContentVariants = tv({
-  base: 'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] duration-200 sm:mx-6 sm:my-16 border border-border bg-background w-full max-w-[400px] h-fit  min-h-[200px] p-0 shadow-lg rounded-lg md:w-full flex flex-col box-border z-100',
+  base: [
+    'sm:mx-6 sm:my-16 border border-border bg-background w-full max-w-[400px] h-fit  min-h-[200px] p-0 shadow-lg rounded-lg md:w-full flex flex-col box-border z-100',
+    'duration-200 group-data-[state=open]/wrapper:animate-in group-data-[state=closed]/wrapper:animate-out group-data-[state=closed]/wrapper:fade-out-0 group-data-[state=open]/wrapper:fade-in-0 group-data-[state=closed]/wrapper:zoom-out-75 group-data-[state=open]/wrapper:zoom-in-75 group-data-[state=closed]/wrapper:slide-out-to-top-[48%]  group-data-[state=open]/wrapper:slide-in-from-top-[48%]',
+  ],
   variants: {
     fitContent: {
       true: 'max-w-fit w-fit',
@@ -59,7 +62,7 @@ const dialogContentVariants = tv({
 });
 
 const dialogWrapperVariants = tv({
-  base: 'h-[100dvh] fixed inset-0 flex justify-center w-screen z-100',
+  base: 'h-[100dvh] group/wrapper  fixed inset-0 flex justify-center w-screen z-100',
   variants: {
     scrollBehavior: {
       default: 'overflow-y-hidden',

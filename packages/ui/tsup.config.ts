@@ -30,17 +30,17 @@ async function cleanFile(dir = DIST_PATH): Promise<void> {
 }
 
 export default defineConfig((options: Options) => ({
-  treeshake: false,
-  splitting: false,
   entry: ['src', '!src/**/__tests__/**', '!src/**/*.test.*'],
   format: ['esm', 'cjs'],
   target: 'esnext',
   outDir: DIST_PATH,
   dts: true,
-  minify: true,
+  minify: !options.watch,
   clean: !options.watch,
-  external: ['react'],
-  sourcemap: true,
+  external: ['react', 'react-dom'],
+  sourcemap: !!options.watch,
+  treeshake: true,
+  splitting: true,
   async onSuccess() {
     await cleanFile();
   },

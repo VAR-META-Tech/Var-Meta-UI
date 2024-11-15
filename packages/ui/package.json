@@ -1,7 +1,7 @@
 {
   "name": "@var-meta/ui",
   "license": "MIT",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "sideEffects": [
     "**/*.css"
   ],
@@ -15,9 +15,16 @@
   "module": "dist/index.mjs",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.js"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "module": "./dist/index.mjs",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "module": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
     },
     "./package.json": "./package.json"
   },
@@ -33,12 +40,14 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\" --cache"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.9.2",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
     "@var-meta/eslint-config": "workspace:*",
     "@var-meta/test-utils": "workspace:^",
     "esbuild-plugin-file-path-extensions": "^2.1.0",
